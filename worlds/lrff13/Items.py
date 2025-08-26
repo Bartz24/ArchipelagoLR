@@ -2,9 +2,6 @@ from typing import Dict, NamedTuple, Optional
 from BaseClasses import Item, ItemClassification
 
 
-LRFF13_BASE_ID = 636749621731
-
-
 class LRFF13Item(Item):
     game: str = "Lightning Returns Final Fantasy XIII"
 
@@ -20,7562 +17,7195 @@ class LRFF13ItemData(NamedTuple):
 
 item_data_table: Dict[str, LRFF13ItemData] = {
     "Attack Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 0,
+        code=0,
         str_id="at010_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Attack Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1,
+        code=1,
         str_id="at010_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Attack Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 2,
+        code=2,
         str_id="at010_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Attack Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 3,
+        code=3,
         str_id="at010_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Attack Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 4,
+        code=4,
         str_id="at010_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Flamestrike Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 5,
+        code=5,
         str_id="at010_10_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Flamestrike Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 6,
+        code=6,
         str_id="at010_10_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Flamestrike Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 7,
+        code=7,
         str_id="at010_10_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Flamestrike Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 8,
+        code=8,
         str_id="at010_10_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Flamestrike Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 9,
+        code=9,
         str_id="at010_10_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Froststrike Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 10,
+        code=10,
         str_id="at010_20_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Froststrike Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 11,
+        code=11,
         str_id="at010_20_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Froststrike Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 12,
+        code=12,
         str_id="at010_20_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Froststrike Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 13,
+        code=13,
         str_id="at010_20_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Froststrike Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 14,
+        code=14,
         str_id="at010_20_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Sparkstrike Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 15,
+        code=15,
         str_id="at010_30_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Sparkstrike Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 16,
+        code=16,
         str_id="at010_30_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Sparkstrike Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 17,
+        code=17,
         str_id="at010_30_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Sparkstrike Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 18,
+        code=18,
         str_id="at010_30_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Sparkstrike Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 19,
+        code=19,
         str_id="at010_30_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Galestrike Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 20,
+        code=20,
         str_id="at010_50_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Galestrike Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 21,
+        code=21,
         str_id="at010_50_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Galestrike Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 22,
+        code=22,
         str_id="at010_50_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Galestrike Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 23,
+        code=23,
         str_id="at010_50_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Galestrike Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 24,
+        code=24,
         str_id="at010_50_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Light Slash Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 25,
+        code=25,
         str_id="at060_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Light Slash Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 26,
+        code=26,
         str_id="at060_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Light Slash Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 27,
+        code=27,
         str_id="at060_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Light Slash Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 28,
+        code=28,
         str_id="at060_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Light Slash Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 29,
+        code=29,
         str_id="at060_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Beat Down Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 30,
+        code=30,
         str_id="at130_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Beat Down Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 31,
+        code=31,
         str_id="at130_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Beat Down Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 32,
+        code=32,
         str_id="at130_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Beat Down Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 33,
+        code=33,
         str_id="at130_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Beat Down Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 34,
+        code=34,
         str_id="at130_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Fatal Sweep Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 35,
+        code=35,
         str_id="at150_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Fatal Sweep Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 36,
+        code=36,
         str_id="at150_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Fatal Sweep Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 37,
+        code=37,
         str_id="at150_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Fatal Sweep Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 38,
+        code=38,
         str_id="at150_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Fatal Sweep Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 39,
+        code=39,
         str_id="at150_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Charged Strike Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 40,
+        code=40,
         str_id="at160_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Charged Strike Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 41,
+        code=41,
         str_id="at160_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Charged Strike Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 42,
+        code=42,
         str_id="at160_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Charged Strike Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 43,
+        code=43,
         str_id="at160_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Charged Strike Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 44,
+        code=44,
         str_id="at160_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Blitz Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 45,
+        code=45,
         str_id="at520_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Blitz Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 46,
+        code=46,
         str_id="at520_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Blitz Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 47,
+        code=47,
         str_id="at520_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Blitz Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 48,
+        code=48,
         str_id="at520_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Blitz Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 49,
+        code=49,
         str_id="at520_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Area Sweep Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 50,
+        code=50,
         str_id="at620_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Area Sweep Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 51,
+        code=51,
         str_id="at620_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Area Sweep Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 52,
+        code=52,
         str_id="at620_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Area Sweep Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 53,
+        code=53,
         str_id="at620_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Area Sweep Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 54,
+        code=54,
         str_id="at620_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Heat Blitz Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 55,
+        code=55,
         str_id="at620_10_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Heat Blitz Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 56,
+        code=56,
         str_id="at620_10_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Heat Blitz Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 57,
+        code=57,
         str_id="at620_10_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Heat Blitz Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 58,
+        code=58,
         str_id="at620_10_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Heat Blitz Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 59,
+        code=59,
         str_id="at620_10_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Ice Blitz Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 60,
+        code=60,
         str_id="at620_20_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Ice Blitz Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 61,
+        code=61,
         str_id="at620_20_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Ice Blitz Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 62,
+        code=62,
         str_id="at620_20_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Ice Blitz Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 63,
+        code=63,
         str_id="at620_20_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Ice Blitz Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 64,
+        code=64,
         str_id="at620_20_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Electric Blitz Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 65,
+        code=65,
         str_id="at620_30_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Electric Blitz Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 66,
+        code=66,
         str_id="at620_30_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Electric Blitz Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 67,
+        code=67,
         str_id="at620_30_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Electric Blitz Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 68,
+        code=68,
         str_id="at620_30_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Electric Blitz Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 69,
+        code=69,
         str_id="at620_30_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Aero Blitz Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 70,
+        code=70,
         str_id="at620_50_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Aero Blitz Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 71,
+        code=71,
         str_id="at620_50_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Aero Blitz Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 72,
+        code=72,
         str_id="at620_50_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Aero Blitz Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 73,
+        code=73,
         str_id="at620_50_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Aero Blitz Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 74,
+        code=74,
         str_id="at620_50_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Punt Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 75,
+        code=75,
         str_id="at700_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Punt Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 76,
+        code=76,
         str_id="at700_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Punt Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 77,
+        code=77,
         str_id="at700_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Punt Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 78,
+        code=78,
         str_id="at700_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Punt Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 79,
+        code=79,
         str_id="at700_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Heavy Slash Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 80,
+        code=80,
         str_id="at800_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Heavy Slash Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 81,
+        code=81,
         str_id="at800_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Heavy Slash Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 82,
+        code=82,
         str_id="at800_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Heavy Slash Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 83,
+        code=83,
         str_id="at800_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Heavy Slash Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 84,
+        code=84,
         str_id="at800_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Evade Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 85,
+        code=85,
         str_id="av010_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Evade Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 86,
+        code=86,
         str_id="av010_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Evade Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 87,
+        code=87,
         str_id="av010_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Evade Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 88,
+        code=88,
         str_id="av010_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Evade Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 89,
+        code=89,
         str_id="av010_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "ATB Charge Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 90,
+        code=90,
         str_id="ac300_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "ATB Charge Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 91,
+        code=91,
         str_id="ac300_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "ATB Charge Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 92,
+        code=92,
         str_id="ac300_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "ATB Charge Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 93,
+        code=93,
         str_id="ac300_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "ATB Charge Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 94,
+        code=94,
         str_id="ac300_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Counterblow Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 95,
+        code=95,
         str_id="ga010_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Counterblow Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 96,
+        code=96,
         str_id="ga010_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Counterblow Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 97,
+        code=97,
         str_id="ga010_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Counterblow Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 98,
+        code=98,
         str_id="ga010_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Counterblow Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 99,
+        code=99,
         str_id="ga010_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Counterspell Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 100,
+        code=100,
         str_id="ga110_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Counterspell Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 101,
+        code=101,
         str_id="ga110_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Counterspell Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 102,
+        code=102,
         str_id="ga110_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Counterspell Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 103,
+        code=103,
         str_id="ga110_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Counterspell Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 104,
+        code=104,
         str_id="ga110_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Steelguard Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 105,
+        code=105,
         str_id="gd010_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Steelguard Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 106,
+        code=106,
         str_id="gd010_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Steelguard Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 107,
+        code=107,
         str_id="gd010_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Steelguard Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 108,
+        code=108,
         str_id="gd010_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Steelguard Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 109,
+        code=109,
         str_id="gd010_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Guard Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 110,
+        code=110,
         str_id="gd020_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Guard Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 111,
+        code=111,
         str_id="gd020_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Guard Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 112,
+        code=112,
         str_id="gd020_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Guard Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 113,
+        code=113,
         str_id="gd020_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Guard Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 114,
+        code=114,
         str_id="gd020_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Light Guard Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 115,
+        code=115,
         str_id="gd030_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Light Guard Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 116,
+        code=116,
         str_id="gd030_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Light Guard Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 117,
+        code=117,
         str_id="gd030_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Light Guard Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 118,
+        code=118,
         str_id="gd030_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Light Guard Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 119,
+        code=119,
         str_id="gd030_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Heavy Guard Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 120,
+        code=120,
         str_id="gd040_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Heavy Guard Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 121,
+        code=121,
         str_id="gd040_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Heavy Guard Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 122,
+        code=122,
         str_id="gd040_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Heavy Guard Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 123,
+        code=123,
         str_id="gd040_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Heavy Guard Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 124,
+        code=124,
         str_id="gd040_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Mediguard Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 125,
+        code=125,
         str_id="gd110_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Mediguard Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 126,
+        code=126,
         str_id="gd110_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Mediguard Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 127,
+        code=127,
         str_id="gd110_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Mediguard Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 128,
+        code=128,
         str_id="gd110_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Mediguard Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 129,
+        code=129,
         str_id="gd110_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "NulAll Guard Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 130,
+        code=130,
         str_id="gd510_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "NulAll Guard Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 131,
+        code=131,
         str_id="gd510_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "NulAll Guard Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 132,
+        code=132,
         str_id="gd510_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "NulAll Guard Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 133,
+        code=133,
         str_id="gd510_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "NulAll Guard Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 134,
+        code=134,
         str_id="gd510_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Heroic Guard Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 135,
+        code=135,
         str_id="gd810_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Heroic Guard Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 136,
+        code=136,
         str_id="gd810_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Heroic Guard Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 137,
+        code=137,
         str_id="gd810_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Heroic Guard Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 138,
+        code=138,
         str_id="gd810_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Heroic Guard Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 139,
+        code=139,
         str_id="gd810_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Ruin Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 140,
+        code=140,
         str_id="ma000_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Ruin Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 141,
+        code=141,
         str_id="ma000_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Ruin Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 142,
+        code=142,
         str_id="ma000_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Ruin Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 143,
+        code=143,
         str_id="ma000_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Ruin Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 144,
+        code=144,
         str_id="ma000_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Ruinga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 145,
+        code=145,
         str_id="ma020_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Ruinga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 146,
+        code=146,
         str_id="ma020_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Ruinga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 147,
+        code=147,
         str_id="ma020_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Ruinga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 148,
+        code=148,
         str_id="ma020_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Ruinga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 149,
+        code=149,
         str_id="ma020_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Magnet Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 150,
+        code=150,
         str_id="ma100_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Magnet Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 151,
+        code=151,
         str_id="ma100_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Magnet Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 152,
+        code=152,
         str_id="ma100_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Magnet Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 153,
+        code=153,
         str_id="ma100_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Magnet Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 154,
+        code=154,
         str_id="ma100_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Fire Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 155,
+        code=155,
         str_id="mb000_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Fire Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 156,
+        code=156,
         str_id="mb000_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Fire Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 157,
+        code=157,
         str_id="mb000_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Fire Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 158,
+        code=158,
         str_id="mb000_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Fire Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 159,
+        code=159,
         str_id="mb000_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Fira Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 160,
+        code=160,
         str_id="mb010_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Fira Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 161,
+        code=161,
         str_id="mb010_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Fira Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 162,
+        code=162,
         str_id="mb010_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Fira Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 163,
+        code=163,
         str_id="mb010_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Fira Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 164,
+        code=164,
         str_id="mb010_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Firaga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 165,
+        code=165,
         str_id="mb020_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Firaga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 166,
+        code=166,
         str_id="mb020_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Firaga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 167,
+        code=167,
         str_id="mb020_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Firaga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 168,
+        code=168,
         str_id="mb020_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Firaga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 169,
+        code=169,
         str_id="mb020_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Flare Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 170,
+        code=170,
         str_id="mb030_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Flare Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 171,
+        code=171,
         str_id="mb030_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Flare Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 172,
+        code=172,
         str_id="mb030_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Flare Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 173,
+        code=173,
         str_id="mb030_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Flare Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 174,
+        code=174,
         str_id="mb030_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Blizzard Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 175,
+        code=175,
         str_id="mb100_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Blizzard Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 176,
+        code=176,
         str_id="mb100_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Blizzard Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 177,
+        code=177,
         str_id="mb100_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Blizzard Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 178,
+        code=178,
         str_id="mb100_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Blizzard Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 179,
+        code=179,
         str_id="mb100_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Blizzara Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 180,
+        code=180,
         str_id="mb110_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Blizzara Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 181,
+        code=181,
         str_id="mb110_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Blizzara Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 182,
+        code=182,
         str_id="mb110_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Blizzara Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 183,
+        code=183,
         str_id="mb110_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Blizzara Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 184,
+        code=184,
         str_id="mb110_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Blizzaga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 185,
+        code=185,
         str_id="mb120_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Blizzaga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 186,
+        code=186,
         str_id="mb120_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Blizzaga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 187,
+        code=187,
         str_id="mb120_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Blizzaga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 188,
+        code=188,
         str_id="mb120_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Blizzaga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 189,
+        code=189,
         str_id="mb120_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Chill Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 190,
+        code=190,
         str_id="mb130_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Chill Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 191,
+        code=191,
         str_id="mb130_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Chill Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 192,
+        code=192,
         str_id="mb130_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Chill Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 193,
+        code=193,
         str_id="mb130_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Chill Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 194,
+        code=194,
         str_id="mb130_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Thunder Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 195,
+        code=195,
         str_id="mb200_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Thunder Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 196,
+        code=196,
         str_id="mb200_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Thunder Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 197,
+        code=197,
         str_id="mb200_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Thunder Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 198,
+        code=198,
         str_id="mb200_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Thunder Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 199,
+        code=199,
         str_id="mb200_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Thundara Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 200,
+        code=200,
         str_id="mb210_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Thundara Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 201,
+        code=201,
         str_id="mb210_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Thundara Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 202,
+        code=202,
         str_id="mb210_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Thundara Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 203,
+        code=203,
         str_id="mb210_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Thundara Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 204,
+        code=204,
         str_id="mb210_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Thundaga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 205,
+        code=205,
         str_id="mb220_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Thundaga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 206,
+        code=206,
         str_id="mb220_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Thundaga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 207,
+        code=207,
         str_id="mb220_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Thundaga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 208,
+        code=208,
         str_id="mb220_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Thundaga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 209,
+        code=209,
         str_id="mb220_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Surge Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 210,
+        code=210,
         str_id="mb230_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Surge Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 211,
+        code=211,
         str_id="mb230_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Surge Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 212,
+        code=212,
         str_id="mb230_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Surge Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 213,
+        code=213,
         str_id="mb230_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Surge Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 214,
+        code=214,
         str_id="mb230_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Aero Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 215,
+        code=215,
         str_id="mb400_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Aero Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 216,
+        code=216,
         str_id="mb400_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Aero Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 217,
+        code=217,
         str_id="mb400_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Aero Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 218,
+        code=218,
         str_id="mb400_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Aero Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 219,
+        code=219,
         str_id="mb400_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Aerora Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 220,
+        code=220,
         str_id="mb410_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Aerora Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 221,
+        code=221,
         str_id="mb410_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Aerora Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 222,
+        code=222,
         str_id="mb410_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Aerora Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 223,
+        code=223,
         str_id="mb410_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Aerora Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 224,
+        code=224,
         str_id="mb410_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Aeroga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 225,
+        code=225,
         str_id="mb420_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Aeroga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 226,
+        code=226,
         str_id="mb420_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Aeroga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 227,
+        code=227,
         str_id="mb420_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Aeroga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 228,
+        code=228,
         str_id="mb420_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Aeroga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 229,
+        code=229,
         str_id="mb420_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Tornado Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 230,
+        code=230,
         str_id="mb430_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Tornado Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 231,
+        code=231,
         str_id="mb430_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Tornado Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 232,
+        code=232,
         str_id="mb430_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Tornado Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 233,
+        code=233,
         str_id="mb430_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Tornado Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 234,
+        code=234,
         str_id="mb430_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Flamespark Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 235,
+        code=235,
         str_id="mc100_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Flamespark Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 236,
+        code=236,
         str_id="mc100_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Flamespark Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 237,
+        code=237,
         str_id="mc100_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Flamespark Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 238,
+        code=238,
         str_id="mc100_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Flamespark Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 239,
+        code=239,
         str_id="mc100_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Flamesparka Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 240,
+        code=240,
         str_id="mc110_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Flamesparka Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 241,
+        code=241,
         str_id="mc110_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Flamesparka Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 242,
+        code=242,
         str_id="mc110_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Flamesparka Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 243,
+        code=243,
         str_id="mc110_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Flamesparka Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 244,
+        code=244,
         str_id="mc110_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Firestorm Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 245,
+        code=245,
         str_id="mc200_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Firestorm Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 246,
+        code=246,
         str_id="mc200_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Firestorm Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 247,
+        code=247,
         str_id="mc200_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Firestorm Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 248,
+        code=248,
         str_id="mc200_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Firestorm Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 249,
+        code=249,
         str_id="mc200_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Firestorma Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 250,
+        code=250,
         str_id="mc210_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Firestorma Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 251,
+        code=251,
         str_id="mc210_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Firestorma Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 252,
+        code=252,
         str_id="mc210_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Firestorma Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 253,
+        code=253,
         str_id="mc210_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Firestorma Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 254,
+        code=254,
         str_id="mc210_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Icespark Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 255,
+        code=255,
         str_id="mc300_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Icespark Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 256,
+        code=256,
         str_id="mc300_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Icespark Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 257,
+        code=257,
         str_id="mc300_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Icespark Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 258,
+        code=258,
         str_id="mc300_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Icespark Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 259,
+        code=259,
         str_id="mc300_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Icesparka Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 260,
+        code=260,
         str_id="mc310_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Icesparka Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 261,
+        code=261,
         str_id="mc310_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Icesparka Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 262,
+        code=262,
         str_id="mc310_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Icesparka Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 263,
+        code=263,
         str_id="mc310_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Icesparka Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 264,
+        code=264,
         str_id="mc310_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Icestorm Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 265,
+        code=265,
         str_id="mc400_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Icestorm Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 266,
+        code=266,
         str_id="mc400_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Icestorm Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 267,
+        code=267,
         str_id="mc400_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Icestorm Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 268,
+        code=268,
         str_id="mc400_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Icestorm Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 269,
+        code=269,
         str_id="mc400_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Icestorma Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 270,
+        code=270,
         str_id="mc410_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Icestorma Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 271,
+        code=271,
         str_id="mc410_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Icestorma Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 272,
+        code=272,
         str_id="mc410_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Icestorma Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 273,
+        code=273,
         str_id="mc410_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Icestorma Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 274,
+        code=274,
         str_id="mc410_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Element Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 275,
+        code=275,
         str_id="mc900_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Element Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 276,
+        code=276,
         str_id="mc900_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Element Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 277,
+        code=277,
         str_id="mc900_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Element Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 278,
+        code=278,
         str_id="mc900_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Element Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 279,
+        code=279,
         str_id="mc900_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Elementa Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 280,
+        code=280,
         str_id="mc910_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Elementa Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 281,
+        code=281,
         str_id="mc910_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Elementa Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 282,
+        code=282,
         str_id="mc910_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Elementa Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 283,
+        code=283,
         str_id="mc910_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Elementa Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 284,
+        code=284,
         str_id="mc910_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Deprotect Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 285,
+        code=285,
         str_id="mg000_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Deprotect Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 286,
+        code=286,
         str_id="mg000_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Deprotect Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 287,
+        code=287,
         str_id="mg000_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Deprotect Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 288,
+        code=288,
         str_id="mg000_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Deprotect Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 289,
+        code=289,
         str_id="mg000_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Deshell Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 290,
+        code=290,
         str_id="mg010_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Deshell Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 291,
+        code=291,
         str_id="mg010_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Deshell Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 292,
+        code=292,
         str_id="mg010_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Deshell Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 293,
+        code=293,
         str_id="mg010_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Deshell Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 294,
+        code=294,
         str_id="mg010_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Poison Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 295,
+        code=295,
         str_id="mg020_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Poison Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 296,
+        code=296,
         str_id="mg020_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Poison Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 297,
+        code=297,
         str_id="mg020_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Poison Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 298,
+        code=298,
         str_id="mg020_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Poison Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 299,
+        code=299,
         str_id="mg020_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Imperil Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 300,
+        code=300,
         str_id="mg030_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Imperil Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 301,
+        code=301,
         str_id="mg030_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Imperil Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 302,
+        code=302,
         str_id="mg030_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Imperil Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 303,
+        code=303,
         str_id="mg030_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Imperil Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 304,
+        code=304,
         str_id="mg030_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Deprotega Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 305,
+        code=305,
         str_id="mg200_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Deprotega Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 306,
+        code=306,
         str_id="mg200_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Deprotega Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 307,
+        code=307,
         str_id="mg200_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Deprotega Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 308,
+        code=308,
         str_id="mg200_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Deprotega Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 309,
+        code=309,
         str_id="mg200_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Deshellga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 310,
+        code=310,
         str_id="mg210_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Deshellga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 311,
+        code=311,
         str_id="mg210_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Deshellga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 312,
+        code=312,
         str_id="mg210_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Deshellga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 313,
+        code=313,
         str_id="mg210_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Deshellga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 314,
+        code=314,
         str_id="mg210_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Poisonga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 315,
+        code=315,
         str_id="mg220_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Poisonga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 316,
+        code=316,
         str_id="mg220_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Poisonga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 317,
+        code=317,
         str_id="mg220_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Poisonga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 318,
+        code=318,
         str_id="mg220_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Poisonga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 319,
+        code=319,
         str_id="mg220_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Imperilga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 320,
+        code=320,
         str_id="mg230_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Imperilga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 321,
+        code=321,
         str_id="mg230_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Imperilga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 322,
+        code=322,
         str_id="mg230_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Imperilga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 323,
+        code=323,
         str_id="mg230_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Imperilga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 324,
+        code=324,
         str_id="mg230_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Dispel Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 325,
+        code=325,
         str_id="mg240_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Dispel Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 326,
+        code=326,
         str_id="mg240_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Dispel Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 327,
+        code=327,
         str_id="mg240_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Dispel Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 328,
+        code=328,
         str_id="mg240_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Dispel Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 329,
+        code=329,
         str_id="mg240_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Dispelga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 330,
+        code=330,
         str_id="mg250_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Dispelga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 331,
+        code=331,
         str_id="mg250_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Dispelga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 332,
+        code=332,
         str_id="mg250_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Dispelga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 333,
+        code=333,
         str_id="mg250_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Dispelga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 334,
+        code=334,
         str_id="mg250_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Slow Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 335,
+        code=335,
         str_id="mg500_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Slow Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 336,
+        code=336,
         str_id="mg500_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Slow Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 337,
+        code=337,
         str_id="mg500_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Slow Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 338,
+        code=338,
         str_id="mg500_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Slow Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 339,
+        code=339,
         str_id="mg500_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Curse Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 340,
+        code=340,
         str_id="mg530_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Curse Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 341,
+        code=341,
         str_id="mg530_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Curse Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 342,
+        code=342,
         str_id="mg530_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Curse Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 343,
+        code=343,
         str_id="mg530_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Curse Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 344,
+        code=344,
         str_id="mg530_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Debrave Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 345,
+        code=345,
         str_id="mg560_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Debrave Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 346,
+        code=346,
         str_id="mg560_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Debrave Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 347,
+        code=347,
         str_id="mg560_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Debrave Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 348,
+        code=348,
         str_id="mg560_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Debrave Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 349,
+        code=349,
         str_id="mg560_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Defaith Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 350,
+        code=350,
         str_id="mg570_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Defaith Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 351,
+        code=351,
         str_id="mg570_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Defaith Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 352,
+        code=352,
         str_id="mg570_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Defaith Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 353,
+        code=353,
         str_id="mg570_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Defaith Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 354,
+        code=354,
         str_id="mg570_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Slowga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 355,
+        code=355,
         str_id="mg700_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Slowga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 356,
+        code=356,
         str_id="mg700_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Slowga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 357,
+        code=357,
         str_id="mg700_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Slowga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 358,
+        code=358,
         str_id="mg700_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Slowga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 359,
+        code=359,
         str_id="mg700_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Cursega Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 360,
+        code=360,
         str_id="mg730_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Cursega Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 361,
+        code=361,
         str_id="mg730_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Cursega Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 362,
+        code=362,
         str_id="mg730_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Cursega Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 363,
+        code=363,
         str_id="mg730_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Cursega Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 364,
+        code=364,
         str_id="mg730_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Debravega Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 365,
+        code=365,
         str_id="mg760_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Debravega Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 366,
+        code=366,
         str_id="mg760_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Debravega Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 367,
+        code=367,
         str_id="mg760_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Debravega Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 368,
+        code=368,
         str_id="mg760_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Debravega Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 369,
+        code=369,
         str_id="mg760_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Defaithga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 370,
+        code=370,
         str_id="mg770_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Defaithga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 371,
+        code=371,
         str_id="mg770_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Defaithga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 372,
+        code=372,
         str_id="mg770_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Defaithga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 373,
+        code=373,
         str_id="mg770_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Defaithga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 374,
+        code=374,
         str_id="mg770_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Disaster Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 375,
+        code=375,
         str_id="mg900_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Disaster Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 376,
+        code=376,
         str_id="mg900_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Disaster Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 377,
+        code=377,
         str_id="mg900_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Disaster Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 378,
+        code=378,
         str_id="mg900_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Disaster Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 379,
+        code=379,
         str_id="mg900_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Ultima Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 380,
+        code=380,
         str_id="ms900_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Ultima Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 381,
+        code=381,
         str_id="ms900_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Ultima Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 382,
+        code=382,
         str_id="ms900_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Ultima Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 383,
+        code=383,
         str_id="ms900_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Ultima Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 384,
+        code=384,
         str_id="ms900_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Elementaga Lv 1": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 385,
+        code=385,
         str_id="ms910_00_00",
         classification=ItemClassification.filler,
         weight=140
     ),
     "Elementaga Lv 2": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 386,
+        code=386,
         str_id="ms910_00_10",
         classification=ItemClassification.filler,
         weight=98
     ),
     "Elementaga Lv 3": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 387,
+        code=387,
         str_id="ms910_00_20",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Elementaga Lv 4": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 388,
+        code=388,
         str_id="ms910_00_30",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Elementaga Lv 5": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 389,
+        code=389,
         str_id="ms910_00_40",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Fighter's Emblem": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 390,
+        code=390,
         str_id="acc_a_0000",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Fighter's Emblem+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 391,
+        code=391,
         str_id="acc_a_0001",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Warrior's Emblem": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 392,
+        code=392,
         str_id="acc_a_0002",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Magician's Token": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 393,
+        code=393,
         str_id="acc_a_0010",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Magician's Token+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 394,
+        code=394,
         str_id="acc_a_0011",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Sorcerer's Token": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 395,
+        code=395,
         str_id="acc_a_0012",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Samurai's Comb": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 396,
+        code=396,
         str_id="acc_a_0020",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Samurai's Comb+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 397,
+        code=397,
         str_id="acc_a_0021",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Tycoon's Comb": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 398,
+        code=398,
         str_id="acc_a_0022",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Wolf's Emblem": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 399,
+        code=399,
         str_id="acc_a_0030",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Wolf's Emblem+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 400,
+        code=400,
         str_id="acc_a_0031",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Tiger's Emblem": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 401,
+        code=401,
         str_id="acc_a_0032",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Imp's Crest": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 402,
+        code=402,
         str_id="acc_a_0040",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Imp's Crest+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 403,
+        code=403,
         str_id="acc_a_0041",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Djinn's Crest+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 404,
+        code=404,
         str_id="acc_a_0042",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Soldier's Tie": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 405,
+        code=405,
         str_id="acc_a_1000",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Soldier's Tie+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 406,
+        code=406,
         str_id="acc_a_1001",
         classification=ItemClassification.filler,
         weight=34
     ),
     "General's Tie": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 407,
+        code=407,
         str_id="acc_a_1002",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Mage's Turban": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 408,
+        code=408,
         str_id="acc_a_1010",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Mage's Turban+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 409,
+        code=409,
         str_id="acc_a_1011",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Shaman's Turban": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 410,
+        code=410,
         str_id="acc_a_1012",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Warrior's Plume": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 411,
+        code=411,
         str_id="acc_a_1020",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Warrior's Plume+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 412,
+        code=412,
         str_id="acc_a_1021",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Commander's Plume": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 413,
+        code=413,
         str_id="acc_a_1022",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Guard's Cravat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 414,
+        code=414,
         str_id="acc_a_1030",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Guard's Cravat+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 415,
+        code=415,
         str_id="acc_a_1031",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Imperial Guard's Cravat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 416,
+        code=416,
         str_id="acc_a_1032",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Spiritual Veil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 417,
+        code=417,
         str_id="acc_a_1040",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Spiritual Veil+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 418,
+        code=418,
         str_id="acc_a_1041",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Mystic Veil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 419,
+        code=419,
         str_id="acc_a_1042",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Flamebane Choker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 420,
+        code=420,
         str_id="acc_a_1100",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Flamebane Choker+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 421,
+        code=421,
         str_id="acc_a_1101",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Flameshield Choker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 422,
+        code=422,
         str_id="acc_a_1102",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Frostbane Choker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 423,
+        code=423,
         str_id="acc_a_1110",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Frostbane Choker+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 424,
+        code=424,
         str_id="acc_a_1111",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Frostshield Choker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 425,
+        code=425,
         str_id="acc_a_1112",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Sparkbane Choker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 426,
+        code=426,
         str_id="acc_a_1120",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Sparkbane Choker+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 427,
+        code=427,
         str_id="acc_a_1121",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Sparkshield Choker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 428,
+        code=428,
         str_id="acc_a_1122",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Stormbane Choker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 429,
+        code=429,
         str_id="acc_a_1130",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Stormbane Choker+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 430,
+        code=430,
         str_id="acc_a_1131",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Stormshield Choker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 431,
+        code=431,
         str_id="acc_a_1132",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Tri-Point Coronet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 432,
+        code=432,
         str_id="acc_a_1140",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Tri-Point Coronet+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 433,
+        code=433,
         str_id="acc_a_1141",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Tri-Point Crown": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 434,
+        code=434,
         str_id="acc_a_1142",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Twist Headband": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 435,
+        code=435,
         str_id="acc_a_3000",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Twist Headband+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 436,
+        code=436,
         str_id="acc_a_3001",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Guts Headband": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 437,
+        code=437,
         str_id="acc_a_3002",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Corsair Scarf": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 438,
+        code=438,
         str_id="acc_a_3010",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Corsair Scarf+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 439,
+        code=439,
         str_id="acc_a_3011",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Pirate Scarf": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 440,
+        code=440,
         str_id="acc_a_3012",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Promised Necklace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 441,
+        code=441,
         str_id="acc_a_3020",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Promised Necklace+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 442,
+        code=442,
         str_id="acc_a_3021",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Avowed Necklace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 443,
+        code=443,
         str_id="acc_a_3022",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Satin Scrunchie": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 444,
+        code=444,
         str_id="acc_a_4100",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Satin Scrunchie+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 445,
+        code=445,
         str_id="acc_a_4101",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Ribbon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 446,
+        code=446,
         str_id="acc_a_4102",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Zirconia Brooch": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 447,
+        code=447,
         str_id="acc_a_5000",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Zirconia Brooch+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 448,
+        code=448,
         str_id="acc_a_5001",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Mythril Brooch": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 449,
+        code=449,
         str_id="acc_a_5002",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Corundum Pin": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 450,
+        code=450,
         str_id="acc_a_5010",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Corundum Pin+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 451,
+        code=451,
         str_id="acc_a_5011",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Vajra Pin": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 452,
+        code=452,
         str_id="acc_a_5012",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Silver Barrette": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 453,
+        code=453,
         str_id="acc_a_5100",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Silver Barrette+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 454,
+        code=454,
         str_id="acc_a_5101",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Platinum Barrette": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 455,
+        code=455,
         str_id="acc_a_5102",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Silk Scarf": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 456,
+        code=456,
         str_id="acc_a_5200",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Silk Scarf+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 457,
+        code=457,
         str_id="acc_a_5201",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Dragoon Scarf": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 458,
+        code=458,
         str_id="acc_a_5202",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Demon Earrings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 459,
+        code=459,
         str_id="acc_a_8000",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Demon Earrings+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 460,
+        code=460,
         str_id="acc_a_8001",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Devil Earrings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 461,
+        code=461,
         str_id="acc_a_8002",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Sparrow Comb": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 462,
+        code=462,
         str_id="acc_a_8010",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Sparrow Comb+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 463,
+        code=463,
         str_id="acc_a_8011",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Swallowtail": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 464,
+        code=464,
         str_id="acc_a_8012",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Angel's Headband": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 465,
+        code=465,
         str_id="acc_a_8120",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Angel's Headband+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 466,
+        code=466,
         str_id="acc_a_8121",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Angel's Halo": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 467,
+        code=467,
         str_id="acc_a_8122",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Cursed Band": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 468,
+        code=468,
         str_id="acc_a_8130",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Cursed Band+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 469,
+        code=469,
         str_id="acc_a_8131",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Ill Will Band": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 470,
+        code=470,
         str_id="acc_a_8132",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Fencer's Earrings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 471,
+        code=471,
         str_id="acc_a_8200",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Fencer's Earrings+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 472,
+        code=472,
         str_id="acc_a_8201",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Duelist's Earrings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 473,
+        code=473,
         str_id="acc_a_8202",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Witch's Rosary": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 474,
+        code=474,
         str_id="acc_a_8210",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Witch's Rosary+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 475,
+        code=475,
         str_id="acc_a_8211",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Devil's Rosary": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 476,
+        code=476,
         str_id="acc_a_8212",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Soul of Thamasa": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 477,
+        code=477,
         str_id="acc_a_8300",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Soul of Thamasa+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 478,
+        code=478,
         str_id="acc_a_8301",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Soul of Minwu": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 479,
+        code=479,
         str_id="acc_a_8302",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Locket Pendant": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 480,
+        code=480,
         str_id="acc_a_8310",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Locket Pendant+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 481,
+        code=481,
         str_id="acc_a_8311",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Locket Necklace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 482,
+        code=482,
         str_id="acc_a_8312",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Swift Ornament": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 483,
+        code=483,
         str_id="acc_a_8400",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Swift Ornament+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 484,
+        code=484,
         str_id="acc_a_8401",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Falcon Ornament": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 485,
+        code=485,
         str_id="acc_a_8402",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Sight's Circlet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 486,
+        code=486,
         str_id="acc_a_8410",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Sight's Circlet+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 487,
+        code=487,
         str_id="acc_a_8411",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Determined Tiara": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 488,
+        code=488,
         str_id="acc_a_8412",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Early-blooming Corsage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 489,
+        code=489,
         str_id="acc_a_9000",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Early-blooming Corsage+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 490,
+        code=490,
         str_id="acc_a_9001",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Charging Chaplet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 491,
+        code=491,
         str_id="acc_a_9002",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Fireseal Jewel": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 492,
+        code=492,
         str_id="acc_a_9010",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Fireseal Jewel+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 493,
+        code=493,
         str_id="acc_a_9011",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Firesup Malcreous": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 494,
+        code=494,
         str_id="acc_a_9012",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Frostseal Jewel": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 495,
+        code=495,
         str_id="acc_a_9020",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Frostseal Jewel+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 496,
+        code=496,
         str_id="acc_a_9021",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Frostsup Malcreous": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 497,
+        code=497,
         str_id="acc_a_9022",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Sparkseal Jewel": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 498,
+        code=498,
         str_id="acc_a_9030",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Sparkseal Jewel+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 499,
+        code=499,
         str_id="acc_a_9031",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Sparksup Malcreous": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 500,
+        code=500,
         str_id="acc_a_9032",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Stormseal Jewel": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 501,
+        code=501,
         str_id="acc_a_9040",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Stormseal Jewel+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 502,
+        code=502,
         str_id="acc_a_9041",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Stormsup Malcreous": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 503,
+        code=503,
         str_id="acc_a_9042",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Ghostly Hood": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 504,
+        code=504,
         str_id="acc_a_9050",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Ghostly Hood+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 505,
+        code=505,
         str_id="acc_a_9051",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Ghostly Crown": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 506,
+        code=506,
         str_id="acc_a_9052",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Preta Hood": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 507,
+        code=507,
         str_id="acc_a_9060",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Preta Hood+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 508,
+        code=508,
         str_id="acc_a_9061",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Preta Crown": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 509,
+        code=509,
         str_id="acc_a_9062",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Wild Crest": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 510,
+        code=510,
         str_id="acc_a_9070",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Wild Crest+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 511,
+        code=511,
         str_id="acc_a_9071",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Beast Mane": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 512,
+        code=512,
         str_id="acc_a_9072",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Devil Crest": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 513,
+        code=513,
         str_id="acc_a_9080",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Devil Crest+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 514,
+        code=514,
         str_id="acc_a_9081",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Demon Mane": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 515,
+        code=515,
         str_id="acc_a_9082",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Irondragon Scale": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 516,
+        code=516,
         str_id="acc_a_9090",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Irondragon Scale+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 517,
+        code=517,
         str_id="acc_a_9091",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Armor Plate": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 518,
+        code=518,
         str_id="acc_a_9092",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Dreamdragon's Scale": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 519,
+        code=519,
         str_id="acc_a_9100",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Dreamdragon's Scale+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 520,
+        code=520,
         str_id="acc_a_9101",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Mythical Scale": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 521,
+        code=521,
         str_id="acc_a_9102",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Warrior Hunter's Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 522,
+        code=522,
         str_id="acc_a_9110",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Warrior Hunter's Mask+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 523,
+        code=523,
         str_id="acc_a_9111",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Face of the Warrior's Nemesis": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 524,
+        code=524,
         str_id="acc_a_9112",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Mage Hunter's Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 525,
+        code=525,
         str_id="acc_a_9120",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Mage Hunter's Mask+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 526,
+        code=526,
         str_id="acc_a_9121",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Face of the Mage's Nemesis": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 527,
+        code=527,
         str_id="acc_a_9122",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Sapping Hood": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 528,
+        code=528,
         str_id="acc_a_9130",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Sapping Hood+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 529,
+        code=529,
         str_id="acc_a_9131",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Destructive Headdress": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 530,
+        code=530,
         str_id="acc_a_9132",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Crippling Hood": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 531,
+        code=531,
         str_id="acc_a_9140",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Crippling Hood+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 532,
+        code=532,
         str_id="acc_a_9141",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Deranged Headdress": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 533,
+        code=533,
         str_id="acc_a_9142",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Bandit Scarf": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 534,
+        code=534,
         str_id="acc_a_9150",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Bandit Scarf+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 535,
+        code=535,
         str_id="acc_a_9151",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Sky Pirate's Scarf": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 536,
+        code=536,
         str_id="acc_a_9152",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Coldflame Droplet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 537,
+        code=537,
         str_id="acc_a_9160",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Coldflame Droplet+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 538,
+        code=538,
         str_id="acc_a_9161",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Icy Inferno": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 539,
+        code=539,
         str_id="acc_a_9162",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Thunderstorm Droplet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 540,
+        code=540,
         str_id="acc_a_9170",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Thunderstorm Droplet+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 541,
+        code=541,
         str_id="acc_a_9171",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Eye of the Storm": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 542,
+        code=542,
         str_id="acc_a_9172",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Skeleton's Earrings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 543,
+        code=543,
         str_id="acc_a_9180",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Skeleton's Earrings+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 544,
+        code=544,
         str_id="acc_a_9181",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Skull": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 545,
+        code=545,
         str_id="acc_a_9182",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Warrior's Headband": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 546,
+        code=546,
         str_id="acc_a_9190",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Warrior's Headband+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 547,
+        code=547,
         str_id="acc_a_9191",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Rakshasa Ring": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 548,
+        code=548,
         str_id="acc_a_9192",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Falcon Charm": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 549,
+        code=549,
         str_id="acc_a_9200",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Strahl Charm": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 550,
+        code=550,
         str_id="acc_a_9201",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Highwind Charm": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 551,
+        code=551,
         str_id="acc_a_9202",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Diamond Matinee Necklace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 552,
+        code=552,
         str_id="acc_a_9210",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Orichalc Matinee Necklace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 553,
+        code=553,
         str_id="acc_a_9211",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Crystal Matinee Necklace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 554,
+        code=554,
         str_id="acc_a_9212",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Toasty Shawl": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 555,
+        code=555,
         str_id="acc_a_9220",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Toasty Shawl+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 556,
+        code=556,
         str_id="acc_a_9221",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Fuzzy Wool Shawl": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 557,
+        code=557,
         str_id="acc_a_9222",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Guard Glove": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 558,
+        code=558,
         str_id="acc_b_1000",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Runic Ring": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 559,
+        code=559,
         str_id="acc_b_1010",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Giant's Vambrace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 560,
+        code=560,
         str_id="acc_b_4110",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Mage's Gloves": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 561,
+        code=561,
         str_id="acc_b_4120",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Metal Armband": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 562,
+        code=562,
         str_id="acc_b_4130",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Serenity Sachet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 563,
+        code=563,
         str_id="acc_b_4140",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Pretty Orb": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 564,
+        code=564,
         str_id="acc_b_4150",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Star Bracelet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 565,
+        code=565,
         str_id="acc_b_4160",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Nacre Cameo": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 566,
+        code=566,
         str_id="acc_b_4170",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Warding Talisman": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 567,
+        code=567,
         str_id="acc_b_4180",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Pain Dampener": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 568,
+        code=568,
         str_id="acc_b_4190",
         classification=ItemClassification.filler,
         weight=49
     ),
     "White Strap": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 569,
+        code=569,
         str_id="acc_b_4200",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Rainbow Gem": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 570,
+        code=570,
         str_id="acc_b_4210",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Firewyrm Bracelet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 571,
+        code=571,
         str_id="acc_b_6030",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Watergod Bracelet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 572,
+        code=572,
         str_id="acc_b_6040",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Thunderbird Bracelet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 573,
+        code=573,
         str_id="acc_b_6050",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Windwalker Bracelet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 574,
+        code=574,
         str_id="acc_b_6060",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Thorn of Protection": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 575,
+        code=575,
         str_id="acc_b_6100",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Thorn of Warding": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 576,
+        code=576,
         str_id="acc_b_6110",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Thorn of Aggression": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 577,
+        code=577,
         str_id="acc_b_6120",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Thorn of Courage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 578,
+        code=578,
         str_id="acc_b_6200",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Thorn of Will": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 579,
+        code=579,
         str_id="acc_b_6210",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Thorn of Speed": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 580,
+        code=580,
         str_id="acc_b_6220",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Healer's Lore": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 581,
+        code=581,
         str_id="acc_b_7010",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Collector Catalog": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 582,
+        code=582,
         str_id="acc_b_7020",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Demon Claw": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 583,
+        code=583,
         str_id="acc_b_7100",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Beggar's Beads": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 584,
+        code=584,
         str_id="acc_b_7110",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Dawn Gauntlets": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 585,
+        code=585,
         str_id="acc_b_7200",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Enlister's Gloves": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 586,
+        code=586,
         str_id="acc_b_9000",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Sniper's Gloves": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 587,
+        code=587,
         str_id="acc_b_9010",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Flameward Bangle": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 588,
+        code=588,
         str_id="acc_b_9020",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Frostward Bangle": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 589,
+        code=589,
         str_id="acc_b_9030",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Sparkward Bangle": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 590,
+        code=590,
         str_id="acc_b_9040",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Stormward Bangle": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 591,
+        code=591,
         str_id="acc_b_9050",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Kiai Wrist": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 592,
+        code=592,
         str_id="acc_b_9060",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Forsaken Tie": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 593,
+        code=593,
         str_id="acc_b_9070",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Tenacious Ring": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 594,
+        code=594,
         str_id="acc_b_9080",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Lucky Dice": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 595,
+        code=595,
         str_id="acc_b_9090",
         classification=ItemClassification.filler,
         weight=49
     ),
+    "Equilibrium": LRFF13ItemData(
+        code=596,
+        str_id="cos_ba00",
+        classification=ItemClassification.filler,
+        weight=49
+    ),
     "Vengeance": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 596,
+        code=597,
         str_id="cos_ba01",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Vigilance": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 597,
+        code=598,
         str_id="cos_ba02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Innocence": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 598,
+        code=599,
         str_id="cos_ba03",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Ultimatus": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 599,
+        code=600,
         str_id="cos_ba04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Divergence": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 600,
+        code=601,
         str_id="cos_ba05",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Providence": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 601,
+        code=602,
         str_id="cos_ba06",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Equilibrium+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 602,
+        code=603,
         str_id="cos_ba08",
         classification=ItemClassification.filler,
         weight=17
     ),
+    "Dark Muse": LRFF13ItemData(
+        code=604,
+        str_id="cos_ca00",
+        classification=ItemClassification.filler,
+        weight=49
+    ),
     "Helter Skelter": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 603,
+        code=605,
         str_id="cos_ca01",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Electronica": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 604,
+        code=606,
         str_id="cos_ca02",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Witching Hour": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 605,
+        code=607,
         str_id="cos_ca03",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Candy Raver": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 606,
+        code=608,
         str_id="cos_ca04",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Woodland Walker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 607,
+        code=609,
         str_id="cos_ca05",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Sand Fox": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 608,
+        code=610,
         str_id="cos_ca06",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Dark Muse+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 609,
+        code=611,
         str_id="cos_ca08",
         classification=ItemClassification.filler,
         weight=17
     ),
     "L'ange Noir": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 610,
+        code=612,
         str_id="cos_da00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Cyber Jumpsuit": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 611,
+        code=613,
         str_id="cos_da01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Passion Rouge": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 612,
+        code=614,
         str_id="cos_da02",
         classification=ItemClassification.filler,
         weight=34
     ),
     "L'automne": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 613,
+        code=615,
         str_id="cos_da03",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Martial Monk": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 614,
+        code=616,
         str_id="cos_da04",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Duelist": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 615,
+        code=617,
         str_id="cos_da05",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Black Mage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 616,
+        code=618,
         str_id="cos_da06",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Dust and Shadow": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 617,
+        code=619,
         str_id="cos_ea00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "White Mage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 618,
+        code=620,
         str_id="cos_ea01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Blue Mage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 619,
+        code=621,
         str_id="cos_ea02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Sun and Bloom": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 620,
+        code=622,
         str_id="cos_ea03",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Stone and Sand": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 621,
+        code=623,
         str_id="cos_ea04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Hunter of the Wild": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 622,
+        code=624,
         str_id="cos_ea05",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Soldier of Peace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 623,
+        code=625,
         str_id="cos_ea06",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Midnight Mauve": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 624,
+        code=626,
         str_id="cos_fa00",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Black Rose": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 625,
+        code=627,
         str_id="cos_fa01",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Crimson Bloom": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 626,
+        code=628,
         str_id="cos_fa02",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Icy White": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 627,
+        code=629,
         str_id="cos_fa03",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Dark Orchid": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 628,
+        code=630,
         str_id="cos_fa04",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Champagne Gold": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 629,
+        code=631,
         str_id="cos_fa05",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Violet Twilight": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 630,
+        code=632,
         str_id="cos_fa06",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Splendid Admiral": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 631,
+        code=633,
         str_id="cos_ga00",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Quiet Guardian": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 632,
+        code=634,
         str_id="cos_ga01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Loyal Servant": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 633,
+        code=635,
         str_id="cos_ga02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Bold Vanguard": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 634,
+        code=636,
         str_id="cos_ga03",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Velvet Bouncer": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 635,
+        code=637,
         str_id="cos_ga04",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Cold Rebellion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 636,
+        code=638,
         str_id="cos_ga05",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Red Mage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 637,
+        code=639,
         str_id="cos_ga06",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Nocturne": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 638,
+        code=640,
         str_id="cos_ha00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Paladin": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 639,
+        code=641,
         str_id="cos_ha01",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Deja Vu": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 640,
+        code=642,
         str_id="cos_ha02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Danse Macabre": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 641,
+        code=643,
         str_id="cos_ha03",
         classification=ItemClassification.filler,
         weight=34
     ),
     "School's Out": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 642,
+        code=644,
         str_id="cos_ha04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Lilitu": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 643,
+        code=645,
         str_id="cos_ha05",
         classification=ItemClassification.filler,
         weight=12
     ),
     "La Fouldre": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 644,
+        code=646,
         str_id="cos_ha06",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Heartstealer": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 645,
+        code=647,
         str_id="cos_ia00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Primavera": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 646,
+        code=648,
         str_id="cos_ia01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Urban Outlaw": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 647,
+        code=649,
         str_id="cos_ia02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Dangerous Blossom": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 648,
+        code=650,
         str_id="cos_ia03",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Hidden Justice": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 649,
+        code=651,
         str_id="cos_ia04",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Ignition": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 650,
+        code=652,
         str_id="cos_ia05",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Intruder": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 651,
+        code=653,
         str_id="cos_ia06",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Mist Wizard": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 652,
+        code=654,
         str_id="cos_ja00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Watery Chorus": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 653,
+        code=655,
         str_id="cos_ja01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Purple Lightning": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 654,
+        code=656,
         str_id="cos_ja02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Carnaval Crusher": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 655,
+        code=657,
         str_id="cos_ja03",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Rhapsody in Rose": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 656,
+        code=658,
         str_id="cos_ja04",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Nightmare": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 657,
+        code=659,
         str_id="cos_ja05",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Amazon Warrior": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 658,
+        code=660,
         str_id="cos_ja06",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Mist Wizard+": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 659,
+        code=661,
         str_id="cos_ja08",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Dragoon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 660,
+        code=662,
         str_id="cos_ka00",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Dark Knight": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 661,
+        code=663,
         str_id="cos_ka01",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Dragon's Blood": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 662,
+        code=664,
         str_id="cos_ka02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Sacred Knight": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 663,
+        code=665,
         str_id="cos_ka03",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Shadow Trooper": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 664,
+        code=666,
         str_id="cos_ka04",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Astral Lord": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 665,
+        code=667,
         str_id="cos_ka05",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Pallas Athena": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 666,
+        code=668,
         str_id="cos_ka06",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Siegfried": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 667,
+        code=669,
         str_id="cos_ka08",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Miqo'te Dress": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 668,
+        code=670,
         str_id="cos_la00",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Guardian Corps": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 669,
+        code=671,
         str_id="cos_ma00",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Knight of Etro": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 670,
+        code=672,
         str_id="cos_na00",
         classification=ItemClassification.filler,
         weight=69
     ),
     "Spira's Summoner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 671,
+        code=673,
         str_id="cos_oa00",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Sphere Hunter": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 672,
+        code=674,
         str_id="cos_pa00",
         classification=ItemClassification.filler,
         weight=12
     ),
     "SOLDIER 1st Class": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 673,
+        code=675,
         str_id="cos_ra00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Shogun": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 674,
+        code=676,
         str_id="cos_zb00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Shining Prince": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 675,
+        code=677,
         str_id="cos_zb01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Dark Samurai": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 676,
+        code=678,
         str_id="cos_zb02",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Sohei Savior": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 677,
+        code=679,
         str_id="cos_zb03",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Utsusemi": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 678,
+        code=680,
         str_id="cos_zb04",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Art of War": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 679,
+        code=681,
         str_id="cos_zb05",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Flower of Battle": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 680,
+        code=682,
         str_id="cos_zb06",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Tomb Raider": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 681,
+        code=683,
         str_id="cos_zc00",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Cosmocrator": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 682,
+        code=684,
         str_id="cos_zd00",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Moogle Queen": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 683,
+        code=685,
         str_id="cos_ze00",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Celestial Body": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 684,
+        code=686,
         str_id="cos_zf00",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Lucky Clover": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 685,
+        code=687,
         str_id="e003",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Tropical Tree": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 686,
+        code=688,
         str_id="e004",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Single Horn": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 687,
+        code=689,
         str_id="e010",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Antler": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 688,
+        code=690,
         str_id="e011",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Odin's Horn": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 689,
+        code=691,
         str_id="e012",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Halo": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 690,
+        code=692,
         str_id="e015",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Wind-Up Halo": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 691,
+        code=693,
         str_id="e016",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Light Bulb": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 692,
+        code=694,
         str_id="e019",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Cie'th Wings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 693,
+        code=695,
         str_id="e023",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Moogle Wings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 694,
+        code=696,
         str_id="e024",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Coronet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 695,
+        code=697,
         str_id="e026",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Crown": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 696,
+        code=698,
         str_id="e027",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Railworker's Cap": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 697,
+        code=699,
         str_id="e030",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Railworker's Beret": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 698,
+        code=700,
         str_id="e031",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Black Mage's Hood": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 699,
+        code=701,
         str_id="e032",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Scholar's Mortarboard": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 700,
+        code=702,
         str_id="e033",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Chef's Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 701,
+        code=703,
         str_id="e034",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Cute Bunny Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 702,
+        code=704,
         str_id="e037",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Onion Knight's Helm": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 703,
+        code=705,
         str_id="e038",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Gold Anchor": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 704,
+        code=706,
         str_id="e039",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Tonberry's Lantern": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 705,
+        code=707,
         str_id="e041",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Summoner's Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 706,
+        code=708,
         str_id="e042",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Ripe Apple": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 707,
+        code=709,
         str_id="e043",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pumpkin Head": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 708,
+        code=710,
         str_id="e044",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Tinkling Bell": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 709,
+        code=711,
         str_id="e053",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Flower Pattern": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 710,
+        code=712,
         str_id="e074",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Frying Pan": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 711,
+        code=713,
         str_id="e078",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dull Grudge Knife": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 712,
+        code=714,
         str_id="e079",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Staff of Judgment": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 713,
+        code=715,
         str_id="e080",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Mog's Staff": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 714,
+        code=716,
         str_id="e081",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Fragment Crystal": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 715,
+        code=717,
         str_id="e083",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Cactuar Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 716,
+        code=718,
         str_id="e090",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Cute Cactuar Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 717,
+        code=719,
         str_id="e091",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Carbuncle Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 718,
+        code=720,
         str_id="e092",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Mog Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 719,
+        code=721,
         str_id="e093",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Miniflan Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 720,
+        code=722,
         str_id="e094",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Tonberry Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 721,
+        code=723,
         str_id="e096",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Fuzzy Sheep Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 722,
+        code=724,
         str_id="e097",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Afro": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 723,
+        code=725,
         str_id="e098",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Serah Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 724,
+        code=726,
         str_id="e108",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Lightning Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 725,
+        code=727,
         str_id="e109",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Mog Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 726,
+        code=728,
         str_id="e110",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Retro Serah Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 727,
+        code=729,
         str_id="e111",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Retro Lightning Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 728,
+        code=730,
         str_id="e112",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Retro Mog Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 729,
+        code=731,
         str_id="e113",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Blue Flower": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 730,
+        code=732,
         str_id="e200",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pink Flower": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 731,
+        code=733,
         str_id="e201",
         classification=ItemClassification.filler,
         weight=5
     ),
     "White Flower": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 732,
+        code=734,
         str_id="e202",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Purple Flower": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 733,
+        code=735,
         str_id="e203",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Frost Tree": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 734,
+        code=736,
         str_id="e204",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Suspicious Mushroom": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 735,
+        code=737,
         str_id="e205",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Toxic Mushroom": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 736,
+        code=738,
         str_id="e206",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Noonblue Butterfly": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 737,
+        code=739,
         str_id="e207",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Sunny Butterfly": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 738,
+        code=740,
         str_id="e208",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Gold Windup Key": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 739,
+        code=741,
         str_id="e209",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Aqua Ribbon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 740,
+        code=742,
         str_id="e210",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pink Ribbon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 741,
+        code=743,
         str_id="e211",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Brass Gear": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 742,
+        code=744,
         str_id="e212",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Red Chocobo Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 743,
+        code=745,
         str_id="e213",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Blue Chocobo Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 744,
+        code=746,
         str_id="e214",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Purple Chocobo Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 745,
+        code=747,
         str_id="e215",
         classification=ItemClassification.filler,
         weight=5
     ),
     "White Chocobo Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 746,
+        code=748,
         str_id="e216",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Black Chocobo Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 747,
+        code=749,
         str_id="e217",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Silver Chocobo Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 748,
+        code=750,
         str_id="e218",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Gold Chocobo Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 749,
+        code=751,
         str_id="e219",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Youthful Parasol": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 750,
+        code=752,
         str_id="e220",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Sentimental Parasol": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 751,
+        code=753,
         str_id="e221",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Blue Propeller": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 752,
+        code=754,
         str_id="e222",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Red Propeller": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 753,
+        code=755,
         str_id="e223",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Blue Moogle Bobble": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 754,
+        code=756,
         str_id="e224",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Water Spirit Wings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 755,
+        code=757,
         str_id="e226",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Snowy Spirit Wings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 756,
+        code=758,
         str_id="e227",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Orange Newsboy Cap": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 757,
+        code=759,
         str_id="e228",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pink Newsboy Cap": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 758,
+        code=760,
         str_id="e229",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Red Silk Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 759,
+        code=761,
         str_id="e230",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Sky Blue Silk Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 760,
+        code=762,
         str_id="e231",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Blue Mage's Chapeau": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 761,
+        code=763,
         str_id="e232",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Love-struck Party Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 762,
+        code=764,
         str_id="e233",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Bubbly Party Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 763,
+        code=765,
         str_id="e234",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Prophetic Headdress": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 764,
+        code=766,
         str_id="e235",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Vanguard Headdress": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 765,
+        code=767,
         str_id="e236",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Strawberry Ice Cream": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 766,
+        code=768,
         str_id="e237",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Rum Raisin Ice Cream": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 767,
+        code=769,
         str_id="e238",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Yellow Bow Tie": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 768,
+        code=770,
         str_id="e239",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Orange Bow Tie": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 769,
+        code=771,
         str_id="e240",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Yellow-rimmed Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 770,
+        code=772,
         str_id="e241",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pink-rimmed Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 771,
+        code=773,
         str_id="e242",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Twilight Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 772,
+        code=774,
         str_id="e243",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Urban Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 773,
+        code=775,
         str_id="e244",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Masquerade Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 774,
+        code=776,
         str_id="e245",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Carnival Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 775,
+        code=777,
         str_id="e246",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Regent's Mustache": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 776,
+        code=778,
         str_id="e247",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dandy's Mustache": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 777,
+        code=779,
         str_id="e248",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Gentleman's Beard": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 778,
+        code=780,
         str_id="e249",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Craftsman's Beard": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 779,
+        code=781,
         str_id="e250",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Blue Feather Pin": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 780,
+        code=782,
         str_id="e259",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dusk Feather Pin": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 781,
+        code=783,
         str_id="e260",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Leather Rucksack": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 782,
+        code=784,
         str_id="e261",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pink Rucksack": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 783,
+        code=785,
         str_id="e262",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Warning Beacon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 784,
+        code=786,
         str_id="e263",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Emergency Beacon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 785,
+        code=787,
         str_id="e264",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Red Chocobo Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 786,
+        code=788,
         str_id="e278",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Blue Chocobo Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 787,
+        code=789,
         str_id="e279",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Purple Chocobo Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 788,
+        code=790,
         str_id="e280",
         classification=ItemClassification.filler,
         weight=5
     ),
     "White Chocobo Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 789,
+        code=791,
         str_id="e281",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Black Chocobo Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 790,
+        code=792,
         str_id="e282",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Silver Chocobo Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 791,
+        code=793,
         str_id="e283",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Gold Chocobo Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 792,
+        code=794,
         str_id="e284",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Afro & Red Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 793,
+        code=795,
         str_id="e285",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Afro & Blue Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 794,
+        code=796,
         str_id="e286",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Afro & Purple Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 795,
+        code=797,
         str_id="e287",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Afro & White Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 796,
+        code=798,
         str_id="e288",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Afro & Black Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 797,
+        code=799,
         str_id="e289",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Afro & Silver Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 798,
+        code=800,
         str_id="e290",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Afro & Gold Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 799,
+        code=801,
         str_id="e291",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Silver Padlock": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 800,
+        code=802,
         str_id="e292",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Long Gui's Shell": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 801,
+        code=803,
         str_id="e293",
         classification=ItemClassification.filler,
         weight=5
     ),
     "White Guitar": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 802,
+        code=804,
         str_id="e294",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Blue Guitar": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 803,
+        code=805,
         str_id="e295",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Replica PSICOM Epaulet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 804,
+        code=806,
         str_id="e297",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Celebrity's Charm": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 805,
+        code=807,
         str_id="e298",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Golden Flower": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 806,
+        code=808,
         str_id="e301",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Crimson Flower": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 807,
+        code=809,
         str_id="e302",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Festive Tree": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 808,
+        code=810,
         str_id="e303",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Delicious Mushroom": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 809,
+        code=811,
         str_id="e304",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Twilight Butterfly": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 810,
+        code=812,
         str_id="e305",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Silver Windup Key": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 811,
+        code=813,
         str_id="e306",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Yellow Ribbon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 812,
+        code=814,
         str_id="e307",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Nickel Gear": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 813,
+        code=815,
         str_id="e308",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Chocobo Figurine": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 814,
+        code=816,
         str_id="e309",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Summery Parasol": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 815,
+        code=817,
         str_id="e310",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Yellow Propeller": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 816,
+        code=818,
         str_id="e311",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pink Moogle Bobble": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 817,
+        code=819,
         str_id="e312",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Nymph Wings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 818,
+        code=820,
         str_id="e313",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Blue Newsboy Cap": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 819,
+        code=821,
         str_id="e314",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Formal Silk Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 820,
+        code=822,
         str_id="e315",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Red Mage's Chapeau": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 821,
+        code=823,
         str_id="e316",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Thrilling Party Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 822,
+        code=824,
         str_id="e317",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Ceremonial Headdress": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 823,
+        code=825,
         str_id="e318",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Mint Chip Ice Cream": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 824,
+        code=826,
         str_id="e319",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Red Bow Tie": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 825,
+        code=827,
         str_id="e320",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Black-rimmed Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 826,
+        code=828,
         str_id="e321",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dark Knight's Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 827,
+        code=829,
         str_id="e322",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Queen's Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 828,
+        code=830,
         str_id="e323",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Bushy Mustache": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 829,
+        code=831,
         str_id="e324",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Seadog's Beard": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 830,
+        code=832,
         str_id="e325",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Lebreau's Rainbow Tattoo": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 831,
+        code=833,
         str_id="e326",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Gadot's Red Emblem": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 832,
+        code=834,
         str_id="e327",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Tribal Tattoo": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 833,
+        code=835,
         str_id="e328",
         classification=ItemClassification.filler,
         weight=5
     ),
     "NORA Logo": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 834,
+        code=836,
         str_id="e329",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Chocobo Feather Pin": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 835,
+        code=837,
         str_id="e330",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dragon Hide Backpack": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 836,
+        code=838,
         str_id="e331",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Caution Beacon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 837,
+        code=839,
         str_id="e332",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Guardian Corps Badge": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 838,
+        code=840,
         str_id="e333",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Replica Pilot's Badge": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 839,
+        code=841,
         str_id="e334",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Replica PSICOM Emblem": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 840,
+        code=842,
         str_id="e335",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Gold Medal": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 841,
+        code=843,
         str_id="e336",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Chocobo Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 842,
+        code=844,
         str_id="e338",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Afro & Yellow Chick": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 843,
+        code=845,
         str_id="e339",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Gold Padlock": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 844,
+        code=846,
         str_id="e340",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Adamantoise Shell": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 845,
+        code=847,
         str_id="e341",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Electric Guitar": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 846,
+        code=848,
         str_id="e342",
         classification=ItemClassification.filler,
         weight=5
     ),
     "PSICOM Officer Epaulets": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 847,
+        code=849,
         str_id="e344",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Lady's Brooch": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 848,
+        code=850,
         str_id="e345",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Lightning's Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 849,
+        code=851,
         str_id="e500",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Reflective Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 850,
+        code=852,
         str_id="e501",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Elegant Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 851,
+        code=853,
         str_id="e502",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Balmy Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 852,
+        code=854,
         str_id="e503",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dancefloor Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 853,
+        code=855,
         str_id="e504",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Ocean Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 854,
+        code=856,
         str_id="e505",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dreamy Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 855,
+        code=857,
         str_id="e506",
         classification=ItemClassification.filler,
         weight=5
     ),
     "City Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 856,
+        code=858,
         str_id="e507",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Wild Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 857,
+        code=859,
         str_id="e508",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Whimsy Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 858,
+        code=860,
         str_id="e509",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Killer Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 859,
+        code=861,
         str_id="e510",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Playboy Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 860,
+        code=862,
         str_id="e511",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Exotic Shades": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 861,
+        code=863,
         str_id="e512",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Scholar's Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 862,
+        code=864,
         str_id="e513",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Business Eyewear": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 863,
+        code=865,
         str_id="e514",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Steamy Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 864,
+        code=866,
         str_id="e515",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Girlish Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 865,
+        code=867,
         str_id="e516",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Cool Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 866,
+        code=868,
         str_id="e517",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Green Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 867,
+        code=869,
         str_id="e518",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Retro Scopes": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 868,
+        code=870,
         str_id="e519",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Heart Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 869,
+        code=871,
         str_id="e520",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Smiley Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 870,
+        code=872,
         str_id="e521",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Frosty Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 871,
+        code=873,
         str_id="e522",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Angelic Glasses": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 872,
+        code=874,
         str_id="e523",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Cyber Scanners": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 873,
+        code=875,
         str_id="e524",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Monoculus Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 874,
+        code=876,
         str_id="e525",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Raven Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 875,
+        code=877,
         str_id="e526",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Golden Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 876,
+        code=878,
         str_id="e527",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Moonlight Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 877,
+        code=879,
         str_id="e528",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Crimson Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 878,
+        code=880,
         str_id="e529",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pioneer's Eyepatch": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 879,
+        code=881,
         str_id="e530",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Zebra-print Eyepatch": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 880,
+        code=882,
         str_id="e531",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Snakeskin Eyepatch": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 881,
+        code=883,
         str_id="e532",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Lovely Eyepatch": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 882,
+        code=884,
         str_id="e533",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Glam Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 883,
+        code=885,
         str_id="e534",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Thief's Silk Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 884,
+        code=886,
         str_id="e535",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Lady's Silk Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 885,
+        code=887,
         str_id="e536",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Clown's Silk Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 886,
+        code=888,
         str_id="e537",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Cowboy Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 887,
+        code=889,
         str_id="e538",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Straw Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 888,
+        code=890,
         str_id="e539",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Snakeskin Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 889,
+        code=891,
         str_id="e540",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Safari Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 890,
+        code=892,
         str_id="e541",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Boater Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 891,
+        code=893,
         str_id="e542",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Vacation Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 892,
+        code=894,
         str_id="e543",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Green Straw Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 893,
+        code=895,
         str_id="e544",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Floppy Sun Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 894,
+        code=896,
         str_id="e545",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Painter's Beret": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 895,
+        code=897,
         str_id="e546",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Order of Salvation Cap": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 896,
+        code=898,
         str_id="e547",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dogtooth Beret": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 897,
+        code=899,
         str_id="e548",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pro's Beret": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 898,
+        code=900,
         str_id="e549",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Sailor's Tricorne": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 899,
+        code=901,
         str_id="e550",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Hotblooded Tricorne": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 900,
+        code=902,
         str_id="e551",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Brigand's Tricorne": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 901,
+        code=903,
         str_id="e552",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Priest's Tricorne": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 902,
+        code=904,
         str_id="e553",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Witch's Pointy Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 903,
+        code=905,
         str_id="e554",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Scholar's Peaked Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 904,
+        code=906,
         str_id="e555",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dapper Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 905,
+        code=907,
         str_id="e556",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Hermit's Cap": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 906,
+        code=908,
         str_id="e557",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Crown of Passion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 907,
+        code=909,
         str_id="e558",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Crown of Purity": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 908,
+        code=910,
         str_id="e559",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Crown of Youth": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 909,
+        code=911,
         str_id="e560",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Crown of Light": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 910,
+        code=912,
         str_id="e561",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Crown of Splendor": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 911,
+        code=913,
         str_id="e562",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Bow of Aestheticism": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 912,
+        code=914,
         str_id="e563",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Passionate Corsage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 913,
+        code=915,
         str_id="e564",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Sweet Corsage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 914,
+        code=916,
         str_id="e565",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Perky Corsage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 915,
+        code=917,
         str_id="e566",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Lunar Circlet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 916,
+        code=918,
         str_id="e567",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Honored Circlet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 917,
+        code=919,
         str_id="e568",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Brave Circlet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 918,
+        code=920,
         str_id="e569",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Holy Circlet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 919,
+        code=921,
         str_id="e570",
         classification=ItemClassification.filler,
         weight=5
     ),
     "White Cat Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 920,
+        code=922,
         str_id="e571",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Black Cat Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 921,
+        code=923,
         str_id="e572",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Violet Cat Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 922,
+        code=924,
         str_id="e573",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Wildcat Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 923,
+        code=925,
         str_id="e574",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Adult Bunny Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 924,
+        code=926,
         str_id="e575",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Enticing Bunny Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 925,
+        code=927,
         str_id="e576",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Wild Bunny Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 926,
+        code=928,
         str_id="e577",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dark Devil Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 927,
+        code=929,
         str_id="e578",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Dazzling Devil Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 928,
+        code=930,
         str_id="e579",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pure Angel Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 929,
+        code=931,
         str_id="e580",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Cautious Devil Ears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 930,
+        code=932,
         str_id="e581",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pure Earrings": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 931,
+        code=933,
         str_id="e582",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Pure Pendant": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 932,
+        code=934,
         str_id="e583",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Heaven's Banner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 933,
+        code=935,
         str_id="e584",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Egotist's Banner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 934,
+        code=936,
         str_id="e585",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Herald's Banner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 935,
+        code=937,
         str_id="e586",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Lord's Banner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 936,
+        code=938,
         str_id="e587",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Fairy Tail": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 937,
+        code=939,
         str_id="e588",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Imp Tail": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 938,
+        code=940,
         str_id="e589",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Merry Tail": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 939,
+        code=941,
         str_id="e590",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Untamed Tail": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 940,
+        code=942,
         str_id="e591",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Fluffy Tail": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 941,
+        code=943,
         str_id="e592",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Shadow Tail": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 942,
+        code=944,
         str_id="e593",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Wagging Tail": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 943,
+        code=945,
         str_id="e594",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Leopard Tail": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 944,
+        code=946,
         str_id="e595",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Maiden's Beret": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 945,
+        code=947,
         str_id="e596",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Guard's Cap": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 946,
+        code=948,
         str_id="e597",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Warm Beret": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 947,
+        code=949,
         str_id="e598",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Herringbone Beret": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 948,
+        code=950,
         str_id="e599",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Deathless Mask": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 949,
+        code=951,
         str_id="e600",
         classification=ItemClassification.filler,
         weight=5
     ),
     "White Mage's Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 950,
+        code=952,
         str_id="e601",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Moogle Hat": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 951,
+        code=953,
         str_id="e602",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Chocobo Girl's Cap": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 952,
+        code=954,
         str_id="e603",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Chocoberet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 953,
+        code=955,
         str_id="e604",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Ivy Banner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 954,
+        code=956,
         str_id="e605",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Earth Banner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 955,
+        code=957,
         str_id="e606",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Sun Banner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 956,
+        code=958,
         str_id="e607",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Sky Banner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 957,
+        code=959,
         str_id="e608",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Apricot Banner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 958,
+        code=960,
         str_id="e609",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Banner of Charity": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 959,
+        code=961,
         str_id="e610",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Sapling Banner": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 960,
+        code=962,
         str_id="e611",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Tiara of the Goddess": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 961,
+        code=963,
         str_id="e612",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Shogun's Mustache": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 962,
+        code=964,
         str_id="e702",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Millionaire's Mustache": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 963,
+        code=965,
         str_id="e703",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Servant's Mustache": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 964,
+        code=966,
         str_id="e704",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Saint's Beard": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 965,
+        code=967,
         str_id="e705",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Scholar's Beard": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 966,
+        code=968,
         str_id="e706",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Politician's Beard": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 967,
+        code=969,
         str_id="e707",
         classification=ItemClassification.filler,
         weight=5
     ),
     "Bronzed Medal": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 968,
+        code=970,
         str_id="gil_l_000",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Silvered Medal": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 969,
+        code=971,
         str_id="gil_l_010",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Crystal Medal": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 970,
+        code=972,
         str_id="gil_l_020",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Gold Dust": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 971,
+        code=973,
         str_id="gil_r_000",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Platinum Ore": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 972,
+        code=974,
         str_id="gil_r_010",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Ether": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 973,
+        code=975,
         str_id="it_atel",
         classification=ItemClassification.filler,
         weight=42
     ),
     "Bravery Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 974,
+        code=976,
         str_id="it_brave",
         classification=ItemClassification.filler,
         weight=122
     ),
     "Elixir": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 975,
+        code=977,
         str_id="it_elixir",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Enaero Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 976,
+        code=978,
         str_id="it_enaero",
         classification=ItemClassification.filler,
         weight=85
     ),
     "Enfire Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 977,
+        code=979,
         str_id="it_enfire",
         classification=ItemClassification.filler,
         weight=85
     ),
     "Enfrost Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 978,
+        code=980,
         str_id="it_enfrost",
         classification=ItemClassification.filler,
         weight=85
     ),
     "Enthunder Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 979,
+        code=981,
         str_id="it_enthunder",
         classification=ItemClassification.filler,
         weight=85
     ),
     "X-Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 980,
+        code=982,
         str_id="it_expotion",
         classification=ItemClassification.filler,
         weight=172
     ),
     "Faith Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 981,
+        code=983,
         str_id="it_faith",
         classification=ItemClassification.filler,
         weight=122
     ),
     "Holy Water": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 982,
+        code=984,
         str_id="it_grace",
         classification=ItemClassification.filler,
         weight=172
     ),
     "Vigilance Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 983,
+        code=985,
         str_id="it_guts",
         classification=ItemClassification.filler,
         weight=172
     ),
     "Haste Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 984,
+        code=986,
         str_id="it_haste",
         classification=ItemClassification.filler,
         weight=122
     ),
     "Hero's Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 985,
+        code=987,
         str_id="it_hero",
         classification=ItemClassification.filler,
         weight=60
     ),
     "Turbo Ether": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 986,
+        code=988,
         str_id="it_hiatel",
         classification=ItemClassification.filler,
         weight=22
     ),
     "Hi-Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 987,
+        code=989,
         str_id="it_hpotion",
         classification=ItemClassification.filler,
         weight=245
     ),
     "Refresher": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 988,
+        code=990,
         str_id="it_lowelxr",
         classification=ItemClassification.filler,
         weight=122
     ),
     "Phoenix Wing": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 989,
+        code=991,
         str_id="it_phenxbl",
         classification=ItemClassification.filler,
         weight=122
     ),
     "Phoenix Down": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 990,
+        code=992,
         str_id="it_phenxtal",
         classification=ItemClassification.filler,
         weight=122
     ),
     "Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 991,
+        code=993,
         str_id="it_potion",
         classification=ItemClassification.filler,
         weight=350
     ),
     "Protect Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 992,
+        code=994,
         str_id="it_protect",
         classification=ItemClassification.filler,
         weight=245
     ),
     "Regen Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 993,
+        code=995,
         str_id="it_regen",
         classification=ItemClassification.filler,
         weight=245
     ),
     "Reraise Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 994,
+        code=996,
         str_id="it_reraise",
         classification=ItemClassification.filler,
         weight=60
     ),
     "Shell Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 995,
+        code=997,
         str_id="it_shell",
         classification=ItemClassification.filler,
         weight=245
     ),
     "Mega Remedy": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 996,
+        code=998,
         str_id="it_unico",
         classification=ItemClassification.filler,
         weight=122
     ),
     "Remedy": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 997,
+        code=999,
         str_id="it_universal",
         classification=ItemClassification.filler,
         weight=245
     ),
     "Warrior's Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 998,
+        code=1000,
         str_id="it_upper",
         classification=ItemClassification.filler,
         weight=85
     ),
     "Veil Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 999,
+        code=1001,
         str_id="it_veil",
         classification=ItemClassification.filler,
         weight=245
     ),
     "Crusader's Potion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1000,
+        code=1002,
         str_id="it_war",
         classification=ItemClassification.filler,
         weight=85
     ),
     "Nektar of the Gods Omega": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1001,
+        code=1003,
         str_id="it_ydrink5",
         classification=ItemClassification.filler,
         weight=60
     ),
     "Bronze Malistone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1002,
+        code=1004,
         str_id="mat_abi_0_00",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Silver Malistone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1003,
+        code=1005,
         str_id="mat_abi_0_01",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Gold Malistone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1004,
+        code=1006,
         str_id="mat_abi_0_02",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Platinum Malistone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1005,
+        code=1007,
         str_id="mat_abi_0_03",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Mythril Malistone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1006,
+        code=1008,
         str_id="mat_abi_0_04",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Adamant Malistone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1007,
+        code=1009,
         str_id="mat_abi_0_05",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Scarletite Malistone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1008,
+        code=1010,
         str_id="mat_abi_0_06",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Orichalc Malistone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1009,
+        code=1011,
         str_id="mat_abi_0_07",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Crystal Malistone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1010,
+        code=1012,
         str_id="mat_abi_0_08",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Mighty Material": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1011,
+        code=1013,
         str_id="mat_cus_0_00",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Sword Polisher": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1012,
+        code=1014,
         str_id="mat_cus_0_01",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Shield Polisher": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1013,
+        code=1015,
         str_id="mat_cus_0_02",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Holy Forgefire": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1014,
+        code=1016,
         str_id="mat_cus_0_03",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Demonic Forgefire": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1015,
+        code=1017,
         str_id="mat_cus_0_04",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Life Smeltwater": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1016,
+        code=1018,
         str_id="mat_cus_0_05",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Soul Smeltwater": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1017,
+        code=1019,
         str_id="mat_cus_0_06",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Forgefire of Chaos": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1018,
+        code=1020,
         str_id="mat_cus_0_07",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Forgefire of Order": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1019,
+        code=1021,
         str_id="mat_cus_0_08",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Tattered Leather": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1020,
+        code=1022,
         str_id="mat_z_000",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Vibrant Ooze": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1021,
+        code=1023,
         str_id="mat_z_001",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Niblet Hairball": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1022,
+        code=1024,
         str_id="mat_z_002",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Slug Sweet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1023,
+        code=1025,
         str_id="mat_z_003",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Monster Mince": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1024,
+        code=1026,
         str_id="mat_z_004",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Clear Ooze": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1025,
+        code=1027,
         str_id="mat_z_007",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Green Leather": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1026,
+        code=1028,
         str_id="mat_z_008",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Radial Bearing": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1027,
+        code=1029,
         str_id="mat_z_009",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Goblot Hairball": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1028,
+        code=1030,
         str_id="mat_z_010",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Arboreal Spore": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1029,
+        code=1031,
         str_id="mat_z_011",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Dead Man's Teeth": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1030,
+        code=1032,
         str_id="mat_z_012",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Chipped Fang": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1031,
+        code=1033,
         str_id="mat_z_013",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Shattered Bone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1032,
+        code=1034,
         str_id="mat_z_014",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Goopy Goo": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1033,
+        code=1035,
         str_id="mat_z_015",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Pot Shard": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1034,
+        code=1036,
         str_id="mat_z_016",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Dried Scale": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1035,
+        code=1037,
         str_id="mat_z_017",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Wonder Gel": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1036,
+        code=1038,
         str_id="mat_z_018",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Poisonous Sting": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1037,
+        code=1039,
         str_id="mat_z_019",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Motor Coil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1038,
+        code=1040,
         str_id="mat_z_020",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Ether Coil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1039,
+        code=1041,
         str_id="mat_z_021",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Demon Spicule": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1040,
+        code=1042,
         str_id="mat_z_022",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Organic Carapace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1041,
+        code=1043,
         str_id="mat_z_024",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Firewyrm Scale": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1042,
+        code=1044,
         str_id="mat_z_028",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Quality Machine Oil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1043,
+        code=1045,
         str_id="mat_z_029",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Sinister Fang": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1044,
+        code=1046,
         str_id="mat_z_030",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Stormdragon Down": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1045,
+        code=1047,
         str_id="mat_z_031",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Green Monster Moss": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1046,
+        code=1048,
         str_id="mat_z_032",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Desert Rose": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1047,
+        code=1049,
         str_id="mat_z_033",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Single Eye": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1048,
+        code=1050,
         str_id="mat_z_035",
         classification=ItemClassification.filler,
         weight=15
     ),
     "AMP Chip": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1049,
+        code=1051,
         str_id="mat_z_036",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Cactuar Doll": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1050,
+        code=1052,
         str_id="mat_z_044",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Liquid Glass": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1051,
+        code=1053,
         str_id="mat_z_045",
         classification=ItemClassification.filler,
         weight=15
     ),
     "Prytwen": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1052,
+        code=1054,
         str_id="shi_ba00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Pendragon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1053,
+        code=1055,
         str_id="shi_ba01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Dame du Lac": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1054,
+        code=1056,
         str_id="shi_ba02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Guard of Avalon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1055,
+        code=1057,
         str_id="shi_ba03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Knight's Pledge": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1056,
+        code=1058,
         str_id="shi_ba04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Double Cross": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1057,
+        code=1059,
         str_id="shi_ca00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Deicide": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1058,
+        code=1060,
         str_id="shi_ca01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Blasphemy": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1059,
+        code=1061,
         str_id="shi_ca02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Infidel": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1060,
+        code=1062,
         str_id="shi_ca03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Renegade": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1061,
+        code=1063,
         str_id="shi_ca04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Ghostly Bloom": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1062,
+        code=1064,
         str_id="shi_da00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Il Nome Della Rosa": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1063,
+        code=1065,
         str_id="shi_da01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Gilded Lily": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1064,
+        code=1066,
         str_id="shi_da02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Noblesse Veronique": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1065,
+        code=1067,
         str_id="shi_da03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Les Fleurs du Mal": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1066,
+        code=1068,
         str_id="shi_da04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Ultima Shield": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1067,
+        code=1069,
         str_id="shi_ea00",
         classification=ItemClassification.filler,
         weight=6
     ),
     "Hesperides": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1068,
+        code=1070,
         str_id="shi_ea01",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Juno Sospita": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1069,
+        code=1071,
         str_id="shi_ea02",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Megalesia": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1070,
+        code=1072,
         str_id="shi_ea03",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Nemesis": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1071,
+        code=1073,
         str_id="shi_ea04",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Night Lotus": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1072,
+        code=1074,
         str_id="shi_ea08",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Deirdre's Tears": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1073,
+        code=1075,
         str_id="shi_fa00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Cleopatra's Praise": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1074,
+        code=1076,
         str_id="shi_fa01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Iseult's Lament": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1075,
+        code=1077,
         str_id="shi_fa02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Kore Soteira": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1076,
+        code=1078,
         str_id="shi_fa03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Juliet's Sorrow": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1077,
+        code=1079,
         str_id="shi_fa04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Dragoon Gauntlet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1078,
+        code=1080,
         str_id="shi_ga00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Yale Gauntlet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1079,
+        code=1081,
         str_id="shi_ga01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Chiron Gauntlet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1080,
+        code=1082,
         str_id="shi_ga02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Echidna Gauntlet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1081,
+        code=1083,
         str_id="shi_ga03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Apis Gauntlet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1082,
+        code=1084,
         str_id="shi_ga04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Aquamarine Waltz": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1083,
+        code=1085,
         str_id="shi_ha00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Amethyst Anthem": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1084,
+        code=1086,
         str_id="shi_ha01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Carnelian Choir": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1085,
+        code=1087,
         str_id="shi_ha02",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Emerald Ensemble": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1086,
+        code=1088,
         str_id="shi_ha03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Crystal Silence": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1087,
+        code=1089,
         str_id="shi_ha04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Dark Discord": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1088,
+        code=1090,
         str_id="shi_ha05",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Lominsan Escutcheon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1089,
+        code=1091,
         str_id="shi_ia00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Ul'dahn Crest": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1090,
+        code=1092,
         str_id="shi_ia01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Gridanian Sigil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1091,
+        code=1093,
         str_id="shi_ia02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Guardian Corps Shield": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1092,
+        code=1094,
         str_id="shi_ja00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Goddess's Grace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1093,
+        code=1095,
         str_id="shi_ka00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Summoner's Shield": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1094,
+        code=1096,
         str_id="shi_la00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Guardian's Protector": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1095,
+        code=1097,
         str_id="shi_ma00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "SOLDIER's Band": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1096,
+        code=1098,
         str_id="shi_oa00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Thunderstruck": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1097,
+        code=1099,
         str_id="shi_zb00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Final Border": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1098,
+        code=1100,
         str_id="shi_zb01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Nightwalker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1099,
+        code=1101,
         str_id="shi_zb02",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Fealty": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1100,
+        code=1102,
         str_id="shi_zb03",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Kaminari": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1101,
+        code=1103,
         str_id="shi_zb04",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Warning Sign": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1102,
+        code=1104,
         str_id="shi_zb05",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Rasa": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1103,
+        code=1105,
         str_id="shi_zb06",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Riot Shield": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1104,
+        code=1106,
         str_id="shi_zc00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Abyss Gate": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1105,
+        code=1107,
         str_id="shi_zd00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Mog's Shield": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1106,
+        code=1108,
         str_id="shi_ze00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Aegis Shield": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1107,
+        code=1109,
         str_id="shi_zf00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Hyperion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1108,
+        code=1110,
         str_id="wea_ba00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Asterion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1109,
+        code=1111,
         str_id="wea_ba01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Pygmalion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1110,
+        code=1112,
         str_id="wea_ba02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Deucalion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1111,
+        code=1113,
         str_id="wea_ba03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Endymion": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1112,
+        code=1114,
         str_id="wea_ba04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Scramasax": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1113,
+        code=1115,
         str_id="wea_ca00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Szczerbiec": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1114,
+        code=1116,
         str_id="wea_ca01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Morgenstern": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1115,
+        code=1117,
         str_id="wea_ca02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Macuahuitl": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1116,
+        code=1118,
         str_id="wea_ca03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Godendag": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1117,
+        code=1119,
         str_id="wea_ca04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Femme Fatale": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1118,
+        code=1120,
         str_id="wea_da00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Carmen's Dance": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1119,
+        code=1121,
         str_id="wea_da01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Morgan le Fay": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1120,
+        code=1122,
         str_id="wea_da02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Delilah's Temptation": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1121,
+        code=1123,
         str_id="wea_da03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Salome's Kiss": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1122,
+        code=1124,
         str_id="wea_da04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Ultima Weapon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1123,
+        code=1125,
         str_id="wea_ea00",
         classification=ItemClassification.filler,
         weight=6
     ),
     "Liberator": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1124,
+        code=1126,
         str_id="wea_ea01",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Salvation": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1125,
+        code=1127,
         str_id="wea_ea02",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Stigma": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1126,
+        code=1128,
         str_id="wea_ea03",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Immortal Order": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1127,
+        code=1129,
         str_id="wea_ea04",
         classification=ItemClassification.filler,
         weight=17
     ),
+    "Crimson Blitz": LRFF13ItemData(
+        code=1130,
+        str_id="wea_ea08",
+        classification=ItemClassification.filler,
+        weight=12
+    ),
     "Devil's Daughter": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1128,
+        code=1131,
         str_id="wea_fa00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Izanami": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1129,
+        code=1132,
         str_id="wea_fa01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Satanic Sister": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1130,
+        code=1133,
         str_id="wea_fa02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Succubus Claw": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1131,
+        code=1134,
         str_id="wea_fa03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Hades' Pride": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1132,
+        code=1135,
         str_id="wea_fa04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Wyvern Lance": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1133,
+        code=1136,
         str_id="wea_ga00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Seagod's Spear": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1134,
+        code=1137,
         str_id="wea_ga01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Ramuh's Horn": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1135,
+        code=1138,
         str_id="wea_ga02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Demon Claw": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1136,
+        code=1139,
         str_id="wea_ga03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Hades' Fang": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1137,
+        code=1140,
         str_id="wea_ga04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Kikuichimonji": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1138,
+        code=1141,
         str_id="wea_ha00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Masamune": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1139,
+        code=1142,
         str_id="wea_ha01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Heaven's Cloud": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1140,
+        code=1143,
         str_id="wea_ha02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Demon Knife": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1141,
+        code=1144,
         str_id="wea_ha03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Kusanagi": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1142,
+        code=1145,
         str_id="wea_ha04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Brass Falcon": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1143,
+        code=1146,
         str_id="wea_ia00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Callais Hawk": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1144,
+        code=1147,
         str_id="wea_ia01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Nightingale": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1145,
+        code=1148,
         str_id="wea_ia02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Vulture": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1146,
+        code=1149,
         str_id="wea_ia03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Vedfolnir": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1147,
+        code=1150,
         str_id="wea_ia04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Magician's Wand": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1148,
+        code=1151,
         str_id="wea_ja00",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Astromancer's Scepter": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1149,
+        code=1152,
         str_id="wea_ja01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Asteria's Staff": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1150,
+        code=1153,
         str_id="wea_ja02",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Necromancer's Cane": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1151,
+        code=1154,
         str_id="wea_ja03",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Philosopher's Rod": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1152,
+        code=1155,
         str_id="wea_ja04",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Double Saber": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1153,
+        code=1156,
         str_id="wea_ka00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Godly Gambrel": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1154,
+        code=1157,
         str_id="wea_ka01",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Tower Blade": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1155,
+        code=1158,
         str_id="wea_ka02",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Black Gantry": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1156,
+        code=1159,
         str_id="wea_ka03",
         classification=ItemClassification.filler,
         weight=12
     ),
     "Heaven's Bridge": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1157,
+        code=1160,
         str_id="wea_ka04",
         classification=ItemClassification.filler,
         weight=9
     ),
     "Lominsan Cutlass": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1158,
+        code=1161,
         str_id="wea_la00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Ul'dahn Blade": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1159,
+        code=1162,
         str_id="wea_la01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Gridanian Sword": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1160,
+        code=1163,
         str_id="wea_la02",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Blazefire Saber": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1161,
+        code=1164,
         str_id="wea_ma00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Overture": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1162,
+        code=1165,
         str_id="wea_na00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Shadow Hunter": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1163,
+        code=1166,
         str_id="wea_oa00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Endless Paradox": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1164,
+        code=1167,
         str_id="wea_oa01",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Chaos's Revenge": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1165,
+        code=1168,
         str_id="wea_oa02",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Double Deity": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1166,
+        code=1169,
         str_id="wea_oa03",
         classification=ItemClassification.filler,
         weight=9
     ),
     "Demon's Mace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1167,
+        code=1170,
         str_id="wea_oa04",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Destroyer": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1168,
+        code=1171,
         str_id="wea_oa05",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Shard Blade": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1169,
+        code=1172,
         str_id="wea_oa06",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Flesh Render": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1170,
+        code=1173,
         str_id="wea_oa07",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Death Herald": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1171,
+        code=1174,
         str_id="wea_oa08",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Grim Reaper": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1172,
+        code=1175,
         str_id="wea_oa09",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Executioner's Axe": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1173,
+        code=1176,
         str_id="wea_oa10",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Headhunter": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1174,
+        code=1177,
         str_id="wea_oa11",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Brittle Bone": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1175,
+        code=1178,
         str_id="wea_oa12",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Bonecracker": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1176,
+        code=1179,
         str_id="wea_oa13",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Sickle of the Faithful": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1177,
+        code=1180,
         str_id="wea_oa14",
         classification=ItemClassification.filler,
         weight=49
     ),
     "Battleaxe of the Believer": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1178,
+        code=1181,
         str_id="wea_oa15",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Gagnrad": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1179,
+        code=1182,
         str_id="wea_oa16",
         classification=ItemClassification.filler,
         weight=24
     ),
     "Bladed Lance": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1180,
+        code=1183,
         str_id="wea_oa17",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Summoner's Staff": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1181,
+        code=1184,
         str_id="wea_pa00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Brotherhood": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1182,
+        code=1185,
         str_id="wea_qa00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Buster Sword": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1183,
+        code=1186,
         str_id="wea_sa00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Thirteen Nights": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1184,
+        code=1187,
         str_id="wea_zb00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Rising Sun": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1185,
+        code=1188,
         str_id="wea_zb01",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Cloud Veil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1186,
+        code=1189,
         str_id="wea_zb02",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Treasure Hold": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1187,
+        code=1190,
         str_id="wea_zb03",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Heavenly Fan": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1188,
+        code=1191,
         str_id="wea_zb04",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Cruel Grace": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1189,
+        code=1192,
         str_id="wea_zb05",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Jikishinkage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1190,
+        code=1193,
         str_id="wea_zb06",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Survivor's Axe": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1191,
+        code=1194,
         str_id="wea_zc00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Crocea Mors": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1192,
+        code=1195,
         str_id="wea_zd00",
         classification=ItemClassification.filler,
         weight=17
     ),
     "Mog's Staff": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1193,
+        code=1196,
         str_id="wea_ze00",
         classification=ItemClassification.filler,
         weight=34
     ),
     "Excalibur": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1194,
+        code=1197,
         str_id="wea_zf00",
         classification=ItemClassification.filler,
         weight=34
     ),
-    "Curaga": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1195,
-        str_id="ti000_00",
-        classification=ItemClassification.useful
-    ),
-    "Arise": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1196,
-        str_id="ti020_00",
-        classification=ItemClassification.useful
-    ),
-    "Esunada": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1197,
-        str_id="ti030_00",
-        classification=ItemClassification.useful
-    ),
-    "Quake": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1198,
-        str_id="ti500_00",
-        classification=ItemClassification.useful
-    ),
-    "Decoy": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1199,
-        str_id="ti600_00",
-        classification=ItemClassification.useful
-    ),
-    "Teleport": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1200,
-        str_id="ti810_00",
-        classification=ItemClassification.useful
-    ),
-    "Escape": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1201,
-        str_id="ti830_00",
-        classification=ItemClassification.useful
-    ),
-    "Chronostasis": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1202,
-        str_id="ti840_00",
-        classification=ItemClassification.useful
-    ),
-    "Army of One": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1203,
-        str_id="at900_00",
-        classification=ItemClassification.useful
-    ),
-    "Sneaking-In Special Ticket": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1204,
-        str_id="key_y_ticket",
-        classification=ItemClassification.progression
-    ),
-    "ID Card": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1205,
-        str_id="key_y_id",
-        classification=ItemClassification.progression
-    ),
-    "Serah's Pendant": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1206,
-        str_id="key_y_serap",
-        classification=ItemClassification.progression
-    ),
-    "Tablet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1207,
-        str_id="key_d_sekiban",
-        classification=ItemClassification.progression
-    ),
-    "Crux Base": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1208,
-        str_id="key_d_base",
-        classification=ItemClassification.progression
-    ),
-    "Crux Body": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1209,
-        str_id="key_d_wing",
-        classification=ItemClassification.progression
-    ),
-    "Crux Tip": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1210,
-        str_id="key_d_top",
-        classification=ItemClassification.progression
-    ),
-    "Main Story Gysahl Greens": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1211,
-        str_id="key_w_yasai_t",
-        classification=ItemClassification.progression
-    ),
-    "Seedhunter Membership Card": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1212,
-        str_id="key_soulcd",
-        classification=ItemClassification.progression
-    ),
-    "Moogle Fragment": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1213,
-        str_id="key_w_mogsoul",
-        classification=ItemClassification.progression
-    ),
-    "Beloved's Gift": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1214,
-        str_id="key_s_okuri",
-        classification=ItemClassification.progression
-    ),
-    "Fragment of Mischief": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1215,
-        str_id="key_s_kairaku",
-        classification=ItemClassification.progression
-    ),
-    "Fragment of Courage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1216,
-        str_id="key_s_kanki",
-        classification=ItemClassification.progression
-    ),
-    "Fragment of Smiles": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1217,
-        str_id="key_s_zyouai",
-        classification=ItemClassification.progression
-    ),
-    "Fragment of Radiance": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1218,
-        str_id="key_s_hiai",
-        classification=ItemClassification.progression
-    ),
-    "Fragment of Kindness": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1219,
-        str_id="key_s_hunnu",
-        classification=ItemClassification.progression
-    ),
-    "Rubber Ball": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1220,
-        str_id="key_ball",
-        classification=ItemClassification.progression
-    ),
-    "Talbot's Gratitude": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1221,
-        str_id="key_kimochi",
-        classification=ItemClassification.progression
-    ),
-    "Quill Pen": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1222,
-        str_id="key_l_pen",
-        classification=ItemClassification.progression
-    ),
-    "Supply Sphere Password": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1223,
-        str_id="key_kyu_pass",
-        classification=ItemClassification.progression
-    ),
-    "Green Carbuncle Doll": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1224,
-        str_id="key_kb_g",
-        classification=ItemClassification.progression
-    ),
-    "Red Carbuncle Doll": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1225,
-        str_id="key_kb_r",
-        classification=ItemClassification.progression
-    ),
-    "Phantom Rose": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1226,
-        str_id="key_l_hana",
-        classification=ItemClassification.progression
-    ),
-    "Thunderclap Cap": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1227,
-        str_id="key_j_kino",
-        classification=ItemClassification.progression
-    ),
-    "Shaolong Gui Shell": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1228,
-        str_id="key_niku",
-        classification=ItemClassification.progression
-    ),
-    "Mandragora Root": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1229,
-        str_id="key_ninjin",
-        classification=ItemClassification.progression
-    ),
-    "Spectral Elixir": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1230,
-        str_id="key_sp_bt",
-        classification=ItemClassification.progression
-    ),
-    "Cursed Dragon Claw": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1231,
-        str_id="key_behi_tume",
-        classification=ItemClassification.progression
-    ),
-    "Service Entrance Key": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1232,
-        str_id="key_l_kagi",
-        classification=ItemClassification.progression
-    ),
-    "Musical Treasure Sphere Key": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1233,
-        str_id="key_y_kagi1",
-        classification=ItemClassification.progression
-    ),
-    "Nostalgic Score: Chorus": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1234,
-        str_id="key_y_kagi2",
-        classification=ItemClassification.progression
-    ),
-    "Nostalgic Score: Refrain": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1235,
-        str_id="key_y_kagi3",
-        classification=ItemClassification.progression
-    ),
-    "Nostalgic Score: Coda": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1236,
-        str_id="key_y_rappa",
-        classification=ItemClassification.progression
-    ),
-    "Music Satchel": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1237,
-        str_id="key_y_kaban",
-        classification=ItemClassification.progression
-    ),
-    "Civet Musk": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1238,
-        str_id="key_y_bashira",
-        classification=ItemClassification.progression
-    ),
-    "Gordon Gourmet's Recipe": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1239,
-        str_id="key_y_recipe",
-        classification=ItemClassification.progression
-    ),
-    "Steak a la Civet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1240,
-        str_id="key_y_cream",
-        classification=ItemClassification.progression
-    ),
-    "Father's Letter": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1241,
-        str_id="key_y_letter",
-        classification=ItemClassification.progression
-    ),
-    "Pilgrim's Cruxes": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1242,
-        str_id="key_d_key",
-        classification=ItemClassification.progression
-    ),
-    "Loupe": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1243,
-        str_id="key_d_lupe",
-        classification=ItemClassification.progression
-    ),
-    "Arithmometer": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1244,
-        str_id="key_d_keisan",
-        classification=ItemClassification.progression
-    ),
-    "Monster Flesh": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1245,
-        str_id="key_d_niku",
-        classification=ItemClassification.progression
-    ),
-    "Goddess Glyphs": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1246,
-        str_id="key_w_moji1",
-        classification=ItemClassification.progression
-    ),
-    "Chaos Glyphs": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1247,
-        str_id="key_w_moji2",
-        classification=ItemClassification.progression
-    ),
-    "Plate Metal Fragment": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1248,
-        str_id="key_w_buhin1",
-        classification=ItemClassification.progression
-    ),
-    "Silvered Metal Fragment": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1249,
-        str_id="key_w_buhin2",
-        classification=ItemClassification.progression
-    ),
-    "Golden Metal Fragment": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1250,
-        str_id="key_w_buhin3",
-        classification=ItemClassification.progression
-    ),
-    "Data Recorder": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1251,
-        str_id="key_w_data",
-        classification=ItemClassification.progression
-    ),
-    "Aryas Apple": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1252,
-        str_id="key_w_apple",
-        classification=ItemClassification.progression
-    ),
-    "Mystery Egg": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1253,
-        str_id="key_w_tamago",
-        classification=ItemClassification.progression
-    ),
-    "Proof of Overcoming Limits": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1254,
-        str_id="key_p_toppa",
-        classification=ItemClassification.progression
-    ),
-    "Proof of Legendary Title": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1255,
-        str_id="key_l_kishin",
-        classification=ItemClassification.progression
-    ),
-    "Proof of Courage": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1256,
-        str_id="key_b_00",
-        classification=ItemClassification.progression
-    ),
-    "Violet Amulet": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1257,
-        str_id="key_b_01",
-        classification=ItemClassification.progression
-    ),
-    "Chocobo Girl's Phone No.": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1258,
-        str_id="key_b_20",
-        classification=ItemClassification.progression
-    ),
-    "Lapis Lazuli": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1259,
-        str_id="key_b_02",
-        classification=ItemClassification.progression
-    ),
-    "Power Booster": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1260,
-        str_id="key_b_03",
-        classification=ItemClassification.progression
-    ),
-    "Jade Hair Comb": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1261,
-        str_id="key_b_16",
-        classification=ItemClassification.progression
-    ),
-    "Bronze Pocket Watch": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1262,
-        str_id="key_b_17",
-        classification=ItemClassification.progression
-    ),
-    "Golden Scarab": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1263,
-        str_id="key_b_08",
-        classification=ItemClassification.progression
-    ),
-    "Moogle Dust": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1264,
-        str_id="key_b_04",
-        classification=ItemClassification.progression
-    ),
-    "Old-Fashioned Photo Frame": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1265,
-        str_id="key_b_05",
-        classification=ItemClassification.progression
-    ),
-    "Etro's Forbidden Tome": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1266,
-        str_id="key_b_06",
-        classification=ItemClassification.progression
-    ),
-    "Broken Gyroscope": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1267,
-        str_id="key_b_07",
-        classification=ItemClassification.progression
-    ),
-    "Key to the Sand Gate": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1268,
-        str_id="key_b_09",
-        classification=ItemClassification.progression
-    ),
-    "Key to the Green Gate": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1269,
-        str_id="key_b_10",
-        classification=ItemClassification.progression
-    ),
-    "Bandit's Bloodseal": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1270,
-        str_id="key_b_11",
-        classification=ItemClassification.progression
-    ),
-    "Oath of the Merchants Guild": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1271,
-        str_id="key_b_12",
-        classification=ItemClassification.progression
-    ),
     "10 Gil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1272,
+        code=1198,
         str_id="",
         classification=ItemClassification.filler,
         weight=50,
@@ -7583,7 +7213,7 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         duplicate_amount=0
     ),
     "500 Gil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1273,
+        code=1199,
         str_id="",
         classification=ItemClassification.filler,
         weight=700,
@@ -7591,7 +7221,7 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         duplicate_amount=0
     ),
     "1000 Gil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1274,
+        code=1200,
         str_id="",
         classification=ItemClassification.filler,
         weight=900,
@@ -7599,7 +7229,7 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         duplicate_amount=0
     ),
     "2500 Gil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1275,
+        code=1201,
         str_id="",
         classification=ItemClassification.filler,
         weight=600,
@@ -7607,7 +7237,7 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         duplicate_amount=0
     ),
     "7500 Gil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1276,
+        code=1202,
         str_id="",
         classification=ItemClassification.filler,
         weight=400,
@@ -7615,7 +7245,7 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         duplicate_amount=0
     ),
     "20000 Gil": LRFF13ItemData(
-        code=LRFF13_BASE_ID + 1277,
+        code=1203,
         str_id="",
         classification=ItemClassification.filler,
         weight=100,
