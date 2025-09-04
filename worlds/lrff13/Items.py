@@ -3,7 +3,7 @@ from BaseClasses import Item, ItemClassification
 
 
 class LRFF13Item(Item):
-    game: str = "Lightning Returns Final Fantasy XIII"
+    game: str = "Lightning Returns: Final Fantasy XIII"
 
 
 class LRFF13ItemData(NamedTuple):
