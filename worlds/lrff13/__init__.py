@@ -5,14 +5,14 @@ from typing import List, Any, Dict
 from BaseClasses import Region, Tutorial, ItemClassification, CollectionState, Callable, LocationProgressType, \
     MultiWorld
 from worlds.AutoWorld import WebWorld, World
-from worlds.generic.Rules import add_rule
+from worlds.generic.Rules import add_rule, add_item_rule
 from worlds.LauncherComponents import launch_subprocess, components, Component, Type
 
 from .Items import LRFF13Item, item_data_table, item_table, filler_items, filler_weights
 from .Locations import LRFF13Location, location_data_table, location_table
-from .Options import FF12OpenWorldGameOptions
+from .Options import LRFF13GameOptions
 from .Regions import region_data_table
-from .Rules import location_rule_data_table, entrance_rule_data_table
+from .Rules import location_rule_data_table, entrance_rule_data_table, item_rule_data_table
 from .Events import event_data_table
 
 
@@ -46,8 +46,8 @@ class LRFF13World(World):
     game = "Lightning Returns: Final Fantasy XIII"
     data_version = 3
     web = LRFF13WebWorld()
-    options_dataclass = FF12OpenWorldGameOptions
-    options: FF12OpenWorldGameOptions
+    options_dataclass = LRFF13GameOptions
+    options: LRFF13GameOptions
     location_name_to_id = location_table
     item_name_to_id = item_table
 
@@ -55,6 +55,7 @@ class LRFF13World(World):
         super().__init__(world, player)
         self.used_items = set()
         self.re_gen_data = {}
+        self.origin_region_name = "Initial"
 
     def create_item(self, name: str) -> LRFF13Item:
         return LRFF13Item(name, item_data_table[name].classification, item_data_table[name].code, self.player)
@@ -62,13 +63,29 @@ class LRFF13World(World):
     def create_items(self) -> None:
         self.used_items.clear()
         item_pool: List[LRFF13Item] = []
-        # Fill with random filler items for all non-event locations
+        progression_items = [name for name, data in item_data_table.items()
+                             if data.classification & ItemClassification.progression]
+
+        for name in progression_items:
+            for _ in range(item_data_table[name].duplicate_amount):
+                item_pool.append(self.create_item(name))
+
+        other_useful_items = [name for name, data in item_data_table.items()
+                              if data.classification & ItemClassification.useful]
+        self.add_to_pool(item_pool, other_useful_items)
+
+        # Get count of non event locations
         non_events = len([location for location in self.multiworld.get_locations(self.player)
                           if location.name not in event_data_table.keys()])
-        for _ in range(non_events):
+
+        filler_count = non_events - len(item_pool)
+
+        # Add filler items to the pool
+        for _ in range(filler_count):
             filler = self.get_filler_item_name()
             self.used_items.add(filler)
             item_pool.append(self.create_item(filler))
+
         self.multiworld.itempool += item_pool
 
     def add_to_pool(self, item_pool, other_useful_items):
@@ -100,6 +117,11 @@ class LRFF13World(World):
             region = self.multiworld.get_region(e_data.region, self.player)
             region.locations.append(LRFF13Location(self.player, event_name, None, region))
 
+        # debug log
+        import logging
+        logging.debug(f"LRFF13: Created {len(self.multiworld.regions)} regions, "
+                      f"{len(self.multiworld.get_locations(self.player))} locations.")
+
     def get_loc_classification(self, location_name: str) -> LocationProgressType:
         location_data = location_data_table[location_name]
         return location_data.classification
@@ -126,6 +148,12 @@ class LRFF13World(World):
         for event_name, e_data in event_data_table.items():
             location = self.multiworld.get_location(event_name, self.player)
             location.place_locked_item(self.create_event(e_data.item))
+
+        # Set item rules
+        for (location_name, rule) in item_rule_data_table.items():
+            location = self.multiworld.get_location(location_name, self.player)
+            add_item_rule(location, rule)
+            add_item_rule(location, lambda i: i.player == self.player)
 
         # Completion condition.
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
@@ -163,14 +191,52 @@ class LRFF13World(World):
                                     "sphere": cur_sphere})
             cur_sphere += 1
 
+        # Build item placements for LR mod tool
+        item_placements: List[Dict[str, Any]] = []
+        for loc in self.multiworld.get_locations(self.player):
+            if loc.name in event_data_table:
+                continue
+            # Only include locations that have an item placed
+            if getattr(loc, "item", None) is None:
+                continue
+            item = loc.item
+            src_player_name = self.multiworld.get_player_name(item.player)
+            display_name = f"{src_player_name}'s {item.name}"
+            item_placements.append({
+                "id": location_data_table[loc.name].str_id,
+                "name": display_name,
+                "region": loc.parent_region.name
+            })
+
+        # Build local item placements for the same player that have items in their own world
+        local_item_placements: List[Dict[str, Any]] = []
+        for loc in self.multiworld.get_locations(self.player):
+            if loc.name in event_data_table:
+                continue
+            # Only include locations that have an item placed
+            if getattr(loc, "item", None) is None:
+                continue
+            item = loc.item
+            if item.player != self.player:
+                continue
+            local_item_placements.append({
+                "location_id": location_data_table[loc.name].str_id,
+                "item_id": item_data_table[item.name].str_id
+            })
+
         seed_name = self.multiworld.seed_name + "_" + self.multiworld.get_player_name(self.player)
         data = {
             "seed": seed_name,  # to identify the seed
             "type": "archipelago",  # to identify the seed type
+            # Fields consumed by the LR mod tool
+            "version": LRFF13_VERSION,
+            # Retain archipelago details for debugging/auxiliary tools
             "archipelago": {
                 "version": LRFF13_VERSION,
                 "used_items": list(self.used_items),
-                "spheres": spheres
+                "spheres": spheres,
+                "item_placements": item_placements,
+                "local_item_placements": local_item_placements
             }
         }
         mod_name = self.multiworld.get_out_file_name_base(self.player)
