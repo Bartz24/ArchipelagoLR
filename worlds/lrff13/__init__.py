@@ -5,6 +5,7 @@ from typing import List, Any, Dict
 from BaseClasses import Region, Tutorial, ItemClassification, CollectionState, Callable, LocationProgressType, \
     MultiWorld
 from worlds.AutoWorld import WebWorld, World
+from worlds.Files import APPlayerContainer
 from worlds.generic.Rules import add_rule, add_item_rule
 from worlds.LauncherComponents import launch_subprocess, components, Component, Type
 
@@ -16,13 +17,30 @@ from .Rules import location_rule_data_table, entrance_rule_data_table, item_rule
 from .Events import event_data_table
 
 
-def launch_client():
+class LRFF13Container(APPlayerContainer):
+    """AP container for LRFF13 output, carrying mod JSON payload inside."""
+    game: str = "Lightning Returns: Final Fantasy XIII"
+    patch_file_ending: str = ".aplrff13"
+
+    def __init__(self, *args: Any, data: Dict[str, Any] = None, **kwargs: Any) -> None:
+        self.data = data or {}
+        super().__init__(*args, **kwargs)
+
+    def write_contents(self, opened_zipfile) -> None:
+        # Write the JSON content used by the LR mod tool
+        opened_zipfile.writestr("seed.json", json.dumps(self.data))
+        # Write the AP manifest last
+        super().write_contents(opened_zipfile)
+
+
+def launch_client(*args):
     from .Client import launch
-    launch_subprocess(launch, name="LRFF13 Client")
+    launch_subprocess(launch, name="Lightning Returns: Final Fantasy XIII Client", args=args)
 
 
-components.append(Component("LRFF13 Client", "LRFF13Client",
-                            func=launch_client, component_type=Type.CLIENT))
+components.append(Component("Lightning Returns: Final Fantasy XIII Client", "LRFF13Client",
+                            func=launch_client, component_type=Type.CLIENT,
+                            game_name="Lightning Returns: Final Fantasy XIII", supports_uri=True))
 
 LRFF13_VERSION = "0.1.0"
 
@@ -50,6 +68,8 @@ class LRFF13World(World):
     options: LRFF13GameOptions
     location_name_to_id = location_table
     item_name_to_id = item_table
+
+    ut_can_gen_without_yaml = True
 
     def __init__(self, world: MultiWorld, player: int):
         super().__init__(world, player)
@@ -205,7 +225,8 @@ class LRFF13World(World):
             item_placements.append({
                 "id": location_data_table[loc.name].str_id,
                 "name": display_name,
-                "region": loc.parent_region.name
+                "region": loc.parent_region.name,
+                "address": location_data_table[loc.name].address
             })
 
         # Build local item placements for the same player that have items in their own world
@@ -239,9 +260,16 @@ class LRFF13World(World):
                 "local_item_placements": local_item_placements
             }
         }
+        # Package output using an APPlayerContainer for consistency with other worlds
         mod_name = self.multiworld.get_out_file_name_base(self.player)
-        with open(os.path.join(output_directory, mod_name + ".json"), "w") as f:
-            json.dump(data, f)
+        container = LRFF13Container(
+            path=os.path.join(output_directory, f"{mod_name}{LRFF13Container.patch_file_ending}"),
+            player=self.player,
+            player_name=self.multiworld.get_file_safe_player_name(self.player),
+            server="",
+            data=data,
+        )
+        container.write()
 
     def fill_slot_data(self) -> Dict[str, Any]:
         return {}
