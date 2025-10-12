@@ -220,7 +220,7 @@ class LRFF13Context(CommonContext):
                 # Send the next item in items_received using the index from get_ap_num_collected
                 ap_num_collected = self.get_ap_num_collected()
                 received : List[NetworkItem] = self.items_received
-                if ap_num_collected < len(received) and (self.game_state_cache.rando_multi_count == 32500 or self.game_state_cache.key_items.get("key_r_added", 0) > 0) and self.game_state_cache.key_items.get("key_r_multi_0", 0) > 0 and self.game_state_cache.key_items.get("key_r_multi_1", 0) > 0 and self.game_state_cache.key_items.get("key_r_multi_2", 0) > 0:
+                if ap_num_collected < len(received) and (self.game_state_cache.key_items.get("key_r_added", 0) > 0) and self.game_state_cache.key_items.get("key_r_multi_0", 0) > 0 and self.game_state_cache.key_items.get("key_r_multi_1", 0) > 0 and self.game_state_cache.key_items.get("key_r_multi_2", 0) > 0:
                     item = received[ap_num_collected]
                     if item.item in inv_item_table:
                         item_name = inv_item_table[item.item]
@@ -228,9 +228,9 @@ class LRFF13Context(CommonContext):
 
                         # Only write the item if it is not an initial garb item
                         if item_name not in self.slot_data.get("initial_equipment", []):
-                            # Write the item name and set count to 1
+                            # Write the item name and set count to the item amount
                             self.write_string(self.game_state_cache.rando_multi_item_address, item_info.str_id, False, 16)
-                            self.write_u32(self.game_state_cache.rando_multi_count_address, 1, False)
+                            self.write_u32(self.game_state_cache.rando_multi_count_address, item_info.amount, False)
 
                             # Set the key_r_added to 0 to indicate the game can add the item now
                             if "key_r_added" in self.game_state_cache.key_items:
