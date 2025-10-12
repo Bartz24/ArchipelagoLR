@@ -42,7 +42,7 @@ components.append(Component("Lightning Returns: Final Fantasy XIII Client", "LRF
                             func=launch_client, component_type=Type.CLIENT,
                             game_name="Lightning Returns: Final Fantasy XIII", supports_uri=True))
 
-LRFF13_VERSION = "0.1.0"
+LRFF13_VERSION = "0.1.1"
 
 
 class LRFF13WebWorld(WebWorld):
