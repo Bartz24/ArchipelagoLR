@@ -7,7 +7,7 @@ import pymem
 import ModuleUpdate
 from Utils import async_start
 
-from NetUtils import NetworkItem
+from NetUtils import ClientStatus, NetworkItem
 from CommonClient import gui_enabled, logger, get_base_parser, CommonContext, server_loop, ClientCommandProcessor, handle_url_arg
 from typing import Dict
 
@@ -59,13 +59,6 @@ class LRFF13Context(CommonContext):
         self.slot_data = None
         self.game_state_cache = LRFF13StateCache()
 
-    async def get_username(self):
-        if not self.auth:
-            self.auth = self.username
-            if not self.auth:
-                logger.info('Enter slot name:')
-                self.auth = await self.console_input()
-
     async def server_auth(self, password_requested: bool = False):
         if password_requested and not self.password:
             await super().server_auth(password_requested)
@@ -74,11 +67,13 @@ class LRFF13Context(CommonContext):
 
     async def connection_closed(self):
         self.server_connected = False
-        await super().connection_closed()
+        self.lr_connected = False
+        await super(LRFF13Context, self).connection_closed()
 
     async def disconnect(self, allow_autoreconnect: bool = False):
         self.server_connected = False
-        await super().disconnect(allow_autoreconnect)
+        self.lr_connected = False
+        await super(LRFF13Context, self).disconnect()
 
     @property
     def endpoints(self):
@@ -165,7 +160,7 @@ class LRFF13Context(CommonContext):
         
     def write_string(self, addr: int, value: str, use_base: bool = True, null_extra_length = -1) -> None:
         if null_extra_length >= 0:
-            value = value + ("\0" * null_extra_length)
+            value = value + ("\0" * (null_extra_length - len(value)))
         if use_base:
             self.lr_game.write_string(self.lr_game.base_address + addr, value)
         else:
@@ -209,6 +204,9 @@ class LRFF13Context(CommonContext):
             num //= 50
 
     async def give_items(self):
+        if not self.lr_connected:
+            return
+
         if self.game_state_cache.in_main_menu:
             # Reset rando_multi item and count values if they are different
             if self.game_state_cache.rando_multi_item != "rando_multi_item":
@@ -228,33 +226,43 @@ class LRFF13Context(CommonContext):
                         item_name = inv_item_table[item.item]
                         item_info = item_data_table[item_name]
 
-                        # Write the item name and set count to 1
-                        self.write_string(self.game_state_cache.rando_multi_item_address, item_info.str_id, False, 16)
-                        self.write_u32(self.game_state_cache.rando_multi_count_address, 1, False)
+                        # Only write the item if it is not an initial garb item
+                        if item_name not in self.slot_data.get("initial_equipment", []):
+                            # Write the item name and set count to 1
+                            self.write_string(self.game_state_cache.rando_multi_item_address, item_info.str_id, False, 16)
+                            self.write_u32(self.game_state_cache.rando_multi_count_address, 1, False)
 
-                        # Set the key_r_added to 0 to indicate the game can add the item now
-                        if "key_r_added" in self.game_state_cache.key_items:
-                            self.game_state_cache.key_items["key_r_added"] = 0
-                            if "key_r_added" in self.game_state_cache.key_items_addresses:
-                                self.write_byte(self.game_state_cache.key_items_addresses["key_r_added"] + 18, 0, False)
+                            # Set the key_r_added to 0 to indicate the game can add the item now
+                            if "key_r_added" in self.game_state_cache.key_items:
+                                self.game_state_cache.key_items["key_r_added"] = 0
+                                if "key_r_added" in self.game_state_cache.key_items_addresses:
+                                    self.write_byte(self.game_state_cache.key_items_addresses["key_r_added"] + 18, 0, False)
 
-                        logger.info(f"Received {item_name}.")
+                        # logger.debug(f"Received {item_name}.")
                         # Increment the ap_num_collected
                         self.set_ap_num_collected(ap_num_collected + 1)
 
             
         except Exception as e:
+            if self.lr_connected:
+                self.lr_connected = False
             logger.info(e)
 
     async def lrff13_check_locations(self):
-        if self.game_state_cache.in_main_menu:
+        if self.game_state_cache.in_main_menu or not self.lr_connected:
             return
+        
+        
+        # Victory, check if the key item key_r_victory is present
+        if self.game_state_cache.key_items.get("key_r_victory", 0) > 0 and not self.finished_game:
+            await self.send_msgs([{"cmd": "StatusUpdate", "status": ClientStatus.CLIENT_GOAL}])
+            self.finished_game = True
 
         locations : List[int] = []
 
         # Always include initial 3rd garb locations as
         # these are the initial garb equipment and not actually given as items
-        initial_garb_names = ["Initial 3rd Garb (1)", "Initial 3rd Garb (2)", "Initial 3rd Garb (3)"]
+        initial_garb_names = ["Ark - Initial 3rd Garb (1)", "Ark - Initial 3rd Garb (2)", "Ark - Initial 3rd Garb (3)"]
         locations.extend([location_data_table[name].address for name in initial_garb_names if location_data_table[name].address not in self.locations_checked])
 
         # Check for checked locations and mark them as checked in-game
@@ -276,9 +284,14 @@ class LRFF13Context(CommonContext):
 
             await self.check_locations(locations)
         except Exception as e:
+            if self.lr_connected:
+                self.lr_connected = False
             logger.info(e)
 
     async def update_game_state_cache(self):
+        if not self.lr_connected:
+            return
+        
         new_cache = LRFF13StateCache()
         try:
             p_stats_base = self.read_u64(0x4CF79D8)
@@ -308,6 +321,8 @@ class LRFF13Context(CommonContext):
                     new_cache.key_items = key_items
                     new_cache.key_items_addresses = key_items_addresses
                 except Exception as e:
+                    if self.lr_connected:
+                        self.lr_connected = False
                     logger.info(e)
 
             # Calculate and cache the ran_multi/rando_multi addresses (treasure strings block)
@@ -359,22 +374,24 @@ class LRFF13Context(CommonContext):
             new_cache.rando_multi_item = self.read_string(new_cache.rando_multi_item_address, 16, False) if new_cache.rando_multi_item_address else None
             new_cache.rando_multi_count = self.read_u32(new_cache.rando_multi_count_address, False) if new_cache.rando_multi_count_address else 0
 
-            # Log key items list for debugging
-            logger.debug(f"LRFF13: Key Items: {new_cache.key_items}")
-            logger.debug(f"LRFF13: Max EP: {new_cache.max_ep}")
-            # Log the rando_multi item current value and the count
-            logger.debug(f"LRFF13: Rando Multi Item: {new_cache.rando_multi_item}")
-            logger.debug(f"LRFF13: Rando Multi Count: {new_cache.rando_multi_count}")
+            ## # Log key items list for debugging
+            ## logger.debug(f"LRFF13: Key Items: {new_cache.key_items}")
+            ## logger.debug(f"LRFF13: Max EP: {new_cache.max_ep}")
+            ## # Log the rando_multi item current value and the count
+            ## logger.debug(f"LRFF13: Rando Multi Item: {new_cache.rando_multi_item}")
+            ## logger.debug(f"LRFF13: Rando Multi Count: {new_cache.rando_multi_count}")
 
             self.game_state_cache = new_cache
         except Exception as e:
+            if self.lr_connected:
+                self.lr_connected = False
             logger.info(e)
 
 
 async def lrff13_watcher(ctx: LRFF13Context):
     while not ctx.exit_event.is_set():
         try:
-            if ctx.server_connected:
+            if ctx.lr_connected and ctx.server_connected:
                 await ctx.update_game_state_cache()
                 await ctx.lrff13_check_locations()
                 await ctx.give_items()
@@ -385,6 +402,8 @@ async def lrff13_watcher(ctx: LRFF13Context):
                     await asyncio.sleep(15)
                     ctx.find_game()
         except Exception as e:
+            if ctx.lr_connected:
+                ctx.lr_connected = False
             logger.info(e)
         await asyncio.sleep(0.5)
 
