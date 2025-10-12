@@ -1,6 +1,6 @@
 import json
 import os
-from typing import List, Any, Dict
+from typing import List, Any, Dict, Tuple
 
 from BaseClasses import Region, Tutorial, ItemClassification, CollectionState, Callable, LocationProgressType, \
     MultiWorld
@@ -68,6 +68,12 @@ class LRFF13World(World):
     options: LRFF13GameOptions
     location_name_to_id = location_table
     item_name_to_id = item_table
+    locked_items : Dict[str, str] = {
+        "tre_box_p_003" : None,
+        "tre_box_p_200" : None,
+        "tre_box_p_201" : None
+    }
+    excluded_locations : set[str] = set()
 
     ut_can_gen_without_yaml = True
 
@@ -83,22 +89,52 @@ class LRFF13World(World):
     def create_items(self) -> None:
         self.used_items.clear()
         item_pool: List[LRFF13Item] = []
+        # Start with non-adornment progression items
         progression_items = [name for name, data in item_data_table.items()
-                             if data.classification & ItemClassification.progression]
+                             if data.classification & ItemClassification.progression and data.category != "Adornment"]
+
+        all_adornments = [name for name, data in item_data_table.items()
+                          if data.classification & ItemClassification.progression and data.category == "Adornment"]
+        
+        # Add always in the pool adornments
+        always_adornments = [name for name in all_adornments if "Always" in item_data_table[name].traits]
+        progression_items.extend(always_adornments)
+
+        # Add 70-100 adornments total (including always in pool)
+        other_count = self.multiworld.random.randint(70 - len(always_adornments), 100 - len(always_adornments))
+        other_adornments = self.multiworld.random.sample(all_adornments, other_count)
+        progression_items.extend(other_adornments)
 
         for name in progression_items:
             for _ in range(item_data_table[name].duplicate_amount):
-                item_pool.append(self.create_item(name))
-
-        other_useful_items = [name for name, data in item_data_table.items()
-                              if data.classification & ItemClassification.useful]
-        self.add_to_pool(item_pool, other_useful_items)
+                item_pool.append(self.create_item(name))                
 
         # Get count of non event locations
         non_events = len([location for location in self.multiworld.get_locations(self.player)
                           if location.name not in event_data_table.keys()])
 
-        filler_count = non_events - len(item_pool)
+        # Start with non-equipment useful items (not garb, weapons, shields, accessories)
+        useful_items = [name for name, data in item_data_table.items()
+                        if data.classification & ItemClassification.useful and
+                        data.category not in ["Garb", "Weapon", "Shield", "Accessory"]]
+
+        # Add equipment to fill up half of the remaining pool
+        all_equipment_items = [name for name, data in item_data_table.items()
+                           if data.classification & ItemClassification.useful and
+                           data.category in ["Garb", "Weapon", "Shield", "Accessory"]]
+
+        # Set locked initial items and remove from equipment pool
+        self.locked_items["tre_box_p_003"] = self.get_initial_and_remove_from_pool("Garb", all_equipment_items)
+        self.locked_items["tre_box_p_200"] = self.get_initial_and_remove_from_pool("Weapon", all_equipment_items)
+        self.locked_items["tre_box_p_201"] = self.get_initial_and_remove_from_pool("Shield", all_equipment_items)
+
+        selected_count = (non_events - len(item_pool) - len(useful_items)) // 2
+        selected_equipment = self.multiworld.random.sample(all_equipment_items, selected_count)
+        useful_items.extend(selected_equipment)
+
+        self.add_to_pool(item_pool, useful_items)
+
+        filler_count = non_events - len(item_pool) - len(self.locked_items)
 
         # Add filler items to the pool
         for _ in range(filler_count):
@@ -108,8 +144,16 @@ class LRFF13World(World):
 
         self.multiworld.itempool += item_pool
 
-    def add_to_pool(self, item_pool, other_useful_items):
-        for name in other_useful_items:
+    def get_initial_and_remove_from_pool(self, category: str, pool : list[str]) -> str:
+        possible = [item for item in pool if item_data_table[item].category == category]
+        if len(possible) == 0:
+            raise Exception(f"No items of category {category} found in pool to set as initial item.")
+        selected = self.multiworld.random.choice(possible)
+        pool.remove(selected)
+        return selected
+
+    def add_to_pool(self, item_pool, items):
+        for name in items:
             self.used_items.add(name)
             for _ in range(item_data_table[name].duplicate_amount):
                 item_pool.append(self.create_item(name))
@@ -161,8 +205,19 @@ class LRFF13World(World):
             if region.player != self.player:
                 continue
             for entrance in region.exits:
-                if entrance.name in entrance_rule_data_table:
-                    add_rule(entrance, self.create_entrance_rule(entrance.name))
+                entrance_tuple = (entrance.parent_region.name, entrance.connected_region.name)
+                if entrance_tuple in entrance_rule_data_table:
+                    add_rule(entrance, self.create_entrance_rule(entrance_tuple))
+
+        # Set initial equipment locked items
+        for loc_str_id, item_name in self.locked_items.items():
+            loc_name = next((name for name, data in location_data_table.items() if data.str_id == loc_str_id), None)
+            if loc_name is None:
+                raise Exception(f"Location with string ID {loc_str_id} not found in location data table.")
+            if item_name is None:
+                raise Exception(f"Initial item for location {loc_name} was not set properly.")
+            location = self.multiworld.get_location(loc_name, self.player)
+            location.place_locked_item(self.create_item(item_name))
 
         # Set event locked items
         for event_name, e_data in event_data_table.items():
@@ -185,16 +240,60 @@ class LRFF13World(World):
         # LRFF13 uses explicit rule tables; no extra character scaling.
         return lambda state: True
 
-    def create_entrance_rule(self, entrance_name: str) -> Callable[[CollectionState], bool]:
-        return lambda state: entrance_rule_data_table[entrance_name](state, self.player)
+    def create_entrance_rule(self, entrance: Tuple[str, str]) -> Callable[[CollectionState], bool]:
+        return lambda state: entrance_rule_data_table[entrance](state, self.player)
 
     def create_event(self, event_item: str) -> LRFF13Item:
         name = event_item
         return LRFF13Item(name, ItemClassification.progression, None, self.player)
 
     def generate_early(self) -> None:
-        # LRFF13 currently has no early-generation shuffling requirements.
-        # Reserved for potential universal tracker passthrough support.
+        excluded_str_ids = set()
+        if not self.options.ultimate_lair:
+            for loc_name, loc_data in location_data_table.items():
+                if loc_data.region == "Ultimate Lair":
+                    excluded_str_ids.add(loc_data.str_id)
+        if not self.options.superbosses:
+            excluded_str_ids.add("btsc04990") # Aeronite Monster Flesh
+            excluded_str_ids.add("tre_acc_a_9210") # Ereshkigal Drop
+            excluded_str_ids.add("tre_qst_099") # Ereshkigal Reward
+        if not self.options.canvas_of_prayers:
+            for loc_name, loc_data in location_data_table.items():
+                if loc_data.region in ["CoP Global", "CoP Dead Dunes", "CoP Luxerion", "CoP Wildlands", "CoP Yusnaan"]:
+                    excluded_str_ids.add(loc_data.str_id)
+        if not self.options.grindy:
+            excluded_str_ids.add("tre_seed_1st_01") # 20+ Soul Seeds
+            excluded_str_ids.add("tre_seed_1st_02") # 30+ Soul Seeds
+            excluded_str_ids.add("tre_seed_1st_03") # 40+ Soul Seeds
+            excluded_str_ids.add("tre_seed_1st_04") # 50+ Soul Seeds
+            excluded_str_ids.add("tre_key_d_kant3") # 10+ Unappraised
+            excluded_str_ids.add("tre_key_d_kant4") # 20+ Unappraised
+            excluded_str_ids.add("tre_key_d_kant5") # 50+ Unappraised
+
+        self.excluded_locations = {next((name for name, data in location_data_table.items() if data.str_id == str_id), None)
+                                   for str_id in excluded_str_ids}
+        if None in self.excluded_locations:
+            raise Exception("One or more excluded locations could not be found in the location data table.")
+
+        if not self.options.shuffle_teleport:
+            self.locked_items["tre_ti810"] = "Teleport"
+        if not self.options.shuffle_escape:
+            self.locked_items["tre_ti830"] = "Escape"
+        if not self.options.shuffle_chronostasis:
+            self.locked_items["tre_ti840"] = "Chronostasis"
+        if not self.options.shuffle_curaga:
+            self.locked_items["tre_ti000"] = "Curaga"
+        if not self.options.shuffle_arise:
+            self.locked_items["tre_box_p_101"] = "Arise"
+        if not self.options.shuffle_esunada:
+            self.locked_items["tre_box_p_103"] = "Esunada"
+        if not self.options.shuffle_quake:
+            self.locked_items["tre_box_p_110"] = "Quake"
+        if not self.options.shuffle_decoy:
+            self.locked_items["tre_box_p_108"] = "Decoy"
+        if not self.options.shuffle_army_of_one:
+            self.locked_items["tre_box_p_106"] = "Army of One"
+
         return
 
     def generate_output(self, output_directory: str) -> None:
