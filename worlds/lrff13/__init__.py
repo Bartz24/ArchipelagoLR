@@ -371,7 +371,20 @@ class LRFF13World(World):
         container.write()
 
     def fill_slot_data(self) -> Dict[str, Any]:
-        return {}
+        initial_equip_loc_ids = ["tre_box_p_003", "tre_box_p_200", "tre_box_p_201"]
+        initial_equip = []
+        for loc_id in initial_equip_loc_ids:
+            loc_name = next((name for name, data in location_data_table.items() if data.str_id == loc_id), None)
+            if loc_name is None:
+                raise Exception(f"Location with string ID {loc_id} not found in location data table.")
+            location = self.multiworld.get_location(loc_name, self.player)
+            if getattr(location, "item", None) is None:
+                raise Exception(f"Initial equipment location {loc_name} does not have an item placed.")
+            initial_equip.append(location.item.name)
+
+        return {
+            "initial_equipment": initial_equip
+        }
 
     # From Tunic implementation
     # For the universal tracker, doesn't get called in standard gen
