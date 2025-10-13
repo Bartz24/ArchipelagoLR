@@ -91,10 +91,10 @@ class LRFF13World(World):
         item_pool: List[LRFF13Item] = []
         # Start with non-adornment progression items
         progression_items = [name for name, data in item_data_table.items()
-                             if data.classification & ItemClassification.progression and data.category != "Adornment"]
+                             if data.classification & ItemClassification.progression and data.category != "Adornment" and (not "DLC" in data.traits or self.options.allow_dlc_items)]
 
         all_adornments = [name for name, data in item_data_table.items()
-                          if data.classification & ItemClassification.progression and data.category == "Adornment"]
+                          if data.classification & ItemClassification.progression and data.category == "Adornment" and (not "DLC" in data.traits or self.options.allow_dlc_items)]
         
         # Add always in the pool adornments
         always_adornments = [name for name in all_adornments if "Always" in item_data_table[name].traits]
@@ -116,12 +116,14 @@ class LRFF13World(World):
         # Start with non-equipment useful items (not garb, weapons, shields, accessories)
         useful_items = [name for name, data in item_data_table.items()
                         if data.classification & ItemClassification.useful and
-                        data.category not in ["Garb", "Weapon", "Shield", "Accessory"]]
+                        data.category not in ["Garb", "Weapon", "Shield", "Accessory"] and
+                        (not "DLC" in data.traits or self.options.allow_dlc_items)]
 
         # Add equipment to fill up half of the remaining pool
         all_equipment_items = [name for name, data in item_data_table.items()
                            if data.classification & ItemClassification.useful and
-                           data.category in ["Garb", "Weapon", "Shield", "Accessory"]]
+                           data.category in ["Garb", "Weapon", "Shield", "Accessory"] and
+                           (not "DLC" in data.traits or self.options.allow_dlc_items)]
 
         # Set locked initial items and remove from equipment pool
         self.locked_items["tre_box_p_003"] = self.get_initial_and_remove_from_pool("Garb", all_equipment_items)
@@ -213,7 +215,9 @@ class LRFF13World(World):
         return location_data.classification
 
     def get_filler_item_name(self) -> str:
-        return self.multiworld.random.choices(filler_items, weights=filler_weights)[0]
+        possible = [f for f in filler_items if (not "DLC" in item_data_table[f].traits or self.options.allow_dlc_items)]
+        possible_weights = [item_data_table[f].weight for f in possible]
+        return self.multiworld.random.choices(possible, weights=possible_weights)[0]
 
     def set_rules(self) -> None:
         # Set location rules
@@ -399,7 +403,8 @@ class LRFF13World(World):
                 "used_items": list(self.used_items),
                 "spheres": spheres,
                 "item_placements": item_placements,
-                "local_item_placements": local_item_placements
+                "local_item_placements": local_item_placements,
+                "allow_dlc_items": bool(self.options.allow_dlc_items)
             }
         }
         # Package output using an APPlayerContainer for consistency with other worlds

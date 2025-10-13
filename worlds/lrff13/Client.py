@@ -68,11 +68,13 @@ class LRFF13Context(CommonContext):
     async def connection_closed(self):
         self.server_connected = False
         self.lr_connected = False
+        self.game_state_cache = LRFF13StateCache()
         await super(LRFF13Context, self).connection_closed()
 
     async def disconnect(self, allow_autoreconnect: bool = False):
         self.server_connected = False
         self.lr_connected = False
+        self.game_state_cache = LRFF13StateCache()
         await super(LRFF13Context, self).disconnect()
 
     @property
