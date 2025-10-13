@@ -116,7 +116,7 @@ location_data_table: Dict[str, LRFF13LocationData] = {
     "Dead Dunes - Grave of the Colossi Treasure (2)": LRFF13LocationData(
         region="Dead Dunes",
         address=14,
-        classification=LocationProgressType.DEFAULT,
+        classification=LocationProgressType.EXCLUDED,
         type="treasure",
         str_id="tre_box_d_012"
     ),
@@ -4418,224 +4418,224 @@ location_data_table: Dict[str, LRFF13LocationData] = {
         type="treasure",
         str_id="tre_key_d_kant5"
     ),
-    "Ultimate Lair - Hoplite Omega Drop (1F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 1 Hoplite Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=629,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_b_9030"
     ),
-    "Ultimate Lair - Niblet Omega Drop (2F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 2 Niblet Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=630,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9090"
     ),
-    "Ultimate Lair - Zaltys Omega Drop (3F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 3 Zaltys Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=631,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9010"
     ),
-    "Ultimate Lair - Gaunt Omega Drop (4F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 4 Gaunt Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=632,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_b_9050"
     ),
-    "Ultimate Lair - Gremlin Omega Drop (5F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 5 Gremlin Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=633,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9080"
     ),
-    "Ultimate Lair - Dreadnought Omega Drop (6F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 6 Dreadnought Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=634,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_b_9020"
     ),
-    "Ultimate Lair - Gorgonopsid Omega Drop (7F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 7 Gorgonopsid Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=635,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9000"
     ),
-    "Ultimate Lair - Goblot Omega Drop (8F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 8 Goblot Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=636,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9100"
     ),
-    "Ultimate Lair - Gurangatch Omega Drop (9F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 9 Gurangatch Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=637,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9220"
     ),
-    "Ultimate Lair - Ectopudding Omega Drop (10F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 10 Ectopudding Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=638,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_b_9080"
     ),
-    "Ultimate Lair - Miniflan Omega Drop (11F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 11 Miniflan Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=639,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9020"
     ),
-    "Ultimate Lair - Aster Protoflorian Omega Drop (12F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 12 Aster Protoflorian Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=640,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_b_9040"
     ),
-    "Ultimate Lair - Schrodinger Omega Drop (13F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 13 Schrodinger Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=641,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9120"
     ),
-    "Ultimate Lair - Goblin Omega Drop (14F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 14 Goblin Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=642,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9070"
     ),
-    "Ultimate Lair - Reaver Omega Drop (15F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 15 Reaver Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=643,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_wea_oa07"
     ),
-    "Ultimate Lair - Meonekton Omega Drop (16F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 16 Meonekton Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=644,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_b_9090"
     ),
-    "Ultimate Lair - Cactuar Omega Drop (17F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 17 Cactuar Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=645,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9190"
     ),
-    "Ultimate Lair - Triffid Omega Drop (18F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 18 Triffid Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=646,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9110"
     ),
-    "Ultimate Lair - Cyclops Omega Drop (19F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 19 Cyclops Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=647,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_wea_oa05"
     ),
-    "Ultimate Lair - Skeleton Omega Drop (20F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 20 Skeleton Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=648,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_wea_oa13"
     ),
-    "Ultimate Lair - Desert Sahagin Omega Drop (21F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 21 Desert Sahagin Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=649,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9150"
     ),
-    "Ultimate Lair - Earth Eater Omega Drop (22F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 22 Earth Eater Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=650,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9130"
     ),
-    "Ultimate Lair - Skata'ne Omega Drop (23F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 23 Skata'ne Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=651,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_b_9000"
     ),
-    "Ultimate Lair - Hanuman Omega Drop (24F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 24 Hanuman Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=652,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9030"
     ),
-    "Ultimate Lair - Zomok Omega Drop (25F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 25 Zomok Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=653,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9040"
     ),
-    "Ultimate Lair - Dryad Omega Drop (26F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 26 Dryad Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=654,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_b_9010"
     ),
-    "Ultimate Lair - Rafflesia Omega Drop (27F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 27 Rafflesia Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=655,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9180"
     ),
-    "Ultimate Lair - Chocobo Eater Omega Drop (28F)": LRFF13LocationData(
+    "Ultimate Lair - Floor 28 Chocobo Eater Omega Drop": LRFF13LocationData(
         region="Ultimate Lair",
         address=656,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_acc_a_9140"
     ),
-    "Ultimate Lair - Ultimate Lair Floor 29": LRFF13LocationData(
+    "Ultimate Lair - Floor 29 UL Treasure": LRFF13LocationData(
         region="Ultimate Lair",
         address=657,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_box_e_000"
     ),
-    "Ultimate Lair - Ultimate Lair Floor 30": LRFF13LocationData(
+    "Ultimate Lair - Floor 30 UL Treasure": LRFF13LocationData(
         region="Ultimate Lair",
         address=658,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_box_e_001"
     ),
-    "Ultimate Lair - Ultimate Lair Floor 31": LRFF13LocationData(
+    "Ultimate Lair - Floor 31 UL Treasure": LRFF13LocationData(
         region="Ultimate Lair",
         address=659,
         classification=LocationProgressType.DEFAULT,
         type="treasure",
         str_id="tre_box_e_002"
     ),
-    "Ultimate Lair - Ultimate Lair Floor 32": LRFF13LocationData(
+    "Ultimate Lair - Floor 32 UL Treasure": LRFF13LocationData(
         region="Ultimate Lair",
         address=660,
         classification=LocationProgressType.DEFAULT,
