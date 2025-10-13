@@ -73,7 +73,7 @@ class LRFF13World(World):
         "tre_box_p_200" : None,
         "tre_box_p_201" : None
     }
-    excluded_locations : set[str] = set()
+    excluded_locations: Dict[str, tuple[str, int]] = {}
 
     ut_can_gen_without_yaml = True
 
@@ -128,19 +128,37 @@ class LRFF13World(World):
         self.locked_items["tre_box_p_200"] = self.get_initial_and_remove_from_pool("Weapon", all_equipment_items)
         self.locked_items["tre_box_p_201"] = self.get_initial_and_remove_from_pool("Shield", all_equipment_items)
 
-        selected_count = (non_events - len(item_pool) - len(useful_items)) // 2
+        def get_remaining_count():
+            val = non_events - len(item_pool) - len(self.locked_items)
+            # Add back intersection of locked and excluded locations
+            locked_locations = set(self.locked_items.keys())
+            locked_location_names = {next((name for name, data in location_data_table.items() if data.str_id == loc_str_id), None)
+                                     for loc_str_id in locked_locations}
+            excluded_locked = locked_location_names.intersection(set(self.excluded_locations.keys()))
+            return val + len(excluded_locked)
+
+        selected_count = (get_remaining_count() - len(useful_items)) // 2
         selected_equipment = self.multiworld.random.sample(all_equipment_items, selected_count)
         useful_items.extend(selected_equipment)
 
         self.add_to_pool(item_pool, useful_items)
 
-        filler_count = non_events - len(item_pool) - len(self.locked_items)
+        filler_count = get_remaining_count()  
 
         # Add filler items to the pool
         for _ in range(filler_count):
             filler = self.get_filler_item_name()
             self.used_items.add(filler)
             item_pool.append(self.create_item(filler))
+
+        # Set excluded location filler items
+        for location_name, _ in self.excluded_locations.items():
+            filler = self.get_filler_item_name()
+            self.used_items.add(filler)
+
+            item_name = filler
+            count = item_data_table[filler].amount
+            self.excluded_locations[location_name] = (item_name, count)
 
         self.multiworld.itempool += item_pool
 
@@ -171,6 +189,10 @@ class LRFF13World(World):
 
         # Add all locations
         for location_name, loc_data in location_data_table.items():
+            # If it's excluded, add it to the excluded locations dictionary with an empty item
+            if self.excluded_locations.get(location_name) is not None:
+                continue
+
             region = self.multiworld.get_region(loc_data.region, self.player)
             region.add_locations({location_name: loc_data.address}, LRFF13Location)
             self.multiworld.get_location(location_name, self.player).progress_type = (
@@ -214,6 +236,10 @@ class LRFF13World(World):
             loc_name = next((name for name, data in location_data_table.items() if data.str_id == loc_str_id), None)
             if loc_name is None:
                 raise Exception(f"Location with string ID {loc_str_id} not found in location data table.")
+
+            if loc_name in self.excluded_locations:
+                continue
+
             if item_name is None:
                 raise Exception(f"Initial item for location {loc_name} was not set properly.")
             location = self.multiworld.get_location(loc_name, self.player)
@@ -270,8 +296,14 @@ class LRFF13World(World):
             excluded_str_ids.add("tre_key_d_kant4") # 20+ Unappraised
             excluded_str_ids.add("tre_key_d_kant5") # 50+ Unappraised
 
-        self.excluded_locations = {next((name for name, data in location_data_table.items() if data.str_id == str_id), None)
-                                   for str_id in excluded_str_ids}
+        # Add all excluded locations to the dictionary with an empty item
+        for loc_name, loc_data in location_data_table.items():
+            if loc_data.classification == LocationProgressType.EXCLUDED:
+                excluded_str_ids.add(loc_data.str_id)
+
+        self.excluded_locations = {name: ("", 0) for str_id in excluded_str_ids
+                                   if (name := next((name for name, data in location_data_table.items()
+                                                     if data.str_id == str_id), None)) is not None}
         if None in self.excluded_locations:
             raise Exception("One or more excluded locations could not be found in the location data table.")
 
@@ -328,20 +360,31 @@ class LRFF13World(World):
                 "address": location_data_table[loc.name].address
             })
 
-        # Build local item placements for the same player that have items in their own world
+        # Build local item placements, starting with the initial equipment checks
         local_item_placements: List[Dict[str, Any]] = []
-        for loc in self.multiworld.get_locations(self.player):
-            if loc.name in event_data_table:
-                continue
-            # Only include locations that have an item placed
-            if getattr(loc, "item", None) is None:
-                continue
-            item = loc.item
-            if item.player != self.player:
+        initial_equip_loc_ids = ["tre_box_p_003", "tre_box_p_200", "tre_box_p_201"]
+        for loc_id in initial_equip_loc_ids:
+            loc_name = next((name for name, data in location_data_table.items() if data.str_id == loc_id), None)
+            if loc_name is None:
+                raise Exception(f"Location with string ID {loc_id} not found in location data table.")
+            location = self.multiworld.get_location(loc_name, self.player)
+            if getattr(location, "item", None) is None:
+                raise Exception(f"Initial equipment location {loc_name} does not have an item placed.")
+            item = location.item
+            local_item_placements.append({
+                "location_id": location_data_table[loc_name].str_id,
+                "item_id": item_data_table[item.name].str_id,
+                "amount": item_data_table[item.name].amount
+            })  
+        
+        # Add excluded locations with their filler items
+        for loc_name, (item_name, amount) in self.excluded_locations.items():
+            if item_name == "" or amount == 0:
                 continue
             local_item_placements.append({
-                "location_id": location_data_table[loc.name].str_id,
-                "item_id": item_data_table[item.name].str_id
+                "location_id": location_data_table[loc_name].str_id,
+                "item_id": item_data_table[item_name].str_id,
+                "amount": amount
             })
 
         seed_name = self.multiworld.seed_name + "_" + self.multiworld.get_player_name(self.player)
