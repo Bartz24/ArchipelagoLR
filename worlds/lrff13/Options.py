@@ -67,6 +67,11 @@ class ShuffleArmyOfOne(Toggle):
     display_name = "Shuffle Army of One"
     default = True
 
+class AllowDLCItems(Toggle):
+    """Allow DLC items to be shuffled into the item pool."""
+    display_name = "Allow DLC Items"
+    default = False
+
 @dataclass
 class LRFF13GameOptions(PerGameCommonOptions):
     ultimate_lair: UltimateLair
@@ -82,3 +87,4 @@ class LRFF13GameOptions(PerGameCommonOptions):
     shuffle_quake: ShuffleQuake
     shuffle_decoy: ShuffleDecoy
     shuffle_army_of_one: ShuffleArmyOfOne
+    allow_dlc_items: AllowDLCItems
