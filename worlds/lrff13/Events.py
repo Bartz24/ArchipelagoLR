@@ -201,7 +201,7 @@ event_data_table: Dict[str, LRFF13EventData] = {
     ),
     "Fuzzy Search Quest Event (1)": LRFF13EventData(
         region="Wildlands",
-        item=""
+        item="Q_FuzzySearch"
     ),
     "Round 'em Up Quest Event (1)": LRFF13EventData(
         region="Wildlands",
