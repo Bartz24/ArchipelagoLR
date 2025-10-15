@@ -235,16 +235,19 @@ class LRFF13Context(CommonContext):
                             self.write_u32(self.game_state_cache.rando_multi_count_address, item_info.amount, False)
 
                             # Set the key_r_added to 0 to indicate the game can add the item now
-                            if "key_r_added" in self.game_state_cache.key_items:
-                                self.game_state_cache.key_items["key_r_added"] = 0
-                                if "key_r_added" in self.game_state_cache.key_items_addresses:
-                                    self.write_byte(self.game_state_cache.key_items_addresses["key_r_added"] + 18, 0, False)
+                            self.game_state_cache.key_items["key_r_added"] = 0
+                            if "key_r_added" in self.game_state_cache.key_items_addresses:
+                                self.write_byte(self.game_state_cache.key_items_addresses["key_r_added"] + 18, 0, False)
 
                         # logger.debug(f"Received {item_name}.")
-                        # Increment the ap_num_collected
-                        self.set_ap_num_collected(ap_num_collected + 1)
+                # After loading a save, it's possible it's in a state where key_r_added is 0 but no item is set to be added
+                elif self.game_state_cache.key_items.get("key_r_added", 0) == 0 and self.game_state_cache.rando_multi_count == 32500 and self.game_state_cache.key_items.get("key_r_multi_0", 0) > 0 and self.game_state_cache.key_items.get("key_r_multi_1", 0) > 0 and self.game_state_cache.key_items.get("key_r_multi_2", 0) > 0:
+                    # Set key_r_added to 1
+                    if "key_r_added" in self.game_state_cache.key_items:
+                        self.game_state_cache.key_items["key_r_added"] = 1
+                        if "key_r_added" in self.game_state_cache.key_items_addresses:
+                            self.write_byte(self.game_state_cache.key_items_addresses["key_r_added"] + 18, 1, False)
 
-            
         except Exception as e:
             if self.lr_connected:
                 self.lr_connected = False
@@ -315,7 +318,7 @@ class LRFF13Context(CommonContext):
                         if not name or name == "":
                             continue
                         count = self.read_byte(entry + 18, False)
-                        if count > 0:
+                        if name and name != "":
                             key_items[name] = count
                             key_items_addresses[name] = entry
 
