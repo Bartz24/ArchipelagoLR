@@ -42,7 +42,7 @@ components.append(Component("Lightning Returns: Final Fantasy XIII Client", "LRF
                             func=launch_client, component_type=Type.CLIENT,
                             game_name="Lightning Returns: Final Fantasy XIII", supports_uri=True))
 
-LRFF13_VERSION = "0.2.0"
+LRFF13_VERSION = "0.2.1"
 
 
 class LRFF13WebWorld(WebWorld):
@@ -68,12 +68,6 @@ class LRFF13World(World):
     options: LRFF13GameOptions
     location_name_to_id = location_table
     item_name_to_id = item_table
-    locked_items : Dict[str, str] = {
-        "tre_box_p_003" : None,
-        "tre_box_p_200" : None,
-        "tre_box_p_201" : None
-    }
-    excluded_locations: Dict[str, tuple[str, int]] = {}
 
     ut_can_gen_without_yaml = True
 
@@ -82,6 +76,12 @@ class LRFF13World(World):
         self.used_items = set()
         self.re_gen_data = {}
         self.origin_region_name = "Initial"
+        self.locked_items : Dict[str, str] = {
+            "tre_box_p_003" : None,
+            "tre_box_p_200" : None,
+            "tre_box_p_201" : None
+        }
+        self.excluded_locations: Dict[str, tuple[str, int]] = {}
 
     def create_item(self, name: str) -> LRFF13Item:
         return LRFF13Item(name, item_data_table[name].classification, item_data_table[name].code, self.player)
@@ -124,6 +124,9 @@ class LRFF13World(World):
                            if data.classification & ItemClassification.useful and
                            data.category in ["Garb", "Weapon", "Shield", "Accessory"] and
                            (not "DLC" in data.traits or self.options.allow_dlc_items)]
+        
+        # Remove Equilibrium and Dark Muse from equipment pool as they're initial
+        all_equipment_items = [item for item in all_equipment_items if item not in ["Equilibrium", "Dark Muse"]]
 
         # Set locked initial items and remove from equipment pool
         self.locked_items["tre_box_p_003"] = self.get_initial_and_remove_from_pool("Garb", all_equipment_items)
@@ -145,6 +148,9 @@ class LRFF13World(World):
 
         self.add_to_pool(item_pool, useful_items)
 
+        # Remove any locked items from the pool
+        item_pool = [item for item in item_pool if item.name not in self.locked_items.values()]
+
         filler_count = get_remaining_count()  
 
         # Add filler items to the pool
@@ -155,7 +161,7 @@ class LRFF13World(World):
 
         # Set excluded location filler items
         for location_name, _ in self.excluded_locations.items():
-            filler = self.get_filler_item_name()
+            filler = self.get_filler_item_name(location_name)
             self.used_items.add(filler)
 
             item_name = filler
@@ -166,6 +172,10 @@ class LRFF13World(World):
 
     def get_initial_and_remove_from_pool(self, category: str, pool : list[str]) -> str:
         possible = [item for item in pool if item_data_table[item].category == category]
+
+        # Ignore ultima weapon, ultima shield, equilibrium+ and mist wizard+
+        possible = [item for item in possible if item not in ["Ultima Weapon", "Ultima Shield", "Equilibrium+", "Mist Wizard+"]]
+
         if len(possible) == 0:
             raise Exception(f"No items of category {category} found in pool to set as initial item.")
         selected = self.multiworld.random.choice(possible)
@@ -214,8 +224,13 @@ class LRFF13World(World):
         location_data = location_data_table[location_name]
         return location_data.classification
 
-    def get_filler_item_name(self) -> str:
+    def get_filler_item_name(self, location_name: str = None) -> str:
         possible = [f for f in filler_items if (not "DLC" in item_data_table[f].traits or self.options.allow_dlc_items)]
+
+        # If location name starts with tre_qst, disallow recovery items as they can cause infinite loading
+        if location_name and location_name.startswith("tre_qst"):
+            possible = [f for f in possible if item_data_table[f].category != "Item"]
+
         possible_weights = [item_data_table[f].weight for f in possible]
         return self.multiworld.random.choices(possible, weights=possible_weights)[0]
 
