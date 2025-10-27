@@ -238,6 +238,10 @@ class LRFF13Context(CommonContext):
                             self.game_state_cache.key_items["key_r_added"] = 0
                             if "key_r_added" in self.game_state_cache.key_items_addresses:
                                 self.write_byte(self.game_state_cache.key_items_addresses["key_r_added"] + 18, 0, False)
+                        else:
+                            # Skip this item and mark it as collected
+                            self.set_ap_num_collected(ap_num_collected + 1)
+                            
 
                         # logger.debug(f"Received {item_name}.")
                 # After loading a save, it's possible it's in a state where key_r_added is 0 but no item is set to be added
@@ -380,11 +384,11 @@ class LRFF13Context(CommonContext):
             new_cache.rando_multi_count = self.read_u32(new_cache.rando_multi_count_address, False) if new_cache.rando_multi_count_address else 0
 
             ## # Log key items list for debugging
-            ## logger.debug(f"LRFF13: Key Items: {new_cache.key_items}")
-            ## logger.debug(f"LRFF13: Max EP: {new_cache.max_ep}")
+            ## logger.info(f"LRFF13: Key Items: {new_cache.key_items}")
+            ## logger.info(f"LRFF13: Max EP: {new_cache.max_ep}")
             ## # Log the rando_multi item current value and the count
-            ## logger.debug(f"LRFF13: Rando Multi Item: {new_cache.rando_multi_item}")
-            ## logger.debug(f"LRFF13: Rando Multi Count: {new_cache.rando_multi_count}")
+            ## logger.info(f"LRFF13: Rando Multi Item: {new_cache.rando_multi_item}")
+            ## logger.info(f"LRFF13: Rando Multi Count: {new_cache.rando_multi_count}")
 
             self.game_state_cache = new_cache
         except Exception as e:
