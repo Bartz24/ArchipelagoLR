@@ -5,7 +5,7 @@ from Options import Choice, Toggle, PerGameCommonOptions
 class UltimateLair(Toggle):
     """Include the Ultimate Lair dungeon checks for progression."""
     display_name = "Ultimate Lair"
-    default = True
+    default = False
 
 class Superbosses(Toggle):
     """Allow superboss related checks to be included in progression."""
@@ -15,7 +15,7 @@ class Superbosses(Toggle):
 class CanvasOfPrayers(Toggle):
     """Allow Canvas of Prayers related checks to be included in progression."""
     display_name = "Canvas of Prayers"
-    default = True
+    default = False
 
 class Grindy(Toggle):
     """Allow 20+ Soul Seeds and 10+ Unappraised items checks to be included in progression."""

@@ -42,7 +42,7 @@ components.append(Component("Lightning Returns: Final Fantasy XIII Client", "LRF
                             func=launch_client, component_type=Type.CLIENT,
                             game_name="Lightning Returns: Final Fantasy XIII", supports_uri=True))
 
-LRFF13_VERSION = "0.2.1"
+LRFF13_VERSION = "0.3.0"
 
 
 class LRFF13WebWorld(WebWorld):
@@ -113,7 +113,7 @@ class LRFF13World(World):
         non_events = len([location for location in self.multiworld.get_locations(self.player)
                           if location.name not in event_data_table.keys()])
 
-        # Start with non-equipment useful items (not garb, weapons, shields, accessories)
+        # Start with non-equipment useful items
         useful_items = [name for name, data in item_data_table.items()
                         if data.classification & ItemClassification.useful and
                         data.category not in ["Garb", "Weapon", "Shield", "Accessory"] and
@@ -121,7 +121,7 @@ class LRFF13World(World):
 
         # Add equipment to fill up half of the remaining pool
         all_equipment_items = [name for name, data in item_data_table.items()
-                           if data.classification & ItemClassification.useful and
+                           if data.classification == ItemClassification.filler and
                            data.category in ["Garb", "Weapon", "Shield", "Accessory"] and
                            (not "DLC" in data.traits or self.options.allow_dlc_items)]
         
@@ -225,7 +225,7 @@ class LRFF13World(World):
         return location_data.classification
 
     def get_filler_item_name(self, location_name: str = None) -> str:
-        possible = [f for f in filler_items if (not "DLC" in item_data_table[f].traits or self.options.allow_dlc_items)]
+        possible = [f for f in filler_items if (not "DLC" in item_data_table[f].traits or self.options.allow_dlc_items) and item_data_table[f].category not in ["Garb", "Weapon", "Shield", "Accessory"]]
 
         # If location name starts with tre_qst, disallow recovery items as they can cause infinite loading
         if location_name and location_name.startswith("tre_qst"):
