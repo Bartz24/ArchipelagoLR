@@ -37,6 +37,7 @@ class LRFF13StateCache:
         self.rando_multi_item : str = None
         self.rando_multi_count_address : int | None = None
         self.rando_multi_count : int = 0
+        self.in_normal_menu : bool = True
 
 
 class LRFF13CommandProcessor(ClientCommandProcessor):
@@ -74,6 +75,7 @@ class LRFF13Context(CommonContext):
     async def disconnect(self, allow_autoreconnect: bool = False):
         self.server_connected = False
         self.lr_connected = False
+        self.lr_game = None
         self.game_state_cache = LRFF13StateCache()
         await super(LRFF13Context, self).disconnect()
 
@@ -218,7 +220,7 @@ class LRFF13Context(CommonContext):
             return
         
         try:
-            if not self.game_state_cache.in_main_menu:
+            if not self.game_state_cache.in_main_menu and not self.game_state_cache.in_normal_menu:
                 # Send the next item in items_received using the index from get_ap_num_collected
                 ap_num_collected = self.get_ap_num_collected()
                 received : List[NetworkItem] = self.items_received
@@ -258,9 +260,8 @@ class LRFF13Context(CommonContext):
             logger.info(e)
 
     async def lrff13_check_locations(self):
-        if self.game_state_cache.in_main_menu or not self.lr_connected:
-            return
-        
+        if self.game_state_cache.in_main_menu and not self.game_state_cache.in_normal_menu or not self.lr_connected:
+            return        
         
         # Victory, check if the key item key_r_victory is present
         if self.game_state_cache.key_items.get("key_r_victory", 0) > 0 and not self.finished_game:
@@ -309,6 +310,16 @@ class LRFF13Context(CommonContext):
 
             new_cache.max_ep = round(self.read_u64(p_stats_base + 0x2884, False) / 2000)
             new_cache.in_main_menu = (new_cache.max_ep == 500000)
+            
+            # Normal menu address
+            temp_ptr = self.read_u64(0x4CF19FC, True)
+            temp_ptr = self.read_u64(temp_ptr + 0x8, False)
+            temp_ptr = self.read_u64(temp_ptr + 0x8, False)
+            temp_ptr = self.read_u64(temp_ptr + 0x80, False)
+            temp_ptr = self.read_u64(temp_ptr + 0x4, False)
+            temp_ptr = self.read_u64(temp_ptr + 0x14, False)
+            temp_ptr = self.read_u64(temp_ptr + 0xB0, False)
+            new_cache.in_normal_menu = (self.read_byte(temp_ptr + 0xB60, False) != 3)
 
             if not new_cache.in_main_menu:
                 # Read entries until we hit an empty name or 200 entries
@@ -405,11 +416,9 @@ async def lrff13_watcher(ctx: LRFF13Context):
                 await ctx.lrff13_check_locations()
                 await ctx.give_items()
             elif not ctx.lr_connected and ctx.server_connected:
-                logger.info("Game Connection lost. Waiting 15 seconds until trying to reconnect.")
+                logger.info("Game Connection lost. Disconnecting...")
                 ctx.lr_game = None
-                while not ctx.lr_connected and ctx.server_connected:
-                    await asyncio.sleep(15)
-                    ctx.find_game()
+                await ctx.disconnect()
         except Exception as e:
             if ctx.lr_connected:
                 ctx.lr_connected = False
