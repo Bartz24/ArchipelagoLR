@@ -354,7 +354,8 @@ rule_data_list: List[Callable[[CollectionState, int], bool]] = [
     state.has("Seedhunter Membership Card", player),  # Rule 122
     lambda state, player:
     (state.has("Seedhunter Membership Card", player) and
-     state.has("Moogle Fragment", player)),  # Rule 123
+     state.has("Moogle Fragment", player) and
+     state.has("MQ5", player)),  # Rule 123
     lambda state, player:
     state.has("MQDone", player, 3),  # Rule 124
     lambda state, player:
