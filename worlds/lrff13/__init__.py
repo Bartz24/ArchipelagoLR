@@ -42,9 +42,6 @@ components.append(Component("Lightning Returns: Final Fantasy XIII Client", "LRF
                             func=launch_client, component_type=Type.CLIENT,
                             game_name="Lightning Returns: Final Fantasy XIII", supports_uri=True))
 
-LRFF13_VERSION = "0.3.1"
-
-
 class LRFF13WebWorld(WebWorld):
     theme = "ocean"
 
@@ -412,11 +409,9 @@ class LRFF13World(World):
         data = {
             "seed": seed_name,  # to identify the seed
             "type": "archipelago",  # to identify the seed type
-            # Fields consumed by the LR mod tool
-            "version": LRFF13_VERSION,
             # Retain archipelago details for debugging/auxiliary tools
             "archipelago": {
-                "version": LRFF13_VERSION,
+                "version": self.world_version.as_simple_string(),
                 "used_items": list(self.used_items),
                 "spheres": spheres,
                 "item_placements": item_placements,
