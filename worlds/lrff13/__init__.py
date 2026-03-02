@@ -100,9 +100,11 @@ class LRFF13World(World):
         always_adornments = [name for name in all_adornments if "Always" in item_data_table[name].traits]
         progression_items.extend(always_adornments)
 
+        non_always_adornments = [name for name in all_adornments if name not in always_adornments]
+
         # Add 70-100 adornments total (including always in pool)
         other_count = self.multiworld.random.randint(70 - len(always_adornments), 100 - len(always_adornments))
-        other_adornments = self.multiworld.random.sample(all_adornments, other_count)
+        other_adornments = self.multiworld.random.sample(non_always_adornments, other_count)
         progression_items.extend(other_adornments)
 
         for name in progression_items:
@@ -125,8 +127,8 @@ class LRFF13World(World):
                            data.category in ["Garb", "Weapon", "Shield", "Accessory"] and
                            (not "DLC" in data.traits or self.options.allow_dlc_items)]
         
-        # Remove Equilibrium and Dark Muse from equipment pool as they're initial
-        all_equipment_items = [item for item in all_equipment_items if item not in ["Equilibrium", "Dark Muse"]]
+        # Remove initial equipment
+        all_equipment_items = [item for item in all_equipment_items if item not in ["Equilibrium", "Dark Muse", "Crimson Blitz", "Scramasax", "Night Lotus", "Double Cross"]]
 
         # Set locked initial items and remove from equipment pool
         self.locked_items["tre_box_p_003"] = self.get_initial_and_remove_from_pool("Garb", all_equipment_items)
