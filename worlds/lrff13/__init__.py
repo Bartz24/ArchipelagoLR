@@ -2,11 +2,11 @@ import json
 import os
 from typing import List, Any, Dict, Tuple
 
-from BaseClasses import Region, Tutorial, ItemClassification, CollectionState, Callable, LocationProgressType, \
+from BaseClasses import Region, Tutorial, ItemClassification, LocationProgressType, \
     MultiWorld
 from worlds.AutoWorld import WebWorld, World
 from worlds.Files import APPlayerContainer
-from worlds.generic.Rules import add_rule, add_item_rule
+from worlds.generic.Rules import add_item_rule
 from worlds.LauncherComponents import launch_subprocess, components, Component, Type
 
 from .Items import LRFF13Item, item_data_table, item_table, filler_items, filler_weights
@@ -238,7 +238,7 @@ class LRFF13World(World):
         for location in self.multiworld.get_locations(self.player):
             # Use location rule table if available
             if location.name in location_rule_data_table:
-                add_rule(location, self.create_rule(location.name))
+                self.set_rule(location, location_rule_data_table[location.name])
 
         # Set entrance rules
         for region in self.multiworld.regions:
@@ -247,7 +247,7 @@ class LRFF13World(World):
             for entrance in region.exits:
                 entrance_tuple = (entrance.parent_region.name, entrance.connected_region.name)
                 if entrance_tuple in entrance_rule_data_table:
-                    add_rule(entrance, self.create_entrance_rule(entrance_tuple))
+                    self.set_rule(entrance, entrance_rule_data_table[entrance_tuple])
 
         # Set initial equipment locked items
         for loc_str_id, item_name in self.locked_items.items():
@@ -276,16 +276,6 @@ class LRFF13World(World):
 
         # Completion condition.
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
-
-    def create_rule(self, location_name: str) -> Callable[[CollectionState], bool]:
-        return lambda state: location_rule_data_table[location_name](state, self.player)
-
-    def create_chara_rule(self, location_name: str) -> Callable[[CollectionState], bool]:
-        # LRFF13 uses explicit rule tables; no extra character scaling.
-        return lambda state: True
-
-    def create_entrance_rule(self, entrance: Tuple[str, str]) -> Callable[[CollectionState], bool]:
-        return lambda state: entrance_rule_data_table[entrance](state, self.player)
 
     def create_event(self, event_item: str) -> LRFF13Item:
         name = event_item
@@ -395,15 +385,16 @@ class LRFF13World(World):
                 "amount": item_data_table[item.name].amount
             })  
         
-        # Add excluded locations with their filler items
-        for loc_name, (item_name, amount) in self.excluded_locations.items():
-            if item_name == "" or amount == 0:
-                continue
-            local_item_placements.append({
-                "location_id": location_data_table[loc_name].str_id,
-                "item_id": item_data_table[item_name].str_id,
-                "amount": amount
-            })
+        # Add excluded locations with their filler items when AP is not handling them.
+        if not fully_remote_items:
+            for loc_name, (item_name, amount) in self.excluded_locations.items():
+                if item_name == "" or amount == 0:
+                    continue
+                local_item_placements.append({
+                    "location_id": location_data_table[loc_name].str_id,
+                    "item_id": item_data_table[item_name].str_id,
+                    "amount": amount
+                })
 
         seed_name = self.multiworld.seed_name + "_" + self.multiworld.get_player_name(self.player)
         data = {
@@ -416,7 +407,8 @@ class LRFF13World(World):
                 "spheres": spheres,
                 "item_placements": item_placements,
                 "local_item_placements": local_item_placements,
-                "allow_dlc_items": bool(self.options.allow_dlc_items)
+                "allow_dlc_items": bool(self.options.allow_dlc_items),
+                "fully_remote_items": fully_remote_items
             }
         }
         # Package output using an APPlayerContainer for consistency with other worlds

@@ -1,6 +1,6 @@
 from typing import Dict
 from dataclasses import dataclass
-from Options import Choice, Toggle, PerGameCommonOptions
+from Options import Toggle, PerGameCommonOptions
 
 class UltimateLair(Toggle):
     """Include the Ultimate Lair dungeon checks for progression."""
@@ -72,6 +72,15 @@ class AllowDLCItems(Toggle):
     display_name = "Allow DLC Items"
     default = False
 
+class FullyRemoteItems(Toggle):
+    """
+    Have Archipelago handle excluded locations instead of filling them locally.
+
+    Initial equipment always stays local.
+    """
+    display_name = "Fully Remote Items"
+    default = True
+
 @dataclass
 class LRFF13GameOptions(PerGameCommonOptions):
     ultimate_lair: UltimateLair
@@ -88,3 +97,4 @@ class LRFF13GameOptions(PerGameCommonOptions):
     shuffle_decoy: ShuffleDecoy
     shuffle_army_of_one: ShuffleArmyOfOne
     allow_dlc_items: AllowDLCItems
+    fully_remote_items: FullyRemoteItems

@@ -1,462 +1,1043 @@
-from typing import Callable, Dict, List, Tuple
+from __future__ import annotations
+from .Items import item_data_table
+import dataclasses
+from typing import Any, Dict, Tuple
 from BaseClasses import CollectionState, Item
-from .RuleLogic import state_has_at_least, item_is_category, state_has_category
+from rule_builder.rules import Has, Rule, True_
 
-rule_data_list: List[Callable[[CollectionState, int], bool]] = [
-    lambda state, player:
-    True,  # Rule 0
-    lambda state, player:
-    state.has("Pilgrim's Crux", player),  # Rule 1
-    lambda state, player:
-    state.has("MQ4", player, 2),  # Rule 2
-    lambda state, player:
-    state.has("MQ4", player, 3),  # Rule 3
-    lambda state, player:
-    state.has("Tablet", player, 3),  # Rule 4
-    lambda state, player:
-    state.has("Tablet", player, 2),  # Rule 5
-    lambda state, player:
-    state.has("Arithmometer", player),  # Rule 6
-    lambda state, player:
-    state.has("Loupe", player),  # Rule 7
-    lambda state, player:
-    state.has("MQ4", player),  # Rule 8
-    lambda state, player:
-    (state.has("Monster Flesh", player) and
-     state.has("MQ4", player, 3)),  # Rule 9
-    lambda state, player:
-    (state.has("Tablet", player) and
-     state.has("MQ4", player, 4) and
-     state.has("MQDone", player)),  # Rule 10
-    lambda state, player:
-    (state.has("Tablet", player, 3) and
-     state.has("Crux Base", player) and
-     state.has("Crux Tip", player) and
-     state.has("Crux Body", player)),  # Rule 11
-    lambda state, player:
-    state.has("Supply Sphere Password", player),  # Rule 12
-    lambda state, player:
-    state.has("MQ1", player, 3),  # Rule 13
-    lambda state, player:
-    state.has("MQ1", player, 4),  # Rule 14
-    lambda state, player:
-    state.has("MQ1", player, 2),  # Rule 15
-    lambda state, player:
-    state.has("MQ1", player, 5),  # Rule 16
-    lambda state, player:
-    state.has("Day", player, 2),  # Rule 17
-    lambda state, player:
-    (state.has("Thunderclap Cap", player) and
-     state.has("Shaolong Gui Shell", player) and
-     state.has("Mandragora Root", player)),  # Rule 18
-    lambda state, player:
-    (state.has("Green Carbuncle Doll", player) and
-     state.has("Red Carbuncle Doll", player)),  # Rule 19
-    lambda state, player:
-    (state.has("Spectral Elixir", player) and
-     state.has("MQ1", player, 2)),  # Rule 20
-    lambda state, player:
-    (state.has("Supply Sphere Password", player) and
-     state.has("MQ1", player, 2)),  # Rule 21
-    lambda state, player:
-    (state.has("Cursed Dragon Claw", player) and
-     state.has("MQ1", player, 2)),  # Rule 22
-    lambda state, player:
-    (state.has("MQ1", player, 2) and
-     state.has("Seedhunter Membership Card", player)),  # Rule 23
-    lambda state, player:
-    (state.has("Rubber Ball", player) and
-     state.has("MQ1", player, 5)),  # Rule 24
-    lambda state, player:
-    state.has("Rubber Ball", player),  # Rule 25
-    lambda state, player:
-    state.has("Q_Saint", player),  # Rule 26
-    lambda state, player:
-    (state.has("Quill Pen", player) and
-     state.has("MQ1", player, 4)),  # Rule 27
-    lambda state, player:
-    (state.has("Phantom Rose", player) and
-     state.has("MQ1", player, 5)),  # Rule 28
-    lambda state, player:
-    (state.has("Q_BuriedPassion", player) and
-     state.has("MQ1", player, 5)),  # Rule 29
-    lambda state, player:
-    state.has("MQ3", player, 3),  # Rule 30
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("MQ3", player)),  # Rule 31
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("Q_RightStuff", player) and
-     state.has("MQ3", player)),  # Rule 32
-    lambda state, player:
-    (state.has("MQ3", player, 2) and
-     state.has("Q_FuzzySearch", player)),  # Rule 33
-    lambda state, player:
-    state.has("MQ3", player, 2),  # Rule 34
-    lambda state, player:
-    (state.has("Data Recorder", player) and
-     state.has("MQ3", player, 3)),  # Rule 35
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("Q_Father", player) and
-     state.has("MQ3", player)),  # Rule 36
-    lambda state, player:
-    state.has("Q_OldMan", player),  # Rule 37
-    lambda state, player:
-    (state.has("Aryas Apple", player, 2) and
-     state.has("MQ3", player, 2)),  # Rule 38
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("Fragment of Mischief", player) and
-     state.has("Fragment of Radiance", player) and
-     state.has("Fragment of Smiles", player) and
-     state.has("Fragment of Courage", player) and
-     state.has("Fragment of Kindness", player)),  # Rule 39
-    lambda state, player:
-    state.has("Q_RoundUp", player),  # Rule 40
-    lambda state, player:
-    state.has("Q_Peace", player),  # Rule 41
-    lambda state, player:
-    state.has("Q_Cure", player),  # Rule 42
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("Goddess Glyphs", player) and
-     state.has("Chaos Glyphs", player) and
-     state.has("Plate Metal Fragment", player) and
-     state.has("Silvered Metal Fragment", player) and
-     state.has("Golden Metal Fragment", player) and
-     state.has("MQ3", player, 3)),  # Rule 43
-    lambda state, player:
-    state.has("MQ3", player, 4),  # Rule 44
-    lambda state, player:
-    (state.has("Q_DDA", player) and
-     state.has("Q_RoundUp", player)),  # Rule 45
-    lambda state, player:
-    state.has("Q_DDA", player),  # Rule 46
-    lambda state, player:
-    (state.has("Goddess Glyphs", player) and
-     state.has("Chaos Glyphs", player) and
-     state.has("MQ3", player, 3)),  # Rule 47
-    lambda state, player:
-    state.has("MQ2", player, 2),  # Rule 48
-    lambda state, player:
-    state.has("MQ2", player),  # Rule 49
-    lambda state, player:
-    state.has("Musical Treasure Sphere Key", player),  # Rule 50
-    lambda state, player:
-    state.has("MQ2", player, 3),  # Rule 51
-    lambda state, player:
-    state.has("MQ5", player),  # Rule 52
-    lambda state, player:
-    state.has("MQ2", player, 4),  # Rule 53
-    lambda state, player:
-    (state.has("MQ2", player, 2) and
-     state.has("Midnight Mauve", player)),  # Rule 54
-    lambda state, player:
-    state.has("Music Satchel", player),  # Rule 55
-    lambda state, player:
-    state.has("Father's Letter", player),  # Rule 56
-    lambda state, player:
-    state.has("MQDone", player),  # Rule 57
-    lambda state, player:
-    (state.has("Civet Musk", player) and
-     state.has("Gordon Gourmet's Recipe", player) and
-     state.has("Steak a la Civet", player)),  # Rule 58
-    lambda state, player:
-    (state.has("Nostalgic Score: Chorus", player) and
-     state.has("Nostalgic Score: Refrain", player) and
-     state.has("Nostalgic Score: Coda", player)),  # Rule 59
-    lambda state, player:
-    (state.has("MQ2", player, 2) and
-     state_has_category(state, player, "Adornment", 55)),  # Rule 60
-    lambda state, player:
-    (state.has("MQ2", player, 4) and
-     state.has("Q_Adorn", player)),  # Rule 61
-    lambda state, player:
-    (state.has("MQ2", player, 2) and
-     state.has("Q_Death", player)),  # Rule 62
-    lambda state, player:
-    state.has("Civet Musk", player),  # Rule 63
-    lambda state, player:
-    (state.has("Civet Musk", player) and
-     state.has("Gordon Gourmet's Recipe", player)),  # Rule 64
-    lambda state, player:
-    state.has("Day", player),  # Rule 65
-    lambda state, player:
-    state.has("Day", player, 3),  # Rule 66
-    lambda state, player:
-    state.has("Day", player, 4),  # Rule 67
-    lambda state, player:
-    state.has("Day", player, 5),  # Rule 68
-    lambda state, player:
-    state.has("Day", player, 6),  # Rule 69
-    lambda state, player:
-    (state.has("MQDone", player) and
-     state.has("Day", player, 6)),  # Rule 70
-    lambda state, player:
-    (state.has("MQDone", player, 2) and
-     state.has("Day", player, 6)),  # Rule 71
-    lambda state, player:
-    (state.has("MQDone", player, 3) and
-     state.has("Day", player, 6)),  # Rule 72
-    lambda state, player:
-    (state.has("MQDone", player, 4) and
-     state.has("Day", player, 6)),  # Rule 73
-    lambda state, player:
-    (state.has("MQDone", player, 5) and
-     state.has("Day", player, 6)),  # Rule 74
-    lambda state, player:
-    (state.has("MQDone", player, 5) and
-     state.has("Day", player, 6) and
-     state.has("MQ1", player, 5) and
-     state.has("MQ2", player, 4) and
-     state.has("MQ3", player, 4) and
-     state.has("MQ4", player, 6) and
-     state.has("MQ5", player, 2)),  # Rule 75
-    lambda state, player:
-    (state.has("C_Miracle", player) and
-     state.has("C_Banned", player)),  # Rule 76
-    lambda state, player:
-    (state.has("C_Child", player) and
-     state.has("C_Security", player)),  # Rule 77
-    lambda state, player:
-    state.has("C_Ranks", player),  # Rule 78
-    lambda state, player:
-    (state.has("C_Flower", player) and
-     state.has("C_Bio", player)),  # Rule 79
-    lambda state, player:
-    (state.has("Tablet", player, 3) and
-     state.has("MQ4", player, 6)),  # Rule 80
-    lambda state, player:
-    state.has("C_Charm", player),  # Rule 81
-    lambda state, player:
-    state.has("Q_Food", player),  # Rule 82
-    lambda state, player:
-    (state.has("Day", player, 6) and
-     state.has("MQDone", player) and
-     state.has("C_Pride", player)),  # Rule 83
-    lambda state, player:
-    (state.has("Day", player, 6) and
-     state.has("MQDone", player, 3) and
-     state.has("C_Pride", player, 2)),  # Rule 84
-    lambda state, player:
-    state.has("MQ1", player),  # Rule 85
-    lambda state, player:
-    (state.has("C_Song", player) and
-     state.has("C_Grave", player)),  # Rule 86
-    lambda state, player:
-    (state.has("C_Inventive", player) and
-     state.has("C_Puppet", player)),  # Rule 87
-    lambda state, player:
-    (state.has("C_Slay", player) and
-     state.has("C_Teeth", player)),  # Rule 88
-    lambda state, player:
-    (state.has("C_Revenge", player) and
-     state.has("C_Gratitude", player)),  # Rule 89
-    lambda state, player:
-    (state.has("Proof of Legendary Title", player) and
-     state.has("Day", player, 3)),  # Rule 90
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("Day", player, 3)),  # Rule 91
-    lambda state, player:
-    state.has("Q_Hunter", player),  # Rule 92
-    lambda state, player:
-    state.has("Q_Forebears", player),  # Rule 93
-    lambda state, player:
-    (state.has("C_Drum", player) and
-     state.has("C_Below", player)),  # Rule 94
-    lambda state, player:
-    (state.has("Day", player, 6) and
-     state.has("MQDone", player)),  # Rule 95
-    lambda state, player:
-    (state.has("C_Forget", player) and
-     state.has("C_Thanks", player)),  # Rule 96
-    lambda state, player:
-    (state.has("C_Fresh", player) and
-     state.has("C_Plea", player) and
-     state.has("C_Gatekeeper", player)),  # Rule 97
-    lambda state, player:
-    (state.has("C_Future", player) and
-     state.has("C_Brain", player)),  # Rule 98
-    lambda state, player:
-    state.has("Gysahl Greens", player),  # Rule 99
-    lambda state, player:
-    state.has("C_Chow", player),  # Rule 100
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("Day", player)),  # Rule 101
-    lambda state, player:
-    (state.has("C_Sun", player) and
-     state.has("C_Moon", player)),  # Rule 102
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("Q_Peace", player)),  # Rule 103
-    lambda state, player:
-    (state.has("C_Soulful", player) and
-     state.has("C_Inspiration", player)),  # Rule 104
-    lambda state, player:
-    (state.has("C_Youth", player) and
-     state.has("C_Colors", player)),  # Rule 105
-    lambda state, player:
-    (state.has("C_Secret", player) and
-     state.has("C_Dangerous", player) and
-     state.has("C_Spell", player)),  # Rule 106
-    lambda state, player:
-    (state.has("Jade Hair Comb", player) and
-     state.has("Bronze Pocket Watch", player) and
-     state.has("MQ2", player)),  # Rule 107
-    lambda state, player:
-    (state.has("Chocobo Girl's Phone No.", player) and
-     state.has("Q_Actress", player)),  # Rule 108
-    lambda state, player:
-    (state.has("Beloved's Gift", player) and
-     state.has("MQ5", player)),  # Rule 109
-    lambda state, player:
-    state.has("MQDone", player, 4),  # Rule 110
-    lambda state, player:
-    (state.has("Key to the Sand Gate", player) and
-     state.has("Key to the Green Gate", player) and
-     state.has("MQDone", player, 4)),  # Rule 111
-    lambda state, player:
-    (state.has("Bandit's Bloodseal", player) and
-     state.has("Oath of the Merchants Guild", player) and
-     state.has("MQDone", player, 4)),  # Rule 112
-    lambda state, player:
-    (state.has("Proof of Courage", player) and
-     state.has("MQ1", player, 5)),  # Rule 113
-    lambda state, player:
-    (state.has("Violet Amulet", player) and
-     state.has("MQ1", player, 5)),  # Rule 114
-    lambda state, player:
-    (state.has("Lapis Lazuli", player) and
-     state.has("MQ2", player, 2)),  # Rule 115
-    lambda state, player:
-    (state.has("Power Booster", player) and
-     state.has("Q_Death", player)),  # Rule 116
-    lambda state, player:
-    (state.has("Moogle Dust", player) and
-     state.has("MQ3", player, 2)),  # Rule 117
-    lambda state, player:
-    (state.has("Old-Fashioned Photo Frame", player) and
-     state.has("MQ3", player, 2)),  # Rule 118
-    lambda state, player:
-    (state.has("Etro's Forbidden Tome", player) and
-     state.has("MQ3", player, 4)),  # Rule 119
-    lambda state, player:
-    (state.has("Broken Gyroscope", player) and
-     state.has("Day", player, 2)),  # Rule 120
-    lambda state, player:
-    (state.has("Golden Scarab", player) and
-     state.has("MQ4", player, 3)),  # Rule 121
-    lambda state, player:
-    state.has("Seedhunter Membership Card", player),  # Rule 122
-    lambda state, player:
-    (state.has("Seedhunter Membership Card", player) and
-     state.has("Moogle Fragment", player) and
-     state.has("MQ5", player)),  # Rule 123
-    lambda state, player:
-    state.has("MQDone", player, 3),  # Rule 124
-    lambda state, player:
-    state.has("MQDone", player, 2),  # Rule 125
-    lambda state, player:
-    (state.has("MQ4", player, 5) and
-     state.has("Crux Base", player) and
-     state.has("Crux Tip", player) and
-     state.has("Crux Body", player)),  # Rule 126
-    lambda state, player:
-    (state.has("MQ1", player, 4) and
-     state.has("Day", player, 2)),  # Rule 127
-    lambda state, player:
-    (state.has("MQ3", player, 3) and
-     state.has("Day", player, 3)),  # Rule 128
-    lambda state, player:
-    (state.has("MQ2", player, 3) and
-     state.has("Serah's Pendant", player) and
-     state.has("Day", player, 3)),  # Rule 129
-    lambda state, player:
-    (state.has("MQ3", player, 3) and
-     state.has("Fragment of Mischief", player) and
-     state.has("Fragment of Radiance", player) and
-     state.has("Fragment of Smiles", player) and
-     state.has("Fragment of Courage", player) and
-     state.has("Fragment of Kindness", player) and
-     state.has("Day", player, 3)),  # Rule 130
-    lambda state, player:
-    state.has("Sneaking-In Special Ticket", player),  # Rule 131
-    lambda state, player:
-    (state.has("MQ2", player) and
-     state.has("ID Card", player)),  # Rule 132
-    lambda state, player:
-    (state.has("MQ3", player) and
-     state.has("Gysahl Greens", player)),  # Rule 133
-    lambda state, player:
-    (state.has("MQ4", player, 3) and
-     state.has("Tablet", player)),  # Rule 134
-    lambda state, player:
-    (state.has("MQ4", player, 4) and
-     state.has("Tablet", player, 3)),  # Rule 135
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("MQ3", player, 3)),  # Rule 136
-    lambda state, player:
-    state.has("MQDone", player, 5),  # Rule 137
-    lambda state, player:
-    (state.has("Sneaking-In Special Ticket", player) and
-     state.has("ID Card", player) and
-     state.has("MQ2", player, 2)),  # Rule 138
-    lambda state, player:
-    (state.has("Sneaking-In Special Ticket", player) and
-     state.has("ID Card", player) and
-     state.has("Midnight Mauve", player) and
-     state.has("MQ2", player, 3)),  # Rule 139
-    lambda state, player:
-    (state.has("Sneaking-In Special Ticket", player) and
-     state.has("ID Card", player) and
-     state.has("Midnight Mauve", player) and
-     state.has("Serah's Pendant", player) and
-     state.has("MQ2", player, 4)),  # Rule 140
-    lambda state, player:
-    state.has("MQ3", player),  # Rule 141
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("MQ3", player, 2)),  # Rule 142
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("MQ3", player, 4)),  # Rule 143
-    lambda state, player:
-    (state.has("Tablet", player, 3) and
-     state.has("MQ4", player, 5)),  # Rule 144
-    lambda state, player:
-    (state.has("Tablet", player, 3) and
-     state.has("Crux Base", player) and
-     state.has("Crux Tip", player) and
-     state.has("Crux Body", player) and
-     state.has("MQ4", player, 6)),  # Rule 145
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("Fragment of Mischief", player) and
-     state.has("Fragment of Radiance", player) and
-     state.has("Fragment of Smiles", player) and
-     state.has("Fragment of Courage", player) and
-     state.has("Fragment of Kindness", player) and
-     state.has("MQ5", player)),  # Rule 146
-    lambda state, player:
-    (state.has("Gysahl Greens", player) and
-     state.has("MQ5", player)),  # Rule 147
-    lambda state, player:
-    (state.has("Beloved's Gift", player) and
-     state.has("Gysahl Greens", player) and
-     state.has("MQ5", player)),  # Rule 148
-    lambda state, player:
-    (state.has("Moogle Fragment", player) and
-     state.has("Gysahl Greens", player) and
-     state.has("Seedhunter Membership Card", player) and
-     state.has("MQ5", player)),  # Rule 149
+def item_is_category(item_name: str, category: str) -> bool:
+    if item_name not in item_data_table:
+        return False
+    return item_data_table[item_name].category == category
+
+@dataclasses.dataclass()
+class HasCategoryRule(Rule[Any], game="Lightning Returns: Final Fantasy XIII"):
+    category: str
+    count: int = 1
+
+    def _instantiate(self, world):
+        item_names = tuple(sorted(name for name, data in item_data_table.items() if data.category == self.category))
+        return self.Resolved(
+            self.category,
+            item_names,
+            count=self.count,
+            player=world.player,
+            caching_enabled=getattr(world, "rule_caching_enabled", False),
+        )
+
+    class Resolved(Rule.Resolved):
+        category: str
+        item_names: tuple[str, ...]
+        count: int = 1
+
+        def _evaluate(self, state: CollectionState) -> bool:
+            return state.count_from_list(self.item_names, self.player) >= self.count
+
+        def item_dependencies(self) -> dict[str, set[int]]:
+            return {item_name: {id(self)} for item_name in self.item_names}
+
+rule_data_list: list[Rule[Any]] = [
+    True_(),  # Rule 0
+    Has("Pilgrim's Crux"),  # Rule 1
+    Has("MQ4", 2),  # Rule 2
+    Has("MQ4", 3),  # Rule 3
+    Has("Tablet", 3),  # Rule 4
+    Has("Tablet", 2),  # Rule 5
+    Has("Arithmometer"),  # Rule 6
+    Has("Loupe"),  # Rule 7
+    Has("MQ4"),  # Rule 8
+    (Has("Monster Flesh") & Has("MQ4", 3)),  # Rule 9
+    (Has("Tablet") & Has("MQ4", 4) & Has("MQDone")),  # Rule 10
+    (Has("Tablet", 3) & Has("Crux Base") & Has("Crux Tip") & Has("Crux Body")),  # Rule 11
+    Has("Supply Sphere Password"),  # Rule 12
+    Has("MQ1", 3),  # Rule 13
+    Has("MQ1", 4),  # Rule 14
+    Has("MQ1", 2),  # Rule 15
+    Has("MQ1", 5),  # Rule 16
+    Has("Day", 2),  # Rule 17
+    (Has("Thunderclap Cap") & Has("Shaolong Gui Shell") & Has("Mandragora Root")),  # Rule 18
+    (Has("Green Carbuncle Doll") & Has("Red Carbuncle Doll")),  # Rule 19
+    (Has("Spectral Elixir") & Has("MQ1", 2)),  # Rule 20
+    (Has("Supply Sphere Password") & Has("MQ1", 2)),  # Rule 21
+    (Has("Cursed Dragon Claw") & Has("MQ1", 2)),  # Rule 22
+    (Has("MQ1", 2) & Has("Seedhunter Membership Card")),  # Rule 23
+    (Has("Rubber Ball") & Has("MQ1", 5)),  # Rule 24
+    Has("Rubber Ball"),  # Rule 25
+    Has("Q_Saint"),  # Rule 26
+    (Has("Quill Pen") & Has("MQ1", 4)),  # Rule 27
+    (Has("Phantom Rose") & Has("MQ1", 5)),  # Rule 28
+    (Has("Q_BuriedPassion") & Has("MQ1", 5)),  # Rule 29
+    Has("MQ3", 3),  # Rule 30
+    (Has("Gysahl Greens") & Has("MQ3")),  # Rule 31
+    (Has("Gysahl Greens") & Has("Q_RightStuff") & Has("MQ3")),  # Rule 32
+    (Has("MQ3", 2) & Has("Q_FuzzySearch")),  # Rule 33
+    Has("MQ3", 2),  # Rule 34
+    (Has("Data Recorder") & Has("MQ3", 3)),  # Rule 35
+    (Has("Gysahl Greens") & Has("Q_Father") & Has("MQ3")),  # Rule 36
+    Has("Q_OldMan"),  # Rule 37
+    (Has("Aryas Apple", 2) & Has("MQ3", 2)),  # Rule 38
+    (Has("Gysahl Greens") & Has("Fragment of Mischief") & Has("Fragment of Radiance") & Has("Fragment of Smiles") & Has("Fragment of Courage") & Has("Fragment of Kindness")),  # Rule 39
+    Has("Q_RoundUp"),  # Rule 40
+    Has("Q_Peace"),  # Rule 41
+    Has("Q_Cure"),  # Rule 42
+    (Has("Gysahl Greens") & Has("Goddess Glyphs") & Has("Chaos Glyphs") & Has("Plate Metal Fragment") & Has("Silvered Metal Fragment") & Has("Golden Metal Fragment") & Has("MQ3", 3)),  # Rule 43
+    Has("MQ3", 4),  # Rule 44
+    (Has("Q_DDA") & Has("Q_RoundUp")),  # Rule 45
+    Has("Q_DDA"),  # Rule 46
+    (Has("Goddess Glyphs") & Has("Chaos Glyphs") & Has("MQ3", 3)),  # Rule 47
+    Has("MQ2", 2),  # Rule 48
+    Has("MQ2"),  # Rule 49
+    Has("Musical Treasure Sphere Key"),  # Rule 50
+    Has("MQ2", 3),  # Rule 51
+    Has("MQ5"),  # Rule 52
+    Has("MQ2", 4),  # Rule 53
+    (Has("MQ2", 2) & Has("Midnight Mauve")),  # Rule 54
+    Has("Music Satchel"),  # Rule 55
+    Has("Father's Letter"),  # Rule 56
+    Has("MQDone"),  # Rule 57
+    (Has("Civet Musk") & Has("Gordon Gourmet's Recipe") & Has("Steak a la Civet")),  # Rule 58
+    (Has("Nostalgic Score: Chorus") & Has("Nostalgic Score: Refrain") & Has("Nostalgic Score: Coda")),  # Rule 59
+    (Has("MQ2", 2) & HasCategoryRule("Adornment", 55)),  # Rule 60
+    (Has("MQ2", 4) & Has("Q_Adorn")),  # Rule 61
+    (Has("MQ2", 2) & Has("Q_Death")),  # Rule 62
+    Has("Civet Musk"),  # Rule 63
+    (Has("Civet Musk") & Has("Gordon Gourmet's Recipe")),  # Rule 64
+    Has("Day"),  # Rule 65
+    Has("Day", 3),  # Rule 66
+    Has("Day", 4),  # Rule 67
+    Has("Day", 5),  # Rule 68
+    Has("Day", 6),  # Rule 69
+    (Has("MQDone") & Has("Day", 6)),  # Rule 70
+    (Has("MQDone", 2) & Has("Day", 6)),  # Rule 71
+    (Has("MQDone", 3) & Has("Day", 6)),  # Rule 72
+    (Has("MQDone", 4) & Has("Day", 6)),  # Rule 73
+    (Has("MQDone", 5) & Has("Day", 6)),  # Rule 74
+    (Has("MQDone", 5) & Has("Day", 6) & Has("MQ1", 5) & Has("MQ2", 4) & Has("MQ3", 4) & Has("MQ4", 6) & Has("MQ5", 2)),  # Rule 75
+    (Has("C_Miracle") & Has("C_Banned")),  # Rule 76
+    (Has("C_Child") & Has("C_Security")),  # Rule 77
+    Has("C_Ranks"),  # Rule 78
+    (Has("C_Flower") & Has("C_Bio")),  # Rule 79
+    (Has("Tablet", 3) & Has("MQ4", 6)),  # Rule 80
+    Has("C_Charm"),  # Rule 81
+    Has("Q_Food"),  # Rule 82
+    (Has("Day", 6) & Has("MQDone") & Has("C_Pride")),  # Rule 83
+    (Has("Day", 6) & Has("MQDone", 3) & Has("C_Pride", 2)),  # Rule 84
+    Has("MQ1"),  # Rule 85
+    (Has("C_Song") & Has("C_Grave")),  # Rule 86
+    (Has("C_Inventive") & Has("C_Puppet")),  # Rule 87
+    (Has("C_Slay") & Has("C_Teeth")),  # Rule 88
+    (Has("C_Revenge") & Has("C_Gratitude")),  # Rule 89
+    (Has("Proof of Legendary Title") & Has("Day", 3)),  # Rule 90
+    (Has("Gysahl Greens") & Has("Day", 3)),  # Rule 91
+    Has("Q_Hunter"),  # Rule 92
+    Has("Q_Forebears"),  # Rule 93
+    (Has("C_Drum") & Has("C_Below")),  # Rule 94
+    (Has("Day", 6) & Has("MQDone")),  # Rule 95
+    (Has("C_Forget") & Has("C_Thanks")),  # Rule 96
+    (Has("C_Fresh") & Has("C_Plea") & Has("C_Gatekeeper")),  # Rule 97
+    (Has("C_Future") & Has("C_Brain")),  # Rule 98
+    Has("Gysahl Greens"),  # Rule 99
+    Has("C_Chow"),  # Rule 100
+    (Has("Gysahl Greens") & Has("Day")),  # Rule 101
+    (Has("C_Sun") & Has("C_Moon")),  # Rule 102
+    (Has("Gysahl Greens") & Has("Q_Peace")),  # Rule 103
+    (Has("C_Soulful") & Has("C_Inspiration")),  # Rule 104
+    (Has("C_Youth") & Has("C_Colors")),  # Rule 105
+    (Has("C_Secret") & Has("C_Dangerous") & Has("C_Spell")),  # Rule 106
+    (Has("Jade Hair Comb") & Has("Bronze Pocket Watch") & Has("MQ2")),  # Rule 107
+    (Has("Chocobo Girl's Phone No.") & Has("Q_Actress")),  # Rule 108
+    (Has("Beloved's Gift") & Has("MQ5")),  # Rule 109
+    Has("MQDone", 4),  # Rule 110
+    (Has("Key to the Sand Gate") & Has("Key to the Green Gate") & Has("MQDone", 4)),  # Rule 111
+    (Has("Bandit's Bloodseal") & Has("Oath of the Merchants Guild") & Has("MQDone", 4)),  # Rule 112
+    (Has("Proof of Courage") & Has("MQ1", 5)),  # Rule 113
+    (Has("Violet Amulet") & Has("MQ1", 5)),  # Rule 114
+    (Has("Lapis Lazuli") & Has("MQ2", 2)),  # Rule 115
+    (Has("Power Booster") & Has("Q_Death")),  # Rule 116
+    (Has("Moogle Dust") & Has("MQ3", 2)),  # Rule 117
+    (Has("Old-Fashioned Photo Frame") & Has("MQ3", 2)),  # Rule 118
+    (Has("Etro's Forbidden Tome") & Has("MQ3", 4)),  # Rule 119
+    (Has("Broken Gyroscope") & Has("Day", 2)),  # Rule 120
+    (Has("Golden Scarab") & Has("MQ4", 3)),  # Rule 121
+    Has("Seedhunter Membership Card"),  # Rule 122
+    (Has("Seedhunter Membership Card") & Has("Moogle Fragment") & Has("MQ5")),  # Rule 123
+    Has("MQDone", 3),  # Rule 124
+    Has("MQDone", 2),  # Rule 125
+    (Has("MQ4", 5) & Has("Crux Base") & Has("Crux Tip") & Has("Crux Body")),  # Rule 126
+    (Has("MQ1", 4) & Has("Day", 2)),  # Rule 127
+    (Has("MQ3", 3) & Has("Day", 3)),  # Rule 128
+    (Has("MQ2", 3) & Has("Serah's Pendant") & Has("Day", 3)),  # Rule 129
+    (Has("MQ3", 3) & Has("Fragment of Mischief") & Has("Fragment of Radiance") & Has("Fragment of Smiles") & Has("Fragment of Courage") & Has("Fragment of Kindness") & Has("Day", 3)),  # Rule 130
+    Has("Sneaking-In Special Ticket"),  # Rule 131
+    (Has("MQ2") & Has("ID Card")),  # Rule 132
+    (Has("MQ3") & Has("Gysahl Greens")),  # Rule 133
+    (Has("MQ4", 3) & Has("Tablet")),  # Rule 134
+    (Has("MQ4", 4) & Has("Tablet", 3)),  # Rule 135
+    (Has("Gysahl Greens") & Has("MQ3", 3)),  # Rule 136
+    Has("MQDone", 5),  # Rule 137
+    (Has("Sneaking-In Special Ticket") & Has("ID Card") & Has("MQ2", 2)),  # Rule 138
+    (Has("Sneaking-In Special Ticket") & Has("ID Card") & Has("Midnight Mauve") & Has("MQ2", 3)),  # Rule 139
+    (Has("Sneaking-In Special Ticket") & Has("ID Card") & Has("Midnight Mauve") & Has("Serah's Pendant") & Has("MQ2", 4)),  # Rule 140
+    Has("MQ3"),  # Rule 141
+    (Has("Gysahl Greens") & Has("MQ3", 2)),  # Rule 142
+    (Has("Gysahl Greens") & Has("MQ3", 4)),  # Rule 143
+    (Has("Tablet", 3) & Has("MQ4", 5)),  # Rule 144
+    (Has("Tablet", 3) & Has("Crux Base") & Has("Crux Tip") & Has("Crux Body") & Has("MQ4", 6)),  # Rule 145
+    (Has("Gysahl Greens") & Has("Fragment of Mischief") & Has("Fragment of Radiance") & Has("Fragment of Smiles") & Has("Fragment of Courage") & Has("Fragment of Kindness") & Has("MQ5")),  # Rule 146
+    (Has("Gysahl Greens") & Has("MQ5")),  # Rule 147
+    (Has("Beloved's Gift") & Has("Gysahl Greens") & Has("MQ5")),  # Rule 148
+    (Has("Moogle Fragment") & Has("Gysahl Greens") & Has("Seedhunter Membership Card") & Has("MQ5")),  # Rule 149
 ]
 
-location_rule_data_table: Dict[str, Callable[[CollectionState, int], bool]] = {
+location_trait_data_table = {
+    "0-1 Hint Event (1)": ("Fake",),
+    "1-1 Hint Event (1)": ("Fake",),
+    "1-2 Hint Event (1)": ("Fake",),
+    "1-3 Hint Event (1)": ("Fake",),
+    "1-4 Hint Event (1)": ("Fake",),
+    "1-5 Hint Event (1)": ("Fake",),
+    "2-1 Hint Event (1)": ("Fake",),
+    "2-2 Hint Event (1)": ("Fake",),
+    "2-3 Hint Event (1)": ("Fake",),
+    "3-1 Hint Event (1)": ("Fake",),
+    "3-2 Hint Event (1)": ("Fake",),
+    "3-3 Hint Event (1)": ("Fake",),
+    "4-1 Hint Event (1)": ("Fake",),
+    "4-2 Hint Event (1)": ("Fake",),
+    "4-3 Hint Event (1)": ("Fake",),
+    "4-4 Hint Event (1)": ("Fake",),
+    "4-5 Hint Event (1)": ("Fake",),
+    "5-1 Hint Event (1)": ("Fake",),
+    "5-2 Hint Event (1)": ("Fake",),
+    "5-3 Hint Event (1)": ("Fake",),
+    "5-4 Hint Event (1)": ("Fake",),
+    "5-5 Hint Event (1)": ("Fake",),
+    "5-6 Hint Event (1)": ("Fake",),
+    "A Dangerous Cocktail Event (1)": ("CoP", "Fake"),
+    "A Father's Request Quest Event (1)": ("Fake",),
+    "A Final Cure Quest Event (1)": ("Fake",),
+    "A Man for a Chocobo Girl Event (1)": ("CoP", "Fake"),
+    "A Rose By Any Other Name Quest Event (1)": ("Fake",),
+    "A Song for God Event (1)": ("CoP", "Fake"),
+    "A Taste of the Past Quest Event (1)": ("Fake",),
+    "A Testing Proposition Quest Event (1)": ("Fake",),
+    "A Voice from Below Event (1)": ("CoP", "Fake"),
+    "A Word of Thanks Event (1)": ("CoP", "Fake"),
+    "Adonis's Audition Quest Event (1)": ("Fake",),
+    "Adoring Adornments Quest Event (1)": ("Fake", "Grindy"),
+    "Adoring Candice Quest Event (1)": ("Fake", "Grindy"),
+    "Ark - Ark Day 1 (1)": ("SideKey",),
+    "Ark - Ark Day 1 (2)": (),
+    "Ark - Ark Day 1 (3)": (),
+    "Ark - Ark Day 1 (4)": (),
+    "Ark - Ark Day 1 (5)": (),
+    "Ark - Ark Day 10": ("Missable",),
+    "Ark - Ark Day 11": ("Missable",),
+    "Ark - Ark Day 12": ("Missable",),
+    "Ark - Ark Day 2 (1)": (),
+    "Ark - Ark Day 2 (2)": (),
+    "Ark - Ark Day 2 (3)": (),
+    "Ark - Ark Day 3 (1)": (),
+    "Ark - Ark Day 4 (1)": (),
+    "Ark - Ark Day 4 (2)": (),
+    "Ark - Ark Day 5 (1)": (),
+    "Ark - Ark Day 6 (1)": (),
+    "Ark - Ark Day 7": (),
+    "Ark - Ark Day 8": (),
+    "Ark - Ark Day 9": (),
+    "Ark - Ark Extra Day": ("Missable",),
+    "Ark - Ark Final Day (1)": ("Missable",),
+    "Ark - Ark Final Day (2)": ("Missable",),
+    "Ark - Ark Final Day (3)": ("Missable",),
+    "Ark - Initial 3rd Garb (1)": ("Same",),
+    "Ark - Initial 3rd Garb (2)": ("Same",),
+    "Ark - Initial 3rd Garb (3)": ("Same",),
+    "Ark - Replace Curaga": (),
+    "Ark - Replace Escape": (),
+    "Ark - Replace Teleport": (),
+    "Ark Day 0 Event (1)": ("Day", "Fake"),
+    "Ark Day 1 Event (1)": ("Day", "Fake"),
+    "Ark Day 2 Event (1)": ("Fake",),
+    "Ark Day 3 Event (1)": ("Fake",),
+    "Ark Day 4 Event (1)": ("Fake", "NoCascade"),
+    "Ark Day 5 Event (1)": ("Fake", "NoCascade"),
+    "Ark Day 6 Event (1)": ("Fake", "NoCascade"),
+    "Banned Goods Event (1)": ("CoP", "Fake"),
+    "Biologically Speaking Event (1)": ("CoP", "Fake"),
+    "Born From Chaos Quest Event (1)": ("Fake",),
+    "Brain Over Brawn Event (1)": ("CoP", "Fake"),
+    "Buried Passion Quest Event (1)": ("Fake",),
+    "Chocobo Cheer Quest Event (1)": ("Fake",),
+    "Chocobo Chow Event (1)": ("CoP", "Fake"),
+    "Climbing the Ranks I Event (1)": ("CoP", "Fake"),
+    "Climbing the Ranks II Event (1)": ("CoP", "Fake"),
+    "CoP Dead Dunes - A New Application CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - A New Application CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - A New Application CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - A Treasure for a God CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - A Treasure for a God CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Bandits' New Weapon CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Bandits' New Weapon CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Bandits' New Weapon CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - Banned Goods CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Banned Goods CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Banned Goods CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - Biologically Speaking CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Biologically Speaking CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Climbing The Ranks I CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Climbing The Ranks I CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Climbing The Ranks II CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Climbing The Ranks II CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Desert Cleanup CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Desert Cleanup CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Desert Cleanup CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - Flower in the Sands CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Flower in the Sands CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - For My Child CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - For My Child CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - For My Child CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - Heightened Security CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Heightened Security CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Heightened Security CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - Lucky Charm CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Lucky Charm CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Miracle Vintage CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Miracle Vintage CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Miracle Vintage CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - Pride And Greed I CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Pride And Greed I CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Pride And Greed I CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - Pride And Greed II CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Pride And Greed II CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Pride And Greed II CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - Pride And Greed III CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Pride And Greed III CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Pride And Greed III CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - Supply and Demand CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - Supply and Demand CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - Supply and Demand CoP Quest (3)": ("CoP",),
+    "CoP Dead Dunes - The Real Client CoP Quest (1)": ("CoP",),
+    "CoP Dead Dunes - The Real Client CoP Quest (2)": ("CoP",),
+    "CoP Dead Dunes - The Real Client CoP Quest (3)": ("CoP",),
+    "CoP Global - Global: A Girl's Challenge CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: A Girl's Challenge CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: Digging Mysteries CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Digging Mysteries CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: Digging Mysteries CoP Quest (3)": ("Quest",),
+    "CoP Global - Global: Fading Prayer CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Fading Prayer CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: Forbidden Tome CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Forbidden Tome CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: Key To Her Heart CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Key To Her Heart CoP Quest (2)": ("MainKey", "Quest"),
+    "CoP Global - Global: Key To Her Heart CoP Quest (3)": ("Quest",),
+    "CoP Global - Global: Roadworks I CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Roadworks I CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: Roadworks I CoP Quest (3)": ("Quest",),
+    "CoP Global - Global: Roadworks II CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Roadworks II CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: Roadworks II CoP Quest (3)": ("Quest",),
+    "CoP Global - Global: Roadworks III CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Roadworks III CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: Roadworks III CoP Quest (3)": ("Quest",),
+    "CoP Global - Global: Seeing The Dawn CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Seeing The Dawn CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: Shoot For The Sky CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Shoot For The Sky CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: Shoot For The Sky CoP Quest (3)": ("Quest",),
+    "CoP Global - Global: Staying Sharp CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Staying Sharp CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: What's Left Behind CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: What's Left Behind CoP Quest (2)": ("Quest",),
+    "CoP Global - Global: Where Moogles Be CoP Quest (1)": ("Quest",),
+    "CoP Global - Global: Where Moogles Be CoP Quest (2)": ("Quest",),
+    "CoP Luxerion - A Song for God CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - A Song for God CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - A Song for God CoP Quest (3)": ("CoP",),
+    "CoP Luxerion - Enchanted Brush CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Enchanted Brush CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Enchanted Brush CoP Quest (3)": ("CoP",),
+    "CoP Luxerion - Gift of Gratitude CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Gift of Gratitude CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Gift of Gratitude CoP Quest (3)": ("CoP",),
+    "CoP Luxerion - Grave of a Bounty Hunter CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Grave of a Bounty Hunter CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Grave of a Bounty Hunter CoP Quest (3)": ("CoP",),
+    "CoP Luxerion - Heretics' Beasts CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Heretics' Beasts CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Heretics' Beasts CoP Quest (3)": ("CoP",),
+    "CoP Luxerion - Inventive Seamstress CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Inventive Seamstress CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Mythical Badge CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Mythical Badge CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Mythical Badge CoP Quest (3)": ("CoP",),
+    "CoP Luxerion - Night Patrol CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Night Patrol CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Night Patrol CoP Quest (3)": ("CoP",),
+    "CoP Luxerion - Puppeteer's Lament CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Puppeteer's Lament CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Puppeteer's Lament CoP Quest (3)": ("CoP",),
+    "CoP Luxerion - Revenge Is Sweet CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Revenge Is Sweet CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Revenge has Teeth CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Revenge has Teeth CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Slay the Machine CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Slay the Machine CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Trapped CoP Quest (1)": ("CoP",),
+    "CoP Luxerion - Trapped CoP Quest (2)": ("CoP",),
+    "CoP Luxerion - Trapped CoP Quest (3)": ("CoP",),
+    "CoP Luxerion - Trapped CoP Quest (4)": ("CoP",),
+    "CoP Wildlands - A Prayer to a Goddess CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - A Prayer to a Goddess CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - A Prayer to a Goddess CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - A Secret Wish CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - A Secret Wish CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - A Secret Wish CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - A Voice From Below CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - A Voice From Below CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - A Voice From Below CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - A Word of Thanks CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - A Word of Thanks CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - A Word of Thanks CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Brain Over Brawn CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Brain Over Brawn CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Brain Over Brawn CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Chocobo Chow CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Chocobo Chow CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Chocobo Chow CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Digging Mole CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Digging Mole CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Digging Mole CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Dumpling Cook-Off CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Dumpling Cook-Off CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Dumpling Cook-Off CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Echoes of a Drum CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Echoes of a Drum CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Echoes of a Drum CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Emergency Treatment CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Emergency Treatment CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Emergency Treatment CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - For the Future CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - For the Future CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - For the Future CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Forget Me Not CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Forget Me Not CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Forget Me Not CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Fresh Fertilizer CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Fresh Fertilizer CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Fresh Fertilizer CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Gatekeeper's Curiosity CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Gatekeeper's Curiosity CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Hunter's Challenge CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Hunter's Challenge CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Hunter's Challenge CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Hunting the Hunter CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Hunting the Hunter CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Hunting the Hunter CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Moghan's Plea CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Moghan's Plea CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Moghan's Plea CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Moogle Gourmand CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Moogle Gourmand CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Moogle Gourmand CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Moon Flower CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Moon Flower CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Moon Flower CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Secret of the Chocoborel CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Secret of the Chocoborel CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Secret of the Chocoborel CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Sun Flower CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Sun Flower CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Sylkis Secrets CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Sylkis Secrets CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Sylkis Secrets CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - Two Together CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Two Together CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Two Together CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - What's in a Brew? CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - What's in a Brew? CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - What's in a Brew? CoP Quest (3)": ("CoP",),
+    "CoP Wildlands - What's in a Brew? CoP Quest (4)": ("CoP",),
+    "CoP Wildlands - Wildlands In Danger! CoP Quest (1)": ("CoP",),
+    "CoP Wildlands - Wildlands In Danger! CoP Quest (2)": ("CoP",),
+    "CoP Wildlands - Wildlands In Danger! CoP Quest (3)": ("CoP",),
+    "CoP Yusnaan - A Dangerous Cocktail CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - A Dangerous Cocktail CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - A Man for a Chocobo Girl CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - A Man for a Chocobo Girl CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - A Man for a Chocobo Girl CoP Quest (3)": ("CoP",),
+    "CoP Yusnaan - Beast Summoner CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - Beast Summoner CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - Beast Summoner CoP Quest (3)": ("CoP",),
+    "CoP Yusnaan - Rebuilding CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - Rebuilding CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - Secret Machine CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - Secret Machine CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - Soulful Horn CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - Soulful Horn CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - Soulful Horn CoP Quest (3)": ("CoP",),
+    "CoP Yusnaan - Source of Inspiration CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - Source of Inspiration CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - Spell for Spell CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - Spell for Spell CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - Spell for Spell CoP Quest (3)": ("CoP",),
+    "CoP Yusnaan - Time Doesn't Heal CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - Time Doesn't Heal CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - Time Doesn't Heal CoP Quest (3)": ("CoP",),
+    "CoP Yusnaan - True Colors CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - True Colors CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - True Colors CoP Quest (3)": ("CoP",),
+    "CoP Yusnaan - Ultimate Craving CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - Ultimate Craving CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - Ultimate Craving CoP Quest (3)": ("CoP",),
+    "CoP Yusnaan - Ultimate Craving CoP Quest (4)": ("CoP",),
+    "CoP Yusnaan - Unfired Firework CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - Unfired Firework CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - Unfired Firework CoP Quest (3)": ("CoP",),
+    "CoP Yusnaan - What Seekers Seek CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - What Seekers Seek CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - What Seekers Seek CoP Quest (3)": ("CoP",),
+    "CoP Yusnaan - Youth Potion CoP Quest (1)": ("CoP",),
+    "CoP Yusnaan - Youth Potion CoP Quest (2)": ("CoP",),
+    "CoP Yusnaan - Youth Potion CoP Quest (3)": ("CoP",),
+    "Dead Dunes - Adonis's Audition Quest (1)": ("Quest",),
+    "Dead Dunes - Adonis's Audition Quest (2)": ("Quest",),
+    "Dead Dunes - Aeronite Missable Drop": ("Missable",),
+    "Dead Dunes - Aeronite Monster Flesh": ("Battle", "SideKey", "Superboss"),
+    "Dead Dunes - Atomos's Sand Treasure (1)": (),
+    "Dead Dunes - Atomos's Sand Treasure (2)": (),
+    "Dead Dunes - Atomos's Sands Loupe": ("SideKey",),
+    "Dead Dunes - Atomos's Sands Pilgrim's Crux": ("Pilgrim",),
+    "Dead Dunes - Atomos's Sands Shrine Tablet": ("MainKey",),
+    "Dead Dunes - Atomos's Sands Shrine Treasure": (),
+    "Dead Dunes - Cactair Fragment of Kindness": ("Battle", "MainKey"),
+    "Dead Dunes - Dead Dunes Boss Drop": ("Battle", "Superboss"),
+    "Dead Dunes - Dry Floodlands Pilgrim's Crux": ("Pilgrim",),
+    "Dead Dunes - Dry Floodlands Shrine Tablet": ("MainKey",),
+    "Dead Dunes - Dry Floodlands Shrine Treasure": (),
+    "Dead Dunes - Dry Floodlands Treasure (1)": (),
+    "Dead Dunes - Dry Floodlands Treasure (2)": (),
+    "Dead Dunes - Giant's Sandbox Pilgrim's Crux": ("Pilgrim",),
+    "Dead Dunes - Giant's Sandbox Treasure (1)": (),
+    "Dead Dunes - Giant's Sandbox Treasure (2)": (),
+    "Dead Dunes - Giant's Sandbox Treasure (3)": (),
+    "Dead Dunes - Giant's Sandbox Treasure (4)": (),
+    "Dead Dunes - Giant's Sandbox Treasure (5)": (),
+    "Dead Dunes - Goblots Arithmometer": ("Battle", "SideKey"),
+    "Dead Dunes - Golden Chamber Lower Treasure": (),
+    "Dead Dunes - Golden Scarab Treasure": ("CoPKey",),
+    "Dead Dunes - Grave of the Colossi Pilgrim's Crux": ("Pilgrim",),
+    "Dead Dunes - Grave of the Colossi Shrine Tablet": ("MainKey",),
+    "Dead Dunes - Grave of the Colossi Shrine Treasure": ("CoPKey",),
+    "Dead Dunes - Grave of the Colossi Treasure (1)": (),
+    "Dead Dunes - Grave of the Colossi Treasure (2)": ("EP",),
+    "Dead Dunes - Grave of the Colossi Treasure (3)": (),
+    "Dead Dunes - His Wife's Dream Quest (1)": ("Quest",),
+    "Dead Dunes - His Wife's Dream Quest (2)": ("Quest",),
+    "Dead Dunes - Last One Standing Quest (1)": ("Missable", "Quest"),
+    "Dead Dunes - Last One Standing Quest (2)": ("Missable", "Quest"),
+    "Dead Dunes - Last One Standing Quest (3)": ("Missable", "Quest"),
+    "Dead Dunes - Oasis Lighthouse Treasure (1)": ("CoPKey",),
+    "Dead Dunes - Oasis Lighthouse Treasure (2)": (),
+    "Dead Dunes - Oasis Lighthouse Treasure (3)": (),
+    "Dead Dunes - Old Rivals Quest (1)": ("Quest",),
+    "Dead Dunes - Old Rivals Quest (2)": ("Quest",),
+    "Dead Dunes - Ruffian 2nd Floor Treasure": (),
+    "Dead Dunes - Ruffian Outdoor Treasure": (),
+    "Dead Dunes - Skeletons In The Closet Quest (1)": ("Quest",),
+    "Dead Dunes - Skeletons In The Closet Quest (2)": ("Quest",),
+    "Dead Dunes - Temple Ruins Bhakti Reward": ("Missable", "Quest"),
+    "Dead Dunes - Temple Ruins Chamber of Dusk (Upper) Treasure": (),
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Lower) Treasure (1)": (),
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Lower) Treasure (2)": (),
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Lower) Treasure (3)": (),
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Upper) Treasure (1)": (),
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Upper) Treasure (2)": (),
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Upper) Treasure (3)": (),
+    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Pilgrim's Crux (1)": ("Pilgrim",),
+    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Pilgrim's Crux (2)": ("Pilgrim",),
+    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Treasure (1)": (),
+    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Treasure (2)": (),
+    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Treasure (3)": (),
+    "Dead Dunes - Temple Ruins Golden Chamber (Upper) Pilgrim's Crux (1)": ("Pilgrim",),
+    "Dead Dunes - Temple Ruins Golden Chamber (Upper) Pilgrim's Crux (2)": ("Pilgrim",),
+    "Dead Dunes - Temple Ruins Golden Chamber (Upper) Treasure (1)": (),
+    "Dead Dunes - Temple Ruins Golden Chamber (Upper) Treasure (2)": (),
+    "Dead Dunes - Temple Ruins Mural Crux Base": ("MainKey",),
+    "Dead Dunes - Temple Ruins Mural Crux Body": ("MainKey",),
+    "Dead Dunes - Temple Ruins Mural Crux Tip": ("MainKey",),
+    "Dead Dunes - Temple Ruins Sacred Grove Pilgrim's Crux (1)": ("Pilgrim",),
+    "Dead Dunes - Temple Ruins Sacred Grove Pilgrim's Crux (2)": ("Pilgrim",),
+    "Dead Dunes - Temple Ruins Sacred Grove Pilgrim's Crux (3)": ("Pilgrim",),
+    "Dead Dunes - Temple Ruins Sacred Grove Pilgrim's Crux (4)": ("Pilgrim",),
+    "Dead Dunes - Temple Ruins Sacred Grove Treasure": (),
+    "Dead Dunes - Temple Ruins Scorched Earth (Lower) Treasure": ("EP",),
+    "Dead Dunes - Temple Ruins Scorched Earth (Upper) Treasure (1)": (),
+    "Dead Dunes - Temple Ruins Scorched Earth (Upper) Treasure (2)": (),
+    "Dead Dunes - Temple Ruins Scorched Earth Pilgrim's Crux (1)": ("Pilgrim",),
+    "Dead Dunes - Temple Ruins Scorched Earth Pilgrim's Crux (2)": ("Pilgrim",),
+    "Dead Dunes - The Life of a Machine Quest (1)": ("Missable", "Quest"),
+    "Dead Dunes - The Life of a Machine Quest (2)": ("Missable", "Quest"),
+    "Dead Dunes - Tool of the Trade Quest (1)": ("Quest",),
+    "Dead Dunes - Tool of the Trade Quest (2)": ("Quest",),
+    "Dead Dunes - What Rough Beast Slouches Libra Notes": (),
+    "Dead Dunes - What Rough Beast Slouches Quest (1)": ("Quest",),
+    "Dead Dunes - What Rough Beast Slouches Quest (2)": ("Quest",),
+    "Death Game Quest Event (1)": ("Fake",),
+    "Death Safari Quest Event (1)": ("Fake",),
+    "Dog, Doctor and Assistant Quest Event (1)": ("Fake",),
+    "Dying Wish Quest Event (1)": ("Fake",),
+    "Echoes of a Drum Event (1)": ("CoP", "Fake"),
+    "Family Food Quest Event (1)": ("Fake",),
+    "Faster Than Lightning Quest Event (1)": ("Fake",),
+    "Final Day - Arcangeli Omega Drop": ("Battle", "Missable"),
+    "Final Day - Chimera Omega Drop": ("Battle", "Missable"),
+    "Final Day - Final Day Altar Of Atonement": ("Missable",),
+    "Final Day - Final Day Altar Of Birth": ("Missable",),
+    "Final Day - Final Day Altar Of Judgment": ("Missable",),
+    "Final Day - Final Day Altar Of Salvation": ("Missable",),
+    "Final Day - Final Day Temple Of Light (1)": ("Missable",),
+    "Final Day - Final Day Temple Of Light (2)": ("Missable",),
+    "Final Day - Final Day Temple Of Light (3)": ("Missable",),
+    "Final Day - Final Day Ultima Shield": ("Missable",),
+    "Final Day - Final Day Ultima Weapon": ("Missable",),
+    "Final Day - Sugriva Omega Drop": ("Battle", "Missable"),
+    "Fireworks for a Steal Quest Event (1)": ("Fake",),
+    "Fireworks in a Bottle Quest Event (1)": ("Fake",),
+    "Flower in the Sands Event (1)": ("CoP", "Fake"),
+    "For My Child Event (1)": ("CoP", "Fake"),
+    "For the Future Event (1)": ("CoP", "Fake"),
+    "Forget Me Not Event (1)": ("CoP", "Fake"),
+    "Free Will Quest Event (1)": ("Fake",),
+    "Fresh Fertilizer Event (1)": ("CoP", "Fake"),
+    "Friends Forever Quest Event (1)": ("Fake",),
+    "Fuzzy Search Quest Event (1)": ("Fake",),
+    "Gatekeeper's Curiosity Event (1)": ("CoP", "Fake"),
+    "Get the Girl Quest Event (1)": ("Fake",),
+    "Gift of Gratitude Event (1)": ("CoP", "Fake"),
+    "Grave of a Bounty Hunter Event (1)": ("CoP", "Fake"),
+    "Heightened Security Event (1)": ("CoP", "Fake"),
+    "His Wife's Dream Quest Event (1)": ("Fake",),
+    "Hunter's Challenge Event (1)": ("CoP", "Fake"),
+    "Inventive Seamstress Event (1)": ("CoP", "Fake"),
+    "Killing Time Quest Event (1)": ("Fake",),
+    "Land of our Forebears Quest Event (1)": ("Fake",),
+    "Last Date Quest Event (1)": ("Fake", "Missable"),
+    "Last One Standing Quest Event (1)": ("Fake",),
+    "Like Clockwork Quest Event (1)": ("Fake",),
+    "Lucky Charm Event (1)": ("CoP", "Fake"),
+    "Luxerion - 1st Ave Rubber Ball": ("SideKey",),
+    "Luxerion - 2nd Ave Treasure": (),
+    "Luxerion - A Rose By Any Other Name Quest (1)": ("Quest",),
+    "Luxerion - A Rose By Any Other Name Quest (2)": ("Quest",),
+    "Luxerion - A Rose By Any Other Name Quest (3)": ("Quest",),
+    "Luxerion - A Rose By Any Other Name Quest (4)": ("Quest",),
+    "Luxerion - Aremiah Service Entrance Key": ("SideKey",),
+    "Luxerion - Baird Seedhunter Membership Card": ("MainKey", "Trade"),
+    "Luxerion - Born From Chaos Quest (1)": ("Quest",),
+    "Luxerion - Born From Chaos Quest (2)": ("Quest",),
+    "Luxerion - Born From Chaos Quest (3)": ("Quest",),
+    "Luxerion - Born From Chaos Quest (4)": ("Quest",),
+    "Luxerion - Buried Passion Quest (1)": ("Quest",),
+    "Luxerion - Buried Passion Quest (2)": ("Quest",),
+    "Luxerion - Buy Mandragora Root": ("SideKey", "Trade"),
+    "Luxerion - Buy Shaolong Gui Shell": ("SideKey", "Trade"),
+    "Luxerion - Cathedral Proof Of Courage": ("CoPKey",),
+    "Luxerion - Chocobo Emporium Spectral Elixir": ("SideKey", "Trade"),
+    "Luxerion - Den Of Shadows Treasure (1)": (),
+    "Luxerion - Den Of Shadows Treasure (2)": (),
+    "Luxerion - Dying Wish Quest (1)": ("Quest",),
+    "Luxerion - Dying Wish Quest (2)": ("Quest",),
+    "Luxerion - Faster Than Lightning Quest (1)": ("Quest",),
+    "Luxerion - Faster Than Lightning Quest (2)": ("Quest",),
+    "Luxerion - Forsaken Graveyard Treasure (1)": (),
+    "Luxerion - Forsaken Graveyard Treasure (2)": (),
+    "Luxerion - Gallery Steps Treasure": (),
+    "Luxerion - Get the Girl Quest (1)": ("Quest",),
+    "Luxerion - Get the Girl Quest (2)": ("Quest",),
+    "Luxerion - Like Clockwork Quest (1)": ("Quest",),
+    "Luxerion - Like Clockwork Quest (2)": ("Quest",),
+    "Luxerion - Luxerion After 1st Phone (1)": (),
+    "Luxerion - Luxerion After 1st Phone (2)": (),
+    "Luxerion - Luxerion After 1st Phone (3)": (),
+    "Luxerion - Luxerion Boss Drop": ("Battle",),
+    "Luxerion - Luxerion Boss+ Only Missable Drop": ("Missable",),
+    "Luxerion - Luxerion Ghost Phantom Rose": ("SideKey",),
+    "Luxerion - Luxerion Marketplace Pen": ("SideKey",),
+    "Luxerion - Luxerion Marketplace Treasure": (),
+    "Luxerion - Luxerion Proof of Legendary Title": ("CoPKey",),
+    "Luxerion - Marketplace Doll": ("SideKey",),
+    "Luxerion - North Station Plaza Doll": ("SideKey",),
+    "Luxerion - North Station Plaza Treasure": (),
+    "Luxerion - Old Theater Platform Treasure": (),
+    "Luxerion - Pilgrim's Passage (Grassy) Treasure": (),
+    "Luxerion - Pilgrim's Passage Violet Amulet Treasure": ("CoPKey",),
+    "Luxerion - Replace Chronostasis": (),
+    "Luxerion - Residences (Supply Sphere) Treasure": (),
+    "Luxerion - Soul Seeds Quest (1)": ("Quest",),
+    "Luxerion - Soul Seeds Quest (2)": ("Quest",),
+    "Luxerion - South Station (Supply Sphere) Treasure": (),
+    "Luxerion - Stuck in a Gem Quest (1)": ("Quest",),
+    "Luxerion - Stuck in a Gem Quest (2)": ("Quest",),
+    "Luxerion - Suspicious Spheres Quest (1)": ("Quest",),
+    "Luxerion - Suspicious Spheres Quest (2)": ("Quest",),
+    "Luxerion - Talbot's Gratitude": ("SideKey",),
+    "Luxerion - The Angel's Tears Quest (1)": ("Quest",),
+    "Luxerion - The Angel's Tears Quest (2)": ("Quest",),
+    "Luxerion - The Avenue Treasure": (),
+    "Luxerion - The Avid Reader Quest (1)": ("Missable", "Quest"),
+    "Luxerion - The Avid Reader Quest (2)": ("Missable", "Quest"),
+    "Luxerion - The Girl Who Cried Wolf Quest (1)": ("Missable", "Quest"),
+    "Luxerion - The Girl Who Cried Wolf Quest (2)": ("Missable", "Quest"),
+    "Luxerion - The Saint's Stone Quest (1)": ("Quest",),
+    "Luxerion - The Saint's Stone Quest (2)": ("Quest",),
+    "Luxerion - The Saint's Stone Quest (3)": ("Quest",),
+    "Luxerion - The Things She Lost Quest (1)": ("Quest",),
+    "Luxerion - The Things She Lost Quest (2)": ("Quest",),
+    "Luxerion - The Warren Mangled Hill Treasure": (),
+    "Luxerion - To Save the Sinless Quest (1)": ("Missable", "Quest"),
+    "Luxerion - To Save the Sinless Quest (2)": ("Missable", "Quest"),
+    "Luxerion - Treasured Ball Quest (1)": ("Quest",),
+    "Luxerion - Treasured Ball Quest (2)": ("Quest",),
+    "Luxerion - Virgil Supply Sphere Password": ("SideKey",),
+    "Luxerion - Voices from the Grave Quest (1)": ("Quest",),
+    "Luxerion - Voices from the Grave Quest (2)": ("Quest",),
+    "Luxerion - Warehouse District (Supply Sphere) Treasure": (),
+    "Luxerion - Warehouse District Thunderclap Cap": ("SideKey",),
+    "Luxerion - Where Are You, Holmes? Quest (1)": ("Missable", "Quest"),
+    "Luxerion - Where Are You, Holmes? Quest (2)": ("Missable", "Quest"),
+    "Luxerion - Where Are You, Holmes? Quest (3)": ("Missable", "Quest"),
+    "Luxerion - Whither Faith Quest (1)": ("Missable", "Quest"),
+    "Luxerion - Whither Faith Quest (2)": ("Missable", "Quest"),
+    "Luxerion - Zomok Cursed Dragon Claw": ("Battle", "SideKey"),
+    "Main Quest 1 Event (1)": ("Fake", "Main"),
+    "Main Quest 1 Event (2)": ("Fake", "Main"),
+    "Main Quest 1-1 Event (1)": ("Fake", "Main"),
+    "Main Quest 1-2 Event (1)": ("Fake", "Main"),
+    "Main Quest 1-3 Event (1)": ("Fake", "Main"),
+    "Main Quest 1-4 Event (1)": ("Fake", "Main"),
+    "Main Quest 2 Event (1)": ("Fake", "Main"),
+    "Main Quest 2 Event (2)": ("Fake", "Main"),
+    "Main Quest 2-1 Event (1)": ("Fake", "Main"),
+    "Main Quest 2-1 cyclops Event (1)": ("Fake", "Main"),
+    "Main Quest 2-2 Event (1)": ("Fake", "Main"),
+    "Main Quest 3 Event (1)": ("Fake", "Main"),
+    "Main Quest 3 Event (2)": ("Fake", "Main"),
+    "Main Quest 3-1 Event (1)": ("Fake", "Main"),
+    "Main Quest 3-2 Event (1)": ("Fake", "Main"),
+    "Main Quest 3-3 Flight Event (1)": ("Fake", "Main"),
+    "Main Quest 4 Event (1)": ("Fake", "Main"),
+    "Main Quest 4 Event (2)": ("Fake", "Main"),
+    "Main Quest 4-1 Event (1)": ("Fake", "Main"),
+    "Main Quest 4-2 Event (1)": ("Fake", "Main"),
+    "Main Quest 4-3 Event (1)": ("Fake", "Main"),
+    "Main Quest 4-4 Event (1)": ("Fake", "Main"),
+    "Main Quest 4-4 First Tablet placed Event (1)": ("Fake", "Main"),
+    "Main Quest 5 Event (1)": ("Fake", "Main"),
+    "Main Quest 5 Event (2)": ("Fake", "Main"),
+    "Main Quest 5 start Event (1)": ("Fake", "Main"),
+    "Matchmaker Quest Event (1)": ("Fake",),
+    "Mercy of a Goddess Quest Event (1)": ("Fake",),
+    "Miracle Vintage Event (1)": ("CoP", "Fake"),
+    "Moghan's Plea Event (1)": ("CoP", "Fake"),
+    "Moon Flower Event (1)": ("CoP", "Fake"),
+    "Mother and Daughter Quest Event (1)": ("Fake",),
+    "Old Rivals Quest Event (1)": ("Fake",),
+    "Omega Point Quest Event (1)": ("Fake",),
+    "Peace and Quiet, Kupo Quest Event (1)": ("Fake",),
+    "Play It for Me Quest Event (1)": ("Fake",),
+    "Pride and Greed I Event (1)": ("CoP", "Fake"),
+    "Pride and Greed II Event (1)": ("CoP", "Fake"),
+    "Pride and Greed III Event (1)": ("CoP", "Fake"),
+    "Puppeteer's Lament Event (1)": ("CoP", "Fake"),
+    "Revenge Has Teeth Event (1)": ("CoP", "Fake"),
+    "Revenge is Sweet Event (1)": ("CoP", "Fake"),
+    "Round 'em Up Quest Event (1)": ("Fake",),
+    "Saving an Angel Quest Event (1)": ("Fake",),
+    "Secret Machine Event (1)": ("CoP", "Fake"),
+    "Skeletons In The Closet Quest Event (1)": ("Fake",),
+    "Slay the Machine Event (1)": ("CoP", "Fake"),
+    "Songless Diva Quest Event (1)": ("Fake",),
+    "Soul Seeds Quest Event (1)": ("Fake",),
+    "Soul Seeds/Unappraised - 1 Unappraised": ("Pilgrim", "Quest"),
+    "Soul Seeds/Unappraised - 10 Soul Seeds": (),
+    "Soul Seeds/Unappraised - 10 Unappraised": ("Grindy", "Quest"),
+    "Soul Seeds/Unappraised - 20 Soul Seeds": ("Grindy",),
+    "Soul Seeds/Unappraised - 20 Unappraised": ("Grindy", "Quest"),
+    "Soul Seeds/Unappraised - 30 Soul Seeds": ("Grindy",),
+    "Soul Seeds/Unappraised - 40 Soul Seeds": ("Grindy",),
+    "Soul Seeds/Unappraised - 5 Unappraised": ("Quest",),
+    "Soul Seeds/Unappraised - 50 Soul Seeds": ("Grindy",),
+    "Soul Seeds/Unappraised - 50 Unappraised": ("Grindy", "Quest"),
+    "Soul Seeds/Unappraised - Soul Seeds Fragment of Radiance": ("MainKey",),
+    "Soulful Horn Event (1)": ("CoP", "Fake"),
+    "Source of Inspiration Event (1)": ("CoP", "Fake"),
+    "Spell for Spell Event (1)": ("CoP", "Fake"),
+    "Stolen Things Quest Event (1)": ("Fake",),
+    "Stuck in a Gem Quest Event (1)": ("Fake",),
+    "Sun Flower Event (1)": ("CoP", "Fake"),
+    "Suspicious Spheres Quest Event (1)": ("Fake",),
+    "Tanbam's Taboo Quest Event (1)": ("Fake",),
+    "The Angel's Tears Quest Event (1)": ("Fake",),
+    "The Avid Reader Quest Event (1)": ("Fake",),
+    "The Fighting Actress Quest Event (1)": ("Fake",),
+    "The Girl Who Cried Wolf Quest Event (1)": ("Fake",),
+    "The Grail of Valhalla Quest Event (1)": ("Fake",),
+    "The Hunter's Challenge Quest Event (1)": ("Fake",),
+    "The Life of a Machine Quest Event (1)": ("Fake",),
+    "The Old Man and the Field Quest Event (1)": ("Fake",),
+    "The Right Stuff Quest Event (1)": ("Fake",),
+    "The Saint's Stone Quest Event (1)": ("Fake",),
+    "The Secret Lives of Sheep Quest Event (1)": ("Fake",),
+    "The Things She Lost Quest Event (1)": ("Fake",),
+    "To Live in Chaos Quest Event (1)": ("Fake",),
+    "To Save the Sinless Quest Event (1)": ("Fake",),
+    "Tool of the Trade Quest Event (1)": ("Fake",),
+    "Treasured Ball Quest Event (1)": ("Fake",),
+    "True Colors Event (1)": ("CoP", "Fake"),
+    "Ultimate Lair - Floor 1 Hoplite Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 10 Ectopudding Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 11 Miniflan Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 12 Aster Protoflorian Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 13 Schrodinger Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 14 Goblin Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 15 Reaver Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 16 Meonekton Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 17 Cactuar Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 18 Triffid Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 19 Cyclops Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 2 Niblet Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 20 Skeleton Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 21 Desert Sahagin Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 22 Earth Eater Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 23 Skata'ne Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 24 Hanuman Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 25 Zomok Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 26 Dryad Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 27 Rafflesia Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 28 Chocobo Eater Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 29 UL Treasure": ("Battle",),
+    "Ultimate Lair - Floor 3 Zaltys Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 30 UL Treasure": ("Battle",),
+    "Ultimate Lair - Floor 31 UL Treasure": ("Battle",),
+    "Ultimate Lair - Floor 32 UL Treasure": ("Battle",),
+    "Ultimate Lair - Floor 4 Gaunt Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 5 Gremlin Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 6 Dreadnought Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 7 Gorgonopsid Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 8 Goblot Omega Drop": ("Battle",),
+    "Ultimate Lair - Floor 9 Gurangatch Omega Drop": ("Battle",),
+    "Ultimate Lair - Ultimate Lair Boss Drop": ("Battle",),
+    "Ultimate Lair - Ultimate Lair Boss Reward": ("Quest", "Superboss"),
+    "Victory Event (1)": ("Fake", "Missable"),
+    "Voices from the Grave Quest Event (1)": ("Fake",),
+    "What Rough Beast Slouches Quest Event (1)": ("Fake",),
+    "Where Are You, Holmes? Quest Event (1)": ("Fake",),
+    "Where Are You, Moogle? Quest Event (1)": ("Fake",),
+    "Whither Faith Quest Event (1)": ("Fake",),
+    "Wildlands - A Father's Request Quest (1)": ("Quest",),
+    "Wildlands - A Father's Request Quest (2)": ("Quest",),
+    "Wildlands - A Final Cure Quest (1)": ("Quest",),
+    "Wildlands - A Final Cure Quest (2)": ("Quest",),
+    "Wildlands - A Final Cure Quest (3)": ("Quest",),
+    "Wildlands - A Taste of the Past Quest (1)": ("Quest",),
+    "Wildlands - A Taste of the Past Quest (2)": ("Quest",),
+    "Wildlands - A Taste of the Past Quest (3)": ("Quest",),
+    "Wildlands - Aryas Village Apple (1)": ("SideKey",),
+    "Wildlands - Aryas Village Apple (2)": ("SideKey",),
+    "Wildlands - Aryas Village Apple (3)": ("SideKey",),
+    "Wildlands - Aryas Village Beloved's Gift Treasure": ("MainKey",),
+    "Wildlands - Aryas Village Treasure (1)": ("CoPKey",),
+    "Wildlands - Aryas Village Treasure (2)": (),
+    "Wildlands - Aryas Village Treasure (3)": (),
+    "Wildlands - Canopus Farms Treasure": (),
+    "Wildlands - Chocobo Cheer Quest (1)": ("Quest",),
+    "Wildlands - Chocobo Cheer Quest (2)": ("Quest",),
+    "Wildlands - Chocobo Cheer Quest (3)": ("Quest",),
+    "Wildlands - City of Ruins Treasure": ("EP",),
+    "Wildlands - Dog, Doctor and Assistant Quest (1)": ("Quest",),
+    "Wildlands - Dog, Doctor and Assistant Quest (2)": ("Quest",),
+    "Wildlands - Dr Gysahl's Gysahl Greens": ("MainKey",),
+    "Wildlands - Eremite Plains Broken Gyroscope Treasure": ("CoPKey",),
+    "Wildlands - Eremite Plains Crash Site Fragment": ("MainKey",),
+    "Wildlands - Eremite Plains Treasure (1)": (),
+    "Wildlands - Eremite Plains Treasure (2)": (),
+    "Wildlands - Fuzzy Search Quest (1)": ("Quest",),
+    "Wildlands - Fuzzy Search Quest (2)": ("Quest",),
+    "Wildlands - Fuzzy Search Quest (3)": ("Quest",),
+    "Wildlands - Goddess Temple Chaos Glyphs": ("SideKey",),
+    "Wildlands - Goddess Temple Goddess Glyphs": ("SideKey",),
+    "Wildlands - Goddess Temple Treasure (1)": (),
+    "Wildlands - Goddess Temple Treasure (2)": (),
+    "Wildlands - Goddess Temple Treasure (3)": (),
+    "Wildlands - Goddess Temple Treasure (4)": (),
+    "Wildlands - Goddess Temple Treasure (5)": (),
+    "Wildlands - Goddess Temple Treasure (6)": (),
+    "Wildlands - Goddess Temple Treasure (7)": (),
+    "Wildlands - Goddess Temple Treasure (8)": (),
+    "Wildlands - Goddess Temple Treasure (9)": (),
+    "Wildlands - Jagd Woods Treasure": (),
+    "Wildlands - Killing Time Quest (1)": ("Quest",),
+    "Wildlands - Killing Time Quest (2)": ("Quest",),
+    "Wildlands - Land of our Forebears Quest (1)": ("Quest",),
+    "Wildlands - Land of our Forebears Quest (2)": ("Quest",),
+    "Wildlands - Main Quest 5 (1)": ("Quest",),
+    "Wildlands - Main Quest 5 (2)": ("Quest",),
+    "Wildlands - Main Quest 5 (3)": ("Quest",),
+    "Wildlands - Matchmaker Quest (1)": ("Quest",),
+    "Wildlands - Matchmaker Quest (2)": ("Quest",),
+    "Wildlands - Mercy of a Goddess Quest (1)": ("Quest",),
+    "Wildlands - Mercy of a Goddess Quest (2)": ("Quest",),
+    "Wildlands - Moogle Village Moogle Dust Treasure": ("CoPKey",),
+    "Wildlands - Moogle Village Treasure": (),
+    "Wildlands - Mother and Daughter Quest (1)": ("Quest",),
+    "Wildlands - Mother and Daughter Quest (2)": ("Quest",),
+    "Wildlands - Omega Point Quest (1)": ("Quest",),
+    "Wildlands - Omega Point Quest (2)": ("Quest",),
+    "Wildlands - Peace and Quiet, Kupo Quest (1)": ("Quest",),
+    "Wildlands - Peace and Quiet, Kupo Quest (2)": ("MainKey", "Quest"),
+    "Wildlands - Peace and Quiet, Kupo Quest (3)": ("Quest",),
+    "Wildlands - Poltae Etro's Forbidden Tome": ("CoPKey",),
+    "Wildlands - Poltae Gold Metal Fragment": ("SideKey",),
+    "Wildlands - Poltae Plate Metal Fragment": ("SideKey",),
+    "Wildlands - Poltae Silvered Metal Fragment": ("SideKey",),
+    "Wildlands - Poltae Treasure (1)": (),
+    "Wildlands - Poltae Treasure (2)": (),
+    "Wildlands - Research Camp Data Recorder": ("SideKey",),
+    "Wildlands - Research Camp Photo Frame Treasure": ("CoPKey",),
+    "Wildlands - Rocky Crag Treasure (1)": (),
+    "Wildlands - Rocky Crag Treasure (2)": (),
+    "Wildlands - Rocky Crag Treasure (3)": (),
+    "Wildlands - Round 'em Up Quest (1)": ("Quest",),
+    "Wildlands - Round 'em Up Quest (2)": ("Quest",),
+    "Wildlands - Sarala Vegatable Seeds": (),
+    "Wildlands - Saving an Angel Quest (1)": ("Quest",),
+    "Wildlands - Saving an Angel Quest (2)": ("Quest",),
+    "Wildlands - The Grail of Valhalla Quest (1)": ("Quest",),
+    "Wildlands - The Grail of Valhalla Quest (2)": ("Quest",),
+    "Wildlands - The Grail of Valhalla Quest (3)": ("Quest",),
+    "Wildlands - The Grasslands Treasure (1)": (),
+    "Wildlands - The Grasslands Treasure (2)": (),
+    "Wildlands - The Grasslands Treasure (3)": (),
+    "Wildlands - The Hunter's Challenge Quest (1)": ("Quest",),
+    "Wildlands - The Hunter's Challenge Quest (2)": ("Quest",),
+    "Wildlands - The Hunter's Challenge Quest (3)": ("Quest",),
+    "Wildlands - The Old Man and the Field Quest (1)": ("Quest",),
+    "Wildlands - The Old Man and the Field Quest (2)": ("Quest",),
+    "Wildlands - The Right Stuff Quest (1)": ("Quest",),
+    "Wildlands - The Right Stuff Quest (2)": ("Quest",),
+    "Wildlands - The Secret Lives of Sheep Mystery Egg": ("SideKey",),
+    "Wildlands - The Secret Lives of Sheep Quest (1)": ("Quest",),
+    "Wildlands - The Secret Lives of Sheep Quest (2)": ("Quest",),
+    "Wildlands - To Live in Chaos Quest (1)": ("Quest",),
+    "Wildlands - To Live in Chaos Quest (2)": ("Quest",),
+    "Wildlands - To Live in Chaos Quest (3)": ("Quest",),
+    "Wildlands - Where Are You, Moogle? Quest (1)": ("Quest",),
+    "Wildlands - Where Are You, Moogle? Quest (2)": ("Quest",),
+    "Wildlands - Where Are You, Moogle? Quest (3)": ("Quest",),
+    "Wildlands - Wildlands Boss Drop": ("Battle",),
+    "Youth Potion Event (1)": ("CoP", "Fake"),
+    "Yusnaan - A Testing Proposition Quest (1)": ("Quest",),
+    "Yusnaan - A Testing Proposition Quest (2)": ("Quest",),
+    "Yusnaan - Adoring Adornments Quest (1)": ("Grindy", "Quest"),
+    "Yusnaan - Adoring Adornments Quest (2)": ("Grindy", "Quest"),
+    "Yusnaan - Adoring Candice Quest (1)": ("Grindy", "Quest"),
+    "Yusnaan - Adoring Candice Quest (2)": ("Grindy", "Quest"),
+    "Yusnaan - Adoring Candice Quest (3)": ("Grindy", "Quest"),
+    "Yusnaan - Aromatic Market Treasure": (),
+    "Yusnaan - Augur's Quarter Treasure (1)": (),
+    "Yusnaan - Augur's Quarter Treasure (2)": (),
+    "Yusnaan - Augur's Quarter Treasure (3)": (),
+    "Yusnaan - Cactuar Statue (Musical) Treasure": ("SideKey",),
+    "Yusnaan - Cactuar Statue Treasure": (),
+    "Yusnaan - Central Ave Treasure": (),
+    "Yusnaan - Chocobo Girl Miqo'te Dress": (),
+    "Yusnaan - Chocobo Girl Poster": ("CoPKey",),
+    "Yusnaan - Coliseum Square (Musical) Treasure": ("SideKey",),
+    "Yusnaan - Coliseum Square Treasure": (),
+    "Yusnaan - Death Game Quest (1)": ("Quest",),
+    "Yusnaan - Death Game Quest (2)": ("Quest",),
+    "Yusnaan - Death Game Quest (3)": ("Quest",),
+    "Yusnaan - Death Safari Quest (1)": ("Quest",),
+    "Yusnaan - Death Safari Quest (2)": ("Quest",),
+    "Yusnaan - Death Safari Quest (3)": ("Quest",),
+    "Yusnaan - Death Safari Quest (4)": ("Quest",),
+    "Yusnaan - Death Safari Quest (5)": ("Quest",),
+    "Yusnaan - Director Femme Fetale": (),
+    "Yusnaan - Family Food Quest (1)": ("Quest",),
+    "Yusnaan - Family Food Quest (2)": ("Quest",),
+    "Yusnaan - Fireworks for a Steal Quest (1)": ("Missable", "Quest"),
+    "Yusnaan - Fireworks for a Steal Quest (2)": ("Missable", "Quest"),
+    "Yusnaan - Fireworks in a Bottle Quest (1)": ("Missable", "Quest"),
+    "Yusnaan - Fireworks in a Bottle Quest (2)": ("Missable", "Quest"),
+    "Yusnaan - Free Will Quest (1)": ("Quest",),
+    "Yusnaan - Free Will Quest (2)": ("Quest",),
+    "Yusnaan - Free Will Quest (3)": ("Quest",),
+    "Yusnaan - Friends Forever Quest (1)": ("Quest",),
+    "Yusnaan - Friends Forever Quest (2)": ("Quest",),
+    "Yusnaan - Friends Forever Quest (3)": ("Quest",),
+    "Yusnaan - Glutton's Quarter Treasure (1)": (),
+    "Yusnaan - Glutton's Quarter Treasure (2)": ("EP",),
+    "Yusnaan - Gordon Gourmet's Recipe": ("SideKey",),
+    "Yusnaan - Gregory Father's Letter": ("SideKey",),
+    "Yusnaan - Gremlins Music Satchel": ("Battle", "SideKey"),
+    "Yusnaan - Hawker's Row Treasure": (),
+    "Yusnaan - Industrial Area Bronze Pocket Watch": ("CoPKey",),
+    "Yusnaan - Industrial Area Jade Hair Comb": ("CoPKey",),
+    "Yusnaan - Industrial Area Power Booster": ("CoPKey",),
+    "Yusnaan - Industrial Area Treasure": (),
+    "Yusnaan - Last Date Quest (1)": ("Missable", "Quest"),
+    "Yusnaan - Last Date Quest (2)": ("Missable", "Quest"),
+    "Yusnaan - Lower City Treasure": (),
+    "Yusnaan - Morris Musical Treasure Sphere Key": ("SideKey",),
+    "Yusnaan - Patron's Palace Serah's Pendant": ("MainKey",),
+    "Yusnaan - Patron's Palace Treasure (1)": (),
+    "Yusnaan - Patron's Palace Treasure (2)": (),
+    "Yusnaan - Patron's Palace Treasure (3)": (),
+    "Yusnaan - Patron's Palace Treasure (4)": (),
+    "Yusnaan - Patron's Palace Treasure (5)": (),
+    "Yusnaan - Play It for Me Quest (1)": ("Quest",),
+    "Yusnaan - Play It for Me Quest (2)": ("Quest",),
+    "Yusnaan - Reveler's Quarter Lapis Lazuli Treasure": ("CoPKey",),
+    "Yusnaan - Reveler's Quarter Treasure (1)": (),
+    "Yusnaan - Reveler's Quarter Treasure (2)": (),
+    "Yusnaan - Schrodinger Civet Musk": ("Battle", "SideKey"),
+    "Yusnaan - Seedy Steak a la Civet": ("SideKey",),
+    "Yusnaan - Slaughterhouse (1)": ("Missable", "Quest"),
+    "Yusnaan - Slaughterhouse (10)": ("Missable", "Quest"),
+    "Yusnaan - Slaughterhouse (2)": ("Missable", "Quest"),
+    "Yusnaan - Slaughterhouse (3)": ("Missable", "Quest"),
+    "Yusnaan - Slaughterhouse (4)": ("Missable", "Quest"),
+    "Yusnaan - Slaughterhouse (5)": ("Missable", "Quest"),
+    "Yusnaan - Slaughterhouse (6)": ("Missable", "Quest"),
+    "Yusnaan - Slaughterhouse (7)": ("Missable", "Quest"),
+    "Yusnaan - Slaughterhouse (8)": ("Missable", "Quest"),
+    "Yusnaan - Slaughterhouse (9)": ("Missable", "Quest"),
+    "Yusnaan - Slaughterhouse Special Fragment of Courage": ("MainKey",),
+    "Yusnaan - Songless Diva Quest (1)": ("Quest",),
+    "Yusnaan - Songless Diva Quest (2)": ("Quest",),
+    "Yusnaan - Station (Musical) Treasure": ("SideKey",),
+    "Yusnaan - Stolen Things Quest (1)": ("Quest",),
+    "Yusnaan - Stolen Things Quest (2)": ("Quest",),
+    "Yusnaan - Supply Line Treasure": (),
+    "Yusnaan - Tanbam's Taboo Libra Notes": (),
+    "Yusnaan - Tanbam's Taboo Quest (1)": ("Quest",),
+    "Yusnaan - Tanbam's Taboo Quest (2)": ("Quest",),
+    "Yusnaan - Tanbam's Taboo Slaughterhouse": (),
+    "Yusnaan - The Fighting Actress Quest (1)": ("Quest",),
+    "Yusnaan - The Fighting Actress Quest (2)": ("Quest",),
+    "Yusnaan - The Fighting Actress Slaughterhouse (1)": (),
+    "Yusnaan - The Fighting Actress Slaughterhouse (2)": (),
+    "Yusnaan - The Fighting Actress Slaughterhouse (3)": (),
+    "Yusnaan - The Fighting Actress Slaughterhouse (4)": ("MainKey",),
+    "Yusnaan - Tour Guide Sneaking-In Special Ticket": ("MainKey", "Trade"),
+    "Yusnaan - Tunnel Oath of the Merchants Guild Treasure": ("CoPKey",),
+    "Yusnaan - Warehouse District Id Card": ("MainKey", "Trade"),
+    "Yusnaan - Warehouse District Treasure": (),
+    "Yusnaan - Yusnaan Boss Drop": ("Battle",),
+}
+
+location_rule_data_table: Dict[str, Rule[Any]] = {
     "Dead Dunes - Golden Scarab Treasure": rule_data_list[0],
     "Dead Dunes - Oasis Lighthouse Treasure (1)": rule_data_list[1],
     "Dead Dunes - Grave of the Colossi Shrine Treasure": rule_data_list[0],
@@ -1310,7 +1891,7 @@ item_rule_data_table: Dict[str, Callable[[Item], bool]] = {
     "Ark - Initial 3rd Garb (3)": lambda item: item_is_category(item.name, "Shield"),
 }
 
-entrance_rule_data_table: Dict[Tuple[str, str], Callable[[CollectionState, int], bool]] = {
+entrance_rule_data_table: Dict[Tuple[str, str], Rule[Any]] = {
     ("Initial", "Ark"): rule_data_list[0],
     ("Luxerion", "Dead Dunes"): rule_data_list[17],
     ("Ark", "Luxerion"): rule_data_list[0],
