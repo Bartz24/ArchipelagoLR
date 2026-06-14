@@ -50,7 +50,7 @@ class LRFF13Context(CommonContext):
     game = "Lightning Returns: Final Fantasy XIII"
     # Indicates you get items sent from other worlds.
     items_handling = 0b111
-    tags = ["AP"]
+    tags = {"AP"}
 
     def __init__(self, server_address, password):
         super().__init__(server_address, password)
@@ -68,15 +68,12 @@ class LRFF13Context(CommonContext):
 
     async def connection_closed(self):
         self.server_connected = False
-        self.lr_connected = False
-        self.game_state_cache = LRFF13StateCache()
+        self.reset_game_connection()
         await super(LRFF13Context, self).connection_closed()
 
     async def disconnect(self, allow_autoreconnect: bool = False):
         self.server_connected = False
-        self.lr_connected = False
-        self.lr_game = None
-        self.game_state_cache = LRFF13StateCache()
+        self.reset_game_connection()
         await super(LRFF13Context, self).disconnect()
 
     @property
@@ -88,6 +85,13 @@ class LRFF13Context(CommonContext):
 
     async def shutdown(self):
         await super().shutdown()
+
+    def reset_game_connection(self, message: str | None = None):
+        if message is not None:
+            logger.info(message)
+        self.lr_connected = False
+        self.lr_game = None
+        self.game_state_cache = LRFF13StateCache()
 
     def on_package(self, cmd: str, args: dict):
         if cmd in {"Connected"}:
@@ -112,18 +116,13 @@ class LRFF13Context(CommonContext):
 
         super().on_package(cmd, args)
 
-    def run_gui(self):
-        """Import kivy UI system and start running it as self.ui_task."""
-        from kvui import GameManager
-
-        class LRFF13Manager(GameManager):
-            logging_pairs = [
-                ("Client", "Archipelago")
-            ]
-            base_title = "Archipelago LRFF13 Client"
-
-        self.ui = LRFF13Manager(self)
-        self.ui_task = asyncio.create_task(self.ui.async_run(), name="UI")     
+    def make_gui(self):
+        ui = super().make_gui()
+        ui.logging_pairs = [
+            ("Client", "Archipelago")
+        ]
+        ui.base_title = "Archipelago LRFF13 Client"
+        return ui
 
     # Helpers for reading memory
     def read_u64(self, addr: int, use_base: bool = True) -> int:
@@ -170,16 +169,17 @@ class LRFF13Context(CommonContext):
         else:
             self.lr_game.write_string(addr, value)
 
-    def find_game(self):
+    def find_game(self, log_failure: bool = True):
         if not self.lr_connected:
             try:
                 self.lr_game = pymem.Pymem(process_name="LRFF13")
                 logger.info("You are now auto-tracking")
                 self.lr_connected = True
+                self.game_state_cache = LRFF13StateCache()
             except Exception:
-                if self.lr_connected:
-                    self.lr_connected = False
-                logger.info("Game is not open (Try running the client as an admin if already open).")
+                self.reset_game_connection()
+                if log_failure:
+                    logger.info("Game is not open (Try running the client as an admin if already open).")
 
     def get_ap_num_collected(self) -> int:
         total = 0
@@ -255,8 +255,7 @@ class LRFF13Context(CommonContext):
                             self.write_byte(self.game_state_cache.key_items_addresses["key_r_added"] + 18, 1, False)
 
         except Exception as e:
-            if self.lr_connected:
-                self.lr_connected = False
+            self.reset_game_connection()
             logger.info(e)
 
     async def lrff13_check_locations(self):
@@ -294,8 +293,7 @@ class LRFF13Context(CommonContext):
 
             await self.check_locations(locations)
         except Exception as e:
-            if self.lr_connected:
-                self.lr_connected = False
+            self.reset_game_connection()
             logger.info(e)
 
     async def update_game_state_cache(self):
@@ -306,6 +304,7 @@ class LRFF13Context(CommonContext):
         try:
             p_stats_base = self.read_u64(0x4CF79D8)
             if not p_stats_base:
+                self.game_state_cache = LRFF13StateCache()
                 return
 
             new_cache.max_ep = round(self.read_u64(p_stats_base + 0x2884, False) / 2000)
@@ -341,9 +340,9 @@ class LRFF13Context(CommonContext):
                     new_cache.key_items = key_items
                     new_cache.key_items_addresses = key_items_addresses
                 except Exception as e:
-                    if self.lr_connected:
-                        self.lr_connected = False
+                    self.reset_game_connection()
                     logger.info(e)
+                    return
 
             # Calculate and cache the ran_multi/rando_multi addresses (treasure strings block)
             # Only scan if we don't already have it
@@ -403,8 +402,7 @@ class LRFF13Context(CommonContext):
 
             self.game_state_cache = new_cache
         except Exception as e:
-            if self.lr_connected:
-                self.lr_connected = False
+            self.reset_game_connection()
             logger.info(e)
 
 
@@ -416,12 +414,9 @@ async def lrff13_watcher(ctx: LRFF13Context):
                 await ctx.lrff13_check_locations()
                 await ctx.give_items()
             elif not ctx.lr_connected and ctx.server_connected:
-                logger.info("Game Connection lost. Disconnecting...")
-                ctx.lr_game = None
-                await ctx.disconnect()
+                ctx.find_game(log_failure=False)
         except Exception as e:
-            if ctx.lr_connected:
-                ctx.lr_connected = False
+            ctx.reset_game_connection()
             logger.info(e)
         await asyncio.sleep(0.5)
 
