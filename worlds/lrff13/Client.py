@@ -272,7 +272,7 @@ class LRFF13Context(CommonContext):
 
         # Always include initial 3rd garb locations as
         # these are the initial garb equipment and not actually given as items
-        initial_garb_names = ["Ark - Initial 3rd Garb (1)", "Ark - Initial 3rd Garb (2)", "Ark - Initial 3rd Garb (3)"]
+        initial_garb_names = ["Ark - Initial 3rd Garb (1)", "Ark - Initial 3rd Garb (2)", "Ark - Initial 3rd Garb (3)", "Luxerion - Buy Mandragora Root"]
         locations.extend([location_data_table[name].address for name in initial_garb_names if location_data_table[name].address not in self.locations_checked])
 
         # Check for checked locations and mark them as checked in-game

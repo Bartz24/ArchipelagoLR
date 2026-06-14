@@ -15,6 +15,7 @@ from .Options import LRFF13GameOptions
 from .Regions import region_data_table
 from .Rules import location_rule_data_table, entrance_rule_data_table, item_rule_data_table
 from .Events import event_data_table
+from rule_builder import rules
 
 
 class LRFF13Container(APPlayerContainer):
@@ -66,7 +67,7 @@ class LRFF13World(World):
     location_name_to_id = location_table
     item_name_to_id = item_table
 
-    ut_can_gen_without_yaml = True
+    ut_can_gen_without_yaml = False
 
     def __init__(self, world: MultiWorld, player: int):
         super().__init__(world, player)
@@ -79,6 +80,7 @@ class LRFF13World(World):
             "tre_box_p_201" : None
         }
         self.excluded_locations: Dict[str, tuple[str, int]] = {}
+        self.shop_materials: Dict[str, List[str]] = {}
 
     def create_item(self, name: str) -> LRFF13Item:
         return LRFF13Item(name, item_data_table[name].classification, item_data_table[name].code, self.player)
@@ -201,7 +203,7 @@ class LRFF13World(World):
         # Add all locations
         for location_name, loc_data in location_data_table.items():
             # If it's excluded, add it to the excluded locations dictionary with an empty item
-            if self.excluded_locations.get(location_name) is not None:
+            if self.excluded_locations.get(location_name) is not None and not self.options.fully_remote_items:
                 continue
 
             region = self.multiworld.get_region(loc_data.region, self.player)
@@ -220,6 +222,9 @@ class LRFF13World(World):
                       f"{len(self.multiworld.get_locations(self.player))} locations.")
 
     def get_loc_classification(self, location_name: str) -> LocationProgressType:
+        if location_name in self.excluded_locations:
+            return LocationProgressType.EXCLUDED
+
         location_data = location_data_table[location_name]
         return location_data.classification
 
@@ -273,6 +278,22 @@ class LRFF13World(World):
             location = self.multiworld.get_location(location_name, self.player)
             add_item_rule(location, rule)
             add_item_rule(location, lambda i: i.player == self.player)
+
+        # Add rules to material events for each shop item
+        events = [event for event in event_data_table.keys() if event_data_table[event].region == "Shops"]
+        for event in events:
+            # Find the first trait that starts with mat_z_
+            item_id = next((trait for trait in event_data_table[event].traits if trait.startswith("mat_z_")), None)
+            if item_id is None:
+                raise Exception(f"No material trait found for shop event {event}.")
+            
+            # Add a OR rule for each shop that sells the material
+            shops_with_item = [shop for shop, materials in self.shop_materials.items() if item_id in materials]
+
+            or_rule = rules.Has(shops_with_item[0] + "_Shop")
+            for shop in shops_with_item[1:]:
+                or_rule = or_rule | rules.Has(shop + "_Shop")
+            self.set_rule(self.multiworld.get_location(event, self.player), or_rule)
 
         # Completion condition.
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
@@ -334,6 +355,24 @@ class LRFF13World(World):
         if not self.options.shuffle_army_of_one:
             self.locked_items["tre_box_p_106"] = "Army of One"
 
+        shop_ids = ["shop_etc_dd00", "shop_etc_lx00", "shop_etc_lx01", "shop_etc_wl00", "shop_etc_wl01", "shop_etc_wl02", "shop_etc_ys00", "shop_etc_ys01"]
+
+        # Randomize shop materials so that there's 8 per material shop (starting with mat_z_)
+        valid = False
+        while not valid:
+            self.shop_materials = {}
+            material_items = [item.str_id for item in item_data_table.values() if item.str_id.startswith("mat_z_")]
+            for shop_id in shop_ids:
+                materials_for_shop = self.multiworld.random.sample(material_items, 8)
+                self.shop_materials[shop_id] = materials_for_shop
+
+            # Ensure each material appears in at least one shop
+            material_coverage = {material: False for material in material_items}
+            for materials in self.shop_materials.values():
+                for material in materials:
+                    material_coverage[material] = True
+            valid = all(covered for covered in material_coverage.values())
+
         return
 
     def generate_output(self, output_directory: str) -> None:
@@ -386,7 +425,7 @@ class LRFF13World(World):
             })  
         
         # Add excluded locations with their filler items when AP is not handling them.
-        if not fully_remote_items:
+        if not self.options.fully_remote_items:
             for loc_name, (item_name, amount) in self.excluded_locations.items():
                 if item_name == "" or amount == 0:
                     continue
@@ -408,7 +447,8 @@ class LRFF13World(World):
                 "item_placements": item_placements,
                 "local_item_placements": local_item_placements,
                 "allow_dlc_items": bool(self.options.allow_dlc_items),
-                "fully_remote_items": fully_remote_items
+                "fully_remote_items": bool(self.options.fully_remote_items),
+                "shop_materials": self.shop_materials
             }
         }
         # Package output using an APPlayerContainer for consistency with other worlds

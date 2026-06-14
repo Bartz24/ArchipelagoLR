@@ -4195,7 +4195,8 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         str_id="cos_ba00",
         classification=ItemClassification.filler,
         category="Garb",
-        weight=50
+        weight=50,
+        traits=["Initial"]
     ),
     "Vengeance": LRFF13ItemData(
         code=598,
@@ -4251,7 +4252,8 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         str_id="cos_ca00",
         classification=ItemClassification.filler,
         category="Garb",
-        weight=50
+        weight=50,
+        traits=["Initial"]
     ),
     "Helter Skelter": LRFF13ItemData(
         code=606,
@@ -7964,7 +7966,8 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         str_id="wea_ea08",
         classification=ItemClassification.filler,
         category="Weapon",
-        weight=50
+        weight=50,
+        traits=["Initial"]
     ),
     "Devil's Daughter": LRFF13ItemData(
         code=1132,
@@ -8618,400 +8621,446 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         category="Key",
         duplicate_amount=14
     ),
-    "Loupe": LRFF13ItemData(
+    "Bhakti's Oil": LRFF13ItemData(
         code=1227,
+        str_id="key_d_oil",
+        classification=ItemClassification.progression,
+        category="Key",
+        duplicate_amount=7
+    ),
+    "Loupe": LRFF13ItemData(
+        code=1228,
         str_id="key_d_lupe",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Tablet": LRFF13ItemData(
-        code=1228,
+        code=1229,
         str_id="key_d_sekiban",
         classification=ItemClassification.progression,
         category="Key",
         duplicate_amount=3
     ),
     "Crux Tip": LRFF13ItemData(
-        code=1229,
+        code=1230,
         str_id="key_d_top",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Crux Body": LRFF13ItemData(
-        code=1230,
+        code=1231,
         str_id="key_d_wing",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Thunderclap Cap": LRFF13ItemData(
-        code=1231,
+        code=1232,
         str_id="key_j_kino",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Green Carbuncle Doll": LRFF13ItemData(
-        code=1232,
+        code=1233,
         str_id="key_kb_g",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Red Carbuncle Doll": LRFF13ItemData(
-        code=1233,
+        code=1234,
         str_id="key_kb_r",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Talbot's Gratitude": LRFF13ItemData(
-        code=1234,
+        code=1235,
         str_id="key_kimochi",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Supply Sphere Password": LRFF13ItemData(
-        code=1235,
+        code=1236,
         str_id="key_kyu_pass",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Phantom Rose": LRFF13ItemData(
-        code=1236,
+        code=1237,
         str_id="key_l_hana",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Service Entrance Key": LRFF13ItemData(
-        code=1237,
+        code=1238,
         str_id="key_l_kagi",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Proof of Legendary Title": LRFF13ItemData(
-        code=1238,
+        code=1239,
         str_id="key_l_kishin",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Quill Pen": LRFF13ItemData(
-        code=1239,
+        code=1240,
         str_id="key_l_pen",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Shaolong Gui Shell": LRFF13ItemData(
-        code=1240,
+        code=1241,
         str_id="key_niku",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Mandragora Root": LRFF13ItemData(
-        code=1241,
+        code=1242,
         str_id="key_ninjin",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Proof of Overcoming Limits": LRFF13ItemData(
-        code=1242,
+        code=1243,
         str_id="key_p_toppa",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Fragment of Radiance": LRFF13ItemData(
-        code=1243,
+        code=1244,
         str_id="key_s_hiai",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Fragment of Mischief": LRFF13ItemData(
-        code=1244,
+        code=1245,
         str_id="key_s_kairaku",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Fragment of Courage": LRFF13ItemData(
-        code=1245,
+        code=1246,
         str_id="key_s_kanki",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Beloved's Gift": LRFF13ItemData(
-        code=1246,
+        code=1247,
         str_id="key_s_okuri",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Fragment of Smiles": LRFF13ItemData(
-        code=1247,
+        code=1248,
         str_id="key_s_zyouai",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Seedhunter Membership Card": LRFF13ItemData(
-        code=1248,
+        code=1249,
         str_id="key_soulcd",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Spectral Elixir": LRFF13ItemData(
-        code=1249,
+        code=1250,
         str_id="key_sp_bt",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Aryas Apple": LRFF13ItemData(
-        code=1250,
+        code=1251,
         str_id="key_w_apple",
         classification=ItemClassification.progression,
         category="Key",
         duplicate_amount=3
     ),
     "Plate Metal Fragment": LRFF13ItemData(
-        code=1251,
+        code=1252,
         str_id="key_w_buhin1",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Silvered Metal Fragment": LRFF13ItemData(
-        code=1252,
+        code=1253,
         str_id="key_w_buhin2",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Golden Metal Fragment": LRFF13ItemData(
-        code=1253,
+        code=1254,
         str_id="key_w_buhin3",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Data Recorder": LRFF13ItemData(
-        code=1254,
+        code=1255,
         str_id="key_w_data",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Moogle Fragment": LRFF13ItemData(
-        code=1255,
+        code=1256,
         str_id="key_w_mogsoul",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Goddess Glyphs": LRFF13ItemData(
-        code=1256,
+        code=1257,
         str_id="key_w_moji1",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Chaos Glyphs": LRFF13ItemData(
-        code=1257,
+        code=1258,
         str_id="key_w_moji2",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Mystery Egg": LRFF13ItemData(
-        code=1258,
+        code=1259,
         str_id="key_w_tamago",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Vegetable Seed": LRFF13ItemData(
-        code=1259,
+        code=1260,
         str_id="key_w_tane",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Gysahl Greens": LRFF13ItemData(
-        code=1260,
+        code=1261,
         str_id="key_w_yasai_t",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Steak a la Civet": LRFF13ItemData(
-        code=1261,
+        code=1262,
         str_id="key_y_cream",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "ID Card": LRFF13ItemData(
-        code=1262,
+        code=1263,
         str_id="key_y_id",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Musical Treasure Sphere Key": LRFF13ItemData(
-        code=1263,
+        code=1264,
         str_id="key_y_kagi1",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Nostalgic Score: Chorus": LRFF13ItemData(
-        code=1264,
+        code=1265,
         str_id="key_y_kagi2",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Nostalgic Score: Refrain": LRFF13ItemData(
-        code=1265,
+        code=1266,
         str_id="key_y_kagi3",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Father's Letter": LRFF13ItemData(
-        code=1266,
+        code=1267,
         str_id="key_y_letter",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Nostalgic Score: Coda": LRFF13ItemData(
-        code=1267,
+        code=1268,
         str_id="key_y_rappa",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Gordon Gourmet's Recipe": LRFF13ItemData(
-        code=1268,
+        code=1269,
         str_id="key_y_recipe",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Serah's Pendant": LRFF13ItemData(
-        code=1269,
+        code=1270,
         str_id="key_y_serap",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Sneaking-In Special Ticket": LRFF13ItemData(
-        code=1270,
+        code=1271,
         str_id="key_y_ticket",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Flanitor Notes": LRFF13ItemData(
-        code=1271,
+        code=1272,
         str_id="libra_m079",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Cactair Notes": LRFF13ItemData(
-        code=1272,
+        code=1273,
         str_id="libra_m253_afr",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Cathedral Sentry Notes": LRFF13ItemData(
-        code=1273,
+        code=1274,
         str_id="libra_m291",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Patron's Personal Guard Notes": LRFF13ItemData(
-        code=1274,
+        code=1275,
         str_id="libra_m292",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Fanatic Notes": LRFF13ItemData(
-        code=1275,
+        code=1276,
         str_id="libra_m293",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Desmond Notes": LRFF13ItemData(
-        code=1276,
+        code=1277,
         str_id="libra_m330",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Earth Eater Notes": LRFF13ItemData(
-        code=1277,
+        code=1278,
         str_id="libra_m355",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Study of the Depths": LRFF13ItemData(
-        code=1278,
+        code=1279,
         str_id="libra_m370",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Study of Despair": LRFF13ItemData(
-        code=1279,
+        code=1280,
         str_id="libra_m375",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Prophecy of the Future": LRFF13ItemData(
-        code=1280,
+        code=1281,
         str_id="libra_m380",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Prophecy of Aspiration": LRFF13ItemData(
-        code=1281,
+        code=1282,
         str_id="libra_m381",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Holy Revelations": LRFF13ItemData(
-        code=1282,
+        code=1283,
         str_id="libra_m387",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Gurangatch Notes": LRFF13ItemData(
-        code=1283,
+        code=1284,
         str_id="libra_m406",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Prophecy of Rebirth": LRFF13ItemData(
-        code=1284,
+        code=1285,
         str_id="libra_m745",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Study of the Savage": LRFF13ItemData(
-        code=1285,
+        code=1286,
         str_id="libra_m770",
         classification=ItemClassification.filler,
         category="Key"
     ),
     "Cursed Dragon Claw": LRFF13ItemData(
-        code=1286,
+        code=1287,
         str_id="key_behi_tume",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Arithmometer": LRFF13ItemData(
-        code=1287,
+        code=1288,
         str_id="key_d_keisan",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Monster Flesh": LRFF13ItemData(
-        code=1288,
+        code=1289,
         str_id="key_d_niku",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Fragment of Kindness": LRFF13ItemData(
-        code=1289,
+        code=1290,
         str_id="key_s_hunnu",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Civet Musk": LRFF13ItemData(
-        code=1290,
+        code=1291,
         str_id="key_y_bashira",
         classification=ItemClassification.progression,
         category="Key"
     ),
     "Music Satchel": LRFF13ItemData(
-        code=1291,
+        code=1292,
         str_id="key_y_kaban",
         classification=ItemClassification.progression,
         category="Key"
     ),
+    "Yusnaan Train Pass": LRFF13ItemData(
+        code=1293,
+        str_id="key_r_ypass",
+        classification=ItemClassification.progression,
+        category="Key"
+    ),
+    "Wildlands Train Pass": LRFF13ItemData(
+        code=1294,
+        str_id="key_r_wpass",
+        classification=ItemClassification.progression,
+        category="Key"
+    ),
+    "Dead Dunes Train Pass": LRFF13ItemData(
+        code=1295,
+        str_id="key_r_dpass",
+        classification=ItemClassification.progression,
+        category="Key"
+    ),
+    "Maximum EP + 1": LRFF13ItemData(
+        code=1296,
+        str_id="key_r_ep",
+        classification=ItemClassification.progression,
+        category="Key",
+        duplicate_amount=4
+    ),
+    "Maximum ATB + 10": LRFF13ItemData(
+        code=1297,
+        str_id="key_r_atb",
+        classification=ItemClassification.progression,
+        category="Key",
+        duplicate_amount=5
+    ),
+    "Recovery Item Capacity + 1": LRFF13ItemData(
+        code=1298,
+        str_id="key_r_rec",
+        classification=ItemClassification.progression,
+        category="Key",
+        duplicate_amount=6
+    ),
     "10 Gil": LRFF13ItemData(
-        code=1292,
+        code=1299,
         str_id="",
         classification=ItemClassification.filler,
         category="Gil",
@@ -9020,7 +9069,7 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         duplicate_amount=0
     ),
     "500 Gil": LRFF13ItemData(
-        code=1293,
+        code=1300,
         str_id="",
         classification=ItemClassification.filler,
         category="Gil",
@@ -9029,7 +9078,7 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         duplicate_amount=0
     ),
     "1000 Gil": LRFF13ItemData(
-        code=1294,
+        code=1301,
         str_id="",
         classification=ItemClassification.filler,
         category="Gil",
@@ -9038,7 +9087,7 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         duplicate_amount=0
     ),
     "2500 Gil": LRFF13ItemData(
-        code=1295,
+        code=1302,
         str_id="",
         classification=ItemClassification.filler,
         category="Gil",
@@ -9047,7 +9096,7 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         duplicate_amount=0
     ),
     "7500 Gil": LRFF13ItemData(
-        code=1296,
+        code=1303,
         str_id="",
         classification=ItemClassification.filler,
         category="Gil",
@@ -9056,7 +9105,7 @@ item_data_table: Dict[str, LRFF13ItemData] = {
         duplicate_amount=0
     ),
     "20000 Gil": LRFF13ItemData(
-        code=1297,
+        code=1304,
         str_id="",
         classification=ItemClassification.filler,
         category="Gil",
