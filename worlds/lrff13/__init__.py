@@ -59,6 +59,26 @@ class LRFF13WebWorld(WebWorld):
 class LRFF13World(World):
     """TODO"""
 
+    initial_equipment_location_ids = ("tre_box_p_003", "tre_box_p_200", "tre_box_p_201")
+
+    generation_options = (
+        "ultimate_lair",
+        "superbosses",
+        "canvas_of_prayers",
+        "grindy",
+        "shuffle_teleport",
+        "shuffle_escape",
+        "shuffle_chronostasis",
+        "shuffle_curaga",
+        "shuffle_arise",
+        "shuffle_esunada",
+        "shuffle_quake",
+        "shuffle_decoy",
+        "shuffle_army_of_one",
+        "allow_dlc_items",
+        "fully_remote_items",
+    )
+
     game = "Lightning Returns: Final Fantasy XIII"
     data_version = 3
     web = LRFF13WebWorld()
@@ -67,18 +87,14 @@ class LRFF13World(World):
     location_name_to_id = location_table
     item_name_to_id = item_table
 
-    ut_can_gen_without_yaml = False
+    ut_can_gen_without_yaml = True
 
     def __init__(self, world: MultiWorld, player: int):
         super().__init__(world, player)
         self.used_items = set()
         self.re_gen_data = {}
         self.origin_region_name = "Initial"
-        self.locked_items : Dict[str, str] = {
-            "tre_box_p_003" : None,
-            "tre_box_p_200" : None,
-            "tre_box_p_201" : None
-        }
+        self.locked_items : Dict[str, str] = {loc_id: None for loc_id in self.initial_equipment_location_ids}
         self.excluded_locations: Dict[str, tuple[str, int]] = {}
         self.shop_materials: Dict[str, List[str]] = {}
 
@@ -129,10 +145,12 @@ class LRFF13World(World):
         # Remove initial equipment
         all_equipment_items = [item for item in all_equipment_items if item not in ["Equilibrium", "Dark Muse", "Crimson Blitz", "Scramasax", "Night Lotus", "Double Cross"]]
 
-        # Set locked initial items and remove from equipment pool
-        self.locked_items["tre_box_p_003"] = self.get_initial_and_remove_from_pool("Garb", all_equipment_items)
-        self.locked_items["tre_box_p_200"] = self.get_initial_and_remove_from_pool("Weapon", all_equipment_items)
-        self.locked_items["tre_box_p_201"] = self.get_initial_and_remove_from_pool("Shield", all_equipment_items)
+        # Set locked initial items and remove them from the equipment pool.
+        for loc_id, category in zip(self.initial_equipment_location_ids, ("Garb", "Weapon", "Shield")):
+            if self.locked_items[loc_id] is None:
+                self.locked_items[loc_id] = self.get_initial_and_remove_from_pool(category, all_equipment_items)
+            else:
+                all_equipment_items.remove(self.locked_items[loc_id])
 
         def get_remaining_count():
             val = non_events - len(item_pool) - len(self.locked_items)
@@ -303,6 +321,13 @@ class LRFF13World(World):
         return LRFF13Item(name, ItemClassification.progression, None, self.player)
 
     def generate_early(self) -> None:
+        re_gen_passthrough = getattr(self.multiworld, "re_gen_passthrough", {})
+        slot_data = re_gen_passthrough.get(self.game, {})
+        for key, value in slot_data.get("options", {}).items():
+            opt = getattr(self.options, key, None)
+            if opt is not None:
+                setattr(self.options, key, opt.from_any(value))
+
         excluded_str_ids = set()
         if not self.options.ultimate_lair:
             for loc_name, loc_data in location_data_table.items():
@@ -355,7 +380,15 @@ class LRFF13World(World):
         if not self.options.shuffle_army_of_one:
             self.locked_items["tre_box_p_106"] = "Army of One"
 
+        initial_equipment = slot_data.get("initial_equipment", [])
+        if initial_equipment:
+            self.locked_items.update(zip(self.initial_equipment_location_ids, initial_equipment))
+
         shop_ids = ["shop_etc_dd00", "shop_etc_lx00", "shop_etc_lx01", "shop_etc_wl00", "shop_etc_wl01", "shop_etc_wl02", "shop_etc_ys00", "shop_etc_ys01"]
+
+        if "shop_materials" in slot_data:
+            self.shop_materials = slot_data["shop_materials"]
+            return
 
         # Randomize shop materials so that there's 8 per material shop (starting with mat_z_)
         valid = False
@@ -463,9 +496,8 @@ class LRFF13World(World):
         container.write()
 
     def fill_slot_data(self) -> Dict[str, Any]:
-        initial_equip_loc_ids = ["tre_box_p_003", "tre_box_p_200", "tre_box_p_201"]
         initial_equip = []
-        for loc_id in initial_equip_loc_ids:
+        for loc_id in self.initial_equipment_location_ids:
             loc_name = next((name for name, data in location_data_table.items() if data.str_id == loc_id), None)
             if loc_name is None:
                 raise Exception(f"Location with string ID {loc_id} not found in location data table.")
@@ -475,7 +507,9 @@ class LRFF13World(World):
             initial_equip.append(location.item.name)
 
         return {
-            "initial_equipment": initial_equip
+            "initial_equipment": initial_equip,
+            "options": self.options.as_dict(*self.generation_options),
+            "shop_materials": self.shop_materials,
         }
 
     # From Tunic implementation

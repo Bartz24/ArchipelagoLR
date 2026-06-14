@@ -1,5 +1,6 @@
 import os
 import asyncio
+import time
 from typing import List
 
 import pymem
@@ -15,6 +16,7 @@ from .Items import item_data_table, inv_item_table
 from.Locations import location_data_table
 
 tracker_loaded = False
+MEMORY_START_DELAY = 2.0
 
 try:
     from worlds.tracker.TrackerClient import TrackerGameContext, TrackerCommandProcessor
@@ -57,6 +59,8 @@ class LRFF13Context(CommonContext):
         self.server_connected = False
         self.lr_connected = False
         self.lr_game = None
+        self.lr_connected_at = None
+        self.ap_save_ready_frames = 0
         self.slot_data = None
         self.game_state_cache = LRFF13StateCache()
 
@@ -91,6 +95,8 @@ class LRFF13Context(CommonContext):
             logger.info(message)
         self.lr_connected = False
         self.lr_game = None
+        self.lr_connected_at = None
+        self.ap_save_ready_frames = 0
         self.game_state_cache = LRFF13StateCache()
 
     def on_package(self, cmd: str, args: dict):
@@ -175,6 +181,8 @@ class LRFF13Context(CommonContext):
                 self.lr_game = pymem.Pymem(process_name="LRFF13")
                 logger.info("You are now auto-tracking")
                 self.lr_connected = True
+                self.lr_connected_at = time.monotonic()
+                self.ap_save_ready_frames = 0
                 self.game_state_cache = LRFF13StateCache()
             except Exception:
                 self.reset_game_connection()
@@ -192,6 +200,9 @@ class LRFF13Context(CommonContext):
             total += count * mult
             mult *= 50
         return total
+
+    def is_ap_save_loaded(self) -> bool:
+        return all(self.game_state_cache.key_items.get(f"key_r_multi_{i}", 0) > 0 for i in range(3))
     
     def set_ap_num_collected(self, num: int) -> None:
         if num < 0:
@@ -211,12 +222,10 @@ class LRFF13Context(CommonContext):
         if not self.lr_connected:
             return
 
-        if self.game_state_cache.in_main_menu:
-            # Reset rando_multi item and count values if they are different
-            if self.game_state_cache.rando_multi_item != "rando_multi_item":
-                self.write_string(self.game_state_cache.rando_multi_item_address, "rando_multi_item", False)
-            if self.game_state_cache.rando_multi_count != 32500:
-                self.write_u32(self.game_state_cache.rando_multi_count_address, 32500, False)
+        if self.game_state_cache.in_main_menu or not self.is_ap_save_loaded():
+            return
+
+        if not self.game_state_cache.rando_multi_item_address or not self.game_state_cache.rando_multi_count_address:
             return
         
         try:
@@ -259,7 +268,7 @@ class LRFF13Context(CommonContext):
             logger.info(e)
 
     async def lrff13_check_locations(self):
-        if self.game_state_cache.in_main_menu and not self.game_state_cache.in_normal_menu or not self.lr_connected:
+        if self.game_state_cache.in_main_menu or not self.lr_connected or not self.is_ap_save_loaded():
             return        
         
         # Victory, check if the key item key_r_victory is present
@@ -271,7 +280,7 @@ class LRFF13Context(CommonContext):
 
         # Always include initial 3rd garb locations as
         # these are the initial garb equipment and not actually given as items
-        initial_garb_names = ["Ark - Initial 3rd Garb (1)", "Ark - Initial 3rd Garb (2)", "Ark - Initial 3rd Garb (3)", "Luxerion - Buy Mandragora Root"]
+        initial_garb_names = ["Ark - Initial 3rd Garb (1)", "Ark - Initial 3rd Garb (2)", "Ark - Initial 3rd Garb (3)"]
         locations.extend([location_data_table[name].address for name in initial_garb_names if location_data_table[name].address not in self.locations_checked])
 
         # Check for checked locations and mark them as checked in-game
@@ -377,7 +386,7 @@ class LRFF13Context(CommonContext):
                 new_cache.rando_multi_name_address = name_addr
                 # Special case for the item address, as we use the findstring before the actual item data
                 # This prevents issues where the client needs to restart but the item data changed
-                new_cache.rando_multi_item_address = item_addr + 16 + 1
+                new_cache.rando_multi_item_address = item_addr + 16 + 1 if item_addr else 0
 
                 # Using the ran_multi name address, read pointer at +16 for the count (where 9999 is written)
                 if name_addr:
@@ -410,7 +419,18 @@ async def lrff13_watcher(ctx: LRFF13Context):
     while not ctx.exit_event.is_set():
         try:
             if ctx.lr_connected and ctx.server_connected:
+                if ctx.lr_connected_at and time.monotonic() - ctx.lr_connected_at < MEMORY_START_DELAY:
+                    await asyncio.sleep(0.5)
+                    continue
                 await ctx.update_game_state_cache()
+                if ctx.game_state_cache.in_main_menu or not ctx.is_ap_save_loaded():
+                    ctx.ap_save_ready_frames = 0
+                    await asyncio.sleep(0.5)
+                    continue
+                ctx.ap_save_ready_frames += 1
+                if ctx.ap_save_ready_frames < 2:
+                    await asyncio.sleep(0.5)
+                    continue
                 await ctx.lrff13_check_locations()
                 await ctx.give_items()
             elif not ctx.lr_connected and ctx.server_connected:
