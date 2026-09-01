@@ -2,6 +2,13 @@ from typing import Dict
 from dataclasses import dataclass
 from Options import Toggle, PerGameCommonOptions
 
+class RandomizeRegionPasses(Toggle):
+    """Allow randomization of the Wildlands/Dead Dunes/Yusnaan region passes.
+    Expect to need to be more efficient with your routing and side quest management.
+    If left disabled, region passes will be given in the starter Ark chests."""
+    display_name = "Randomize Region Passes"
+    default = True
+
 class UltimateLair(Toggle):
     """Include the Ultimate Lair dungeon checks for progression."""
     display_name = "Ultimate Lair"
@@ -83,6 +90,7 @@ class FullyRemoteItems(Toggle):
 
 @dataclass
 class LRFF13GameOptions(PerGameCommonOptions):
+    randomize_region_passes: RandomizeRegionPasses
     ultimate_lair: UltimateLair
     superbosses: Superbosses
     canvas_of_prayers: CanvasOfPrayers

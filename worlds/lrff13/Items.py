@@ -8617,9 +8617,9 @@ item_data_table: Dict[str, LRFF13ItemData] = {
     "Pilgrim's Crux": LRFF13ItemData(
         code=1226,
         str_id="key_d_key",
-        classification=ItemClassification.progression,
-        category="Key",
-        duplicate_amount=14
+        classification=ItemClassification.useful,
+        category="Pilgrim",
+        duplicate_amount=15
     ),
     "Bhakti's Oil": LRFF13ItemData(
         code=1227,

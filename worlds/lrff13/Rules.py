@@ -38,209 +38,207 @@ class HasCategoryRule(Rule[Any], game="Lightning Returns: Final Fantasy XIII"):
 
 rule_data_list: list[Rule[Any]] = [
     True_(),  # Rule 0
-    Has("Pilgrim's Crux"),  # Rule 1
-    (Has("Pilgrim's Crux") & Has("Maximum EP + 1")),  # Rule 2
-    Has("MQ4", 2),  # Rule 3
-    Has("MQ4", 3),  # Rule 4
-    (Has("MQ4", 3) & Has("Maximum EP + 1")),  # Rule 5
-    Has("Tablet", 3),  # Rule 6
-    Has("Tablet", 2),  # Rule 7
-    (Has("MQ4", 3) & Has("Bhakti's Oil", 3)),  # Rule 8
-    Has("Arithmometer"),  # Rule 9
-    Has("Loupe"),  # Rule 10
-    Has("MQ4"),  # Rule 11
-    (Has("Monster Flesh") & Has("MQ4", 3)),  # Rule 12
-    (Has("Tablet") & Has("MQ4", 4) & Has("MQDone") & Has("ULUnlock")),  # Rule 13
-    (Has("Pilgrim's Crux") & Has("MQDone", 2) & Has("ULUnlock")),  # Rule 14
-    (Has("Tablet", 3) & Has("Crux Base") & Has("Crux Tip") & Has("Crux Body")),  # Rule 15
-    Has("Supply Sphere Password"),  # Rule 16
-    Has("MQ1", 3),  # Rule 17
-    Has("MQ1", 4),  # Rule 18
-    Has("MQ1", 2),  # Rule 19
-    Has("Day", 2),  # Rule 20
-    (Has("Thunderclap Cap") & Has("Shaolong Gui Shell") & Has("Mandragora Root")),  # Rule 21
-    (Has("Green Carbuncle Doll") | Has("Red Carbuncle Doll")),  # Rule 22
-    (Has("Spectral Elixir") & Has("MQ1", 2)),  # Rule 23
-    (Has("Supply Sphere Password") & Has("MQ1", 2)),  # Rule 24
-    (Has("Cursed Dragon Claw") & Has("MQ1", 2)),  # Rule 25
-    (Has("MQ1", 2) & Has("Seedhunter Membership Card")),  # Rule 26
-    (Has("Rubber Ball") & Has("MQ1", 5)),  # Rule 27
-    Has("Rubber Ball"),  # Rule 28
-    Has("MQ1", 5),  # Rule 29
-    Has("Q_Saint"),  # Rule 30
-    (Has("MQ1", 5) & Has("Yusnaan Train Pass")),  # Rule 31
-    (Has("Quill Pen") & Has("MQ1", 4)),  # Rule 32
-    Has("M_NibletHairball"),  # Rule 33
-    (Has("Phantom Rose") & Has("MQ1", 5)),  # Rule 34
-    (Has("Q_BuriedPassion") & Has("MQ1", 5)),  # Rule 35
-    (Has("MQ1", 4) & Has("AreaUnlock", 2)),  # Rule 36
-    Has("MQ3", 3),  # Rule 37
-    (Has("MQ3", 3) & Has("Maximum EP + 1")),  # Rule 38
-    (Has("Gysahl Greens") & Has("MQ3")),  # Rule 39
-    (Has("Gysahl Greens") & Has("Q_RightStuff") & Has("MQ3") & Has("M_MonsterMince") & Has("M_AMPChip")),  # Rule 40
-    (Has("Gysahl Greens") & Has("MQ3") & Has("M_SlugSweet")),  # Rule 41
-    (Has("MQ3", 2) & Has("Q_FuzzySearch")),  # Rule 42
-    Has("MQ3", 2),  # Rule 43
-    (Has("Data Recorder") & Has("MQ3", 3)),  # Rule 44
-    (Has("Gysahl Greens") & Has("Q_Father") & Has("MQ3")),  # Rule 45
-    Has("Q_OldMan"),  # Rule 46
-    (Has("Aryas Apple", 2) & Has("MQ3", 2)),  # Rule 47
-    (Has("MQ3", 2) & Has("M_GoopyGoo")),  # Rule 48
-    (Has("Gysahl Greens") & Has("Fragment of Mischief") & Has("Fragment of Radiance") & Has("Fragment of Smiles") & Has("Fragment of Courage") & Has("Fragment of Kindness")),  # Rule 49
-    (Has("Gysahl Greens") & Has("MQ3") & Has("M_VibrantOoze")),  # Rule 50
-    Has("Q_RoundUp"),  # Rule 51
-    Has("Q_Peace"),  # Rule 52
-    Has("Q_Cure"),  # Rule 53
-    (Has("Gysahl Greens") & Has("Goddess Glyphs") & Has("Chaos Glyphs") & Has("Plate Metal Fragment") & Has("Silvered Metal Fragment") & Has("Golden Metal Fragment") & Has("MQ3", 3)),  # Rule 54
-    Has("MQ3", 4),  # Rule 55
-    (Has("Q_DDA") & Has("Q_RoundUp") & Has("M_GreenLeather")),  # Rule 56
-    Has("Q_DDA"),  # Rule 57
-    (Has("Goddess Glyphs") & Has("Chaos Glyphs") & Has("MQ3", 3)),  # Rule 58
-    Has("MQ2", 2),  # Rule 59
-    Has("MQ2"),  # Rule 60
-    Has("Musical Treasure Sphere Key"),  # Rule 61
-    Has("MQ2", 3),  # Rule 62
-    Has("Maximum EP + 1"),  # Rule 63
-    Has("MQ5"),  # Rule 64
-    Has("MQ2", 4),  # Rule 65
-    (Has("MQ2", 2) & Has("Midnight Mauve")),  # Rule 66
-    Has("Music Satchel"),  # Rule 67
-    Has("Father's Letter"),  # Rule 68
-    Has("AreaUnlock", 4),  # Rule 69
-    (Has("MQDone") & Has("ULUnlock")),  # Rule 70
-    (Has("Civet Musk") & Has("Gordon Gourmet's Recipe") & Has("Steak a la Civet")),  # Rule 71
-    (Has("Nostalgic Score: Chorus") & Has("Nostalgic Score: Refrain") & Has("Nostalgic Score: Coda")),  # Rule 72
-    (Has("MQ2", 2) & HasCategoryRule("Adornment", 55)),  # Rule 73
-    (Has("MQ2", 4) & Has("Q_Adorn")),  # Rule 74
-    (Has("MQ2", 2) & Has("Q_Death")),  # Rule 75
-    Has("Civet Musk"),  # Rule 76
-    (Has("Civet Musk") & Has("Gordon Gourmet's Recipe")),  # Rule 77
-    Has("Day"),  # Rule 78
-    Has("Day", 3),  # Rule 79
-    Has("Day", 4),  # Rule 80
-    Has("Day", 5),  # Rule 81
-    Has("Day", 6),  # Rule 82
-    (Has("MQDone") & Has("Day", 6)),  # Rule 83
-    (Has("MQDone", 2) & Has("Day", 6)),  # Rule 84
-    (Has("MQDone", 3) & Has("Day", 6)),  # Rule 85
-    (Has("MQDone", 4) & Has("Day", 6)),  # Rule 86
-    (Has("MQDone", 5) & Has("Day", 6)),  # Rule 87
-    (Has("MQDone", 5) & Has("Day", 6) & Has("MQ1", 5) & Has("MQ2", 4) & Has("MQ3", 4) & Has("MQ4", 6) & Has("MQ5", 2)),  # Rule 88
-    Has("AreaUnlock", 2),  # Rule 89
-    (Has("Day") & Has("M_DesertRose")),  # Rule 90
-    (Has("Day") & Has("M_DriedScale")),  # Rule 91
-    (Has("C_Miracle") & Has("C_Banned") & Has("M_GoblotHairball") & Has("M_PotShard")),  # Rule 92
-    (Has("Day", 3) & Has("M_CactuarDoll")),  # Rule 93
-    (Has("C_Child") & Has("C_Security") & Has("M_OrganicCarapace") & Has("M_CactuarDoll")),  # Rule 94
-    (Has("Day") & Has("M_GoblotHairball")),  # Rule 95
-    (Has("Day", 3) & Has("M_DeadMansTeeth")),  # Rule 96
-    (Has("Day", 4) & Has("M_PotShard")),  # Rule 97
-    (Has("C_Ranks") & Has("M_DeadMansTeeth")),  # Rule 98
-    (Has("Day", 4) & Has("M_OrganicCarapace")),  # Rule 99
-    (Has("C_Flower") & Has("C_Bio") & Has("M_DesertRose") & Has("M_DriedScale")),  # Rule 100
-    (Has("Pilgrim's Crux", 4) & Has("MQ4", 6)),  # Rule 101
-    Has("Yusnaan Train Pass"),  # Rule 102
-    Has("C_Charm"),  # Rule 103
-    Has("Q_Food"),  # Rule 104
-    (Has("Day", 6) & Has("MQDone") & Has("C_Pride")),  # Rule 105
-    (Has("Day", 6) & Has("MQDone", 3) & Has("C_Pride", 2)),  # Rule 106
-    (Has("MQ1") & Has("M_NibletHairball")),  # Rule 107
-    (Has("MQ1") & Has("M_TatteredLeather")),  # Rule 108
-    (Has("Day", 3) & Has("M_DemonSpicule")),  # Rule 109
-    (Has("Day", 3) & Has("M_MotorCoil")),  # Rule 110
-    (Has("C_Song") & Has("C_Grave") & Has("M_DemonSpicule") & Has("M_StormdragonDown")),  # Rule 111
-    (Has("C_Inventive") & Has("C_Puppet") & Has("M_QualityMachineOil") & Has("M_LiquidGlass")),  # Rule 112
-    (Has("Day", 5) & Has("M_StormdragonDown")),  # Rule 113
-    (Has("MQ1") & Has("M_LiquidGlass")),  # Rule 114
-    (Has("Day", 5) & Has("M_QualityMachineOil")),  # Rule 115
-    (Has("Day", 5) & Has("M_ChippedFang")),  # Rule 116
-    (Has("C_Slay") & Has("C_Teeth") & Has("M_ChippedFang") & Has("M_MotorCoil")),  # Rule 117
-    (Has("C_Revenge") & Has("C_Gratitude") & Has("M_NibletHairball") & Has("M_TatteredLeather")),  # Rule 118
-    (Has("Proof of Legendary Title") & Has("Day", 3)),  # Rule 119
-    (Has("Gysahl Greens") & Has("Day", 3)),  # Rule 120
-    (Has("Q_Hunter") & Has("M_GreenMonsterMoss")),  # Rule 121
-    (Has("Day") & Has("M_VibrantOoze")),  # Rule 122
-    (Has("Day", 3) & Has("M_WonderGel")),  # Rule 123
-    Has("Q_Forebears"),  # Rule 124
-    (Has("Day", 3) & Has("M_GoopyGoo")),  # Rule 125
-    (Has("C_Drum") & Has("C_Below") & Has("M_MonsterMince") & Has("M_GreenLeather")),  # Rule 126
-    (Has("Day", 6) & Has("MQDone") & Has("M_SinisterFang")),  # Rule 127
-    (Has("Day", 3) & Has("M_GreenMonsterMoss")),  # Rule 128
-    (Has("C_Forget") & Has("C_Thanks") & Has("M_VibrantOoze") & Has("M_WonderGel")),  # Rule 129
-    (Has("Q_Peace") & Has("M_ArborealSpore")),  # Rule 130
-    (Has("C_Fresh") & Has("C_Plea") & Has("C_Gatekeeper") & Has("M_ArborealSpore") & Has("M_GoopyGoo") & Has("M_SlugSweet")),  # Rule 131
-    (Has("C_Future") & Has("C_Brain") & Has("M_SinisterFang") & Has("M_AMPChip")),  # Rule 132
-    (Has("Day", 5) & Has("M_SlugSweet")),  # Rule 133
-    (Has("Day", 3) & Has("M_GreenLeather")),  # Rule 134
-    (Has("Day", 3) & Has("M_MonsterMince")),  # Rule 135
-    Has("Gysahl Greens"),  # Rule 136
-    Has("C_Chow"),  # Rule 137
-    (Has("Gysahl Greens") & Has("Day")),  # Rule 138
-    (Has("C_Sun") & Has("C_Moon")),  # Rule 139
-    (Has("Gysahl Greens") & Has("Q_Peace") & Has("M_VibrantOoze")),  # Rule 140
-    (Has("Day") & Has("M_EtherCoil")),  # Rule 141
-    (Has("Day", 2) & Has("M_PoisonousSting")),  # Rule 142
-    (Has("Day", 3) & Has("M_ClearOoze")),  # Rule 143
-    (Has("Day", 5) & Has("M_ShatteredBone")),  # Rule 144
-    (Has("Day", 6) & Has("MQDone") & Has("M_SingleEye")),  # Rule 145
-    (Has("C_Soulful") & Has("C_Inspiration") & Has("M_ShatteredBone") & Has("M_PoisonousSting")),  # Rule 146
-    (Has("C_Youth") & Has("C_Colors") & Has("M_FirewyrmScale") & Has("M_SingleEye")),  # Rule 147
-    (Has("Day", 5) & Has("M_FirewyrmScale")),  # Rule 148
-    (Has("C_Secret") & Has("C_Dangerous") & Has("C_Spell") & Has("M_RadialBearing") & Has("M_EtherCoil") & Has("M_ClearOoze")),  # Rule 149
-    (Has("Day", 6) & Has("MQDone") & Has("M_RadialBearing")),  # Rule 150
-    (Has("Jade Hair Comb") & Has("Bronze Pocket Watch") & Has("MQ2")),  # Rule 151
-    (Has("Chocobo Girl's Phone No.") & Has("Q_Actress")),  # Rule 152
-    (Has("Beloved's Gift") & Has("MQ5")),  # Rule 153
-    (Has("MQDone", 4) & Has("Wildlands Train Pass")),  # Rule 154
-    (Has("Key to the Sand Gate") & Has("Key to the Green Gate") & Has("MQDone", 4) & Has("Wildlands Train Pass") & Has("Dead Dunes Train Pass")),  # Rule 155
-    (Has("Bandit's Bloodseal") & Has("Oath of the Merchants Guild") & Has("MQDone", 4) & Has("Yusnaan Train Pass") & Has("Dead Dunes Train Pass")),  # Rule 156
-    (Has("Proof of Courage") & Has("MQ1", 5)),  # Rule 157
-    (Has("Violet Amulet") & Has("MQ1", 5)),  # Rule 158
-    (Has("Lapis Lazuli") & Has("MQ2", 2) & Has("Q_Adorn")),  # Rule 159
-    (Has("Power Booster") & Has("Q_Death")),  # Rule 160
-    (Has("Moogle Dust") & Has("MQ3", 2)),  # Rule 161
-    (Has("Old-Fashioned Photo Frame") & Has("MQ3", 2)),  # Rule 162
-    (Has("Etro's Forbidden Tome") & Has("MQ3", 4)),  # Rule 163
-    (Has("Broken Gyroscope") & Has("Day", 2)),  # Rule 164
-    (Has("Golden Scarab") & Has("MQ4", 3)),  # Rule 165
-    Has("Seedhunter Membership Card"),  # Rule 166
-    (Has("Seedhunter Membership Card") & Has("Loupe") & Has("Dead Dunes Train Pass")),  # Rule 167
-    (Has("Seedhunter Membership Card") & Has("Moogle Fragment") & Has("MQ5")),  # Rule 168
-    (Has("Loupe") & Has("Dead Dunes Train Pass")),  # Rule 169
-    Has("MQDone"),  # Rule 170
-    Has("MQDone", 3),  # Rule 171
-    Has("MQDone", 2),  # Rule 172
-    Has("MQDone", 4),  # Rule 173
-    (Has("MQ4", 5) & Has("Crux Base") & Has("Crux Tip") & Has("Crux Body")),  # Rule 174
-    (Has("MQ1", 4) & Has("Day", 2) & Has("AreaUnlock", 2)),  # Rule 175
-    (Has("MQ3", 3) & Has("Day", 3)),  # Rule 176
-    (Has("MQ2", 3) & Has("Serah's Pendant") & Has("Day", 3)),  # Rule 177
-    (Has("MQ3", 3) & Has("Fragment of Mischief") & Has("Fragment of Radiance") & Has("Fragment of Smiles") & Has("Fragment of Courage") & Has("Fragment of Kindness") & Has("Day", 3)),  # Rule 178
-    Has("MQ1"),  # Rule 179
-    Has("Sneaking-In Special Ticket"),  # Rule 180
-    (Has("MQ2") & Has("ID Card")),  # Rule 181
-    (Has("MQ3") & Has("Gysahl Greens")),  # Rule 182
-    (Has("MQ4", 3) & Has("Tablet")),  # Rule 183
-    (Has("MQ4", 4) & Has("Tablet", 3)),  # Rule 184
-    (Has("Gysahl Greens") & Has("MQ3", 3)),  # Rule 185
-    Has("MQDone", 5),  # Rule 186
-    (Has("Sneaking-In Special Ticket") & Has("ID Card") & Has("MQ2", 2)),  # Rule 187
-    (Has("Sneaking-In Special Ticket") & Has("ID Card") & Has("Midnight Mauve") & Has("MQ2", 3)),  # Rule 188
-    (Has("Sneaking-In Special Ticket") & Has("ID Card") & Has("Midnight Mauve") & Has("Serah's Pendant") & Has("MQ2", 4)),  # Rule 189
-    Has("MQ3"),  # Rule 190
-    (Has("Gysahl Greens") & Has("MQ3", 2)),  # Rule 191
-    (Has("Gysahl Greens") & Has("MQ3", 4)),  # Rule 192
-    (Has("Tablet", 3) & Has("MQ4", 5)),  # Rule 193
-    (Has("Tablet", 3) & Has("Crux Base") & Has("Crux Tip") & Has("Crux Body") & Has("MQ4", 6)),  # Rule 194
-    (Has("Gysahl Greens") & Has("Fragment of Mischief") & Has("Fragment of Radiance") & Has("Fragment of Smiles") & Has("Fragment of Courage") & Has("Fragment of Kindness") & Has("MQ5")),  # Rule 195
-    (Has("Gysahl Greens") & Has("MQ5")),  # Rule 196
-    (Has("Beloved's Gift") & Has("Gysahl Greens") & Has("MQ5")),  # Rule 197
-    (Has("Moogle Fragment") & Has("Gysahl Greens") & Has("Seedhunter Membership Card") & Has("MQ5")),  # Rule 198
-    Has("Q_WifesDream"),  # Rule 199
-    (Has("Day", 2) & Has("Dead Dunes Train Pass")),  # Rule 200
-    (Has("Day", 2) & Has("Wildlands Train Pass")),  # Rule 201
-    (Has("Day", 2) & Has("Yusnaan Train Pass")),  # Rule 202
-    Has("Mystery Egg"),  # Rule 203
+    Has("Maximum EP + 1"),  # Rule 1
+    Has("MQ4", 2),  # Rule 2
+    Has("MQ4", 3),  # Rule 3
+    (Has("MQ4", 3) & Has("Maximum EP + 1")),  # Rule 4
+    Has("Tablet", 3),  # Rule 5
+    Has("Tablet", 2),  # Rule 6
+    (Has("MQ4", 3) & Has("Bhakti's Oil", 3)),  # Rule 7
+    Has("Arithmometer"),  # Rule 8
+    Has("Loupe"),  # Rule 9
+    Has("MQ4"),  # Rule 10
+    (Has("Monster Flesh") & Has("MQ4", 3)),  # Rule 11
+    (Has("Tablet") & Has("MQ4", 4) & Has("MQDone") & Has("ULUnlock")),  # Rule 12
+    (Has("MQDone", 2) & Has("ULUnlock")),  # Rule 13
+    (Has("Tablet", 3) & Has("Crux Base") & Has("Crux Tip") & Has("Crux Body")),  # Rule 14
+    Has("Supply Sphere Password"),  # Rule 15
+    Has("MQ1", 3),  # Rule 16
+    Has("MQ1", 4),  # Rule 17
+    Has("MQ1", 2),  # Rule 18
+    Has("Day", 2),  # Rule 19
+    (Has("Thunderclap Cap") & Has("Shaolong Gui Shell") & Has("Mandragora Root")),  # Rule 20
+    (Has("Green Carbuncle Doll") | Has("Red Carbuncle Doll")),  # Rule 21
+    (Has("Spectral Elixir") & Has("MQ1", 2)),  # Rule 22
+    (Has("Supply Sphere Password") & Has("MQ1", 2)),  # Rule 23
+    (Has("Cursed Dragon Claw") & Has("MQ1", 2)),  # Rule 24
+    (Has("MQ1", 2) & Has("Seedhunter Membership Card")),  # Rule 25
+    (Has("Rubber Ball") & Has("MQ1", 5)),  # Rule 26
+    Has("Rubber Ball"),  # Rule 27
+    Has("MQ1", 5),  # Rule 28
+    Has("Q_Saint"),  # Rule 29
+    (Has("MQ1", 5) & Has("Yusnaan Train Pass")),  # Rule 30
+    (Has("Quill Pen") & Has("MQ1", 4)),  # Rule 31
+    Has("M_NibletHairball"),  # Rule 32
+    (Has("Phantom Rose") & Has("MQ1", 5)),  # Rule 33
+    (Has("Q_BuriedPassion") & Has("MQ1", 5)),  # Rule 34
+    (Has("MQ1", 4) & Has("AreaUnlock", 2)),  # Rule 35
+    Has("MQ3", 3),  # Rule 36
+    (Has("MQ3", 3) & Has("Maximum EP + 1")),  # Rule 37
+    (Has("Gysahl Greens") & Has("MQ3")),  # Rule 38
+    (Has("Gysahl Greens") & Has("Q_RightStuff") & Has("MQ3") & Has("M_MonsterMince") & Has("M_AMPChip")),  # Rule 39
+    (Has("Gysahl Greens") & Has("MQ3") & Has("M_SlugSweet")),  # Rule 40
+    (Has("MQ3", 2) & Has("Q_FuzzySearch")),  # Rule 41
+    Has("MQ3", 2),  # Rule 42
+    (Has("Data Recorder") & Has("MQ3", 3)),  # Rule 43
+    (Has("Gysahl Greens") & Has("Q_Father") & Has("MQ3")),  # Rule 44
+    Has("Q_OldMan"),  # Rule 45
+    (Has("Aryas Apple", 2) & Has("MQ3", 2)),  # Rule 46
+    (Has("MQ3", 2) & Has("M_GoopyGoo")),  # Rule 47
+    (Has("Gysahl Greens") & Has("Fragment of Mischief") & Has("Fragment of Radiance") & Has("Fragment of Smiles") & Has("Fragment of Courage") & Has("Fragment of Kindness")),  # Rule 48
+    (Has("Gysahl Greens") & Has("MQ3") & Has("M_VibrantOoze")),  # Rule 49
+    Has("Q_RoundUp"),  # Rule 50
+    Has("Q_Peace"),  # Rule 51
+    Has("Q_Cure"),  # Rule 52
+    (Has("Gysahl Greens") & Has("Goddess Glyphs") & Has("Chaos Glyphs") & Has("Plate Metal Fragment") & Has("Silvered Metal Fragment") & Has("Golden Metal Fragment") & Has("MQ3", 3)),  # Rule 53
+    Has("MQ3", 4),  # Rule 54
+    (Has("Q_DDA") & Has("Q_RoundUp") & Has("M_GreenLeather")),  # Rule 55
+    Has("Q_DDA"),  # Rule 56
+    (Has("Goddess Glyphs") & Has("Chaos Glyphs") & Has("MQ3", 3)),  # Rule 57
+    Has("MQ2", 2),  # Rule 58
+    Has("MQ2"),  # Rule 59
+    Has("Musical Treasure Sphere Key"),  # Rule 60
+    Has("MQ2", 3),  # Rule 61
+    Has("MQ5"),  # Rule 62
+    Has("MQ2", 4),  # Rule 63
+    (Has("MQ2", 2) & Has("Midnight Mauve")),  # Rule 64
+    Has("Music Satchel"),  # Rule 65
+    Has("Father's Letter"),  # Rule 66
+    Has("AreaUnlock", 4),  # Rule 67
+    (Has("MQDone") & Has("ULUnlock")),  # Rule 68
+    (Has("Civet Musk") & Has("Gordon Gourmet's Recipe") & Has("Steak a la Civet")),  # Rule 69
+    (Has("Nostalgic Score: Chorus") & Has("Nostalgic Score: Refrain") & Has("Nostalgic Score: Coda")),  # Rule 70
+    (Has("MQ2", 2) & HasCategoryRule("Adornment", 55)),  # Rule 71
+    (Has("MQ2", 4) & Has("Q_Adorn")),  # Rule 72
+    (Has("MQ2", 2) & Has("Q_Death")),  # Rule 73
+    Has("Civet Musk"),  # Rule 74
+    (Has("Civet Musk") & Has("Gordon Gourmet's Recipe")),  # Rule 75
+    Has("Day"),  # Rule 76
+    Has("Day", 3),  # Rule 77
+    Has("Day", 4),  # Rule 78
+    Has("Day", 5),  # Rule 79
+    Has("Day", 6),  # Rule 80
+    (Has("MQDone") & Has("Day", 6)),  # Rule 81
+    (Has("MQDone", 2) & Has("Day", 6)),  # Rule 82
+    (Has("MQDone", 3) & Has("Day", 6)),  # Rule 83
+    (Has("MQDone", 4) & Has("Day", 6)),  # Rule 84
+    (Has("MQDone", 5) & Has("Day", 6)),  # Rule 85
+    (Has("MQDone", 5) & Has("Day", 6) & Has("MQ1", 5) & Has("MQ2", 4) & Has("MQ3", 4) & Has("MQ4", 6) & Has("MQ5", 2)),  # Rule 86
+    Has("AreaUnlock", 2),  # Rule 87
+    (Has("Day") & Has("M_DesertRose")),  # Rule 88
+    (Has("Day") & Has("M_DriedScale")),  # Rule 89
+    (Has("C_Miracle") & Has("C_Banned") & Has("M_GoblotHairball") & Has("M_PotShard")),  # Rule 90
+    (Has("Day", 3) & Has("M_CactuarDoll")),  # Rule 91
+    (Has("C_Child") & Has("C_Security") & Has("M_OrganicCarapace") & Has("M_CactuarDoll")),  # Rule 92
+    (Has("Day") & Has("M_GoblotHairball")),  # Rule 93
+    (Has("Day", 3) & Has("M_DeadMansTeeth")),  # Rule 94
+    (Has("Day", 4) & Has("M_PotShard")),  # Rule 95
+    (Has("C_Ranks") & Has("M_DeadMansTeeth")),  # Rule 96
+    (Has("Day", 4) & Has("M_OrganicCarapace")),  # Rule 97
+    (Has("C_Flower") & Has("C_Bio") & Has("M_DesertRose") & Has("M_DriedScale")),  # Rule 98
+    Has("MQ4", 6),  # Rule 99
+    Has("Yusnaan Train Pass"),  # Rule 100
+    Has("C_Charm"),  # Rule 101
+    Has("Q_Food"),  # Rule 102
+    (Has("Day", 6) & Has("MQDone") & Has("C_Pride")),  # Rule 103
+    (Has("Day", 6) & Has("MQDone", 3) & Has("C_Pride", 2)),  # Rule 104
+    (Has("MQ1") & Has("M_NibletHairball")),  # Rule 105
+    (Has("MQ1") & Has("M_TatteredLeather")),  # Rule 106
+    (Has("Day", 3) & Has("M_DemonSpicule")),  # Rule 107
+    (Has("Day", 3) & Has("M_MotorCoil")),  # Rule 108
+    (Has("C_Song") & Has("C_Grave") & Has("M_DemonSpicule") & Has("M_StormdragonDown")),  # Rule 109
+    (Has("C_Inventive") & Has("C_Puppet") & Has("M_QualityMachineOil") & Has("M_LiquidGlass")),  # Rule 110
+    (Has("Day", 5) & Has("M_StormdragonDown")),  # Rule 111
+    (Has("MQ1") & Has("M_LiquidGlass")),  # Rule 112
+    (Has("Day", 5) & Has("M_QualityMachineOil")),  # Rule 113
+    (Has("Day", 5) & Has("M_ChippedFang")),  # Rule 114
+    (Has("C_Slay") & Has("C_Teeth") & Has("M_ChippedFang") & Has("M_MotorCoil")),  # Rule 115
+    (Has("C_Revenge") & Has("C_Gratitude") & Has("M_NibletHairball") & Has("M_TatteredLeather")),  # Rule 116
+    (Has("Proof of Legendary Title") & Has("Day", 3)),  # Rule 117
+    (Has("Gysahl Greens") & Has("Day", 3)),  # Rule 118
+    (Has("Q_Hunter") & Has("M_GreenMonsterMoss")),  # Rule 119
+    (Has("Day") & Has("M_VibrantOoze")),  # Rule 120
+    (Has("Day", 3) & Has("M_WonderGel")),  # Rule 121
+    Has("Q_Forebears"),  # Rule 122
+    (Has("Day", 3) & Has("M_GoopyGoo")),  # Rule 123
+    (Has("C_Drum") & Has("C_Below") & Has("M_MonsterMince") & Has("M_GreenLeather")),  # Rule 124
+    (Has("Day", 6) & Has("MQDone") & Has("M_SinisterFang")),  # Rule 125
+    (Has("Day", 3) & Has("M_GreenMonsterMoss")),  # Rule 126
+    (Has("C_Forget") & Has("C_Thanks") & Has("M_VibrantOoze") & Has("M_WonderGel")),  # Rule 127
+    (Has("Q_Peace") & Has("M_ArborealSpore")),  # Rule 128
+    (Has("C_Fresh") & Has("C_Plea") & Has("C_Gatekeeper") & Has("M_ArborealSpore") & Has("M_GoopyGoo") & Has("M_SlugSweet")),  # Rule 129
+    (Has("C_Future") & Has("C_Brain") & Has("M_SinisterFang") & Has("M_AMPChip")),  # Rule 130
+    (Has("Day", 5) & Has("M_SlugSweet")),  # Rule 131
+    (Has("Day", 3) & Has("M_GreenLeather")),  # Rule 132
+    (Has("Day", 3) & Has("M_MonsterMince")),  # Rule 133
+    Has("Gysahl Greens"),  # Rule 134
+    Has("C_Chow"),  # Rule 135
+    (Has("Gysahl Greens") & Has("Day")),  # Rule 136
+    (Has("C_Sun") & Has("C_Moon")),  # Rule 137
+    (Has("Gysahl Greens") & Has("Q_Peace") & Has("M_VibrantOoze")),  # Rule 138
+    (Has("Day") & Has("M_EtherCoil")),  # Rule 139
+    (Has("Day", 2) & Has("M_PoisonousSting")),  # Rule 140
+    (Has("Day", 3) & Has("M_ClearOoze")),  # Rule 141
+    (Has("Day", 5) & Has("M_ShatteredBone")),  # Rule 142
+    (Has("Day", 6) & Has("MQDone") & Has("M_SingleEye")),  # Rule 143
+    (Has("C_Soulful") & Has("C_Inspiration") & Has("M_ShatteredBone") & Has("M_PoisonousSting")),  # Rule 144
+    (Has("C_Youth") & Has("C_Colors") & Has("M_FirewyrmScale") & Has("M_SingleEye")),  # Rule 145
+    (Has("Day", 5) & Has("M_FirewyrmScale")),  # Rule 146
+    (Has("C_Secret") & Has("C_Dangerous") & Has("C_Spell") & Has("M_RadialBearing") & Has("M_EtherCoil") & Has("M_ClearOoze")),  # Rule 147
+    (Has("Day", 6) & Has("MQDone") & Has("M_RadialBearing")),  # Rule 148
+    (Has("Jade Hair Comb") & Has("Bronze Pocket Watch") & Has("MQ2")),  # Rule 149
+    (Has("Chocobo Girl's Phone No.") & Has("Q_Actress")),  # Rule 150
+    (Has("Beloved's Gift") & Has("MQ5")),  # Rule 151
+    (Has("MQDone", 4) & Has("Wildlands Train Pass")),  # Rule 152
+    (Has("Key to the Sand Gate") & Has("Key to the Green Gate") & Has("MQDone", 4) & Has("Wildlands Train Pass") & Has("Dead Dunes Train Pass")),  # Rule 153
+    (Has("Bandit's Bloodseal") & Has("Oath of the Merchants Guild") & Has("MQDone", 4) & Has("Yusnaan Train Pass") & Has("Dead Dunes Train Pass")),  # Rule 154
+    (Has("Proof of Courage") & Has("MQ1", 5)),  # Rule 155
+    (Has("Violet Amulet") & Has("MQ1", 5)),  # Rule 156
+    (Has("Lapis Lazuli") & Has("MQ2", 2) & Has("Q_Adorn")),  # Rule 157
+    (Has("Power Booster") & Has("Q_Death")),  # Rule 158
+    (Has("Moogle Dust") & Has("MQ3", 2)),  # Rule 159
+    (Has("Old-Fashioned Photo Frame") & Has("MQ3", 2)),  # Rule 160
+    (Has("Etro's Forbidden Tome") & Has("MQ3", 4)),  # Rule 161
+    (Has("Broken Gyroscope") & Has("Day", 2)),  # Rule 162
+    (Has("Golden Scarab") & Has("MQ4", 3)),  # Rule 163
+    Has("Seedhunter Membership Card"),  # Rule 164
+    (Has("Seedhunter Membership Card") & Has("Loupe") & Has("Dead Dunes Train Pass")),  # Rule 165
+    (Has("Seedhunter Membership Card") & Has("Moogle Fragment") & Has("MQ5")),  # Rule 166
+    (Has("Loupe") & Has("Dead Dunes Train Pass")),  # Rule 167
+    Has("MQDone"),  # Rule 168
+    Has("MQDone", 3),  # Rule 169
+    Has("MQDone", 2),  # Rule 170
+    Has("MQDone", 4),  # Rule 171
+    (Has("MQ4", 5) & Has("Crux Base") & Has("Crux Tip") & Has("Crux Body")),  # Rule 172
+    (Has("MQ1", 4) & Has("Day", 2) & Has("AreaUnlock", 2)),  # Rule 173
+    (Has("MQ3", 3) & Has("Day", 3)),  # Rule 174
+    (Has("MQ2", 3) & Has("Serah's Pendant") & Has("Day", 3)),  # Rule 175
+    (Has("MQ3", 3) & Has("Fragment of Mischief") & Has("Fragment of Radiance") & Has("Fragment of Smiles") & Has("Fragment of Courage") & Has("Fragment of Kindness") & Has("Day", 3)),  # Rule 176
+    Has("MQ1"),  # Rule 177
+    Has("Sneaking-In Special Ticket"),  # Rule 178
+    (Has("MQ2") & Has("ID Card")),  # Rule 179
+    (Has("MQ3") & Has("Gysahl Greens")),  # Rule 180
+    (Has("MQ4", 3) & Has("Tablet")),  # Rule 181
+    (Has("MQ4", 4) & Has("Tablet", 3)),  # Rule 182
+    (Has("Gysahl Greens") & Has("MQ3", 3)),  # Rule 183
+    Has("MQDone", 5),  # Rule 184
+    (Has("Sneaking-In Special Ticket") & Has("ID Card") & Has("MQ2", 2)),  # Rule 185
+    (Has("Sneaking-In Special Ticket") & Has("ID Card") & Has("Midnight Mauve") & Has("MQ2", 3)),  # Rule 186
+    (Has("Sneaking-In Special Ticket") & Has("ID Card") & Has("Midnight Mauve") & Has("Serah's Pendant") & Has("MQ2", 4)),  # Rule 187
+    Has("MQ3"),  # Rule 188
+    (Has("Gysahl Greens") & Has("MQ3", 2)),  # Rule 189
+    (Has("Gysahl Greens") & Has("MQ3", 4)),  # Rule 190
+    (Has("Tablet", 3) & Has("MQ4", 5)),  # Rule 191
+    (Has("Tablet", 3) & Has("Crux Base") & Has("Crux Tip") & Has("Crux Body") & Has("MQ4", 6)),  # Rule 192
+    (Has("Gysahl Greens") & Has("Fragment of Mischief") & Has("Fragment of Radiance") & Has("Fragment of Smiles") & Has("Fragment of Courage") & Has("Fragment of Kindness") & Has("MQ5")),  # Rule 193
+    (Has("Gysahl Greens") & Has("MQ5")),  # Rule 194
+    (Has("Beloved's Gift") & Has("Gysahl Greens") & Has("MQ5")),  # Rule 195
+    (Has("Moogle Fragment") & Has("Gysahl Greens") & Has("Seedhunter Membership Card") & Has("MQ5")),  # Rule 196
+    Has("Q_WifesDream"),  # Rule 197
+    (Has("Day", 2) & Has("Dead Dunes Train Pass")),  # Rule 198
+    (Has("Day", 2) & Has("Wildlands Train Pass")),  # Rule 199
+    (Has("Day", 2) & Has("Yusnaan Train Pass")),  # Rule 200
+    Has("Mystery Egg"),  # Rule 201
 ]
 
 location_trait_data_table = {
@@ -1268,7 +1266,7 @@ location_trait_data_table = {
 
 location_rule_data_table: Dict[str, Rule[Any]] = {
     "Dead Dunes - Golden Scarab Treasure": rule_data_list[0],
-    "Dead Dunes - Oasis Lighthouse Treasure (1)": rule_data_list[1],
+    "Dead Dunes - Oasis Lighthouse Treasure (1)": rule_data_list[0],
     "Dead Dunes - Grave of the Colossi Shrine Treasure": rule_data_list[0],
     "Dead Dunes - Giant's Sandbox Treasure (1)": rule_data_list[0],
     "Dead Dunes - Golden Chamber Lower Treasure": rule_data_list[0],
@@ -1277,40 +1275,40 @@ location_rule_data_table: Dict[str, Rule[Any]] = {
     "Dead Dunes - Giant's Sandbox Treasure (4)": rule_data_list[0],
     "Dead Dunes - Ruffian Outdoor Treasure": rule_data_list[0],
     "Dead Dunes - Dry Floodlands Treasure (1)": rule_data_list[0],
-    "Dead Dunes - Oasis Lighthouse Treasure (2)": rule_data_list[1],
-    "Dead Dunes - Oasis Lighthouse Treasure (3)": rule_data_list[1],
+    "Dead Dunes - Oasis Lighthouse Treasure (2)": rule_data_list[0],
+    "Dead Dunes - Oasis Lighthouse Treasure (3)": rule_data_list[0],
     "Dead Dunes - Atomos's Sand Treasure (1)": rule_data_list[0],
     "Dead Dunes - Grave of the Colossi Treasure (1)": rule_data_list[0],
-    "Dead Dunes - Grave of the Colossi Treasure (2)": rule_data_list[2],
+    "Dead Dunes - Grave of the Colossi Treasure (2)": rule_data_list[1],
     "Dead Dunes - Grave of the Colossi Treasure (3)": rule_data_list[0],
     "Dead Dunes - Atomos's Sand Treasure (2)": rule_data_list[0],
     "Dead Dunes - Ruffian 2nd Floor Treasure": rule_data_list[0],
-    "Dead Dunes - Temple Ruins Chamber of Dusk (Upper) Treasure": rule_data_list[3],
-    "Dead Dunes - Temple Ruins Chamber of Plenilune (Upper) Treasure (1)": rule_data_list[3],
-    "Dead Dunes - Temple Ruins Chamber of Plenilune (Upper) Treasure (2)": rule_data_list[3],
-    "Dead Dunes - Temple Ruins Chamber of Plenilune (Upper) Treasure (3)": rule_data_list[3],
-    "Dead Dunes - Temple Ruins Chamber of Plenilune (Lower) Treasure (1)": rule_data_list[3],
-    "Dead Dunes - Temple Ruins Chamber of Plenilune (Lower) Treasure (2)": rule_data_list[3],
-    "Dead Dunes - Temple Ruins Chamber of Plenilune (Lower) Treasure (3)": rule_data_list[3],
-    "Dead Dunes - Temple Ruins Sacred Grove Treasure": rule_data_list[4],
-    "Dead Dunes - Temple Ruins Golden Chamber (Upper) Treasure (1)": rule_data_list[4],
+    "Dead Dunes - Temple Ruins Chamber of Dusk (Upper) Treasure": rule_data_list[2],
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Upper) Treasure (1)": rule_data_list[2],
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Upper) Treasure (2)": rule_data_list[2],
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Upper) Treasure (3)": rule_data_list[2],
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Lower) Treasure (1)": rule_data_list[2],
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Lower) Treasure (2)": rule_data_list[2],
+    "Dead Dunes - Temple Ruins Chamber of Plenilune (Lower) Treasure (3)": rule_data_list[2],
+    "Dead Dunes - Temple Ruins Sacred Grove Treasure": rule_data_list[3],
+    "Dead Dunes - Temple Ruins Golden Chamber (Upper) Treasure (1)": rule_data_list[3],
     "Dead Dunes - Dry Floodlands Shrine Treasure": rule_data_list[0],
-    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Treasure (1)": rule_data_list[4],
-    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Treasure (2)": rule_data_list[4],
-    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Treasure (3)": rule_data_list[4],
-    "Dead Dunes - Temple Ruins Scorched Earth (Lower) Treasure": rule_data_list[5],
-    "Dead Dunes - Temple Ruins Scorched Earth (Upper) Treasure (1)": rule_data_list[4],
-    "Dead Dunes - Temple Ruins Scorched Earth (Upper) Treasure (2)": rule_data_list[4],
-    "Dead Dunes - Temple Ruins Golden Chamber (Upper) Treasure (2)": rule_data_list[4],
+    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Treasure (1)": rule_data_list[3],
+    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Treasure (2)": rule_data_list[3],
+    "Dead Dunes - Temple Ruins Golden Chamber (Lower) Treasure (3)": rule_data_list[3],
+    "Dead Dunes - Temple Ruins Scorched Earth (Lower) Treasure": rule_data_list[4],
+    "Dead Dunes - Temple Ruins Scorched Earth (Upper) Treasure (1)": rule_data_list[3],
+    "Dead Dunes - Temple Ruins Scorched Earth (Upper) Treasure (2)": rule_data_list[3],
+    "Dead Dunes - Temple Ruins Golden Chamber (Upper) Treasure (2)": rule_data_list[3],
     "Dead Dunes - Atomos's Sands Shrine Treasure": rule_data_list[0],
     "Dead Dunes - Giant's Sandbox Treasure (5)": rule_data_list[0],
     "Dead Dunes - Dry Floodlands Treasure (2)": rule_data_list[0],
-    "Dead Dunes - Grave of the Colossi Shrine Tablet": rule_data_list[1],
-    "Dead Dunes - Dry Floodlands Shrine Tablet": rule_data_list[1],
-    "Dead Dunes - Atomos's Sands Shrine Tablet": rule_data_list[1],
-    "Dead Dunes - Temple Ruins Mural Crux Base": rule_data_list[6],
-    "Dead Dunes - Temple Ruins Mural Crux Body": rule_data_list[7],
-    "Dead Dunes - Temple Ruins Mural Crux Tip": rule_data_list[7],
+    "Dead Dunes - Grave of the Colossi Shrine Tablet": rule_data_list[0],
+    "Dead Dunes - Dry Floodlands Shrine Tablet": rule_data_list[0],
+    "Dead Dunes - Atomos's Sands Shrine Tablet": rule_data_list[0],
+    "Dead Dunes - Temple Ruins Mural Crux Base": rule_data_list[5],
+    "Dead Dunes - Temple Ruins Mural Crux Body": rule_data_list[6],
+    "Dead Dunes - Temple Ruins Mural Crux Tip": rule_data_list[6],
     "Dead Dunes - Ruffian Shop Bhakti's Oil Spot": rule_data_list[0],
     "Dead Dunes - Oasis Lighthouse Bhakti's Oil Spot (1)": rule_data_list[0],
     "Dead Dunes - Oasis Lighthouse Bhakti's Oil Spot (2)": rule_data_list[0],
@@ -1318,9 +1316,9 @@ location_rule_data_table: Dict[str, Rule[Any]] = {
     "Dead Dunes - Atomos's Sands Shrine Bhakti's Oil Spot": rule_data_list[0],
     "Dead Dunes - Grave of the Colossi Bones Bhakti's Oil Spot": rule_data_list[0],
     "Dead Dunes - Dry Floodlands Shrine Bhakti's Oil Spot": rule_data_list[0],
-    "Dead Dunes - Temple Ruins Bhakti Reward (1)": rule_data_list[8],
-    "Dead Dunes - Temple Ruins Bhakti Reward (2)": rule_data_list[8],
-    "Dead Dunes - Temple Ruins Bhakti Reward (3)": rule_data_list[8],
+    "Dead Dunes - Temple Ruins Bhakti Reward (1)": rule_data_list[7],
+    "Dead Dunes - Temple Ruins Bhakti Reward (2)": rule_data_list[7],
+    "Dead Dunes - Temple Ruins Bhakti Reward (3)": rule_data_list[7],
     "Dead Dunes - Grave of the Colossi Pilgrim's Crux": rule_data_list[0],
     "Dead Dunes - Temple Ruins Scorched Earth Pilgrim's Crux (1)": rule_data_list[0],
     "Dead Dunes - Temple Ruins Golden Chamber (Lower) Pilgrim's Crux (1)": rule_data_list[0],
@@ -1336,28 +1334,28 @@ location_rule_data_table: Dict[str, Rule[Any]] = {
     "Dead Dunes - Temple Ruins Sacred Grove Pilgrim's Crux (4)": rule_data_list[0],
     "Dead Dunes - Temple Ruins Golden Chamber (Lower) Pilgrim's Crux (2)": rule_data_list[0],
     "Dead Dunes - Atomos's Sands Loupe": rule_data_list[0],
-    "Dead Dunes - The Life of a Machine Quest (1)": rule_data_list[8],
-    "Dead Dunes - The Life of a Machine Quest (2)": rule_data_list[8],
-    "Dead Dunes - Old Rivals Quest (1)": rule_data_list[9],
-    "Dead Dunes - Old Rivals Quest (2)": rule_data_list[9],
-    "Dead Dunes - His Wife's Dream Quest (1)": rule_data_list[9],
-    "Dead Dunes - His Wife's Dream Quest (2)": rule_data_list[9],
-    "Dead Dunes - Tool of the Trade Quest (1)": rule_data_list[10],
-    "Dead Dunes - Tool of the Trade Quest (2)": rule_data_list[10],
-    "Dead Dunes - Adonis's Audition Quest (1)": rule_data_list[11],
-    "Dead Dunes - Adonis's Audition Quest (2)": rule_data_list[11],
-    "Dead Dunes - Adonis's Audition Quest (3)": rule_data_list[11],
-    "Dead Dunes - What Rough Beast Slouches Quest (1)": rule_data_list[12],
-    "Dead Dunes - What Rough Beast Slouches Quest (2)": rule_data_list[12],
-    "Dead Dunes - Skeletons In The Closet Quest (1)": rule_data_list[13],
-    "Dead Dunes - Skeletons In The Closet Quest (2)": rule_data_list[13],
-    "Dead Dunes - Last One Standing Quest (1)": rule_data_list[14],
-    "Dead Dunes - Last One Standing Quest (2)": rule_data_list[14],
-    "Dead Dunes - Last One Standing Quest (3)": rule_data_list[14],
-    "Dead Dunes - What Rough Beast Slouches Libra Notes": rule_data_list[4],
-    "Dead Dunes - Dead Dunes Boss Drop": rule_data_list[15],
-    "Dead Dunes - Dead Dunes Boss Reward (1)": rule_data_list[15],
-    "Dead Dunes - Dead Dunes Boss Reward (2)": rule_data_list[15],
+    "Dead Dunes - The Life of a Machine Quest (1)": rule_data_list[7],
+    "Dead Dunes - The Life of a Machine Quest (2)": rule_data_list[7],
+    "Dead Dunes - Old Rivals Quest (1)": rule_data_list[8],
+    "Dead Dunes - Old Rivals Quest (2)": rule_data_list[8],
+    "Dead Dunes - His Wife's Dream Quest (1)": rule_data_list[8],
+    "Dead Dunes - His Wife's Dream Quest (2)": rule_data_list[8],
+    "Dead Dunes - Tool of the Trade Quest (1)": rule_data_list[9],
+    "Dead Dunes - Tool of the Trade Quest (2)": rule_data_list[9],
+    "Dead Dunes - Adonis's Audition Quest (1)": rule_data_list[10],
+    "Dead Dunes - Adonis's Audition Quest (2)": rule_data_list[10],
+    "Dead Dunes - Adonis's Audition Quest (3)": rule_data_list[10],
+    "Dead Dunes - What Rough Beast Slouches Quest (1)": rule_data_list[11],
+    "Dead Dunes - What Rough Beast Slouches Quest (2)": rule_data_list[11],
+    "Dead Dunes - Skeletons In The Closet Quest (1)": rule_data_list[12],
+    "Dead Dunes - Skeletons In The Closet Quest (2)": rule_data_list[12],
+    "Dead Dunes - Last One Standing Quest (1)": rule_data_list[13],
+    "Dead Dunes - Last One Standing Quest (2)": rule_data_list[13],
+    "Dead Dunes - Last One Standing Quest (3)": rule_data_list[13],
+    "Dead Dunes - What Rough Beast Slouches Libra Notes": rule_data_list[3],
+    "Dead Dunes - Dead Dunes Boss Drop": rule_data_list[14],
+    "Dead Dunes - Dead Dunes Boss Reward (1)": rule_data_list[14],
+    "Dead Dunes - Dead Dunes Boss Reward (2)": rule_data_list[14],
     "Dead Dunes - Aeronite Missable Drop": rule_data_list[0],
     "Luxerion - Cathedral Proof Of Courage": rule_data_list[0],
     "Luxerion - Pilgrim's Passage Violet Amulet Treasure": rule_data_list[0],
@@ -1368,222 +1366,222 @@ location_rule_data_table: Dict[str, Rule[Any]] = {
     "Luxerion - Pilgrim's Passage (Grassy) Treasure": rule_data_list[0],
     "Luxerion - Old Theater Platform Treasure": rule_data_list[0],
     "Luxerion - The Warren Mangled Hill Treasure": rule_data_list[0],
-    "Luxerion - South Station (Supply Sphere) Treasure": rule_data_list[16],
-    "Luxerion - Warehouse District (Supply Sphere) Treasure": rule_data_list[16],
-    "Luxerion - Residences (Supply Sphere) Treasure": rule_data_list[16],
-    "Luxerion - Forsaken Graveyard Treasure (1)": rule_data_list[17],
-    "Luxerion - Den Of Shadows Treasure (1)": rule_data_list[18],
-    "Luxerion - Luxerion After 1st Phone (1)": rule_data_list[19],
-    "Luxerion - Den Of Shadows Treasure (2)": rule_data_list[18],
-    "Luxerion - Luxerion After 1st Phone (2)": rule_data_list[19],
-    "Luxerion - Luxerion After 1st Phone (3)": rule_data_list[19],
+    "Luxerion - South Station (Supply Sphere) Treasure": rule_data_list[15],
+    "Luxerion - Warehouse District (Supply Sphere) Treasure": rule_data_list[15],
+    "Luxerion - Residences (Supply Sphere) Treasure": rule_data_list[15],
+    "Luxerion - Forsaken Graveyard Treasure (1)": rule_data_list[16],
+    "Luxerion - Den Of Shadows Treasure (1)": rule_data_list[17],
+    "Luxerion - Luxerion After 1st Phone (1)": rule_data_list[18],
+    "Luxerion - Den Of Shadows Treasure (2)": rule_data_list[17],
+    "Luxerion - Luxerion After 1st Phone (2)": rule_data_list[18],
+    "Luxerion - Luxerion After 1st Phone (3)": rule_data_list[18],
     "Luxerion - Luxerion Marketplace Treasure": rule_data_list[0],
-    "Luxerion - Forsaken Graveyard Treasure (2)": rule_data_list[17],
-    "Luxerion - 1st Ave Rubber Ball": rule_data_list[18],
+    "Luxerion - Forsaken Graveyard Treasure (2)": rule_data_list[16],
+    "Luxerion - 1st Ave Rubber Ball": rule_data_list[17],
     "Luxerion - Marketplace Doll": rule_data_list[0],
     "Luxerion - North Station Plaza Doll": rule_data_list[0],
     "Luxerion - Warehouse District Thunderclap Cap": rule_data_list[0],
-    "Luxerion - Luxerion Proof of Legendary Title": rule_data_list[20],
+    "Luxerion - Luxerion Proof of Legendary Title": rule_data_list[19],
     "Luxerion - Luxerion Ghost Phantom Rose": rule_data_list[0],
     "Luxerion - Luxerion Marketplace Pen": rule_data_list[0],
     "Luxerion - Baird Seedhunter Membership Card": rule_data_list[0],
-    "Luxerion - Virgil Supply Sphere Password": rule_data_list[19],
+    "Luxerion - Virgil Supply Sphere Password": rule_data_list[18],
     "Luxerion - Buy Shaolong Gui Shell": rule_data_list[0],
     "Luxerion - Buy Mandragora Root": rule_data_list[0],
-    "Luxerion - Chocobo Emporium Spectral Elixir": rule_data_list[21],
-    "Luxerion - The Things She Lost Quest (1)": rule_data_list[22],
-    "Luxerion - The Things She Lost Quest (2)": rule_data_list[22],
+    "Luxerion - Chocobo Emporium Spectral Elixir": rule_data_list[20],
+    "Luxerion - The Things She Lost Quest (1)": rule_data_list[21],
+    "Luxerion - The Things She Lost Quest (2)": rule_data_list[21],
     "Luxerion - Where Are You, Holmes? Quest (1)": rule_data_list[0],
     "Luxerion - Where Are You, Holmes? Quest (2)": rule_data_list[0],
     "Luxerion - Where Are You, Holmes? Quest (3)": rule_data_list[0],
-    "Luxerion - Like Clockwork Quest (1)": rule_data_list[18],
-    "Luxerion - Like Clockwork Quest (2)": rule_data_list[18],
-    "Luxerion - Dying Wish Quest (1)": rule_data_list[23],
-    "Luxerion - Dying Wish Quest (2)": rule_data_list[23],
-    "Luxerion - Suspicious Spheres Quest (1)": rule_data_list[24],
-    "Luxerion - Suspicious Spheres Quest (2)": rule_data_list[24],
-    "Luxerion - Born From Chaos Quest (1)": rule_data_list[25],
-    "Luxerion - Born From Chaos Quest (2)": rule_data_list[25],
-    "Luxerion - Born From Chaos Quest (3)": rule_data_list[25],
-    "Luxerion - Born From Chaos Quest (4)": rule_data_list[25],
-    "Luxerion - Soul Seeds Quest (1)": rule_data_list[26],
-    "Luxerion - Soul Seeds Quest (2)": rule_data_list[26],
-    "Luxerion - Faster Than Lightning Quest (1)": rule_data_list[19],
-    "Luxerion - Faster Than Lightning Quest (2)": rule_data_list[19],
-    "Luxerion - Treasured Ball Quest (1)": rule_data_list[27],
-    "Luxerion - Treasured Ball Quest (2)": rule_data_list[27],
-    "Luxerion - Talbot's Gratitude": rule_data_list[28],
-    "Luxerion - The Angel's Tears Quest (1)": rule_data_list[19],
-    "Luxerion - The Angel's Tears Quest (2)": rule_data_list[19],
-    "Luxerion - The Saint's Stone Quest (1)": rule_data_list[29],
-    "Luxerion - The Saint's Stone Quest (2)": rule_data_list[29],
-    "Luxerion - The Saint's Stone Quest (3)": rule_data_list[29],
-    "Luxerion - Aremiah Service Entrance Key": rule_data_list[30],
+    "Luxerion - Like Clockwork Quest (1)": rule_data_list[17],
+    "Luxerion - Like Clockwork Quest (2)": rule_data_list[17],
+    "Luxerion - Dying Wish Quest (1)": rule_data_list[22],
+    "Luxerion - Dying Wish Quest (2)": rule_data_list[22],
+    "Luxerion - Suspicious Spheres Quest (1)": rule_data_list[23],
+    "Luxerion - Suspicious Spheres Quest (2)": rule_data_list[23],
+    "Luxerion - Born From Chaos Quest (1)": rule_data_list[24],
+    "Luxerion - Born From Chaos Quest (2)": rule_data_list[24],
+    "Luxerion - Born From Chaos Quest (3)": rule_data_list[24],
+    "Luxerion - Born From Chaos Quest (4)": rule_data_list[24],
+    "Luxerion - Soul Seeds Quest (1)": rule_data_list[25],
+    "Luxerion - Soul Seeds Quest (2)": rule_data_list[25],
+    "Luxerion - Faster Than Lightning Quest (1)": rule_data_list[18],
+    "Luxerion - Faster Than Lightning Quest (2)": rule_data_list[18],
+    "Luxerion - Treasured Ball Quest (1)": rule_data_list[26],
+    "Luxerion - Treasured Ball Quest (2)": rule_data_list[26],
+    "Luxerion - Talbot's Gratitude": rule_data_list[27],
+    "Luxerion - The Angel's Tears Quest (1)": rule_data_list[18],
+    "Luxerion - The Angel's Tears Quest (2)": rule_data_list[18],
+    "Luxerion - The Saint's Stone Quest (1)": rule_data_list[28],
+    "Luxerion - The Saint's Stone Quest (2)": rule_data_list[28],
+    "Luxerion - The Saint's Stone Quest (3)": rule_data_list[28],
+    "Luxerion - Aremiah Service Entrance Key": rule_data_list[29],
     "Luxerion - Whither Faith Quest (1)": rule_data_list[0],
     "Luxerion - Whither Faith Quest (2)": rule_data_list[0],
-    "Luxerion - The Avid Reader Quest (1)": rule_data_list[31],
-    "Luxerion - The Avid Reader Quest (2)": rule_data_list[31],
-    "Luxerion - Buried Passion Quest (1)": rule_data_list[32],
-    "Luxerion - Buried Passion Quest (2)": rule_data_list[32],
-    "Luxerion - The Girl Who Cried Wolf Quest (1)": rule_data_list[29],
-    "Luxerion - The Girl Who Cried Wolf Quest (2)": rule_data_list[29],
-    "Luxerion - Stuck in a Gem Quest (1)": rule_data_list[33],
-    "Luxerion - Stuck in a Gem Quest (2)": rule_data_list[33],
-    "Luxerion - Get the Girl Quest (1)": rule_data_list[31],
-    "Luxerion - Get the Girl Quest (2)": rule_data_list[31],
-    "Luxerion - A Rose By Any Other Name Quest (1)": rule_data_list[34],
-    "Luxerion - A Rose By Any Other Name Quest (2)": rule_data_list[34],
-    "Luxerion - A Rose By Any Other Name Quest (3)": rule_data_list[34],
-    "Luxerion - A Rose By Any Other Name Quest (4)": rule_data_list[34],
-    "Luxerion - Voices from the Grave Quest (1)": rule_data_list[29],
-    "Luxerion - Voices from the Grave Quest (2)": rule_data_list[29],
-    "Luxerion - To Save the Sinless Quest (1)": rule_data_list[35],
-    "Luxerion - To Save the Sinless Quest (2)": rule_data_list[35],
+    "Luxerion - The Avid Reader Quest (1)": rule_data_list[30],
+    "Luxerion - The Avid Reader Quest (2)": rule_data_list[30],
+    "Luxerion - Buried Passion Quest (1)": rule_data_list[31],
+    "Luxerion - Buried Passion Quest (2)": rule_data_list[31],
+    "Luxerion - The Girl Who Cried Wolf Quest (1)": rule_data_list[28],
+    "Luxerion - The Girl Who Cried Wolf Quest (2)": rule_data_list[28],
+    "Luxerion - Stuck in a Gem Quest (1)": rule_data_list[32],
+    "Luxerion - Stuck in a Gem Quest (2)": rule_data_list[32],
+    "Luxerion - Get the Girl Quest (1)": rule_data_list[30],
+    "Luxerion - Get the Girl Quest (2)": rule_data_list[30],
+    "Luxerion - A Rose By Any Other Name Quest (1)": rule_data_list[33],
+    "Luxerion - A Rose By Any Other Name Quest (2)": rule_data_list[33],
+    "Luxerion - A Rose By Any Other Name Quest (3)": rule_data_list[33],
+    "Luxerion - A Rose By Any Other Name Quest (4)": rule_data_list[33],
+    "Luxerion - Voices from the Grave Quest (1)": rule_data_list[28],
+    "Luxerion - Voices from the Grave Quest (2)": rule_data_list[28],
+    "Luxerion - To Save the Sinless Quest (1)": rule_data_list[34],
+    "Luxerion - To Save the Sinless Quest (2)": rule_data_list[34],
     "Luxerion - Replace Chronostasis": rule_data_list[0],
-    "Luxerion - Luxerion Boss Drop": rule_data_list[36],
-    "Luxerion - Luxerion Boss+ Only Missable Drop": rule_data_list[36],
-    "Luxerion - Luxerion Boss Reward (1)": rule_data_list[36],
-    "Luxerion - Luxerion Boss Reward (2)": rule_data_list[36],
+    "Luxerion - Luxerion Boss Drop": rule_data_list[35],
+    "Luxerion - Luxerion Boss+ Only Missable Drop": rule_data_list[35],
+    "Luxerion - Luxerion Boss Reward (1)": rule_data_list[35],
+    "Luxerion - Luxerion Boss Reward (2)": rule_data_list[35],
     "Wildlands - Moogle Village Moogle Dust Treasure": rule_data_list[0],
     "Wildlands - Research Camp Photo Frame Treasure": rule_data_list[0],
     "Wildlands - Poltae Etro's Forbidden Tome": rule_data_list[0],
-    "Wildlands - Eremite Plains Broken Gyroscope Treasure": rule_data_list[37],
+    "Wildlands - Eremite Plains Broken Gyroscope Treasure": rule_data_list[36],
     "Wildlands - Aryas Village Treasure (1)": rule_data_list[0],
-    "Wildlands - Jagd Woods Treasure": rule_data_list[37],
-    "Wildlands - The Grasslands Treasure (1)": rule_data_list[37],
-    "Wildlands - Poltae Treasure (1)": rule_data_list[37],
+    "Wildlands - Jagd Woods Treasure": rule_data_list[36],
+    "Wildlands - The Grasslands Treasure (1)": rule_data_list[36],
+    "Wildlands - Poltae Treasure (1)": rule_data_list[36],
     "Wildlands - Canopus Farms Treasure": rule_data_list[0],
-    "Wildlands - Rocky Crag Treasure (1)": rule_data_list[37],
-    "Wildlands - The Grasslands Treasure (2)": rule_data_list[37],
+    "Wildlands - Rocky Crag Treasure (1)": rule_data_list[36],
+    "Wildlands - The Grasslands Treasure (2)": rule_data_list[36],
     "Wildlands - Aryas Village Treasure (2)": rule_data_list[0],
-    "Wildlands - The Grasslands Treasure (3)": rule_data_list[37],
-    "Wildlands - Eremite Plains Treasure (1)": rule_data_list[37],
-    "Wildlands - Eremite Plains Treasure (2)": rule_data_list[37],
-    "Wildlands - Moogle Village Treasure": rule_data_list[37],
-    "Wildlands - City of Ruins Treasure": rule_data_list[38],
-    "Wildlands - Rocky Crag Treasure (2)": rule_data_list[37],
-    "Wildlands - Rocky Crag Treasure (3)": rule_data_list[37],
-    "Wildlands - Aryas Village Treasure (3)": rule_data_list[37],
+    "Wildlands - The Grasslands Treasure (3)": rule_data_list[36],
+    "Wildlands - Eremite Plains Treasure (1)": rule_data_list[36],
+    "Wildlands - Eremite Plains Treasure (2)": rule_data_list[36],
+    "Wildlands - Moogle Village Treasure": rule_data_list[36],
+    "Wildlands - City of Ruins Treasure": rule_data_list[37],
+    "Wildlands - Rocky Crag Treasure (2)": rule_data_list[36],
+    "Wildlands - Rocky Crag Treasure (3)": rule_data_list[36],
+    "Wildlands - Aryas Village Treasure (3)": rule_data_list[36],
     "Wildlands - Poltae Treasure (2)": rule_data_list[0],
-    "Wildlands - Eremite Plains Crash Site Fragment": rule_data_list[37],
-    "Wildlands - Goddess Temple Treasure (1)": rule_data_list[37],
-    "Wildlands - Goddess Temple Treasure (2)": rule_data_list[37],
-    "Wildlands - Goddess Temple Treasure (3)": rule_data_list[37],
-    "Wildlands - Goddess Temple Treasure (4)": rule_data_list[37],
-    "Wildlands - Goddess Temple Treasure (5)": rule_data_list[37],
-    "Wildlands - Goddess Temple Treasure (6)": rule_data_list[37],
-    "Wildlands - Goddess Temple Treasure (7)": rule_data_list[37],
-    "Wildlands - Goddess Temple Treasure (8)": rule_data_list[37],
-    "Wildlands - Goddess Temple Treasure (9)": rule_data_list[37],
+    "Wildlands - Eremite Plains Crash Site Fragment": rule_data_list[36],
+    "Wildlands - Goddess Temple Treasure (1)": rule_data_list[36],
+    "Wildlands - Goddess Temple Treasure (2)": rule_data_list[36],
+    "Wildlands - Goddess Temple Treasure (3)": rule_data_list[36],
+    "Wildlands - Goddess Temple Treasure (4)": rule_data_list[36],
+    "Wildlands - Goddess Temple Treasure (5)": rule_data_list[36],
+    "Wildlands - Goddess Temple Treasure (6)": rule_data_list[36],
+    "Wildlands - Goddess Temple Treasure (7)": rule_data_list[36],
+    "Wildlands - Goddess Temple Treasure (8)": rule_data_list[36],
+    "Wildlands - Goddess Temple Treasure (9)": rule_data_list[36],
     "Wildlands - Dr Gysahl's Gysahl Greens": rule_data_list[0],
     "Wildlands - Aryas Village Beloved's Gift Treasure": rule_data_list[0],
-    "Wildlands - Sarala Vegatable Seeds": rule_data_list[39],
-    "Wildlands - A Father's Request Quest (1)": rule_data_list[39],
-    "Wildlands - A Father's Request Quest (2)": rule_data_list[39],
-    "Wildlands - The Hunter's Challenge Quest (1)": rule_data_list[40],
-    "Wildlands - The Hunter's Challenge Quest (2)": rule_data_list[40],
-    "Wildlands - The Hunter's Challenge Quest (3)": rule_data_list[40],
-    "Wildlands - A Final Cure Quest (1)": rule_data_list[41],
-    "Wildlands - A Final Cure Quest (2)": rule_data_list[41],
-    "Wildlands - A Final Cure Quest (3)": rule_data_list[41],
+    "Wildlands - Sarala Vegatable Seeds": rule_data_list[38],
+    "Wildlands - A Father's Request Quest (1)": rule_data_list[38],
+    "Wildlands - A Father's Request Quest (2)": rule_data_list[38],
+    "Wildlands - The Hunter's Challenge Quest (1)": rule_data_list[39],
+    "Wildlands - The Hunter's Challenge Quest (2)": rule_data_list[39],
+    "Wildlands - The Hunter's Challenge Quest (3)": rule_data_list[39],
+    "Wildlands - A Final Cure Quest (1)": rule_data_list[40],
+    "Wildlands - A Final Cure Quest (2)": rule_data_list[40],
+    "Wildlands - A Final Cure Quest (3)": rule_data_list[40],
     "Wildlands - Fuzzy Search Quest (1)": rule_data_list[0],
     "Wildlands - Fuzzy Search Quest (2)": rule_data_list[0],
     "Wildlands - Fuzzy Search Quest (3)": rule_data_list[0],
-    "Wildlands - Round 'em Up Quest (1)": rule_data_list[42],
-    "Wildlands - Round 'em Up Quest (2)": rule_data_list[42],
-    "Wildlands - Chocobo Cheer Quest (1)": rule_data_list[43],
-    "Wildlands - Chocobo Cheer Quest (2)": rule_data_list[43],
-    "Wildlands - Chocobo Cheer Quest (3)": rule_data_list[43],
+    "Wildlands - Round 'em Up Quest (1)": rule_data_list[41],
+    "Wildlands - Round 'em Up Quest (2)": rule_data_list[41],
+    "Wildlands - Chocobo Cheer Quest (1)": rule_data_list[42],
+    "Wildlands - Chocobo Cheer Quest (2)": rule_data_list[42],
+    "Wildlands - Chocobo Cheer Quest (3)": rule_data_list[42],
     "Wildlands - Peace and Quiet, Kupo Quest (1)": rule_data_list[0],
     "Wildlands - Peace and Quiet, Kupo Quest (2)": rule_data_list[0],
     "Wildlands - Peace and Quiet, Kupo Quest (3)": rule_data_list[0],
     "Wildlands - Peace and Quiet, Kupo Quest (4)": rule_data_list[0],
-    "Wildlands - Saving an Angel Quest (1)": rule_data_list[39],
-    "Wildlands - Saving an Angel Quest (2)": rule_data_list[39],
-    "Wildlands - Saving an Angel Quest (3)": rule_data_list[39],
-    "Wildlands - Omega Point Quest (1)": rule_data_list[44],
-    "Wildlands - Omega Point Quest (2)": rule_data_list[44],
-    "Wildlands - The Old Man and the Field Quest (1)": rule_data_list[45],
-    "Wildlands - The Old Man and the Field Quest (2)": rule_data_list[45],
-    "Wildlands - Land of our Forebears Quest (1)": rule_data_list[46],
-    "Wildlands - Land of our Forebears Quest (2)": rule_data_list[46],
-    "Wildlands - A Taste of the Past Quest (1)": rule_data_list[47],
-    "Wildlands - A Taste of the Past Quest (2)": rule_data_list[47],
-    "Wildlands - A Taste of the Past Quest (3)": rule_data_list[47],
-    "Wildlands - Dog, Doctor and Assistant Quest (1)": rule_data_list[48],
-    "Wildlands - Dog, Doctor and Assistant Quest (2)": rule_data_list[48],
-    "Wildlands - Main Quest 5 (1)": rule_data_list[49],
-    "Wildlands - Main Quest 5 (2)": rule_data_list[49],
-    "Wildlands - Main Quest 5 (3)": rule_data_list[49],
-    "Wildlands - Main Quest 5 (4)": rule_data_list[49],
-    "Wildlands - Main Quest 5 (5)": rule_data_list[49],
-    "Wildlands - The Right Stuff Quest (1)": rule_data_list[50],
-    "Wildlands - The Right Stuff Quest (2)": rule_data_list[50],
-    "Wildlands - The Secret Lives of Sheep Quest (1)": rule_data_list[51],
-    "Wildlands - The Secret Lives of Sheep Quest (2)": rule_data_list[51],
-    "Wildlands - Where Are You, Moogle? Quest (1)": rule_data_list[52],
-    "Wildlands - Where Are You, Moogle? Quest (2)": rule_data_list[52],
-    "Wildlands - Where Are You, Moogle? Quest (3)": rule_data_list[52],
-    "Wildlands - Mercy of a Goddess Quest (1)": rule_data_list[53],
-    "Wildlands - Mercy of a Goddess Quest (2)": rule_data_list[53],
-    "Wildlands - The Grail of Valhalla Quest (1)": rule_data_list[54],
-    "Wildlands - The Grail of Valhalla Quest (2)": rule_data_list[54],
-    "Wildlands - The Grail of Valhalla Quest (3)": rule_data_list[54],
-    "Wildlands - To Live in Chaos Quest (1)": rule_data_list[55],
-    "Wildlands - To Live in Chaos Quest (2)": rule_data_list[55],
-    "Wildlands - To Live in Chaos Quest (3)": rule_data_list[55],
-    "Wildlands - Killing Time Quest (1)": rule_data_list[37],
-    "Wildlands - Killing Time Quest (2)": rule_data_list[37],
-    "Wildlands - Matchmaker Quest (1)": rule_data_list[56],
-    "Wildlands - Matchmaker Quest (2)": rule_data_list[56],
-    "Wildlands - Mother and Daughter Quest (1)": rule_data_list[57],
-    "Wildlands - Mother and Daughter Quest (2)": rule_data_list[57],
-    "Wildlands - The Secret Lives of Sheep Mystery Egg": rule_data_list[51],
-    "Wildlands - Goddess Temple Goddess Glyphs": rule_data_list[37],
-    "Wildlands - Goddess Temple Chaos Glyphs": rule_data_list[37],
-    "Wildlands - Poltae Plate Metal Fragment": rule_data_list[58],
-    "Wildlands - Poltae Silvered Metal Fragment": rule_data_list[58],
-    "Wildlands - Poltae Gold Metal Fragment": rule_data_list[58],
-    "Wildlands - Research Camp Data Recorder": rule_data_list[37],
-    "Wildlands - Aryas Village Apple (1)": rule_data_list[37],
-    "Wildlands - Aryas Village Apple (2)": rule_data_list[37],
-    "Wildlands - Aryas Village Apple (3)": rule_data_list[37],
-    "Wildlands - Wildlands Boss Drop": rule_data_list[37],
-    "Wildlands - Wildlands Boss Reward (1)": rule_data_list[37],
-    "Wildlands - Wildlands Boss Reward (2)": rule_data_list[37],
+    "Wildlands - Saving an Angel Quest (1)": rule_data_list[38],
+    "Wildlands - Saving an Angel Quest (2)": rule_data_list[38],
+    "Wildlands - Saving an Angel Quest (3)": rule_data_list[38],
+    "Wildlands - Omega Point Quest (1)": rule_data_list[43],
+    "Wildlands - Omega Point Quest (2)": rule_data_list[43],
+    "Wildlands - The Old Man and the Field Quest (1)": rule_data_list[44],
+    "Wildlands - The Old Man and the Field Quest (2)": rule_data_list[44],
+    "Wildlands - Land of our Forebears Quest (1)": rule_data_list[45],
+    "Wildlands - Land of our Forebears Quest (2)": rule_data_list[45],
+    "Wildlands - A Taste of the Past Quest (1)": rule_data_list[46],
+    "Wildlands - A Taste of the Past Quest (2)": rule_data_list[46],
+    "Wildlands - A Taste of the Past Quest (3)": rule_data_list[46],
+    "Wildlands - Dog, Doctor and Assistant Quest (1)": rule_data_list[47],
+    "Wildlands - Dog, Doctor and Assistant Quest (2)": rule_data_list[47],
+    "Wildlands - Main Quest 5 (1)": rule_data_list[48],
+    "Wildlands - Main Quest 5 (2)": rule_data_list[48],
+    "Wildlands - Main Quest 5 (3)": rule_data_list[48],
+    "Wildlands - Main Quest 5 (4)": rule_data_list[48],
+    "Wildlands - Main Quest 5 (5)": rule_data_list[48],
+    "Wildlands - The Right Stuff Quest (1)": rule_data_list[49],
+    "Wildlands - The Right Stuff Quest (2)": rule_data_list[49],
+    "Wildlands - The Secret Lives of Sheep Quest (1)": rule_data_list[50],
+    "Wildlands - The Secret Lives of Sheep Quest (2)": rule_data_list[50],
+    "Wildlands - Where Are You, Moogle? Quest (1)": rule_data_list[51],
+    "Wildlands - Where Are You, Moogle? Quest (2)": rule_data_list[51],
+    "Wildlands - Where Are You, Moogle? Quest (3)": rule_data_list[51],
+    "Wildlands - Mercy of a Goddess Quest (1)": rule_data_list[52],
+    "Wildlands - Mercy of a Goddess Quest (2)": rule_data_list[52],
+    "Wildlands - The Grail of Valhalla Quest (1)": rule_data_list[53],
+    "Wildlands - The Grail of Valhalla Quest (2)": rule_data_list[53],
+    "Wildlands - The Grail of Valhalla Quest (3)": rule_data_list[53],
+    "Wildlands - To Live in Chaos Quest (1)": rule_data_list[54],
+    "Wildlands - To Live in Chaos Quest (2)": rule_data_list[54],
+    "Wildlands - To Live in Chaos Quest (3)": rule_data_list[54],
+    "Wildlands - Killing Time Quest (1)": rule_data_list[36],
+    "Wildlands - Killing Time Quest (2)": rule_data_list[36],
+    "Wildlands - Matchmaker Quest (1)": rule_data_list[55],
+    "Wildlands - Matchmaker Quest (2)": rule_data_list[55],
+    "Wildlands - Mother and Daughter Quest (1)": rule_data_list[56],
+    "Wildlands - Mother and Daughter Quest (2)": rule_data_list[56],
+    "Wildlands - The Secret Lives of Sheep Mystery Egg": rule_data_list[50],
+    "Wildlands - Goddess Temple Goddess Glyphs": rule_data_list[36],
+    "Wildlands - Goddess Temple Chaos Glyphs": rule_data_list[36],
+    "Wildlands - Poltae Plate Metal Fragment": rule_data_list[57],
+    "Wildlands - Poltae Silvered Metal Fragment": rule_data_list[57],
+    "Wildlands - Poltae Gold Metal Fragment": rule_data_list[57],
+    "Wildlands - Research Camp Data Recorder": rule_data_list[36],
+    "Wildlands - Aryas Village Apple (1)": rule_data_list[36],
+    "Wildlands - Aryas Village Apple (2)": rule_data_list[36],
+    "Wildlands - Aryas Village Apple (3)": rule_data_list[36],
+    "Wildlands - Wildlands Boss Drop": rule_data_list[36],
+    "Wildlands - Wildlands Boss Reward (1)": rule_data_list[36],
+    "Wildlands - Wildlands Boss Reward (2)": rule_data_list[36],
     "Yusnaan - Reveler's Quarter Lapis Lazuli Treasure": rule_data_list[0],
-    "Yusnaan - Industrial Area Power Booster": rule_data_list[59],
+    "Yusnaan - Industrial Area Power Booster": rule_data_list[58],
     "Yusnaan - Tunnel Oath of the Merchants Guild Treasure": rule_data_list[0],
-    "Yusnaan - Industrial Area Jade Hair Comb": rule_data_list[59],
-    "Yusnaan - Industrial Area Bronze Pocket Watch": rule_data_list[59],
+    "Yusnaan - Industrial Area Jade Hair Comb": rule_data_list[58],
+    "Yusnaan - Industrial Area Bronze Pocket Watch": rule_data_list[58],
     "Yusnaan - Chocobo Girl Poster": rule_data_list[0],
     "Yusnaan - Glutton's Quarter Treasure (1)": rule_data_list[0],
     "Yusnaan - Aromatic Market Treasure": rule_data_list[0],
     "Yusnaan - Central Ave Treasure": rule_data_list[0],
     "Yusnaan - Coliseum Square Treasure": rule_data_list[0],
     "Yusnaan - Tour Guide Sneaking-In Special Ticket": rule_data_list[0],
-    "Yusnaan - Warehouse District Id Card": rule_data_list[60],
-    "Yusnaan - Coliseum Square (Musical) Treasure": rule_data_list[61],
-    "Yusnaan - Cactuar Statue (Musical) Treasure": rule_data_list[61],
-    "Yusnaan - Station (Musical) Treasure": rule_data_list[61],
+    "Yusnaan - Warehouse District Id Card": rule_data_list[59],
+    "Yusnaan - Coliseum Square (Musical) Treasure": rule_data_list[60],
+    "Yusnaan - Cactuar Statue (Musical) Treasure": rule_data_list[60],
+    "Yusnaan - Station (Musical) Treasure": rule_data_list[60],
     "Yusnaan - Cactuar Statue Treasure": rule_data_list[0],
     "Yusnaan - Reveler's Quarter Treasure (1)": rule_data_list[0],
-    "Yusnaan - Augur's Quarter Treasure (1)": rule_data_list[59],
-    "Yusnaan - Patron's Palace Treasure (1)": rule_data_list[62],
+    "Yusnaan - Augur's Quarter Treasure (1)": rule_data_list[58],
+    "Yusnaan - Patron's Palace Treasure (1)": rule_data_list[61],
     "Yusnaan - Hawker's Row Treasure": rule_data_list[0],
-    "Yusnaan - Augur's Quarter Treasure (2)": rule_data_list[59],
-    "Yusnaan - Warehouse District Treasure": rule_data_list[60],
-    "Yusnaan - Augur's Quarter Treasure (3)": rule_data_list[59],
-    "Yusnaan - Supply Line Treasure": rule_data_list[60],
-    "Yusnaan - Industrial Area Treasure": rule_data_list[60],
+    "Yusnaan - Augur's Quarter Treasure (2)": rule_data_list[58],
+    "Yusnaan - Warehouse District Treasure": rule_data_list[59],
+    "Yusnaan - Augur's Quarter Treasure (3)": rule_data_list[58],
+    "Yusnaan - Supply Line Treasure": rule_data_list[59],
+    "Yusnaan - Industrial Area Treasure": rule_data_list[59],
     "Yusnaan - Lower City Treasure": rule_data_list[0],
-    "Yusnaan - Glutton's Quarter Treasure (2)": rule_data_list[63],
+    "Yusnaan - Glutton's Quarter Treasure (2)": rule_data_list[1],
     "Yusnaan - Reveler's Quarter Treasure (2)": rule_data_list[0],
-    "Yusnaan - Patron's Palace Treasure (2)": rule_data_list[62],
-    "Yusnaan - Patron's Palace Treasure (3)": rule_data_list[62],
-    "Yusnaan - Patron's Palace Treasure (4)": rule_data_list[62],
-    "Yusnaan - Patron's Palace Treasure (5)": rule_data_list[62],
-    "Yusnaan - Slaughterhouse Special Fragment of Courage": rule_data_list[64],
+    "Yusnaan - Patron's Palace Treasure (2)": rule_data_list[61],
+    "Yusnaan - Patron's Palace Treasure (3)": rule_data_list[61],
+    "Yusnaan - Patron's Palace Treasure (4)": rule_data_list[61],
+    "Yusnaan - Patron's Palace Treasure (5)": rule_data_list[61],
+    "Yusnaan - Slaughterhouse Special Fragment of Courage": rule_data_list[62],
     "Yusnaan - Slaughterhouse (1)": rule_data_list[0],
     "Yusnaan - Slaughterhouse (2)": rule_data_list[0],
     "Yusnaan - Slaughterhouse (3)": rule_data_list[0],
@@ -1594,62 +1592,62 @@ location_rule_data_table: Dict[str, Rule[Any]] = {
     "Yusnaan - Slaughterhouse (8)": rule_data_list[0],
     "Yusnaan - Slaughterhouse (9)": rule_data_list[0],
     "Yusnaan - Slaughterhouse (10)": rule_data_list[0],
-    "Yusnaan - The Fighting Actress Slaughterhouse (1)": rule_data_list[59],
-    "Yusnaan - The Fighting Actress Slaughterhouse (2)": rule_data_list[59],
-    "Yusnaan - The Fighting Actress Slaughterhouse (3)": rule_data_list[59],
-    "Yusnaan - The Fighting Actress Slaughterhouse (4)": rule_data_list[59],
-    "Yusnaan - Tanbam's Taboo Slaughterhouse": rule_data_list[65],
+    "Yusnaan - The Fighting Actress Slaughterhouse (1)": rule_data_list[58],
+    "Yusnaan - The Fighting Actress Slaughterhouse (2)": rule_data_list[58],
+    "Yusnaan - The Fighting Actress Slaughterhouse (3)": rule_data_list[58],
+    "Yusnaan - The Fighting Actress Slaughterhouse (4)": rule_data_list[58],
+    "Yusnaan - Tanbam's Taboo Slaughterhouse": rule_data_list[63],
     "Yusnaan - Chocobo Girl Miqo'te Dress": rule_data_list[0],
-    "Yusnaan - Director Femme Fetale": rule_data_list[66],
-    "Yusnaan - Fireworks in a Bottle Quest (1)": rule_data_list[59],
-    "Yusnaan - Fireworks in a Bottle Quest (2)": rule_data_list[59],
-    "Yusnaan - The Fighting Actress Quest (1)": rule_data_list[59],
-    "Yusnaan - The Fighting Actress Quest (2)": rule_data_list[59],
-    "Yusnaan - The Fighting Actress Quest (3)": rule_data_list[59],
-    "Yusnaan - Songless Diva Quest (1)": rule_data_list[67],
-    "Yusnaan - Songless Diva Quest (2)": rule_data_list[67],
-    "Yusnaan - Stolen Things Quest (1)": rule_data_list[68],
-    "Yusnaan - Stolen Things Quest (2)": rule_data_list[68],
-    "Yusnaan - Fireworks for a Steal Quest (1)": rule_data_list[59],
-    "Yusnaan - Fireworks for a Steal Quest (2)": rule_data_list[59],
-    "Yusnaan - A Testing Proposition Quest (1)": rule_data_list[69],
-    "Yusnaan - A Testing Proposition Quest (2)": rule_data_list[69],
-    "Yusnaan - Last Date Quest (1)": rule_data_list[65],
-    "Yusnaan - Last Date Quest (2)": rule_data_list[65],
-    "Yusnaan - Free Will Quest (1)": rule_data_list[70],
-    "Yusnaan - Free Will Quest (2)": rule_data_list[70],
-    "Yusnaan - Free Will Quest (3)": rule_data_list[70],
-    "Yusnaan - Friends Forever Quest (1)": rule_data_list[65],
-    "Yusnaan - Friends Forever Quest (2)": rule_data_list[65],
-    "Yusnaan - Friends Forever Quest (3)": rule_data_list[65],
-    "Yusnaan - Family Food Quest (1)": rule_data_list[71],
-    "Yusnaan - Family Food Quest (2)": rule_data_list[71],
-    "Yusnaan - Tanbam's Taboo Quest (1)": rule_data_list[65],
-    "Yusnaan - Tanbam's Taboo Quest (2)": rule_data_list[65],
-    "Yusnaan - Play It for Me Quest (1)": rule_data_list[72],
-    "Yusnaan - Play It for Me Quest (2)": rule_data_list[72],
-    "Yusnaan - Adoring Adornments Quest (1)": rule_data_list[73],
-    "Yusnaan - Adoring Adornments Quest (2)": rule_data_list[73],
-    "Yusnaan - Adoring Candice Quest (1)": rule_data_list[74],
-    "Yusnaan - Adoring Candice Quest (2)": rule_data_list[74],
-    "Yusnaan - Adoring Candice Quest (3)": rule_data_list[74],
-    "Yusnaan - Death Safari Quest (1)": rule_data_list[59],
-    "Yusnaan - Death Safari Quest (2)": rule_data_list[59],
-    "Yusnaan - Death Safari Quest (3)": rule_data_list[59],
-    "Yusnaan - Death Safari Quest (4)": rule_data_list[59],
-    "Yusnaan - Death Safari Quest (5)": rule_data_list[59],
-    "Yusnaan - Death Game Quest (1)": rule_data_list[75],
-    "Yusnaan - Death Game Quest (2)": rule_data_list[75],
-    "Yusnaan - Death Game Quest (3)": rule_data_list[75],
+    "Yusnaan - Director Femme Fetale": rule_data_list[64],
+    "Yusnaan - Fireworks in a Bottle Quest (1)": rule_data_list[58],
+    "Yusnaan - Fireworks in a Bottle Quest (2)": rule_data_list[58],
+    "Yusnaan - The Fighting Actress Quest (1)": rule_data_list[58],
+    "Yusnaan - The Fighting Actress Quest (2)": rule_data_list[58],
+    "Yusnaan - The Fighting Actress Quest (3)": rule_data_list[58],
+    "Yusnaan - Songless Diva Quest (1)": rule_data_list[65],
+    "Yusnaan - Songless Diva Quest (2)": rule_data_list[65],
+    "Yusnaan - Stolen Things Quest (1)": rule_data_list[66],
+    "Yusnaan - Stolen Things Quest (2)": rule_data_list[66],
+    "Yusnaan - Fireworks for a Steal Quest (1)": rule_data_list[58],
+    "Yusnaan - Fireworks for a Steal Quest (2)": rule_data_list[58],
+    "Yusnaan - A Testing Proposition Quest (1)": rule_data_list[67],
+    "Yusnaan - A Testing Proposition Quest (2)": rule_data_list[67],
+    "Yusnaan - Last Date Quest (1)": rule_data_list[63],
+    "Yusnaan - Last Date Quest (2)": rule_data_list[63],
+    "Yusnaan - Free Will Quest (1)": rule_data_list[68],
+    "Yusnaan - Free Will Quest (2)": rule_data_list[68],
+    "Yusnaan - Free Will Quest (3)": rule_data_list[68],
+    "Yusnaan - Friends Forever Quest (1)": rule_data_list[63],
+    "Yusnaan - Friends Forever Quest (2)": rule_data_list[63],
+    "Yusnaan - Friends Forever Quest (3)": rule_data_list[63],
+    "Yusnaan - Family Food Quest (1)": rule_data_list[69],
+    "Yusnaan - Family Food Quest (2)": rule_data_list[69],
+    "Yusnaan - Tanbam's Taboo Quest (1)": rule_data_list[63],
+    "Yusnaan - Tanbam's Taboo Quest (2)": rule_data_list[63],
+    "Yusnaan - Play It for Me Quest (1)": rule_data_list[70],
+    "Yusnaan - Play It for Me Quest (2)": rule_data_list[70],
+    "Yusnaan - Adoring Adornments Quest (1)": rule_data_list[71],
+    "Yusnaan - Adoring Adornments Quest (2)": rule_data_list[71],
+    "Yusnaan - Adoring Candice Quest (1)": rule_data_list[72],
+    "Yusnaan - Adoring Candice Quest (2)": rule_data_list[72],
+    "Yusnaan - Adoring Candice Quest (3)": rule_data_list[72],
+    "Yusnaan - Death Safari Quest (1)": rule_data_list[58],
+    "Yusnaan - Death Safari Quest (2)": rule_data_list[58],
+    "Yusnaan - Death Safari Quest (3)": rule_data_list[58],
+    "Yusnaan - Death Safari Quest (4)": rule_data_list[58],
+    "Yusnaan - Death Safari Quest (5)": rule_data_list[58],
+    "Yusnaan - Death Game Quest (1)": rule_data_list[73],
+    "Yusnaan - Death Game Quest (2)": rule_data_list[73],
+    "Yusnaan - Death Game Quest (3)": rule_data_list[73],
     "Yusnaan - Morris Musical Treasure Sphere Key": rule_data_list[0],
-    "Yusnaan - Patron's Palace Serah's Pendant": rule_data_list[62],
-    "Yusnaan - Gordon Gourmet's Recipe": rule_data_list[76],
-    "Yusnaan - Seedy Steak a la Civet": rule_data_list[77],
+    "Yusnaan - Patron's Palace Serah's Pendant": rule_data_list[61],
+    "Yusnaan - Gordon Gourmet's Recipe": rule_data_list[74],
+    "Yusnaan - Seedy Steak a la Civet": rule_data_list[75],
     "Yusnaan - Gregory Father's Letter": rule_data_list[0],
-    "Yusnaan - Tanbam's Taboo Libra Notes": rule_data_list[65],
-    "Yusnaan - Yusnaan Boss Drop": rule_data_list[62],
-    "Yusnaan - Yusnaan Boss Reward (1)": rule_data_list[62],
-    "Yusnaan - Yusnaan Boss Reward (2)": rule_data_list[62],
+    "Yusnaan - Tanbam's Taboo Libra Notes": rule_data_list[63],
+    "Yusnaan - Yusnaan Boss Drop": rule_data_list[61],
+    "Yusnaan - Yusnaan Boss Reward (1)": rule_data_list[61],
+    "Yusnaan - Yusnaan Boss Reward (2)": rule_data_list[61],
     "Ark - Initial 3rd Garb (1)": rule_data_list[0],
     "Ark - Initial 3rd Garb (2)": rule_data_list[0],
     "Ark - Initial 3rd Garb (3)": rule_data_list[0],
@@ -1661,461 +1659,461 @@ location_rule_data_table: Dict[str, Rule[Any]] = {
     "Ark - Ark Day 1 (6)": rule_data_list[0],
     "Ark - Ark Day 1 (7)": rule_data_list[0],
     "Ark - Ark Day 1 (8)": rule_data_list[0],
-    "Ark - Ark Day 2 (1)": rule_data_list[78],
-    "Ark - Ark Day 2 (2)": rule_data_list[78],
-    "Ark - Ark Day 2 (3)": rule_data_list[78],
-    "Ark - Ark Day 3 (1)": rule_data_list[20],
-    "Ark - Ark Day 4 (1)": rule_data_list[79],
-    "Ark - Ark Day 4 (2)": rule_data_list[79],
-    "Ark - Ark Day 5 (1)": rule_data_list[80],
-    "Ark - Ark Day 6 (1)": rule_data_list[81],
-    "Ark - Ark Day 7": rule_data_list[82],
-    "Ark - Ark Day 8": rule_data_list[83],
-    "Ark - Ark Day 9": rule_data_list[84],
-    "Ark - Ark Day 10": rule_data_list[85],
-    "Ark - Ark Day 11": rule_data_list[86],
-    "Ark - Ark Day 12": rule_data_list[87],
-    "Ark - Ark Final Day (1)": rule_data_list[87],
-    "Ark - Ark Final Day (2)": rule_data_list[87],
-    "Ark - Ark Final Day (3)": rule_data_list[87],
-    "Ark - Ark Extra Day": rule_data_list[88],
+    "Ark - Ark Day 2 (1)": rule_data_list[76],
+    "Ark - Ark Day 2 (2)": rule_data_list[76],
+    "Ark - Ark Day 2 (3)": rule_data_list[76],
+    "Ark - Ark Day 3 (1)": rule_data_list[19],
+    "Ark - Ark Day 4 (1)": rule_data_list[77],
+    "Ark - Ark Day 4 (2)": rule_data_list[77],
+    "Ark - Ark Day 5 (1)": rule_data_list[78],
+    "Ark - Ark Day 6 (1)": rule_data_list[79],
+    "Ark - Ark Day 7": rule_data_list[80],
+    "Ark - Ark Day 8": rule_data_list[81],
+    "Ark - Ark Day 9": rule_data_list[82],
+    "Ark - Ark Day 10": rule_data_list[83],
+    "Ark - Ark Day 11": rule_data_list[84],
+    "Ark - Ark Day 12": rule_data_list[85],
+    "Ark - Ark Final Day (1)": rule_data_list[85],
+    "Ark - Ark Final Day (2)": rule_data_list[85],
+    "Ark - Ark Final Day (3)": rule_data_list[85],
+    "Ark - Ark Extra Day": rule_data_list[86],
     "Ark - Replace Curaga": rule_data_list[0],
-    "Ark - Replace Teleport": rule_data_list[89],
+    "Ark - Replace Teleport": rule_data_list[87],
     "Ark - Replace Escape": rule_data_list[0],
-    "CoP Dead Dunes - Flower in the Sands CoP Quest (1)": rule_data_list[90],
-    "CoP Dead Dunes - Flower in the Sands CoP Quest (2)": rule_data_list[90],
-    "CoP Dead Dunes - Biologically Speaking CoP Quest (1)": rule_data_list[91],
-    "CoP Dead Dunes - Biologically Speaking CoP Quest (2)": rule_data_list[91],
-    "CoP Dead Dunes - The Real Client CoP Quest (1)": rule_data_list[92],
-    "CoP Dead Dunes - The Real Client CoP Quest (2)": rule_data_list[92],
-    "CoP Dead Dunes - The Real Client CoP Quest (3)": rule_data_list[92],
-    "CoP Dead Dunes - For My Child CoP Quest (1)": rule_data_list[93],
-    "CoP Dead Dunes - For My Child CoP Quest (2)": rule_data_list[93],
-    "CoP Dead Dunes - For My Child CoP Quest (3)": rule_data_list[93],
-    "CoP Dead Dunes - Bandits' New Weapon CoP Quest (1)": rule_data_list[94],
-    "CoP Dead Dunes - Bandits' New Weapon CoP Quest (2)": rule_data_list[94],
-    "CoP Dead Dunes - Bandits' New Weapon CoP Quest (3)": rule_data_list[94],
-    "CoP Dead Dunes - Banned Goods CoP Quest (1)": rule_data_list[95],
-    "CoP Dead Dunes - Banned Goods CoP Quest (2)": rule_data_list[95],
-    "CoP Dead Dunes - Banned Goods CoP Quest (3)": rule_data_list[95],
-    "CoP Dead Dunes - Climbing The Ranks I CoP Quest (1)": rule_data_list[96],
-    "CoP Dead Dunes - Climbing The Ranks I CoP Quest (2)": rule_data_list[96],
-    "CoP Dead Dunes - Miracle Vintage CoP Quest (1)": rule_data_list[97],
-    "CoP Dead Dunes - Miracle Vintage CoP Quest (2)": rule_data_list[97],
-    "CoP Dead Dunes - Miracle Vintage CoP Quest (3)": rule_data_list[97],
-    "CoP Dead Dunes - Climbing The Ranks II CoP Quest (1)": rule_data_list[98],
-    "CoP Dead Dunes - Climbing The Ranks II CoP Quest (2)": rule_data_list[98],
-    "CoP Dead Dunes - Heightened Security CoP Quest (1)": rule_data_list[99],
-    "CoP Dead Dunes - Heightened Security CoP Quest (2)": rule_data_list[99],
-    "CoP Dead Dunes - Heightened Security CoP Quest (3)": rule_data_list[99],
-    "CoP Dead Dunes - Desert Cleanup CoP Quest (1)": rule_data_list[100],
-    "CoP Dead Dunes - Desert Cleanup CoP Quest (2)": rule_data_list[100],
-    "CoP Dead Dunes - Desert Cleanup CoP Quest (3)": rule_data_list[100],
-    "CoP Dead Dunes - A Treasure for a God CoP Quest (1)": rule_data_list[101],
-    "CoP Dead Dunes - A Treasure for a God CoP Quest (2)": rule_data_list[101],
-    "CoP Dead Dunes - Lucky Charm CoP Quest (1)": rule_data_list[102],
-    "CoP Dead Dunes - Lucky Charm CoP Quest (2)": rule_data_list[102],
-    "CoP Dead Dunes - Supply and Demand CoP Quest (1)": rule_data_list[103],
-    "CoP Dead Dunes - Supply and Demand CoP Quest (2)": rule_data_list[103],
-    "CoP Dead Dunes - Supply and Demand CoP Quest (3)": rule_data_list[103],
-    "CoP Dead Dunes - A New Application CoP Quest (1)": rule_data_list[104],
-    "CoP Dead Dunes - A New Application CoP Quest (2)": rule_data_list[104],
-    "CoP Dead Dunes - A New Application CoP Quest (3)": rule_data_list[104],
-    "CoP Dead Dunes - Pride And Greed I CoP Quest (1)": rule_data_list[79],
-    "CoP Dead Dunes - Pride And Greed I CoP Quest (2)": rule_data_list[79],
-    "CoP Dead Dunes - Pride And Greed I CoP Quest (3)": rule_data_list[79],
-    "CoP Dead Dunes - Pride And Greed II CoP Quest (1)": rule_data_list[105],
-    "CoP Dead Dunes - Pride And Greed II CoP Quest (2)": rule_data_list[105],
-    "CoP Dead Dunes - Pride And Greed II CoP Quest (3)": rule_data_list[105],
-    "CoP Dead Dunes - Pride And Greed III CoP Quest (1)": rule_data_list[106],
-    "CoP Dead Dunes - Pride And Greed III CoP Quest (2)": rule_data_list[106],
-    "CoP Dead Dunes - Pride And Greed III CoP Quest (3)": rule_data_list[106],
-    "CoP Luxerion - Revenge Is Sweet CoP Quest (1)": rule_data_list[107],
-    "CoP Luxerion - Revenge Is Sweet CoP Quest (2)": rule_data_list[107],
-    "CoP Luxerion - Gift of Gratitude CoP Quest (1)": rule_data_list[108],
-    "CoP Luxerion - Gift of Gratitude CoP Quest (2)": rule_data_list[108],
-    "CoP Luxerion - Gift of Gratitude CoP Quest (3)": rule_data_list[108],
-    "CoP Luxerion - A Song for God CoP Quest (1)": rule_data_list[109],
-    "CoP Luxerion - A Song for God CoP Quest (2)": rule_data_list[109],
-    "CoP Luxerion - A Song for God CoP Quest (3)": rule_data_list[109],
-    "CoP Luxerion - Slay the Machine CoP Quest (1)": rule_data_list[110],
-    "CoP Luxerion - Slay the Machine CoP Quest (2)": rule_data_list[110],
-    "CoP Luxerion - Enchanted Brush CoP Quest (1)": rule_data_list[111],
-    "CoP Luxerion - Enchanted Brush CoP Quest (2)": rule_data_list[111],
-    "CoP Luxerion - Enchanted Brush CoP Quest (3)": rule_data_list[111],
-    "CoP Luxerion - Heretics' Beasts CoP Quest (1)": rule_data_list[112],
-    "CoP Luxerion - Heretics' Beasts CoP Quest (2)": rule_data_list[112],
-    "CoP Luxerion - Heretics' Beasts CoP Quest (3)": rule_data_list[112],
-    "CoP Luxerion - Grave of a Bounty Hunter CoP Quest (1)": rule_data_list[113],
-    "CoP Luxerion - Grave of a Bounty Hunter CoP Quest (2)": rule_data_list[113],
-    "CoP Luxerion - Grave of a Bounty Hunter CoP Quest (3)": rule_data_list[113],
-    "CoP Luxerion - Inventive Seamstress CoP Quest (1)": rule_data_list[114],
-    "CoP Luxerion - Inventive Seamstress CoP Quest (2)": rule_data_list[114],
-    "CoP Luxerion - Puppeteer's Lament CoP Quest (1)": rule_data_list[115],
-    "CoP Luxerion - Puppeteer's Lament CoP Quest (2)": rule_data_list[115],
-    "CoP Luxerion - Puppeteer's Lament CoP Quest (3)": rule_data_list[115],
-    "CoP Luxerion - Revenge Has Teeth CoP Quest (1)": rule_data_list[116],
-    "CoP Luxerion - Revenge Has Teeth CoP Quest (2)": rule_data_list[116],
-    "CoP Luxerion - Night Patrol CoP Quest (1)": rule_data_list[117],
-    "CoP Luxerion - Night Patrol CoP Quest (2)": rule_data_list[117],
-    "CoP Luxerion - Night Patrol CoP Quest (3)": rule_data_list[117],
-    "CoP Luxerion - Trapped CoP Quest (1)": rule_data_list[118],
-    "CoP Luxerion - Trapped CoP Quest (2)": rule_data_list[118],
-    "CoP Luxerion - Trapped CoP Quest (3)": rule_data_list[118],
-    "CoP Luxerion - Trapped CoP Quest (4)": rule_data_list[118],
-    "CoP Luxerion - Mythical Badge CoP Quest (1)": rule_data_list[119],
-    "CoP Luxerion - Mythical Badge CoP Quest (2)": rule_data_list[119],
-    "CoP Luxerion - Mythical Badge CoP Quest (3)": rule_data_list[119],
-    "CoP Wildlands - Sun Flower CoP Quest (1)": rule_data_list[78],
-    "CoP Wildlands - Sun Flower CoP Quest (2)": rule_data_list[78],
-    "CoP Wildlands - Moon Flower CoP Quest (1)": rule_data_list[78],
-    "CoP Wildlands - Moon Flower CoP Quest (2)": rule_data_list[78],
-    "CoP Wildlands - Moon Flower CoP Quest (3)": rule_data_list[78],
-    "CoP Wildlands - Secret of the Chocoborel CoP Quest (1)": rule_data_list[79],
-    "CoP Wildlands - Secret of the Chocoborel CoP Quest (2)": rule_data_list[79],
-    "CoP Wildlands - Secret of the Chocoborel CoP Quest (3)": rule_data_list[79],
-    "CoP Wildlands - Wildlands In Danger! CoP Quest (1)": rule_data_list[120],
-    "CoP Wildlands - Wildlands In Danger! CoP Quest (2)": rule_data_list[120],
-    "CoP Wildlands - Wildlands In Danger! CoP Quest (3)": rule_data_list[120],
-    "CoP Wildlands - Hunting the Hunter CoP Quest (1)": rule_data_list[121],
-    "CoP Wildlands - Hunting the Hunter CoP Quest (2)": rule_data_list[121],
-    "CoP Wildlands - Hunting the Hunter CoP Quest (3)": rule_data_list[121],
-    "CoP Wildlands - Forget Me Not CoP Quest (1)": rule_data_list[122],
-    "CoP Wildlands - Forget Me Not CoP Quest (2)": rule_data_list[122],
-    "CoP Wildlands - Forget Me Not CoP Quest (3)": rule_data_list[122],
-    "CoP Wildlands - A Word of Thanks CoP Quest (1)": rule_data_list[123],
-    "CoP Wildlands - A Word of Thanks CoP Quest (2)": rule_data_list[123],
-    "CoP Wildlands - A Word of Thanks CoP Quest (3)": rule_data_list[123],
-    "CoP Wildlands - Fresh Fertilizer CoP Quest (1)": rule_data_list[124],
-    "CoP Wildlands - Fresh Fertilizer CoP Quest (2)": rule_data_list[124],
-    "CoP Wildlands - Fresh Fertilizer CoP Quest (3)": rule_data_list[124],
-    "CoP Wildlands - For the Future CoP Quest (1)": rule_data_list[125],
-    "CoP Wildlands - For the Future CoP Quest (2)": rule_data_list[125],
-    "CoP Wildlands - For the Future CoP Quest (3)": rule_data_list[125],
-    "CoP Wildlands - Dumpling Cook-Off CoP Quest (1)": rule_data_list[126],
-    "CoP Wildlands - Dumpling Cook-Off CoP Quest (2)": rule_data_list[126],
-    "CoP Wildlands - Dumpling Cook-Off CoP Quest (3)": rule_data_list[126],
-    "CoP Wildlands - Brain Over Brawn CoP Quest (1)": rule_data_list[127],
-    "CoP Wildlands - Brain Over Brawn CoP Quest (2)": rule_data_list[127],
-    "CoP Wildlands - Brain Over Brawn CoP Quest (3)": rule_data_list[127],
-    "CoP Wildlands - Hunter's Challenge CoP Quest (1)": rule_data_list[128],
-    "CoP Wildlands - Hunter's Challenge CoP Quest (2)": rule_data_list[128],
-    "CoP Wildlands - Hunter's Challenge CoP Quest (3)": rule_data_list[128],
-    "CoP Wildlands - A Secret Wish CoP Quest (1)": rule_data_list[129],
-    "CoP Wildlands - A Secret Wish CoP Quest (2)": rule_data_list[129],
-    "CoP Wildlands - A Secret Wish CoP Quest (3)": rule_data_list[129],
-    "CoP Wildlands - Moghan's Plea CoP Quest (1)": rule_data_list[130],
-    "CoP Wildlands - Moghan's Plea CoP Quest (2)": rule_data_list[130],
-    "CoP Wildlands - Moghan's Plea CoP Quest (3)": rule_data_list[130],
-    "CoP Wildlands - What's in a Brew? CoP Quest (1)": rule_data_list[131],
-    "CoP Wildlands - What's in a Brew? CoP Quest (2)": rule_data_list[131],
-    "CoP Wildlands - What's in a Brew? CoP Quest (3)": rule_data_list[131],
-    "CoP Wildlands - What's in a Brew? CoP Quest (4)": rule_data_list[131],
-    "CoP Wildlands - A Prayer to a Goddess CoP Quest (1)": rule_data_list[132],
-    "CoP Wildlands - A Prayer to a Goddess CoP Quest (2)": rule_data_list[132],
-    "CoP Wildlands - A Prayer to a Goddess CoP Quest (3)": rule_data_list[132],
-    "CoP Wildlands - Gatekeeper's Curiosity CoP Quest (1)": rule_data_list[133],
-    "CoP Wildlands - Gatekeeper's Curiosity CoP Quest (2)": rule_data_list[133],
-    "CoP Wildlands - Echoes of a Drum CoP Quest (1)": rule_data_list[134],
-    "CoP Wildlands - Echoes of a Drum CoP Quest (2)": rule_data_list[134],
-    "CoP Wildlands - Echoes of a Drum CoP Quest (3)": rule_data_list[134],
-    "CoP Wildlands - A Voice From Below CoP Quest (1)": rule_data_list[135],
-    "CoP Wildlands - A Voice From Below CoP Quest (2)": rule_data_list[135],
-    "CoP Wildlands - A Voice From Below CoP Quest (3)": rule_data_list[135],
-    "CoP Wildlands - Chocobo Chow CoP Quest (1)": rule_data_list[136],
-    "CoP Wildlands - Chocobo Chow CoP Quest (2)": rule_data_list[136],
-    "CoP Wildlands - Chocobo Chow CoP Quest (3)": rule_data_list[136],
-    "CoP Wildlands - Sylkis Secrets CoP Quest (1)": rule_data_list[137],
-    "CoP Wildlands - Sylkis Secrets CoP Quest (2)": rule_data_list[137],
-    "CoP Wildlands - Sylkis Secrets CoP Quest (3)": rule_data_list[137],
-    "CoP Wildlands - Digging Mole CoP Quest (1)": rule_data_list[138],
-    "CoP Wildlands - Digging Mole CoP Quest (2)": rule_data_list[138],
-    "CoP Wildlands - Digging Mole CoP Quest (3)": rule_data_list[138],
-    "CoP Wildlands - Two Together CoP Quest (1)": rule_data_list[139],
-    "CoP Wildlands - Two Together CoP Quest (2)": rule_data_list[139],
-    "CoP Wildlands - Two Together CoP Quest (3)": rule_data_list[139],
-    "CoP Wildlands - Emergency Treatment CoP Quest (1)": rule_data_list[48],
-    "CoP Wildlands - Emergency Treatment CoP Quest (2)": rule_data_list[48],
-    "CoP Wildlands - Emergency Treatment CoP Quest (3)": rule_data_list[48],
-    "CoP Wildlands - Moogle Gourmand CoP Quest (1)": rule_data_list[140],
-    "CoP Wildlands - Moogle Gourmand CoP Quest (2)": rule_data_list[140],
-    "CoP Wildlands - Moogle Gourmand CoP Quest (3)": rule_data_list[140],
-    "CoP Yusnaan - Secret Machine CoP Quest (1)": rule_data_list[141],
-    "CoP Yusnaan - Secret Machine CoP Quest (2)": rule_data_list[141],
-    "CoP Yusnaan - Soulful Horn CoP Quest (1)": rule_data_list[142],
-    "CoP Yusnaan - Soulful Horn CoP Quest (2)": rule_data_list[142],
-    "CoP Yusnaan - Soulful Horn CoP Quest (3)": rule_data_list[142],
-    "CoP Yusnaan - A Dangerous Cocktail CoP Quest (1)": rule_data_list[143],
-    "CoP Yusnaan - A Dangerous Cocktail CoP Quest (2)": rule_data_list[143],
-    "CoP Yusnaan - Source of Inspiration CoP Quest (1)": rule_data_list[144],
-    "CoP Yusnaan - Source of Inspiration CoP Quest (2)": rule_data_list[144],
-    "CoP Yusnaan - Youth Potion CoP Quest (1)": rule_data_list[145],
-    "CoP Yusnaan - Youth Potion CoP Quest (2)": rule_data_list[145],
-    "CoP Yusnaan - Youth Potion CoP Quest (3)": rule_data_list[145],
-    "CoP Yusnaan - Beast Summoner CoP Quest (1)": rule_data_list[146],
-    "CoP Yusnaan - Beast Summoner CoP Quest (2)": rule_data_list[146],
-    "CoP Yusnaan - Beast Summoner CoP Quest (3)": rule_data_list[146],
-    "CoP Yusnaan - What Seekers Seek CoP Quest (1)": rule_data_list[147],
-    "CoP Yusnaan - What Seekers Seek CoP Quest (2)": rule_data_list[147],
-    "CoP Yusnaan - What Seekers Seek CoP Quest (3)": rule_data_list[147],
-    "CoP Yusnaan - True Colors CoP Quest (1)": rule_data_list[148],
-    "CoP Yusnaan - True Colors CoP Quest (2)": rule_data_list[148],
-    "CoP Yusnaan - True Colors CoP Quest (3)": rule_data_list[148],
-    "CoP Yusnaan - Ultimate Craving CoP Quest (1)": rule_data_list[149],
-    "CoP Yusnaan - Ultimate Craving CoP Quest (2)": rule_data_list[149],
-    "CoP Yusnaan - Ultimate Craving CoP Quest (3)": rule_data_list[149],
-    "CoP Yusnaan - Ultimate Craving CoP Quest (4)": rule_data_list[149],
-    "CoP Yusnaan - Spell for Spell CoP Quest (1)": rule_data_list[150],
-    "CoP Yusnaan - Spell for Spell CoP Quest (2)": rule_data_list[150],
-    "CoP Yusnaan - Spell for Spell CoP Quest (3)": rule_data_list[150],
-    "CoP Yusnaan - Unfired Firework CoP Quest (1)": rule_data_list[65],
-    "CoP Yusnaan - Unfired Firework CoP Quest (2)": rule_data_list[65],
-    "CoP Yusnaan - Unfired Firework CoP Quest (3)": rule_data_list[65],
-    "CoP Yusnaan - Time Doesn't Heal CoP Quest (1)": rule_data_list[151],
-    "CoP Yusnaan - Time Doesn't Heal CoP Quest (2)": rule_data_list[151],
-    "CoP Yusnaan - Time Doesn't Heal CoP Quest (3)": rule_data_list[151],
-    "CoP Yusnaan - A Man for a Chocobo Girl CoP Quest (1)": rule_data_list[152],
-    "CoP Yusnaan - A Man for a Chocobo Girl CoP Quest (2)": rule_data_list[152],
-    "CoP Yusnaan - A Man for a Chocobo Girl CoP Quest (3)": rule_data_list[152],
-    "CoP Yusnaan - Rebuilding CoP Quest (1)": rule_data_list[65],
-    "CoP Yusnaan - Rebuilding CoP Quest (2)": rule_data_list[65],
-    "CoP Global - Global: Key To Her Heart CoP Quest (1)": rule_data_list[153],
-    "CoP Global - Global: Key To Her Heart CoP Quest (2)": rule_data_list[153],
-    "CoP Global - Global: Key To Her Heart CoP Quest (3)": rule_data_list[153],
-    "CoP Global - Global: Roadworks I CoP Quest (1)": rule_data_list[154],
-    "CoP Global - Global: Roadworks I CoP Quest (2)": rule_data_list[154],
-    "CoP Global - Global: Roadworks I CoP Quest (3)": rule_data_list[154],
-    "CoP Global - Global: Roadworks II CoP Quest (1)": rule_data_list[155],
-    "CoP Global - Global: Roadworks II CoP Quest (2)": rule_data_list[155],
-    "CoP Global - Global: Roadworks II CoP Quest (3)": rule_data_list[155],
-    "CoP Global - Global: Roadworks III CoP Quest (1)": rule_data_list[156],
-    "CoP Global - Global: Roadworks III CoP Quest (2)": rule_data_list[156],
-    "CoP Global - Global: Roadworks III CoP Quest (3)": rule_data_list[156],
-    "CoP Global - Global: A Girl's Challenge CoP Quest (1)": rule_data_list[157],
-    "CoP Global - Global: A Girl's Challenge CoP Quest (2)": rule_data_list[157],
-    "CoP Global - Global: What's Left Behind CoP Quest (1)": rule_data_list[158],
-    "CoP Global - Global: What's Left Behind CoP Quest (2)": rule_data_list[158],
-    "CoP Global - Global: Seeing The Dawn CoP Quest (1)": rule_data_list[159],
-    "CoP Global - Global: Seeing The Dawn CoP Quest (2)": rule_data_list[159],
-    "CoP Global - Global: Staying Sharp CoP Quest (1)": rule_data_list[160],
-    "CoP Global - Global: Staying Sharp CoP Quest (2)": rule_data_list[160],
-    "CoP Global - Global: Where Moogles Be CoP Quest (1)": rule_data_list[161],
-    "CoP Global - Global: Where Moogles Be CoP Quest (2)": rule_data_list[161],
-    "CoP Global - Global: Fading Prayer CoP Quest (1)": rule_data_list[162],
-    "CoP Global - Global: Fading Prayer CoP Quest (2)": rule_data_list[162],
-    "CoP Global - Global: Forbidden Tome CoP Quest (1)": rule_data_list[163],
-    "CoP Global - Global: Forbidden Tome CoP Quest (2)": rule_data_list[163],
-    "CoP Global - Global: Shoot For The Sky CoP Quest (1)": rule_data_list[164],
-    "CoP Global - Global: Shoot For The Sky CoP Quest (2)": rule_data_list[164],
-    "CoP Global - Global: Shoot For The Sky CoP Quest (3)": rule_data_list[164],
-    "CoP Global - Global: Digging Mysteries CoP Quest (1)": rule_data_list[165],
-    "CoP Global - Global: Digging Mysteries CoP Quest (2)": rule_data_list[165],
-    "CoP Global - Global: Digging Mysteries CoP Quest (3)": rule_data_list[165],
-    "Soul Seeds - 10 Soul Seeds": rule_data_list[166],
-    "Soul Seeds - 20 Soul Seeds": rule_data_list[167],
-    "Soul Seeds - 30 Soul Seeds": rule_data_list[167],
-    "Soul Seeds - 40 Soul Seeds": rule_data_list[167],
-    "Soul Seeds - 50 Soul Seeds": rule_data_list[167],
-    "Soul Seeds - Soul Seeds Fragment of Radiance": rule_data_list[168],
-    "Unappraised - 1 Unappraised": rule_data_list[169],
-    "Unappraised - 5 Unappraised": rule_data_list[169],
-    "Unappraised - 10 Unappraised": rule_data_list[169],
-    "Unappraised - 20 Unappraised": rule_data_list[169],
-    "Unappraised - 50 Unappraised": rule_data_list[169],
-    "Ultimate Lair - Floor 1 Hoplite Omega Drop": rule_data_list[170],
-    "Ultimate Lair - Floor 2 Niblet Omega Drop": rule_data_list[170],
-    "Ultimate Lair - Floor 3 Zaltys Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 4 Gaunt Omega Drop": rule_data_list[172],
-    "Ultimate Lair - Floor 5 Gremlin Omega Drop": rule_data_list[170],
-    "Ultimate Lair - Floor 6 Dreadnought Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 7 Gorgonopsid Omega Drop": rule_data_list[172],
-    "Ultimate Lair - Floor 8 Goblot Omega Drop": rule_data_list[170],
-    "Ultimate Lair - Floor 9 Gurangatch Omega Drop": rule_data_list[172],
-    "Ultimate Lair - Floor 10 Ectopudding Omega Drop": rule_data_list[172],
-    "Ultimate Lair - Floor 11 Miniflan Omega Drop": rule_data_list[170],
-    "Ultimate Lair - Floor 12 Aster Protoflorian Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 13 Schrodinger Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 14 Goblin Omega Drop": rule_data_list[170],
-    "Ultimate Lair - Floor 15 Reaver Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 16 Meonekton Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 17 Cactuar Omega Drop": rule_data_list[170],
-    "Ultimate Lair - Floor 18 Triffid Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 19 Cyclops Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 20 Skeleton Omega Drop": rule_data_list[170],
-    "Ultimate Lair - Floor 21 Desert Sahagin Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 22 Earth Eater Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 23 Skata'ne Omega Drop": rule_data_list[170],
-    "Ultimate Lair - Floor 24 Hanuman Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 25 Zomok Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 26 Dryad Omega Drop": rule_data_list[170],
-    "Ultimate Lair - Floor 27 Rafflesia Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 28 Chocobo Eater Omega Drop": rule_data_list[171],
-    "Ultimate Lair - Floor 29 UL Treasure": rule_data_list[170],
-    "Ultimate Lair - Floor 30 UL Treasure": rule_data_list[170],
-    "Ultimate Lair - Floor 31 UL Treasure": rule_data_list[170],
-    "Ultimate Lair - Floor 32 UL Treasure": rule_data_list[170],
-    "Ultimate Lair - Ultimate Lair Boss Drop": rule_data_list[173],
-    "Ultimate Lair - Ultimate Lair Boss Reward (1)": rule_data_list[173],
-    "Ultimate Lair - Ultimate Lair Boss Reward (2)": rule_data_list[173],
-    "Final Day - Arcangeli Omega Drop": rule_data_list[87],
-    "Final Day - Sugriva Omega Drop": rule_data_list[87],
-    "Final Day - Chimera Omega Drop": rule_data_list[87],
-    "Final Day - Final Day Altar Of Salvation": rule_data_list[87],
-    "Final Day - Final Day Altar Of Judgment": rule_data_list[87],
-    "Final Day - Final Day Altar Of Atonement": rule_data_list[87],
-    "Final Day - Final Day Altar Of Birth": rule_data_list[87],
-    "Final Day - Final Day Temple Of Light (1)": rule_data_list[87],
-    "Final Day - Final Day Temple Of Light (2)": rule_data_list[87],
-    "Final Day - Final Day Temple Of Light (3)": rule_data_list[87],
-    "Final Day - Final Day Ultima Weapon": rule_data_list[87],
-    "Final Day - Final Day Ultima Shield": rule_data_list[87],
-    "Dead Dunes - Cactair Fragment of Kindness": rule_data_list[1],
-    "Dead Dunes - Goblots Arithmometer": rule_data_list[1],
-    "Dead Dunes - Aeronite Monster Flesh": rule_data_list[85],
+    "CoP Dead Dunes - Flower in the Sands CoP Quest (1)": rule_data_list[88],
+    "CoP Dead Dunes - Flower in the Sands CoP Quest (2)": rule_data_list[88],
+    "CoP Dead Dunes - Biologically Speaking CoP Quest (1)": rule_data_list[89],
+    "CoP Dead Dunes - Biologically Speaking CoP Quest (2)": rule_data_list[89],
+    "CoP Dead Dunes - The Real Client CoP Quest (1)": rule_data_list[90],
+    "CoP Dead Dunes - The Real Client CoP Quest (2)": rule_data_list[90],
+    "CoP Dead Dunes - The Real Client CoP Quest (3)": rule_data_list[90],
+    "CoP Dead Dunes - For My Child CoP Quest (1)": rule_data_list[91],
+    "CoP Dead Dunes - For My Child CoP Quest (2)": rule_data_list[91],
+    "CoP Dead Dunes - For My Child CoP Quest (3)": rule_data_list[91],
+    "CoP Dead Dunes - Bandits' New Weapon CoP Quest (1)": rule_data_list[92],
+    "CoP Dead Dunes - Bandits' New Weapon CoP Quest (2)": rule_data_list[92],
+    "CoP Dead Dunes - Bandits' New Weapon CoP Quest (3)": rule_data_list[92],
+    "CoP Dead Dunes - Banned Goods CoP Quest (1)": rule_data_list[93],
+    "CoP Dead Dunes - Banned Goods CoP Quest (2)": rule_data_list[93],
+    "CoP Dead Dunes - Banned Goods CoP Quest (3)": rule_data_list[93],
+    "CoP Dead Dunes - Climbing The Ranks I CoP Quest (1)": rule_data_list[94],
+    "CoP Dead Dunes - Climbing The Ranks I CoP Quest (2)": rule_data_list[94],
+    "CoP Dead Dunes - Miracle Vintage CoP Quest (1)": rule_data_list[95],
+    "CoP Dead Dunes - Miracle Vintage CoP Quest (2)": rule_data_list[95],
+    "CoP Dead Dunes - Miracle Vintage CoP Quest (3)": rule_data_list[95],
+    "CoP Dead Dunes - Climbing The Ranks II CoP Quest (1)": rule_data_list[96],
+    "CoP Dead Dunes - Climbing The Ranks II CoP Quest (2)": rule_data_list[96],
+    "CoP Dead Dunes - Heightened Security CoP Quest (1)": rule_data_list[97],
+    "CoP Dead Dunes - Heightened Security CoP Quest (2)": rule_data_list[97],
+    "CoP Dead Dunes - Heightened Security CoP Quest (3)": rule_data_list[97],
+    "CoP Dead Dunes - Desert Cleanup CoP Quest (1)": rule_data_list[98],
+    "CoP Dead Dunes - Desert Cleanup CoP Quest (2)": rule_data_list[98],
+    "CoP Dead Dunes - Desert Cleanup CoP Quest (3)": rule_data_list[98],
+    "CoP Dead Dunes - A Treasure for a God CoP Quest (1)": rule_data_list[99],
+    "CoP Dead Dunes - A Treasure for a God CoP Quest (2)": rule_data_list[99],
+    "CoP Dead Dunes - Lucky Charm CoP Quest (1)": rule_data_list[100],
+    "CoP Dead Dunes - Lucky Charm CoP Quest (2)": rule_data_list[100],
+    "CoP Dead Dunes - Supply and Demand CoP Quest (1)": rule_data_list[101],
+    "CoP Dead Dunes - Supply and Demand CoP Quest (2)": rule_data_list[101],
+    "CoP Dead Dunes - Supply and Demand CoP Quest (3)": rule_data_list[101],
+    "CoP Dead Dunes - A New Application CoP Quest (1)": rule_data_list[102],
+    "CoP Dead Dunes - A New Application CoP Quest (2)": rule_data_list[102],
+    "CoP Dead Dunes - A New Application CoP Quest (3)": rule_data_list[102],
+    "CoP Dead Dunes - Pride And Greed I CoP Quest (1)": rule_data_list[77],
+    "CoP Dead Dunes - Pride And Greed I CoP Quest (2)": rule_data_list[77],
+    "CoP Dead Dunes - Pride And Greed I CoP Quest (3)": rule_data_list[77],
+    "CoP Dead Dunes - Pride And Greed II CoP Quest (1)": rule_data_list[103],
+    "CoP Dead Dunes - Pride And Greed II CoP Quest (2)": rule_data_list[103],
+    "CoP Dead Dunes - Pride And Greed II CoP Quest (3)": rule_data_list[103],
+    "CoP Dead Dunes - Pride And Greed III CoP Quest (1)": rule_data_list[104],
+    "CoP Dead Dunes - Pride And Greed III CoP Quest (2)": rule_data_list[104],
+    "CoP Dead Dunes - Pride And Greed III CoP Quest (3)": rule_data_list[104],
+    "CoP Luxerion - Revenge Is Sweet CoP Quest (1)": rule_data_list[105],
+    "CoP Luxerion - Revenge Is Sweet CoP Quest (2)": rule_data_list[105],
+    "CoP Luxerion - Gift of Gratitude CoP Quest (1)": rule_data_list[106],
+    "CoP Luxerion - Gift of Gratitude CoP Quest (2)": rule_data_list[106],
+    "CoP Luxerion - Gift of Gratitude CoP Quest (3)": rule_data_list[106],
+    "CoP Luxerion - A Song for God CoP Quest (1)": rule_data_list[107],
+    "CoP Luxerion - A Song for God CoP Quest (2)": rule_data_list[107],
+    "CoP Luxerion - A Song for God CoP Quest (3)": rule_data_list[107],
+    "CoP Luxerion - Slay the Machine CoP Quest (1)": rule_data_list[108],
+    "CoP Luxerion - Slay the Machine CoP Quest (2)": rule_data_list[108],
+    "CoP Luxerion - Enchanted Brush CoP Quest (1)": rule_data_list[109],
+    "CoP Luxerion - Enchanted Brush CoP Quest (2)": rule_data_list[109],
+    "CoP Luxerion - Enchanted Brush CoP Quest (3)": rule_data_list[109],
+    "CoP Luxerion - Heretics' Beasts CoP Quest (1)": rule_data_list[110],
+    "CoP Luxerion - Heretics' Beasts CoP Quest (2)": rule_data_list[110],
+    "CoP Luxerion - Heretics' Beasts CoP Quest (3)": rule_data_list[110],
+    "CoP Luxerion - Grave of a Bounty Hunter CoP Quest (1)": rule_data_list[111],
+    "CoP Luxerion - Grave of a Bounty Hunter CoP Quest (2)": rule_data_list[111],
+    "CoP Luxerion - Grave of a Bounty Hunter CoP Quest (3)": rule_data_list[111],
+    "CoP Luxerion - Inventive Seamstress CoP Quest (1)": rule_data_list[112],
+    "CoP Luxerion - Inventive Seamstress CoP Quest (2)": rule_data_list[112],
+    "CoP Luxerion - Puppeteer's Lament CoP Quest (1)": rule_data_list[113],
+    "CoP Luxerion - Puppeteer's Lament CoP Quest (2)": rule_data_list[113],
+    "CoP Luxerion - Puppeteer's Lament CoP Quest (3)": rule_data_list[113],
+    "CoP Luxerion - Revenge Has Teeth CoP Quest (1)": rule_data_list[114],
+    "CoP Luxerion - Revenge Has Teeth CoP Quest (2)": rule_data_list[114],
+    "CoP Luxerion - Night Patrol CoP Quest (1)": rule_data_list[115],
+    "CoP Luxerion - Night Patrol CoP Quest (2)": rule_data_list[115],
+    "CoP Luxerion - Night Patrol CoP Quest (3)": rule_data_list[115],
+    "CoP Luxerion - Trapped CoP Quest (1)": rule_data_list[116],
+    "CoP Luxerion - Trapped CoP Quest (2)": rule_data_list[116],
+    "CoP Luxerion - Trapped CoP Quest (3)": rule_data_list[116],
+    "CoP Luxerion - Trapped CoP Quest (4)": rule_data_list[116],
+    "CoP Luxerion - Mythical Badge CoP Quest (1)": rule_data_list[117],
+    "CoP Luxerion - Mythical Badge CoP Quest (2)": rule_data_list[117],
+    "CoP Luxerion - Mythical Badge CoP Quest (3)": rule_data_list[117],
+    "CoP Wildlands - Sun Flower CoP Quest (1)": rule_data_list[76],
+    "CoP Wildlands - Sun Flower CoP Quest (2)": rule_data_list[76],
+    "CoP Wildlands - Moon Flower CoP Quest (1)": rule_data_list[76],
+    "CoP Wildlands - Moon Flower CoP Quest (2)": rule_data_list[76],
+    "CoP Wildlands - Moon Flower CoP Quest (3)": rule_data_list[76],
+    "CoP Wildlands - Secret of the Chocoborel CoP Quest (1)": rule_data_list[77],
+    "CoP Wildlands - Secret of the Chocoborel CoP Quest (2)": rule_data_list[77],
+    "CoP Wildlands - Secret of the Chocoborel CoP Quest (3)": rule_data_list[77],
+    "CoP Wildlands - Wildlands In Danger! CoP Quest (1)": rule_data_list[118],
+    "CoP Wildlands - Wildlands In Danger! CoP Quest (2)": rule_data_list[118],
+    "CoP Wildlands - Wildlands In Danger! CoP Quest (3)": rule_data_list[118],
+    "CoP Wildlands - Hunting the Hunter CoP Quest (1)": rule_data_list[119],
+    "CoP Wildlands - Hunting the Hunter CoP Quest (2)": rule_data_list[119],
+    "CoP Wildlands - Hunting the Hunter CoP Quest (3)": rule_data_list[119],
+    "CoP Wildlands - Forget Me Not CoP Quest (1)": rule_data_list[120],
+    "CoP Wildlands - Forget Me Not CoP Quest (2)": rule_data_list[120],
+    "CoP Wildlands - Forget Me Not CoP Quest (3)": rule_data_list[120],
+    "CoP Wildlands - A Word of Thanks CoP Quest (1)": rule_data_list[121],
+    "CoP Wildlands - A Word of Thanks CoP Quest (2)": rule_data_list[121],
+    "CoP Wildlands - A Word of Thanks CoP Quest (3)": rule_data_list[121],
+    "CoP Wildlands - Fresh Fertilizer CoP Quest (1)": rule_data_list[122],
+    "CoP Wildlands - Fresh Fertilizer CoP Quest (2)": rule_data_list[122],
+    "CoP Wildlands - Fresh Fertilizer CoP Quest (3)": rule_data_list[122],
+    "CoP Wildlands - For the Future CoP Quest (1)": rule_data_list[123],
+    "CoP Wildlands - For the Future CoP Quest (2)": rule_data_list[123],
+    "CoP Wildlands - For the Future CoP Quest (3)": rule_data_list[123],
+    "CoP Wildlands - Dumpling Cook-Off CoP Quest (1)": rule_data_list[124],
+    "CoP Wildlands - Dumpling Cook-Off CoP Quest (2)": rule_data_list[124],
+    "CoP Wildlands - Dumpling Cook-Off CoP Quest (3)": rule_data_list[124],
+    "CoP Wildlands - Brain Over Brawn CoP Quest (1)": rule_data_list[125],
+    "CoP Wildlands - Brain Over Brawn CoP Quest (2)": rule_data_list[125],
+    "CoP Wildlands - Brain Over Brawn CoP Quest (3)": rule_data_list[125],
+    "CoP Wildlands - Hunter's Challenge CoP Quest (1)": rule_data_list[126],
+    "CoP Wildlands - Hunter's Challenge CoP Quest (2)": rule_data_list[126],
+    "CoP Wildlands - Hunter's Challenge CoP Quest (3)": rule_data_list[126],
+    "CoP Wildlands - A Secret Wish CoP Quest (1)": rule_data_list[127],
+    "CoP Wildlands - A Secret Wish CoP Quest (2)": rule_data_list[127],
+    "CoP Wildlands - A Secret Wish CoP Quest (3)": rule_data_list[127],
+    "CoP Wildlands - Moghan's Plea CoP Quest (1)": rule_data_list[128],
+    "CoP Wildlands - Moghan's Plea CoP Quest (2)": rule_data_list[128],
+    "CoP Wildlands - Moghan's Plea CoP Quest (3)": rule_data_list[128],
+    "CoP Wildlands - What's in a Brew? CoP Quest (1)": rule_data_list[129],
+    "CoP Wildlands - What's in a Brew? CoP Quest (2)": rule_data_list[129],
+    "CoP Wildlands - What's in a Brew? CoP Quest (3)": rule_data_list[129],
+    "CoP Wildlands - What's in a Brew? CoP Quest (4)": rule_data_list[129],
+    "CoP Wildlands - A Prayer to a Goddess CoP Quest (1)": rule_data_list[130],
+    "CoP Wildlands - A Prayer to a Goddess CoP Quest (2)": rule_data_list[130],
+    "CoP Wildlands - A Prayer to a Goddess CoP Quest (3)": rule_data_list[130],
+    "CoP Wildlands - Gatekeeper's Curiosity CoP Quest (1)": rule_data_list[131],
+    "CoP Wildlands - Gatekeeper's Curiosity CoP Quest (2)": rule_data_list[131],
+    "CoP Wildlands - Echoes of a Drum CoP Quest (1)": rule_data_list[132],
+    "CoP Wildlands - Echoes of a Drum CoP Quest (2)": rule_data_list[132],
+    "CoP Wildlands - Echoes of a Drum CoP Quest (3)": rule_data_list[132],
+    "CoP Wildlands - A Voice From Below CoP Quest (1)": rule_data_list[133],
+    "CoP Wildlands - A Voice From Below CoP Quest (2)": rule_data_list[133],
+    "CoP Wildlands - A Voice From Below CoP Quest (3)": rule_data_list[133],
+    "CoP Wildlands - Chocobo Chow CoP Quest (1)": rule_data_list[134],
+    "CoP Wildlands - Chocobo Chow CoP Quest (2)": rule_data_list[134],
+    "CoP Wildlands - Chocobo Chow CoP Quest (3)": rule_data_list[134],
+    "CoP Wildlands - Sylkis Secrets CoP Quest (1)": rule_data_list[135],
+    "CoP Wildlands - Sylkis Secrets CoP Quest (2)": rule_data_list[135],
+    "CoP Wildlands - Sylkis Secrets CoP Quest (3)": rule_data_list[135],
+    "CoP Wildlands - Digging Mole CoP Quest (1)": rule_data_list[136],
+    "CoP Wildlands - Digging Mole CoP Quest (2)": rule_data_list[136],
+    "CoP Wildlands - Digging Mole CoP Quest (3)": rule_data_list[136],
+    "CoP Wildlands - Two Together CoP Quest (1)": rule_data_list[137],
+    "CoP Wildlands - Two Together CoP Quest (2)": rule_data_list[137],
+    "CoP Wildlands - Two Together CoP Quest (3)": rule_data_list[137],
+    "CoP Wildlands - Emergency Treatment CoP Quest (1)": rule_data_list[47],
+    "CoP Wildlands - Emergency Treatment CoP Quest (2)": rule_data_list[47],
+    "CoP Wildlands - Emergency Treatment CoP Quest (3)": rule_data_list[47],
+    "CoP Wildlands - Moogle Gourmand CoP Quest (1)": rule_data_list[138],
+    "CoP Wildlands - Moogle Gourmand CoP Quest (2)": rule_data_list[138],
+    "CoP Wildlands - Moogle Gourmand CoP Quest (3)": rule_data_list[138],
+    "CoP Yusnaan - Secret Machine CoP Quest (1)": rule_data_list[139],
+    "CoP Yusnaan - Secret Machine CoP Quest (2)": rule_data_list[139],
+    "CoP Yusnaan - Soulful Horn CoP Quest (1)": rule_data_list[140],
+    "CoP Yusnaan - Soulful Horn CoP Quest (2)": rule_data_list[140],
+    "CoP Yusnaan - Soulful Horn CoP Quest (3)": rule_data_list[140],
+    "CoP Yusnaan - A Dangerous Cocktail CoP Quest (1)": rule_data_list[141],
+    "CoP Yusnaan - A Dangerous Cocktail CoP Quest (2)": rule_data_list[141],
+    "CoP Yusnaan - Source of Inspiration CoP Quest (1)": rule_data_list[142],
+    "CoP Yusnaan - Source of Inspiration CoP Quest (2)": rule_data_list[142],
+    "CoP Yusnaan - Youth Potion CoP Quest (1)": rule_data_list[143],
+    "CoP Yusnaan - Youth Potion CoP Quest (2)": rule_data_list[143],
+    "CoP Yusnaan - Youth Potion CoP Quest (3)": rule_data_list[143],
+    "CoP Yusnaan - Beast Summoner CoP Quest (1)": rule_data_list[144],
+    "CoP Yusnaan - Beast Summoner CoP Quest (2)": rule_data_list[144],
+    "CoP Yusnaan - Beast Summoner CoP Quest (3)": rule_data_list[144],
+    "CoP Yusnaan - What Seekers Seek CoP Quest (1)": rule_data_list[145],
+    "CoP Yusnaan - What Seekers Seek CoP Quest (2)": rule_data_list[145],
+    "CoP Yusnaan - What Seekers Seek CoP Quest (3)": rule_data_list[145],
+    "CoP Yusnaan - True Colors CoP Quest (1)": rule_data_list[146],
+    "CoP Yusnaan - True Colors CoP Quest (2)": rule_data_list[146],
+    "CoP Yusnaan - True Colors CoP Quest (3)": rule_data_list[146],
+    "CoP Yusnaan - Ultimate Craving CoP Quest (1)": rule_data_list[147],
+    "CoP Yusnaan - Ultimate Craving CoP Quest (2)": rule_data_list[147],
+    "CoP Yusnaan - Ultimate Craving CoP Quest (3)": rule_data_list[147],
+    "CoP Yusnaan - Ultimate Craving CoP Quest (4)": rule_data_list[147],
+    "CoP Yusnaan - Spell for Spell CoP Quest (1)": rule_data_list[148],
+    "CoP Yusnaan - Spell for Spell CoP Quest (2)": rule_data_list[148],
+    "CoP Yusnaan - Spell for Spell CoP Quest (3)": rule_data_list[148],
+    "CoP Yusnaan - Unfired Firework CoP Quest (1)": rule_data_list[63],
+    "CoP Yusnaan - Unfired Firework CoP Quest (2)": rule_data_list[63],
+    "CoP Yusnaan - Unfired Firework CoP Quest (3)": rule_data_list[63],
+    "CoP Yusnaan - Time Doesn't Heal CoP Quest (1)": rule_data_list[149],
+    "CoP Yusnaan - Time Doesn't Heal CoP Quest (2)": rule_data_list[149],
+    "CoP Yusnaan - Time Doesn't Heal CoP Quest (3)": rule_data_list[149],
+    "CoP Yusnaan - A Man for a Chocobo Girl CoP Quest (1)": rule_data_list[150],
+    "CoP Yusnaan - A Man for a Chocobo Girl CoP Quest (2)": rule_data_list[150],
+    "CoP Yusnaan - A Man for a Chocobo Girl CoP Quest (3)": rule_data_list[150],
+    "CoP Yusnaan - Rebuilding CoP Quest (1)": rule_data_list[63],
+    "CoP Yusnaan - Rebuilding CoP Quest (2)": rule_data_list[63],
+    "CoP Global - Global: Key To Her Heart CoP Quest (1)": rule_data_list[151],
+    "CoP Global - Global: Key To Her Heart CoP Quest (2)": rule_data_list[151],
+    "CoP Global - Global: Key To Her Heart CoP Quest (3)": rule_data_list[151],
+    "CoP Global - Global: Roadworks I CoP Quest (1)": rule_data_list[152],
+    "CoP Global - Global: Roadworks I CoP Quest (2)": rule_data_list[152],
+    "CoP Global - Global: Roadworks I CoP Quest (3)": rule_data_list[152],
+    "CoP Global - Global: Roadworks II CoP Quest (1)": rule_data_list[153],
+    "CoP Global - Global: Roadworks II CoP Quest (2)": rule_data_list[153],
+    "CoP Global - Global: Roadworks II CoP Quest (3)": rule_data_list[153],
+    "CoP Global - Global: Roadworks III CoP Quest (1)": rule_data_list[154],
+    "CoP Global - Global: Roadworks III CoP Quest (2)": rule_data_list[154],
+    "CoP Global - Global: Roadworks III CoP Quest (3)": rule_data_list[154],
+    "CoP Global - Global: A Girl's Challenge CoP Quest (1)": rule_data_list[155],
+    "CoP Global - Global: A Girl's Challenge CoP Quest (2)": rule_data_list[155],
+    "CoP Global - Global: What's Left Behind CoP Quest (1)": rule_data_list[156],
+    "CoP Global - Global: What's Left Behind CoP Quest (2)": rule_data_list[156],
+    "CoP Global - Global: Seeing The Dawn CoP Quest (1)": rule_data_list[157],
+    "CoP Global - Global: Seeing The Dawn CoP Quest (2)": rule_data_list[157],
+    "CoP Global - Global: Staying Sharp CoP Quest (1)": rule_data_list[158],
+    "CoP Global - Global: Staying Sharp CoP Quest (2)": rule_data_list[158],
+    "CoP Global - Global: Where Moogles Be CoP Quest (1)": rule_data_list[159],
+    "CoP Global - Global: Where Moogles Be CoP Quest (2)": rule_data_list[159],
+    "CoP Global - Global: Fading Prayer CoP Quest (1)": rule_data_list[160],
+    "CoP Global - Global: Fading Prayer CoP Quest (2)": rule_data_list[160],
+    "CoP Global - Global: Forbidden Tome CoP Quest (1)": rule_data_list[161],
+    "CoP Global - Global: Forbidden Tome CoP Quest (2)": rule_data_list[161],
+    "CoP Global - Global: Shoot For The Sky CoP Quest (1)": rule_data_list[162],
+    "CoP Global - Global: Shoot For The Sky CoP Quest (2)": rule_data_list[162],
+    "CoP Global - Global: Shoot For The Sky CoP Quest (3)": rule_data_list[162],
+    "CoP Global - Global: Digging Mysteries CoP Quest (1)": rule_data_list[163],
+    "CoP Global - Global: Digging Mysteries CoP Quest (2)": rule_data_list[163],
+    "CoP Global - Global: Digging Mysteries CoP Quest (3)": rule_data_list[163],
+    "Soul Seeds - 10 Soul Seeds": rule_data_list[164],
+    "Soul Seeds - 20 Soul Seeds": rule_data_list[165],
+    "Soul Seeds - 30 Soul Seeds": rule_data_list[165],
+    "Soul Seeds - 40 Soul Seeds": rule_data_list[165],
+    "Soul Seeds - 50 Soul Seeds": rule_data_list[165],
+    "Soul Seeds - Soul Seeds Fragment of Radiance": rule_data_list[166],
+    "Unappraised - 1 Unappraised": rule_data_list[167],
+    "Unappraised - 5 Unappraised": rule_data_list[167],
+    "Unappraised - 10 Unappraised": rule_data_list[167],
+    "Unappraised - 20 Unappraised": rule_data_list[167],
+    "Unappraised - 50 Unappraised": rule_data_list[167],
+    "Ultimate Lair - Floor 1 Hoplite Omega Drop": rule_data_list[168],
+    "Ultimate Lair - Floor 2 Niblet Omega Drop": rule_data_list[168],
+    "Ultimate Lair - Floor 3 Zaltys Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 4 Gaunt Omega Drop": rule_data_list[170],
+    "Ultimate Lair - Floor 5 Gremlin Omega Drop": rule_data_list[168],
+    "Ultimate Lair - Floor 6 Dreadnought Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 7 Gorgonopsid Omega Drop": rule_data_list[170],
+    "Ultimate Lair - Floor 8 Goblot Omega Drop": rule_data_list[168],
+    "Ultimate Lair - Floor 9 Gurangatch Omega Drop": rule_data_list[170],
+    "Ultimate Lair - Floor 10 Ectopudding Omega Drop": rule_data_list[170],
+    "Ultimate Lair - Floor 11 Miniflan Omega Drop": rule_data_list[168],
+    "Ultimate Lair - Floor 12 Aster Protoflorian Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 13 Schrodinger Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 14 Goblin Omega Drop": rule_data_list[168],
+    "Ultimate Lair - Floor 15 Reaver Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 16 Meonekton Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 17 Cactuar Omega Drop": rule_data_list[168],
+    "Ultimate Lair - Floor 18 Triffid Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 19 Cyclops Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 20 Skeleton Omega Drop": rule_data_list[168],
+    "Ultimate Lair - Floor 21 Desert Sahagin Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 22 Earth Eater Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 23 Skata'ne Omega Drop": rule_data_list[168],
+    "Ultimate Lair - Floor 24 Hanuman Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 25 Zomok Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 26 Dryad Omega Drop": rule_data_list[168],
+    "Ultimate Lair - Floor 27 Rafflesia Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 28 Chocobo Eater Omega Drop": rule_data_list[169],
+    "Ultimate Lair - Floor 29 UL Treasure": rule_data_list[168],
+    "Ultimate Lair - Floor 30 UL Treasure": rule_data_list[168],
+    "Ultimate Lair - Floor 31 UL Treasure": rule_data_list[168],
+    "Ultimate Lair - Floor 32 UL Treasure": rule_data_list[168],
+    "Ultimate Lair - Ultimate Lair Boss Drop": rule_data_list[171],
+    "Ultimate Lair - Ultimate Lair Boss Reward (1)": rule_data_list[171],
+    "Ultimate Lair - Ultimate Lair Boss Reward (2)": rule_data_list[171],
+    "Final Day - Arcangeli Omega Drop": rule_data_list[85],
+    "Final Day - Sugriva Omega Drop": rule_data_list[85],
+    "Final Day - Chimera Omega Drop": rule_data_list[85],
+    "Final Day - Final Day Altar Of Salvation": rule_data_list[85],
+    "Final Day - Final Day Altar Of Judgment": rule_data_list[85],
+    "Final Day - Final Day Altar Of Atonement": rule_data_list[85],
+    "Final Day - Final Day Altar Of Birth": rule_data_list[85],
+    "Final Day - Final Day Temple Of Light (1)": rule_data_list[85],
+    "Final Day - Final Day Temple Of Light (2)": rule_data_list[85],
+    "Final Day - Final Day Temple Of Light (3)": rule_data_list[85],
+    "Final Day - Final Day Ultima Weapon": rule_data_list[85],
+    "Final Day - Final Day Ultima Shield": rule_data_list[85],
+    "Dead Dunes - Cactair Fragment of Kindness": rule_data_list[0],
+    "Dead Dunes - Goblots Arithmometer": rule_data_list[0],
+    "Dead Dunes - Aeronite Monster Flesh": rule_data_list[83],
     "Luxerion - Zomok Cursed Dragon Claw": rule_data_list[0],
     "Yusnaan - Gremlins Music Satchel": rule_data_list[0],
     "Yusnaan - Schrodinger Civet Musk": rule_data_list[0],
     "Ark Day 0 Event (1)": rule_data_list[0],
     "Ark Day 1 Event (1)": rule_data_list[0],
-    "Ark Day 2 Event (1)": rule_data_list[78],
-    "Ark Day 3 Event (1)": rule_data_list[20],
-    "Ark Day 4 Event (1)": rule_data_list[79],
-    "Ark Day 5 Event (1)": rule_data_list[80],
-    "Ark Day 6 Event (1)": rule_data_list[81],
-    "Main Quest 4 Event (1)": rule_data_list[174],
-    "Main Quest 4 Event (2)": rule_data_list[174],
-    "Main Quest 1 Event (1)": rule_data_list[175],
-    "Main Quest 1 Event (2)": rule_data_list[175],
-    "Main Quest 3 Event (1)": rule_data_list[176],
-    "Main Quest 3 Event (2)": rule_data_list[176],
-    "Main Quest 2 Event (1)": rule_data_list[177],
-    "Main Quest 2 Event (2)": rule_data_list[177],
-    "Main Quest 5 Event (1)": rule_data_list[178],
-    "Main Quest 5 Event (2)": rule_data_list[178],
-    "The Things She Lost Quest Event (1)": rule_data_list[22],
+    "Ark Day 2 Event (1)": rule_data_list[76],
+    "Ark Day 3 Event (1)": rule_data_list[19],
+    "Ark Day 4 Event (1)": rule_data_list[77],
+    "Ark Day 5 Event (1)": rule_data_list[78],
+    "Ark Day 6 Event (1)": rule_data_list[79],
+    "Main Quest 4 Event (1)": rule_data_list[172],
+    "Main Quest 4 Event (2)": rule_data_list[172],
+    "Main Quest 1 Event (1)": rule_data_list[173],
+    "Main Quest 1 Event (2)": rule_data_list[173],
+    "Main Quest 3 Event (1)": rule_data_list[174],
+    "Main Quest 3 Event (2)": rule_data_list[174],
+    "Main Quest 2 Event (1)": rule_data_list[175],
+    "Main Quest 2 Event (2)": rule_data_list[175],
+    "Main Quest 5 Event (1)": rule_data_list[176],
+    "Main Quest 5 Event (2)": rule_data_list[176],
+    "The Things She Lost Quest Event (1)": rule_data_list[21],
     "Where Are You, Holmes? Quest Event (1)": rule_data_list[0],
-    "Like Clockwork Quest Event (1)": rule_data_list[18],
-    "Dying Wish Quest Event (1)": rule_data_list[23],
-    "Suspicious Spheres Quest Event (1)": rule_data_list[24],
-    "Born From Chaos Quest Event (1)": rule_data_list[25],
-    "Soul Seeds Quest Event (1)": rule_data_list[26],
-    "Faster Than Lightning Quest Event (1)": rule_data_list[19],
-    "Treasured Ball Quest Event (1)": rule_data_list[27],
-    "The Angel's Tears Quest Event (1)": rule_data_list[19],
-    "The Saint's Stone Quest Event (1)": rule_data_list[29],
+    "Like Clockwork Quest Event (1)": rule_data_list[17],
+    "Dying Wish Quest Event (1)": rule_data_list[22],
+    "Suspicious Spheres Quest Event (1)": rule_data_list[23],
+    "Born From Chaos Quest Event (1)": rule_data_list[24],
+    "Soul Seeds Quest Event (1)": rule_data_list[25],
+    "Faster Than Lightning Quest Event (1)": rule_data_list[18],
+    "Treasured Ball Quest Event (1)": rule_data_list[26],
+    "The Angel's Tears Quest Event (1)": rule_data_list[18],
+    "The Saint's Stone Quest Event (1)": rule_data_list[28],
     "Whither Faith Quest Event (1)": rule_data_list[0],
-    "The Avid Reader Quest Event (1)": rule_data_list[29],
-    "Buried Passion Quest Event (1)": rule_data_list[32],
-    "The Girl Who Cried Wolf Quest Event (1)": rule_data_list[29],
-    "Stuck in a Gem Quest Event (1)": rule_data_list[33],
-    "Get the Girl Quest Event (1)": rule_data_list[31],
-    "A Rose By Any Other Name Quest Event (1)": rule_data_list[34],
-    "Voices from the Grave Quest Event (1)": rule_data_list[29],
-    "To Save the Sinless Quest Event (1)": rule_data_list[35],
-    "The Life of a Machine Quest Event (1)": rule_data_list[8],
-    "Old Rivals Quest Event (1)": rule_data_list[9],
-    "His Wife's Dream Quest Event (1)": rule_data_list[9],
-    "Tool of the Trade Quest Event (1)": rule_data_list[10],
-    "Adonis's Audition Quest Event (1)": rule_data_list[11],
-    "What Rough Beast Slouches Quest Event (1)": rule_data_list[12],
-    "Skeletons In The Closet Quest Event (1)": rule_data_list[13],
-    "Last One Standing Quest Event (1)": rule_data_list[14],
-    "A Father's Request Quest Event (1)": rule_data_list[39],
-    "The Hunter's Challenge Quest Event (1)": rule_data_list[40],
-    "A Final Cure Quest Event (1)": rule_data_list[41],
+    "The Avid Reader Quest Event (1)": rule_data_list[28],
+    "Buried Passion Quest Event (1)": rule_data_list[31],
+    "The Girl Who Cried Wolf Quest Event (1)": rule_data_list[28],
+    "Stuck in a Gem Quest Event (1)": rule_data_list[32],
+    "Get the Girl Quest Event (1)": rule_data_list[30],
+    "A Rose By Any Other Name Quest Event (1)": rule_data_list[33],
+    "Voices from the Grave Quest Event (1)": rule_data_list[28],
+    "To Save the Sinless Quest Event (1)": rule_data_list[34],
+    "The Life of a Machine Quest Event (1)": rule_data_list[7],
+    "Old Rivals Quest Event (1)": rule_data_list[8],
+    "His Wife's Dream Quest Event (1)": rule_data_list[8],
+    "Tool of the Trade Quest Event (1)": rule_data_list[9],
+    "Adonis's Audition Quest Event (1)": rule_data_list[10],
+    "What Rough Beast Slouches Quest Event (1)": rule_data_list[11],
+    "Skeletons In The Closet Quest Event (1)": rule_data_list[12],
+    "Last One Standing Quest Event (1)": rule_data_list[13],
+    "A Father's Request Quest Event (1)": rule_data_list[38],
+    "The Hunter's Challenge Quest Event (1)": rule_data_list[39],
+    "A Final Cure Quest Event (1)": rule_data_list[40],
     "Fuzzy Search Quest Event (1)": rule_data_list[0],
-    "Round 'em Up Quest Event (1)": rule_data_list[42],
-    "Chocobo Cheer Quest Event (1)": rule_data_list[43],
+    "Round 'em Up Quest Event (1)": rule_data_list[41],
+    "Chocobo Cheer Quest Event (1)": rule_data_list[42],
     "Peace and Quiet, Kupo Quest Event (1)": rule_data_list[0],
-    "Saving an Angel Quest Event (1)": rule_data_list[39],
-    "Omega Point Quest Event (1)": rule_data_list[44],
-    "The Old Man and the Field Quest Event (1)": rule_data_list[45],
-    "Land of our Forebears Quest Event (1)": rule_data_list[46],
-    "A Taste of the Past Quest Event (1)": rule_data_list[47],
-    "Dog, Doctor and Assistant Quest Event (1)": rule_data_list[48],
-    "The Right Stuff Quest Event (1)": rule_data_list[50],
-    "The Secret Lives of Sheep Quest Event (1)": rule_data_list[51],
-    "Where Are You, Moogle? Quest Event (1)": rule_data_list[52],
-    "Mercy of a Goddess Quest Event (1)": rule_data_list[53],
-    "The Grail of Valhalla Quest Event (1)": rule_data_list[54],
-    "To Live in Chaos Quest Event (1)": rule_data_list[55],
-    "Killing Time Quest Event (1)": rule_data_list[37],
-    "Matchmaker Quest Event (1)": rule_data_list[56],
-    "Mother and Daughter Quest Event (1)": rule_data_list[57],
-    "Fireworks in a Bottle Quest Event (1)": rule_data_list[59],
-    "The Fighting Actress Quest Event (1)": rule_data_list[59],
-    "Songless Diva Quest Event (1)": rule_data_list[67],
-    "Stolen Things Quest Event (1)": rule_data_list[68],
-    "Fireworks for a Steal Quest Event (1)": rule_data_list[59],
-    "A Testing Proposition Quest Event (1)": rule_data_list[69],
-    "Last Date Quest Event (1)": rule_data_list[65],
-    "Free Will Quest Event (1)": rule_data_list[70],
-    "Friends Forever Quest Event (1)": rule_data_list[65],
-    "Family Food Quest Event (1)": rule_data_list[71],
-    "Tanbam's Taboo Quest Event (1)": rule_data_list[65],
-    "Play It for Me Quest Event (1)": rule_data_list[72],
-    "Adoring Adornments Quest Event (1)": rule_data_list[73],
-    "Adoring Candice Quest Event (1)": rule_data_list[74],
-    "Death Safari Quest Event (1)": rule_data_list[59],
-    "Death Game Quest Event (1)": rule_data_list[75],
+    "Saving an Angel Quest Event (1)": rule_data_list[38],
+    "Omega Point Quest Event (1)": rule_data_list[43],
+    "The Old Man and the Field Quest Event (1)": rule_data_list[44],
+    "Land of our Forebears Quest Event (1)": rule_data_list[45],
+    "A Taste of the Past Quest Event (1)": rule_data_list[46],
+    "Dog, Doctor and Assistant Quest Event (1)": rule_data_list[47],
+    "The Right Stuff Quest Event (1)": rule_data_list[49],
+    "The Secret Lives of Sheep Quest Event (1)": rule_data_list[50],
+    "Where Are You, Moogle? Quest Event (1)": rule_data_list[51],
+    "Mercy of a Goddess Quest Event (1)": rule_data_list[52],
+    "The Grail of Valhalla Quest Event (1)": rule_data_list[53],
+    "To Live in Chaos Quest Event (1)": rule_data_list[54],
+    "Killing Time Quest Event (1)": rule_data_list[36],
+    "Matchmaker Quest Event (1)": rule_data_list[55],
+    "Mother and Daughter Quest Event (1)": rule_data_list[56],
+    "Fireworks in a Bottle Quest Event (1)": rule_data_list[58],
+    "The Fighting Actress Quest Event (1)": rule_data_list[58],
+    "Songless Diva Quest Event (1)": rule_data_list[65],
+    "Stolen Things Quest Event (1)": rule_data_list[66],
+    "Fireworks for a Steal Quest Event (1)": rule_data_list[58],
+    "A Testing Proposition Quest Event (1)": rule_data_list[67],
+    "Last Date Quest Event (1)": rule_data_list[63],
+    "Free Will Quest Event (1)": rule_data_list[68],
+    "Friends Forever Quest Event (1)": rule_data_list[63],
+    "Family Food Quest Event (1)": rule_data_list[69],
+    "Tanbam's Taboo Quest Event (1)": rule_data_list[63],
+    "Play It for Me Quest Event (1)": rule_data_list[70],
+    "Adoring Adornments Quest Event (1)": rule_data_list[71],
+    "Adoring Candice Quest Event (1)": rule_data_list[72],
+    "Death Safari Quest Event (1)": rule_data_list[58],
+    "Death Game Quest Event (1)": rule_data_list[73],
     "Main Quest 1-1 Event (1)": rule_data_list[0],
-    "Main Quest 1-2 Event (1)": rule_data_list[179],
-    "Main Quest 1-3 Event (1)": rule_data_list[19],
-    "Main Quest 1-4 Event (1)": rule_data_list[17],
-    "Main Quest 2-1 cyclops Event (1)": rule_data_list[180],
-    "Main Quest 2-1 Event (1)": rule_data_list[181],
-    "Main Quest 2-2 Event (1)": rule_data_list[66],
+    "Main Quest 1-2 Event (1)": rule_data_list[177],
+    "Main Quest 1-3 Event (1)": rule_data_list[18],
+    "Main Quest 1-4 Event (1)": rule_data_list[16],
+    "Main Quest 2-1 cyclops Event (1)": rule_data_list[178],
+    "Main Quest 2-1 Event (1)": rule_data_list[179],
+    "Main Quest 2-2 Event (1)": rule_data_list[64],
     "Main Quest 3-1 Event (1)": rule_data_list[0],
-    "Main Quest 3-2 Event (1)": rule_data_list[182],
-    "Main Quest 3-3 Flight Event (1)": rule_data_list[43],
+    "Main Quest 3-2 Event (1)": rule_data_list[180],
+    "Main Quest 3-3 Flight Event (1)": rule_data_list[42],
     "Main Quest 4-1 Event (1)": rule_data_list[0],
-    "Main Quest 4-2 Event (1)": rule_data_list[11],
-    "Main Quest 4-3 Event (1)": rule_data_list[3],
-    "Main Quest 4-4 First Tablet placed Event (1)": rule_data_list[183],
-    "Main Quest 4-4 Event (1)": rule_data_list[184],
-    "Main Quest 5 start Event (1)": rule_data_list[185],
-    "Victory Event (1)": rule_data_list[186],
-    "Banned Goods Event (1)": rule_data_list[95],
-    "Miracle Vintage Event (1)": rule_data_list[97],
-    "For My Child Event (1)": rule_data_list[93],
-    "Heightened Security Event (1)": rule_data_list[99],
-    "Climbing the Ranks I Event (1)": rule_data_list[96],
-    "Climbing the Ranks II Event (1)": rule_data_list[98],
-    "Flower in the Sands Event (1)": rule_data_list[90],
-    "Biologically Speaking Event (1)": rule_data_list[91],
-    "Lucky Charm Event (1)": rule_data_list[102],
-    "Pride and Greed I Event (1)": rule_data_list[79],
-    "Pride and Greed II Event (1)": rule_data_list[105],
-    "Pride and Greed III Event (1)": rule_data_list[106],
-    "Revenge is Sweet Event (1)": rule_data_list[107],
-    "Gift of Gratitude Event (1)": rule_data_list[108],
-    "A Song for God Event (1)": rule_data_list[109],
-    "Grave of a Bounty Hunter Event (1)": rule_data_list[113],
-    "Inventive Seamstress Event (1)": rule_data_list[114],
-    "Puppeteer's Lament Event (1)": rule_data_list[115],
-    "Slay the Machine Event (1)": rule_data_list[110],
-    "Revenge Has Teeth Event (1)": rule_data_list[116],
-    "Sun Flower Event (1)": rule_data_list[78],
-    "Moon Flower Event (1)": rule_data_list[78],
-    "Forget Me Not Event (1)": rule_data_list[122],
-    "A Word of Thanks Event (1)": rule_data_list[123],
-    "Fresh Fertilizer Event (1)": rule_data_list[124],
-    "For the Future Event (1)": rule_data_list[125],
-    "Echoes of a Drum Event (1)": rule_data_list[134],
-    "A Voice from Below Event (1)": rule_data_list[135],
-    "Brain Over Brawn Event (1)": rule_data_list[127],
-    "Hunter's Challenge Event (1)": rule_data_list[128],
-    "Moghan's Plea Event (1)": rule_data_list[130],
-    "Gatekeeper's Curiosity Event (1)": rule_data_list[133],
-    "Chocobo Chow Event (1)": rule_data_list[136],
-    "Secret Machine Event (1)": rule_data_list[141],
-    "Soulful Horn Event (1)": rule_data_list[142],
-    "A Dangerous Cocktail Event (1)": rule_data_list[143],
-    "A Man for a Chocobo Girl Event (1)": rule_data_list[152],
-    "Source of Inspiration Event (1)": rule_data_list[144],
-    "True Colors Event (1)": rule_data_list[148],
-    "Youth Potion Event (1)": rule_data_list[145],
-    "Spell for Spell Event (1)": rule_data_list[150],
+    "Main Quest 4-2 Event (1)": rule_data_list[10],
+    "Main Quest 4-3 Event (1)": rule_data_list[2],
+    "Main Quest 4-4 First Tablet placed Event (1)": rule_data_list[181],
+    "Main Quest 4-4 Event (1)": rule_data_list[182],
+    "Main Quest 5 start Event (1)": rule_data_list[183],
+    "Victory Event (1)": rule_data_list[184],
+    "Banned Goods Event (1)": rule_data_list[93],
+    "Miracle Vintage Event (1)": rule_data_list[95],
+    "For My Child Event (1)": rule_data_list[91],
+    "Heightened Security Event (1)": rule_data_list[97],
+    "Climbing the Ranks I Event (1)": rule_data_list[94],
+    "Climbing the Ranks II Event (1)": rule_data_list[96],
+    "Flower in the Sands Event (1)": rule_data_list[88],
+    "Biologically Speaking Event (1)": rule_data_list[89],
+    "Lucky Charm Event (1)": rule_data_list[100],
+    "Pride and Greed I Event (1)": rule_data_list[77],
+    "Pride and Greed II Event (1)": rule_data_list[103],
+    "Pride and Greed III Event (1)": rule_data_list[104],
+    "Revenge is Sweet Event (1)": rule_data_list[105],
+    "Gift of Gratitude Event (1)": rule_data_list[106],
+    "A Song for God Event (1)": rule_data_list[107],
+    "Grave of a Bounty Hunter Event (1)": rule_data_list[111],
+    "Inventive Seamstress Event (1)": rule_data_list[112],
+    "Puppeteer's Lament Event (1)": rule_data_list[113],
+    "Slay the Machine Event (1)": rule_data_list[108],
+    "Revenge Has Teeth Event (1)": rule_data_list[114],
+    "Sun Flower Event (1)": rule_data_list[76],
+    "Moon Flower Event (1)": rule_data_list[76],
+    "Forget Me Not Event (1)": rule_data_list[120],
+    "A Word of Thanks Event (1)": rule_data_list[121],
+    "Fresh Fertilizer Event (1)": rule_data_list[122],
+    "For the Future Event (1)": rule_data_list[123],
+    "Echoes of a Drum Event (1)": rule_data_list[132],
+    "A Voice from Below Event (1)": rule_data_list[133],
+    "Brain Over Brawn Event (1)": rule_data_list[125],
+    "Hunter's Challenge Event (1)": rule_data_list[126],
+    "Moghan's Plea Event (1)": rule_data_list[128],
+    "Gatekeeper's Curiosity Event (1)": rule_data_list[131],
+    "Chocobo Chow Event (1)": rule_data_list[134],
+    "Secret Machine Event (1)": rule_data_list[139],
+    "Soulful Horn Event (1)": rule_data_list[140],
+    "A Dangerous Cocktail Event (1)": rule_data_list[141],
+    "A Man for a Chocobo Girl Event (1)": rule_data_list[150],
+    "Source of Inspiration Event (1)": rule_data_list[142],
+    "True Colors Event (1)": rule_data_list[146],
+    "Youth Potion Event (1)": rule_data_list[143],
+    "Spell for Spell Event (1)": rule_data_list[148],
     "Dead Dunes Area Unlock Event (1)": rule_data_list[0],
     "Wildlands Area Unlock Event (1)": rule_data_list[0],
     "Yusnaan Area Unlock Event (1)": rule_data_list[0],
@@ -2154,28 +2152,28 @@ location_rule_data_table: Dict[str, Rule[Any]] = {
     "Cactuar Doll Event (1)": rule_data_list[0],
     "Liquid Glass Event (1)": rule_data_list[0],
     "0-1 Hint Event (1)": rule_data_list[0],
-    "1-1 Hint Event (1)": rule_data_list[179],
-    "1-2 Hint Event (1)": rule_data_list[19],
-    "1-3 Hint Event (1)": rule_data_list[17],
-    "1-4 Hint Event (1)": rule_data_list[18],
-    "1-5 Hint Event (1)": rule_data_list[29],
-    "2-1 Hint Event (1)": rule_data_list[187],
-    "2-2 Hint Event (1)": rule_data_list[188],
-    "2-3 Hint Event (1)": rule_data_list[189],
-    "3-1 Hint Event (1)": rule_data_list[190],
-    "3-2 Hint Event (1)": rule_data_list[191],
-    "3-3 Hint Event (1)": rule_data_list[192],
-    "4-1 Hint Event (1)": rule_data_list[11],
-    "4-2 Hint Event (1)": rule_data_list[3],
-    "4-3 Hint Event (1)": rule_data_list[4],
-    "4-4 Hint Event (1)": rule_data_list[193],
-    "4-5 Hint Event (1)": rule_data_list[194],
-    "5-1 Hint Event (1)": rule_data_list[195],
-    "5-2 Hint Event (1)": rule_data_list[196],
-    "5-3 Hint Event (1)": rule_data_list[197],
-    "5-4 Hint Event (1)": rule_data_list[198],
-    "5-5 Hint Event (1)": rule_data_list[196],
-    "5-6 Hint Event (1)": rule_data_list[1],
+    "1-1 Hint Event (1)": rule_data_list[177],
+    "1-2 Hint Event (1)": rule_data_list[18],
+    "1-3 Hint Event (1)": rule_data_list[16],
+    "1-4 Hint Event (1)": rule_data_list[17],
+    "1-5 Hint Event (1)": rule_data_list[28],
+    "2-1 Hint Event (1)": rule_data_list[185],
+    "2-2 Hint Event (1)": rule_data_list[186],
+    "2-3 Hint Event (1)": rule_data_list[187],
+    "3-1 Hint Event (1)": rule_data_list[188],
+    "3-2 Hint Event (1)": rule_data_list[189],
+    "3-3 Hint Event (1)": rule_data_list[190],
+    "4-1 Hint Event (1)": rule_data_list[10],
+    "4-2 Hint Event (1)": rule_data_list[2],
+    "4-3 Hint Event (1)": rule_data_list[3],
+    "4-4 Hint Event (1)": rule_data_list[191],
+    "4-5 Hint Event (1)": rule_data_list[192],
+    "5-1 Hint Event (1)": rule_data_list[193],
+    "5-2 Hint Event (1)": rule_data_list[194],
+    "5-3 Hint Event (1)": rule_data_list[195],
+    "5-4 Hint Event (1)": rule_data_list[196],
+    "5-5 Hint Event (1)": rule_data_list[194],
+    "5-6 Hint Event (1)": rule_data_list[0],
     "shop_itm_dd03_3 Shop Event (1)": rule_data_list[0],
     "shop_itm_dd01_2 Shop Event (1)": rule_data_list[0],
     "shop_itm_dd02_2 Shop Event (1)": rule_data_list[0],
@@ -2256,7 +2254,7 @@ location_rule_data_table: Dict[str, Rule[Any]] = {
     "shop_equ_ys03_3 Shop Event (1)": rule_data_list[0],
     "shop_equ_ys01_2 Shop Event (1)": rule_data_list[0],
     "shop_equ_ys02_2 Shop Event (1)": rule_data_list[0],
-    "shop_etc_dd00 Shop Event (1)": rule_data_list[199],
+    "shop_etc_dd00 Shop Event (1)": rule_data_list[197],
     "shop_etc_lx00 Shop Event (1)": rule_data_list[0],
     "shop_etc_lx01 Shop Event (1)": rule_data_list[0],
     "shop_etc_wl00 Shop Event (1)": rule_data_list[0],
@@ -2297,19 +2295,19 @@ item_rule_data_table: Dict[str, Callable[[Item], bool]] = {
 
 entrance_rule_data_table: Dict[Tuple[str, str], Rule[Any]] = {
     ("Initial", "Ark"): rule_data_list[0],
-    ("Luxerion", "Dead Dunes"): rule_data_list[200],
+    ("Luxerion", "Dead Dunes"): rule_data_list[198],
     ("Ark", "Luxerion"): rule_data_list[0],
-    ("Luxerion", "Wildlands"): rule_data_list[201],
-    ("Luxerion", "Yusnaan"): rule_data_list[202],
-    ("Dead Dunes", "CoP Dead Dunes"): rule_data_list[20],
-    ("Luxerion", "CoP Luxerion"): rule_data_list[20],
-    ("Wildlands", "CoP Wildlands"): rule_data_list[20],
-    ("Yusnaan", "CoP Yusnaan"): rule_data_list[20],
-    ("Ark", "CoP Global"): rule_data_list[20],
-    ("Luxerion", "Soul Seeds"): rule_data_list[20],
-    ("Dead Dunes", "Unappraised"): rule_data_list[20],
-    ("Dead Dunes", "Ultimate Lair"): rule_data_list[203],
-    ("Ark", "Final Day"): rule_data_list[186],
-    ("Ark", "Shops"): rule_data_list[20],
-    ("Ark", "Anywhere"): rule_data_list[20],
+    ("Luxerion", "Wildlands"): rule_data_list[199],
+    ("Luxerion", "Yusnaan"): rule_data_list[200],
+    ("Dead Dunes", "CoP Dead Dunes"): rule_data_list[19],
+    ("Luxerion", "CoP Luxerion"): rule_data_list[19],
+    ("Wildlands", "CoP Wildlands"): rule_data_list[19],
+    ("Yusnaan", "CoP Yusnaan"): rule_data_list[19],
+    ("Ark", "CoP Global"): rule_data_list[19],
+    ("Luxerion", "Soul Seeds"): rule_data_list[19],
+    ("Dead Dunes", "Unappraised"): rule_data_list[19],
+    ("Dead Dunes", "Ultimate Lair"): rule_data_list[201],
+    ("Ark", "Final Day"): rule_data_list[184],
+    ("Ark", "Shops"): rule_data_list[19],
+    ("Ark", "Anywhere"): rule_data_list[19],
 }

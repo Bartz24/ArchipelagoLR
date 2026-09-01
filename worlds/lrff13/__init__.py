@@ -122,6 +122,12 @@ class LRFF13World(World):
         other_adornments = self.multiworld.random.sample(non_always_adornments, other_count)
         progression_items.extend(other_adornments)
 
+        # Remove the passes if not randomized
+        if not self.options.randomize_region_passes:
+            progression_items = [name for name in progression_items if name not in 
+                                    ["Wildlands Train Pass", "Dead Dunes Train Pass", "Yusnaan Train Pass"]
+                                ]
+
         for name in progression_items:
             for _ in range(item_data_table[name].duplicate_amount):
                 item_pool.append(self.create_item(name))                
@@ -285,6 +291,13 @@ class LRFF13World(World):
                 raise Exception(f"Initial item for location {loc_name} was not set properly.")
             location = self.multiworld.get_location(loc_name, self.player)
             location.place_locked_item(self.create_item(item_name))
+
+        # Set pass locked items if not enabled
+        if not self.options.randomize_region_passes:
+            for pass_name in ["Wildlands Train Pass", "Dead Dunes Train Pass", "Yusnaan Train Pass"]:
+                loc_name = next((name for name, data in location_data_table.items() if data.original_item == item_data_table[pass_name].str_id), None)
+                location = self.multiworld.get_location(loc_name, self.player)
+                location.place_locked_item(self.create_item(pass_name))
 
         # Set event locked items
         for event_name, e_data in event_data_table.items():
