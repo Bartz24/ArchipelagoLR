@@ -13,7 +13,7 @@ from CommonClient import gui_enabled, logger, get_base_parser, CommonContext, se
 from typing import Dict
 
 from .Items import item_data_table, inv_item_table
-from.Locations import location_data_table
+from .Locations import location_data_table
 
 tracker_loaded = False
 MEMORY_START_DELAY = 2.0
@@ -62,6 +62,7 @@ class LRFF13Context(CommonContext):
         self.lr_connected_at = None
         self.ap_save_ready_frames = 0
         self.slot_data = None
+        self.enemy_material_multiplier = 1
         self.game_state_cache = LRFF13StateCache()
 
     async def server_auth(self, password_requested: bool = False):
@@ -108,6 +109,7 @@ class LRFF13Context(CommonContext):
             # Track checked locations from server
             self.locations_checked = set(args.get("checked_locations", []))
             self.slot_data = args.get("slot_data", {})
+            self.enemy_material_multiplier = self.slot_data.get("options", {}).get("enemy_material_multiplier", 1)
 
         if cmd in {"RoomUpdate"}:
             self.find_game()
@@ -243,7 +245,10 @@ class LRFF13Context(CommonContext):
                         if item_name not in self.slot_data.get("initial_equipment", []):
                             # Write the item name and set count to the item amount
                             self.write_string(self.game_state_cache.rando_multi_item_address, item_info.str_id, False, 16)
-                            self.write_u32(self.game_state_cache.rando_multi_count_address, item_info.amount, False)
+                            amount = item_info.amount
+                            if item_info.str_id.startswith("mat_z_"):
+                                amount *= self.enemy_material_multiplier
+                            self.write_u32(self.game_state_cache.rando_multi_count_address, amount, False)
 
                             # Set the key_r_added to 0 to indicate the game can add the item now
                             self.game_state_cache.key_items["key_r_added"] = 0

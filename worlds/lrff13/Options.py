@@ -1,6 +1,6 @@
 from typing import Dict
 from dataclasses import dataclass
-from Options import Toggle, PerGameCommonOptions
+from Options import Range, Toggle, PerGameCommonOptions
 
 class RandomizeRegionPasses(Toggle):
     """Allow randomization of the Wildlands/Dead Dunes/Yusnaan region passes.
@@ -88,6 +88,13 @@ class FullyRemoteItems(Toggle):
     display_name = "Fully Remote Items"
     default = True
 
+class EnemyMaterialMultiplier(Range):
+    """Multiplier for enemy drop materials received from AP locations."""
+    display_name = "Enemy Material Multiplier"
+    default = 1
+    range_start = 1
+    range_end = 10
+
 @dataclass
 class LRFF13GameOptions(PerGameCommonOptions):
     randomize_region_passes: RandomizeRegionPasses
@@ -106,3 +113,4 @@ class LRFF13GameOptions(PerGameCommonOptions):
     shuffle_army_of_one: ShuffleArmyOfOne
     allow_dlc_items: AllowDLCItems
     fully_remote_items: FullyRemoteItems
+    enemy_material_multiplier: EnemyMaterialMultiplier

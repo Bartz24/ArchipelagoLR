@@ -77,6 +77,7 @@ class LRFF13World(World):
         "shuffle_army_of_one",
         "allow_dlc_items",
         "fully_remote_items",
+        "enemy_material_multiplier"
     )
 
     game = "Lightning Returns: Final Fantasy XIII"
@@ -191,6 +192,9 @@ class LRFF13World(World):
 
             item_name = filler
             count = item_data_table[filler].amount
+            # Multiply local filler enemy materials
+            if item_data_table[filler].str_id.startswith("mat_z_"):
+                count *= self.options.enemy_material_multiplier.value
             self.excluded_locations[location_name] = (item_name, count)
 
         self.multiworld.itempool += item_pool
